@@ -1,0 +1,1570 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionProjectMasterViewModel
+
+@{
+    Layout = null;
+    var cells = 4;
+    int i = 0;
+
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Project Update</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item"><a href="#" class="QCInspectionProjectIndex">Project List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Project Update</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-tabs nav-tabs-success">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tabe-1"><span class="hidden-xs">Project Info</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabe-2"><span class="hidden-xs">Block</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabe-3"><span class="hidden-xs">Level</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabe-4"><span class="hidden-xs">Unit</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabe-5"><span class="hidden-xs">RFWI Drawing References</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabe-6"><span class="hidden-xs">Project Plan/Document List</span></a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="tabe-1" class="container tab-pane active">
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "QCInspectionProjectEditForm", @class = "form-horizontal" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.CompanyID)
+                            @Html.HiddenFor(model => model.ProjectID)
+                            @Html.HiddenFor(model => model.ProjectManagers)
+                            @Html.HiddenFor(model => model.Supervisors)
+                            @Html.HiddenFor(model => model.MEInspectors)
+                            @Html.HiddenFor(model => model.StructureInspectors)
+                            @Html.HiddenFor(model => model.OtherInspectors)
+                            @Html.HiddenFor(model => model.CreatedBy)
+                            @Html.HiddenFor(model => model.CreatedDate)
+                            @Html.HiddenFor(model => model.Is_Completed)
+                            <div>&nbsp;</div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="row form-group">
+                                        <label for="Projectname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project name<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            @Html.EditorFor(model => model.Project_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Project_Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project Code<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            @Html.EditorFor(model => model.Project_ID, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project Start Date<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            @Html.TextBoxFor(model => model.StartDate, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project End Date<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            @Html.TextBoxFor(model => model.EndDate, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="ProjectManagerID" class="col-sm-12 col-md-6 col-xl-3 control-label">Default Project Manager<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            @Html.DropDownListFor(m => m.ProjectManagerID, new SelectList(ViewBag.ProjectManagersList, "UserID", "DisplayName"), new { @class = "form-control", @onchange = "Project_Change()" })
+                                            @Html.ValidationMessageFor(model => model.ProjectManagerID, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project Manager List<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            <table>
+                                                @foreach (var objPM in ViewBag.ProjectManagersList)
+                                                {
+                                                    var checkBoxId = "PM_" + objPM.UserID;
+                                                    var tdId = "td" + objPM.UserID;
+                                                    var strChecked = "";
+                                                    if (Model.qcinspection_project_PM_detail != null)
+                                                    {
+                                                        if (Model.qcinspection_project_PM_detail.Where(a => a.UserID == objPM.UserID).FirstOrDefault() != null)
+                                                        {
+                                                            strChecked = "checked";
+                                                        }
+                                                        else
+                                                        {
+                                                            strChecked = "";
+                                                        }
+                                                    }
+                                                    if ((i % cells) == 0)
+                                                    {
+                                                        @:<tr>
+                                                        }
+                                                        <td width="350px" id="@tdId">
+                                                            <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objPM.UserID" />
+                                                            @objPM.DisplayName
+                                                        </td>
+                                                        if (i == (ViewBag.ProjectManagersList.Count - 1))
+                                                        {
+                                                            while ((i % cells) != 0)
+                                                            {
+                                                                @:<td></td>
+                                                                {
+                                                                    i++;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                        {
+                                                        @:</tr>
+                                                    }
+                                                    {
+                                                        i++;
+                                                    }
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Supervisor List<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            <table>
+                                                @foreach (var objPM in ViewBag.SupervisorList)
+                                                {
+                                                    var checkBoxId = "SUP_" + objPM.UserID;
+                                                    var tdId = "td" + objPM.UserID;
+                                                    var strChecked = "";
+                                                    if (Model.qcinspection_project_Supervisor_detail != null)
+                                                    {
+                                                        if (Model.qcinspection_project_Supervisor_detail.Where(a => a.UserID == objPM.UserID).FirstOrDefault() != null)
+                                                        {
+                                                            strChecked = "checked";
+                                                        }
+                                                        else
+                                                        {
+                                                            strChecked = "";
+                                                        }
+                                                    }
+                                                    if ((i % cells) == 0)
+                                                    {
+                                                        @:<tr>
+                                                        }
+                                                        <td width="350px" id="@tdId">
+                                                            <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objPM.UserID" />
+                                                            @objPM.DisplayName
+                                                        </td>
+                                                        if (i == (ViewBag.SupervisorList.Count - 1))
+                                                        {
+                                                            while ((i % cells) != 0)
+                                                            {
+                                                                @:<td></td>
+                                                                {
+                                                                    i++;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                        {
+                                                        @:</tr>
+                                                    }
+                                                    {
+                                                        i++;
+                                                    }
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">M&E Inspector List<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            <table>
+                                                @foreach (var objPM in ViewBag.MEInspectorList)
+                                                {
+                                                    var checkBoxId = "ME_" + objPM.UserID;
+                                                    var tdId = "td" + objPM.UserID;
+                                                    var strChecked = "";
+                                                    if (Model.qcinspection_project_MEInspector_detail != null)
+                                                    {
+                                                        if (Model.qcinspection_project_MEInspector_detail.Where(a => a.UserID == objPM.UserID).FirstOrDefault() != null)
+                                                        {
+                                                            strChecked = "checked";
+                                                        }
+                                                        else
+                                                        {
+                                                            strChecked = "";
+                                                        }
+                                                    }
+                                                    if ((i % cells) == 0)
+                                                    {
+                                                        @:<tr>
+                                                        }
+                                                        <td width="350px" id="@tdId">
+                                                            <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objPM.UserID" />
+                                                            @objPM.DisplayName
+                                                        </td>
+                                                        if (i == (ViewBag.MEInspectorList.Count - 1))
+                                                        {
+                                                            while ((i % cells) != 0)
+                                                            {
+                                                                @:<td></td>
+                                                                {
+                                                                    i++;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                        {
+                                                        @:</tr>
+                                                    }
+                                                    {
+                                                        i++;
+                                                    }
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Structure Inspector List<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            <table>
+                                                @foreach (var objPM in ViewBag.StructureInspectorList)
+                                                {
+                                                    var checkBoxId = "Structure_" + objPM.UserID;
+                                                    var tdId = "td" + objPM.UserID;
+                                                    var strChecked = "";
+                                                    if (Model.qcinspection_project_StructureInspector_detail != null)
+                                                    {
+                                                        if (Model.qcinspection_project_StructureInspector_detail.Where(a => a.UserID == objPM.UserID).FirstOrDefault() != null)
+                                                        {
+                                                            strChecked = "checked";
+                                                        }
+                                                        else
+                                                        {
+                                                            strChecked = "";
+                                                        }
+                                                    }
+                                                    if ((i % cells) == 0)
+                                                    {
+                                                        @:<tr>
+                                                        }
+                                                        <td width="350px" id="@tdId">
+                                                            <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objPM.UserID" />
+                                                            @objPM.DisplayName
+                                                        </td>
+                                                        if (i == (ViewBag.StructureInspectorList.Count - 1))
+                                                        {
+                                                            while ((i % cells) != 0)
+                                                            {
+                                                                @:<td></td>
+                                                                {
+                                                                    i++;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                        {
+                                                        @:</tr>
+                                                    }
+                                                    {
+                                                        i++;
+                                                    }
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Other Inspector List<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            <table>
+                                                @foreach (var objPM in ViewBag.OtherInspectorList)
+                                                {
+                                                    var checkBoxId = "Other_" + objPM.UserID;
+                                                    var tdId = "td" + objPM.UserID;
+                                                    var strChecked = "";
+                                                    if (Model.qcinspection_project_OtherInspector_detail != null)
+                                                    {
+                                                        if (Model.qcinspection_project_OtherInspector_detail.Where(a => a.UserID == objPM.UserID).FirstOrDefault() != null)
+                                                        {
+                                                            strChecked = "checked";
+                                                        }
+                                                        else
+                                                        {
+                                                            strChecked = "";
+                                                        }
+                                                    }
+                                                    if ((i % cells) == 0)
+                                                    {
+                                                        @:<tr>
+                                                        }
+                                                        <td width="350px" id="@tdId">
+                                                            <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objPM.UserID" />
+                                                            @objPM.DisplayName
+                                                        </td>
+                                                        if (i == (ViewBag.OtherInspectorList.Count - 1))
+                                                        {
+                                                            while ((i % cells) != 0)
+                                                            {
+                                                                @:<td></td>
+                                                                {
+                                                                    i++;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                        {
+                                                        @:</tr>
+                                                    }
+                                                    {
+                                                        i++;
+                                                    }
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    @if (Model.Is_Completed == 1)
+                                    {
+                                        <div class="row form-group">
+                                            <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project Status</label>
+                                            <div class="col-sm-12 col-md-6 col-xl-9">
+                                                <span class="badge-success">Completed</span>
+                                            </div>
+                                        </div>
+                                    }
+                                    <div class="form-footer">
+                                        <button type="button" id="btnCancelProject" class="btn btn-danger QCInspectionProjectIndex"><i class="fa fa-times"></i> CANCEL</button>
+                                        @if (Model.Is_Completed == 0)
+                                        {
+                                            <button type="button" id="btnUpdateProject" onclick="ProjectUpdate()" class="btn btn-success"><i class="fa fa-check-square-o"></i> UPDATE</button>
+                                            <button type="button" id="btnCompletedProject" onclick="ProjectComplete()" class="btn btn-primary"><i class="fa fa-check-square-o"></i> COMPLETED</button>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div id="tabe-2" class="container tab-pane fade">
+                        <div id="dvBlockGrid">
+                            @Html.Partial("PartialBlockList", Model.qcinspection_block_master)
+                        </div>
+                    </div>
+                    <div id="tabe-3" class="container tab-pane fade">
+                        <div id="dvLevelGrid">
+                            @Html.Partial("PartialLevelList", Model.qcinspection_level_master)
+                        </div>
+                    </div>
+                    <div id="tabe-4" class="container tab-pane fade">
+                        <div id="dvUnitGrid">
+                            @Html.Partial("PartialUnitList", Model.qcinspection_unit_master)
+                        </div>
+                    </div>
+                    <div id="tabe-5" class="container tab-pane fade">
+                        <div id="dvRFWIDrawingsGrid">
+                            @Html.Partial("PartialRFWIDrawingsReferenceList", Model.qcinspection_project_rfwi_drawing_reference_files)
+                        </div>
+                    </div>
+                    <div id="tabe-6" class="container tab-pane fade">
+                        <div id="dvProjectFilesGrid">
+                            @Html.Partial("PartialProjectFileList", Model.qcinspection_project_files)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Row-->
+
+<div class="modal fade" id="BlockModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="BlockHead">Add Block</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgBlock">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="LevelModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="LevelHead">Add Level</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgLevel">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="UnitModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="UnitHead">Add Unit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgUnit">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="RFWIDrawingsReferenceModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="RFWIDrawingsReferenceHead">Add RFWI Drawings Reference</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgRFWIDrawingsReference">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ProjectFileModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ProjectFileHead">Add Project Plan/Document </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgProjectFile">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        //jQuery.validator.addMethod("greaterThan",
+        //    function (value, element, params) {
+
+        //        if (!/Invalid|NaN/.test(new Date(value))) {
+        //            return new Date(value) > new Date($(params).val());
+        //        }
+
+        //        return isNaN(value) && isNaN($(params).val())
+        //            || (Number(value) > Number($(params).val()));
+        //    }, 'Must be greater than {0}.');
+
+        $("#QCInspectionProjectEditForm").validate({
+            rules: {
+                Project_Name: "required",
+                Project_ID: "required",
+                StartDate: "required",
+                EndDate: "required"
+            },
+            messages: {
+                Project_Name: "Please enter Project Name",
+                Project_ID: "Please enter Project Code",
+                StartDate: "Please enter Start Date",
+                EndDate: "Please enter End Date",
+            }
+        });
+
+        $('#StartDate').datepicker({
+            format: "dd/mm/yyyy",
+            todayHighlight: 'TRUE',
+            autoclose: true
+        }).on('changeDate', function (ev) {
+            $('#EndDate').datepicker('setStartDate', ev.date);
+            $('#EndDate').datepicker('setDate', ev.date);
+        });
+
+        $('#EndDate').datepicker({
+            format: "dd/mm/yyyy",
+            todayHighlight: 'TRUE',
+            autoclose: true
+        });
+
+        LoadBlockList();
+        LoadLevelList();
+        LoadUnitList();
+        LoadRFWIDrawingsReferenceList();
+        LoadProjectFileList();
+    });
+
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [month, day, year].join('/');
+    }
+
+    function ProjectUpdate()
+    {
+        ///Project Managers
+        var ProjectManagersSelection = []
+        $.each($("input:checkbox[id^=PM_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                ProjectManagersSelection.push(intID)
+            }
+
+        });
+        $('#ProjectManagers').val(ProjectManagersSelection);
+
+        ///Supervisor
+        var SupervisorsSelection = []
+        $.each($("input:checkbox[id^=SUP_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                SupervisorsSelection.push(intID)
+            }
+
+        });
+        $('#Supervisors').val(SupervisorsSelection);
+
+        ///M&E Inspector
+        var MEInspectorsSelection = []
+        $.each($("input:checkbox[id^=ME_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                MEInspectorsSelection.push(intID)
+            }
+
+        });
+        $('#MEInspectors').val(MEInspectorsSelection);
+
+
+        ///Structure Inspector
+        var StructureInspectorsSelection = []
+        $.each($("input:checkbox[id^=Structure_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                StructureInspectorsSelection.push(intID)
+            }
+
+        });
+        $('#StructureInspectors').val(StructureInspectorsSelection);
+
+        ///Other Inspector
+        var OtherInspectorsSelection = []
+        $.each($("input:checkbox[id^=Other_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                OtherInspectorsSelection.push(intID)
+            }
+
+        });
+        $('#OtherInspectors').val(OtherInspectorsSelection);
+
+        var mesg = "";
+        if (ProjectManagersSelection.length == 0) {
+            mesg = "Please select Project Managers <br>";
+        }
+        if (SupervisorsSelection.length == 0) {
+            mesg += "Please select Supervisors <br>";
+        }
+        if (MEInspectorsSelection.length == 0) {
+            mesg += "Please select M&E Inspectors <br>";
+        }
+        if (StructureInspectorsSelection.length == 0) {
+            mesg += "Please select Structure Inspectors <br>";
+        }
+        if (OtherInspectorsSelection.length == 0) {
+            mesg += "Please select Other Inspectors <br>";
+        }
+        if (mesg != "") {
+            swal("Warning!", mesg.toString().replaceAll("<br>", "\n"), "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: mesg
+            });
+        }
+        else 
+        {
+            if ($('#QCInspectionProjectEditForm').valid())
+            {
+                var QCInspectionProjectEditForm = new FormData(document.forms.namedItem("QCInspectionProjectEditForm"));
+
+                $.ajax({
+                    url: '/QCInspection/ProjectEdit',
+                    data: QCInspectionProjectEditForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.value == "OK") {
+                            swal($('#Project_Name').val() + "- Project has been updated!", {
+                                icon: "success",
+                                timer: 360000
+                            });
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: $('#Project_Name').val() + "- Project has been updated!"
+                            });
+                            $.get("QCInspection/ProjectIndex", function (data) {
+                                $('#page-wrapper').html(data);
+                            });
+                        }
+                        else if (data.value == "Failed") {
+                            swal("Warning!", "Project updation failed!", "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "Project updation failed!"
+                            });
+                        }
+                        else {
+                            swal("Warning!", data.value, "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.value
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    function ProjectComplete() {
+        swal({
+            title: "Are you sure?",
+            text: "Are you sure to Complete this Project - " + $('#Project_Name').val() + "?",
+            icon: "info",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.post("QCInspection/CompletedProject", $('#QCInspectionProjectEditForm').serialize(), function (data) {
+                        if (data.value == "OK") {
+                            swal($('#Project_Name').val() + "- Project has been deleted!", {
+                                icon: "success",
+                            });
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: $('#Project_Name').val() + "- Project has been Completed!"
+                            });
+                            $.get("QCInspection/ProjectIndex", function (data) {
+                                $('#page-wrapper').html(data);
+                            });
+                        }
+                        else {
+                            swal("Warning!", "Project completion failed!", "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: 'Project completion failed!'
+                            });
+                        }
+                    });
+                }
+            });
+    }
+
+    function LoadBlockList() {
+        $.ajax(
+        {
+            type: "Get",
+            url: "/QCInspection/PartialBlockList?ProjectID=" + $('#ProjectID').val() + "&ProjectCompleted=" + $('#Is_Completed').val(),
+            success: function (resp) {
+                $("#dvBlockGrid").html(resp);
+
+                var table1 = $('#BlockTable').DataTable({
+                    //"autoWidth": true,
+                    //"scrollX": true,
+                    //dom: 'Bfrtipl',
+                    responsive: true,
+                    // "scrollY": true,
+                    buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+                });
+                table1.buttons().container().appendTo('#BlockTable_wrapper .col-md-6:eq(0)');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                toastr.options.positionClass = "toast-top-full-width"; toastr.options.closeButton = true; toastr.error(msg, 'warning');
+            }
+        });
+    }
+
+    function AddBlock() {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialBlock?ProjectID=" + $('#ProjectID').val() + "&ProjectCompleted=" + $('#Is_Completed').val(),
+                success: function (resp) {
+                    $("#dgBlock").html(resp);
+                    $('h5#BlockHead').html('Add Block');
+                    $("#BlockModel").modal('show');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function EditBlock(Id) {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialBlock?ProjectID=" + $('#ProjectID').val() + '&BlockID=' + Id,
+                success: function (resp) {
+                    $("#dgBlock").html(resp);
+                    $('h5#BlockHead').html('Edit Block');
+                    $("#BlockModel").modal('show');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function SaveBlock()
+    {
+        var ValidateMsg = "";
+        if ($('#BlockName').val() == "") {
+            ValidateMsg = "Please enter Block";
+        }
+        if ($('#OrderBy').val() == "") {
+            ValidateMsg += "<br/>Please enter Display Order";
+        }
+        if (ValidateMsg == "") {
+            var data = $("#BlockForm").serialize();
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/QCInspection/PartialBlock",
+                    async: false,
+                    data: data,
+                    success: function (data) {
+                        if (data.includes("Success")) {
+                            LoadBlockList();
+                            $("#BlockModel").modal('hide');
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.split(':')[1]
+                            });
+                        }
+                        else {
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: msg
+                        });
+                    }
+                });
+        }
+        else {
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: ValidateMsg
+            });
+        }
+    }
+
+    function DeleteBlock(id, un)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Block - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("QCInspection/DeleteBlock/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    if (data.value == "OK") {
+                        swal(un + "- Block has been deleted!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: un + "- Block has been deleted!"
+                        });
+                        LoadBlockList();
+                    }
+                    else {
+                        swal("Warning!", "Block deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'Block deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    function LoadLevelList() {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialLevelList?ProjectID=" + $('#ProjectID').val() + "&ProjectCompleted=" + $('#Is_Completed').val(),
+                success: function (resp) {
+                    $("#dvLevelGrid").html(resp);
+
+                    var table1 = $('#LevelTable').DataTable({
+                        //"autoWidth": true,
+                        //"scrollX": true,
+                        //dom: 'Bfrtipl',
+                        responsive: true,
+                        // "scrollY": true,
+                        buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+                    });
+                    table1.buttons().container().appendTo('#LevelTable_wrapper .col-md-6:eq(0)');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function AddLevel() {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialLevel?ProjectID=" + $('#ProjectID').val() + "&ProjectCompleted=" + $('#Is_Completed').val(),
+                success: function (resp) {
+                    $("#dgLevel").html(resp);
+                    $('h5#LevelHead').html('Add Level');
+                    $("#LevelModel").modal('show');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function EditLevel(Id) {
+        $.ajax(
+        {
+            type: "Get",
+            url: "/QCInspection/PartialLevel?ProjectID=" + $('#ProjectID').val() + '&LevelID=' + Id,
+            success: function (resp) {
+                $("#dgLevel").html(resp);
+                $('h5#LevelHead').html('Edit Level');
+                $("#LevelModel").modal('show');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                Lobibox.notify('error', {
+                    size: 'mini',
+                    position: 'top right',
+                    msg: msg
+                });
+            }
+        });
+    }
+
+    function SaveLevel() {
+        var ValidateMsg = "";
+        if ($('#LevelName').val() == "") {
+            ValidateMsg = "Please enter Level";
+        }
+        if ($('#OrderBy').val() == "") {
+            ValidateMsg += "<br/>Please enter Display Order";
+        }
+        if (ValidateMsg == "") {
+            var data = $("#LevelForm").serialize();
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/QCInspection/PartialLevel",
+                    async: false,
+                    data: data,
+                    success: function (data) {
+                        if (data.includes("Success")) {
+                            LoadLevelList();
+                            $("#LevelModel").modal('hide');
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.split(':')[1]
+                            });
+                        }
+                        else {
+                            Lobibox.alert('error', {
+                                msg: data
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: msg
+                        });
+                    }
+                });
+        }
+        else {
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: ValidateMsg
+            });
+        }
+    }
+
+    function DeleteLevel(id, un)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Level - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("QCInspection/DeleteLevel/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    if (data.value == "OK") {
+                        swal(un + "- Level has been deleted!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: un + "- Level has been deleted!"
+                        });
+                        LoadLevelList();
+                    }
+                    else {
+                        swal("Warning!", "Level deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'Level deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    function LoadUnitList() {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialUnitList?ProjectID=" + $('#ProjectID').val() + "&ProjectCompleted=" + $('#Is_Completed').val(),
+                success: function (resp) {
+                    $("#dvUnitGrid").html(resp);
+                    var table1 = $('#UnitTable').DataTable({
+                        //"autoWidth": true,
+                        //"scrollX": true,
+                        //dom: 'Bfrtipl',
+                        responsive: true,
+                        // "scrollY": true,
+                        buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+                    });
+                    table1.buttons().container().appendTo('#UnitTable_wrapper .col-md-6:eq(0)');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function AddUnit() {
+        $.ajax(
+        {
+            type: "Get",
+            url: "/QCInspection/PartialUnit?ProjectID=" + $('#ProjectID').val() + "&ProjectCompleted=" + $('#Is_Completed').val(),
+            success: function (resp) {
+                $("#dgUnit").html(resp);
+                $('h5#UnitHead').html('Add Unit');
+                $("#UnitModel").modal('show');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                Lobibox.notify('error', {
+                    size: 'mini',
+                    position: 'top right',
+                    msg: msg
+                });
+            }
+        });
+    }
+
+    function EditUnit(Id) {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialUnit?ProjectID=" + $('#ProjectID').val() + '&UnitID=' + Id,
+                success: function (resp) {
+                    $("#dgUnit").html(resp);
+                    $('h5#UnitHead').html('Edit Unit');
+                    $("#UnitModel").modal('show');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function SaveUnit() {
+        var ValidateMsg = "";
+        if ($('#UnitName').val() == "") {
+            ValidateMsg = "Please enter Unit";
+        }
+        if ($('#OrderBy').val() == "") {
+            ValidateMsg += "<br/>Please enter Display Order";
+        }
+        if (ValidateMsg == "") {
+            var data = $("#UnitForm").serialize();
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/QCInspection/PartialUnit",
+                    async: false,
+                    data: data,
+                    success: function (data) {
+                        if (data.includes("Success")) {
+                            LoadUnitList();
+                            $("#UnitModel").modal('hide');
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.split(':')[1]
+                            });
+                        }
+                        else {
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: msg
+                        });
+                    }
+                });
+        }
+        else {
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: ValidateMsg
+            });
+        }
+    }
+
+    function DeleteUnit(id, un)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Unit - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("QCInspection/DeleteUnit/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    if (data.value == "OK") {
+                        swal(un + "- Unit has been deleted!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: un + "- Unit has been deleted!"
+                        });
+                        LoadUnitList();
+                    }
+                    else {
+                        swal("Warning!", "Unit deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'Unit deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    function LoadRFWIDrawingsReferenceList() {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialRFWIDrawingsReferenceList?ProjectID=" + $('#ProjectID').val() + "&ProjectCompleted=" + $('#Is_Completed').val() + "&ProjectCompleted=" + $('#Is_Completed').val(),
+                success: function (resp) {
+                    $("#dvRFWIDrawingsGrid").html(resp);
+                    var table1 = $('#RFWIDrawingsReferenceTable').DataTable({
+                        //"autoWidth": true,
+                        //"scrollX": true,
+                        //dom: 'Bfrtipl',
+                        responsive: true,
+                        // "scrollY": true,
+                        buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+                    });
+                    table1.buttons().container().appendTo('#RFWIDrawingsReferenceTable_wrapper .col-md-6:eq(0)');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function AddRFWIDrawingsReference() {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialRFWIDrawingsReference?ProjectID=" + $('#ProjectID').val() + "&ProjectCompleted=" + $('#Is_Completed').val(),
+                success: function (resp) {
+                    $("#dgRFWIDrawingsReference").html(resp);
+                    $('h5#RFWIDrawingsReferenceHead').html('Add RFWI Drawings Reference');
+                    $("#RFWIDrawingsReferenceModel").modal('show');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function CreateRFWIDrawingsReference()
+    {
+        var ValidateMsg = "";
+        if ($('#FileCaption').val() == "") {
+            ValidateMsg = "Please enter File Caption";
+        }
+        if ($('#DrawingReferenceFile').val() == "") {
+            ValidateMsg += "<br/>Please enter Drawing Reference File";
+        }
+        if (ValidateMsg == "") {
+            if ($('#RFWIDrawingReferenceFileForm').valid()) {
+
+                var RFWIDrawingReferenceFileForm = new FormData(document.forms.namedItem("RFWIDrawingReferenceFileForm"));
+
+                $.ajax({
+                    url: '/QCInspection/PartialRFWIDrawingsReference',
+                    data: RFWIDrawingReferenceFileForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.includes("Success")) {
+                            LoadRFWIDrawingsReferenceList();
+                            $("#RFWIDrawingsReferenceModel").modal('hide');
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.split(':')[1]
+                            });
+                        }
+                        else {
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data
+                            });
+                        }
+                    }
+                });
+            }
+        }
+        else {
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: ValidateMsg
+            });
+        }
+    }
+
+    function DeleteRFWIDrawingsReference(id, un)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this RFWI Drawings Reference - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("QCInspection/DeleteRFWIDrawingsReference/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    if (data.value == "OK") {
+                        swal(un + "- RFWI Drawings Reference has been deleted!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: un + "- RFWI Drawings Reference has been deleted!"
+                        });
+                        LoadRFWIDrawingsReferenceList();
+                    }
+                    else {
+                        swal("Warning!", "RFWI Drawings Reference deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'RFWI Drawings Reference deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    function LoadProjectFileList() {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialProjectFileList?ProjectID=" + $('#ProjectID').val() + "&ProjectCompleted=" + $('#Is_Completed').val(),
+                success: function (resp) {
+                    $("#dvProjectFilesGrid").html(resp);
+                    var table1 = $('#ProjectFileTable').DataTable({
+                        //"autoWidth": true,
+                        //"scrollX": true,
+                        //dom: 'Bfrtipl',
+                        responsive: true,
+                        // "scrollY": true,
+                        buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+                    });
+                    table1.buttons().container().appendTo('#ProjectFileTable_wrapper .col-md-6:eq(0)');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function AddProjectFile() {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialProjectFile?ProjectID=" + $('#ProjectID').val() + "&ProjectCompleted=" + $('#Is_Completed').val(),
+                success: function (resp) {
+                    $("#dgProjectFile").html(resp);
+                    $('h5#ProjectFileHead').html('Add Project Plan/Document');
+                    $("#ProjectFileModel").modal('show');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function CreateProjectFile()
+    {
+        var ValidateMsg = "";
+        if ($('#FileCaption').val() == "") {
+            ValidateMsg = "Please enter File Caption";
+        }
+        if ($('#PlanOrDocumentFile').val() == "") {
+            ValidateMsg += "<br/>Please select Project Plan/Document  File";
+        }
+        if (ValidateMsg == "") {
+            if ($('#ProjectRFWIFileForm').valid()) {
+
+                var ProjectRFWIFileForm = new FormData(document.forms.namedItem("ProjectRFWIFileForm"));
+
+                $.ajax({
+                    url: '/QCInspection/PartialProjectFile',
+                    data: ProjectRFWIFileForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.includes("Success")) {
+                            LoadProjectFileList();
+                            $("#ProjectFileModel").modal('hide');
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.split(':')[1]
+                            });
+                        }
+                        else {
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data
+                            });
+                        }
+                    }
+                });
+            }
+        }
+        else {
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: ValidateMsg
+            });
+        }
+    }
+
+    function DeleteProjectFile(id, un)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Project Plan/Document File - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("QCInspection/DeleteProjectFile/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    if (data.value == "OK") {
+                        swal(un + "- Project Plan/Document File has been deleted!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: un + "- Project Plan/Document File has been deleted!"
+                        });
+                        LoadProjectFileList();
+                    }
+                    else {
+                        swal("Warning!", "Project Plan/Document File deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'Project Plan/Document File deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+
+</script>

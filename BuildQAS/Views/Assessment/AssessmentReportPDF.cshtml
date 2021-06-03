@@ -1,0 +1,1964 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentReportViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    Layout = null;
+    var PageCnt = 2;
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Assessment and Reports</title>
+    <style>
+        .page-break {
+            page-break-after: always;
+            page-break-inside: avoid;
+            clear: both;
+        }
+
+        .page-break-before {
+            page-break-before: always;
+            page-break-inside: avoid;
+            clear: both;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .a4Container {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+            background-color: #fff;
+            width: 297mm;
+            height: 200mm;
+            padding: 50px 25px 125px 25px;
+            position: relative;
+        }
+
+        .logoContainrer {
+            background-color: #ffffff;
+        }
+
+        .logoContainrer {
+            padding: 5px 10px;
+            box-shadow: 10px 10px 10px 5px #ccccccad;
+        }
+
+        .header,
+        .headerDetail {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        .header,
+        .headerDetail {
+            margin-bottom: 5mm;
+        }
+
+            .header > div:last-child {
+                align-self: flex-end;
+            }
+
+        h3 {
+            margin-top: 2mm;
+        }
+
+        .headerDetail table tr td:last-child {
+            padding-left: 15mm;
+        }
+
+        .dateRow th {
+            padding-right: 8mm;
+        }
+
+        .headerDetail {
+            border-bottom: 1.25mm solid;
+            padding-bottom: 5mm;
+        }
+
+        .a4Body table {
+            width: 80%;
+            margin: auto;
+        }
+
+        .a4Body {
+            max-height: calc(100% - 374px);
+        }
+
+            .a4Body table td,
+            .a4Body table th:not(:first-child),
+            .footer > div:last-child {
+                text-align: center;
+            }
+
+        .footer {
+            width: 100%;
+            position: absolute;
+            bottom: 16px;
+            left: 0;
+        }
+
+            .footer > div:first-child {
+                margin: auto;
+                width: max-content;
+            }
+
+            .footer h3 {
+                text-decoration: underline;
+            }
+
+
+
+
+        .table-overflow-cont {
+            overflow-x: scroll;
+            width: 100%;
+            overflow-y: visible;
+            height: calc(100vh - 44px);
+            background-color: white;
+        }
+
+
+
+
+
+        .highcharts-figure, .highcharts-data-table table {
+            min-width: 710px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+    </style>
+</head>
+
+<body>
+    @Html.HiddenFor(model => Model.DAR1IF, new { @id = "DAR1IF" })
+    @Html.HiddenFor(model => Model.DAR2FLOOR, new { @id = "DAR2FLOOR" })
+    @Html.HiddenFor(model => Model.DAR2WALL, new { @id = "DAR2WALL" })
+    @Html.HiddenFor(model => Model.DAR2CEILING, new { @id = "DAR2CEILING" })
+    @Html.HiddenFor(model => Model.DAR2DOOR, new { @id = "DAR2DOOR" })
+    @Html.HiddenFor(model => Model.DAR2WINDOW, new { @id = "DAR2WINDOW" })
+    @Html.HiddenFor(model => Model.DAR2COMPONENT, new { @id = "DAR2COMPONENT" })
+    @Html.HiddenFor(model => Model.DAR2ME, new { @id = "DAR2ME" })
+
+    @if (Model.DAR1IF)
+    {
+        <div class="a4Container" id="page2">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>INTERNAL FINISHES</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <div class="table-overflow-cont">
+                    <figure class="highcharts-figure">
+                        <div id="dvInternalFinishesChart" style="height:350px;width:800px"></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+        <div class="a4Container" id="page3">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>INTERNAL FINISHES</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>NO. OF TICKS</th>
+                            <th>NO. OF CHECKS</th>
+                            <th>NON-COMPLIANCES</th>
+                            <th>COMPLIANCES</th>
+                        </tr>
+                        @foreach (var objIF in Model.DAR1IFList.OrderBy(x => x.OrderBy))
+                        {
+                            <tr>
+                                <th>@objIF.AssessmentTypeModuleName</th>
+                                <td>@objIF.NoOfTicks</td>
+                                <td>@objIF.NoofChecks</td>
+                                <td>@objIF.NonCompliances %</td>
+                                <td>@objIF.Compliances %</td>
+                            </tr>
+                        }
+                    </thead>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+    }
+
+    @if (Model.DAR2FLOOR)
+    {
+        <div class="a4Container" id="page4">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>FLOOR</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <div class="table-overflow-cont">
+                    <figure class="highcharts-figure">
+                        <div id="dvFLOORChart" style="height:350px;width:800px"></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+        <div class="a4Container" id="page5">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>FLOOR</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>NO. OF TICKS</th>
+                            <th>NO. OF CHECKS</th>
+                            <th>NON-COMPLIANCES</th>
+                            <th>COMPLIANCES</th>
+                        </tr>
+                        @foreach (var objIF in Model.DAR2FLOORList.OrderBy(x => x.OrderBy))
+                        {
+                            <tr>
+                                <th>@objIF.AssessmentTypeModuleProcessName</th>
+                                <td>@objIF.NoOfTicks</td>
+                                <td>@objIF.NoofChecks</td>
+                                <td>@objIF.NonCompliances %</td>
+                                <td>@objIF.Compliances %</td>
+                            </tr>
+                        }
+                    </thead>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+    }
+
+
+    @if (Model.DAR2WALL)
+    {
+        <div class="a4Container" id="page6">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>WALL</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <div class="table-overflow-cont">
+                    <figure class="highcharts-figure">
+                        <div id="dvWALLChart" style="height:350px;width:800px"></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+        <div class="a4Container" id="page7">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>WALL</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>NO. OF TICKS</th>
+                            <th>NO. OF CHECKS</th>
+                            <th>NON-COMPLIANCES</th>
+                            <th>COMPLIANCES</th>
+                        </tr>
+                        @foreach (var objIF in Model.DAR2WALLList.OrderBy(x => x.OrderBy))
+                        {
+                            <tr>
+                                <th>@objIF.AssessmentTypeModuleProcessName</th>
+                                <td>@objIF.NoOfTicks</td>
+                                <td>@objIF.NoofChecks</td>
+                                <td>@objIF.NonCompliances %</td>
+                                <td>@objIF.Compliances %</td>
+                            </tr>
+                        }
+                    </thead>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+    }
+
+    @if (Model.DAR2CEILING)
+    {
+        <div class="a4Container" id="page8">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>CEILING</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <div class="table-overflow-cont">
+                    <figure class="highcharts-figure">
+                        <div id="dvCEILINGChart" style="height:350px;width:800px"></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+        <div class="a4Container" id="page9">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>CEILING</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>NO. OF TICKS</th>
+                            <th>NO. OF CHECKS</th>
+                            <th>NON-COMPLIANCES</th>
+                            <th>COMPLIANCES</th>
+                        </tr>
+                        @foreach (var objIF in Model.DAR2CEILINGList.OrderBy(x => x.OrderBy))
+                        {
+                            <tr>
+                                <th>@objIF.AssessmentTypeModuleProcessName</th>
+                                <td>@objIF.NoOfTicks</td>
+                                <td>@objIF.NoofChecks</td>
+                                <td>@objIF.NonCompliances %</td>
+                                <td>@objIF.Compliances %</td>
+                            </tr>
+                        }
+                    </thead>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+    }
+
+    @if (Model.DAR2DOOR)
+    {
+        <div class="a4Container" id="page10">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>DOOR</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <div class="table-overflow-cont">
+                    <figure class="highcharts-figure">
+                        <div id="dvDOORChart" style="height:350px;width:800px"></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+        <div class="a4Container" id="page11">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>DOOR</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>NO. OF TICKS</th>
+                            <th>NO. OF CHECKS</th>
+                            <th>NON-COMPLIANCES</th>
+                            <th>COMPLIANCES</th>
+                        </tr>
+                        @foreach (var objIF in Model.DAR2DOORList.OrderBy(x => x.OrderBy))
+                        {
+                            <tr>
+                                <th>@objIF.AssessmentTypeModuleProcessName</th>
+                                <td>@objIF.NoOfTicks</td>
+                                <td>@objIF.NoofChecks</td>
+                                <td>@objIF.NonCompliances %</td>
+                                <td>@objIF.Compliances %</td>
+                            </tr>
+                        }
+                    </thead>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+    }
+
+    @if (Model.DAR2WINDOW)
+    {
+        <div class="a4Container" id="page12">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>WINDOW</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <div class="table-overflow-cont">
+                    <figure class="highcharts-figure">
+                        <div id="dvWINDOWChart" style="height:350px;width:800px"></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+        <div class="a4Container" id="page13">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>WINDOW</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>NO. OF TICKS</th>
+                            <th>NO. OF CHECKS</th>
+                            <th>NON-COMPLIANCES</th>
+                            <th>COMPLIANCES</th>
+                        </tr>
+                        @foreach (var objIF in Model.DAR2WINDOWList.OrderBy(x => x.OrderBy))
+                        {
+                            <tr>
+                                <th>@objIF.AssessmentTypeModuleProcessName</th>
+                                <td>@objIF.NoOfTicks</td>
+                                <td>@objIF.NoofChecks</td>
+                                <td>@objIF.NonCompliances %</td>
+                                <td>@objIF.Compliances %</td>
+                            </tr>
+                        }
+                    </thead>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+    }
+
+    @if (Model.DAR2COMPONENT)
+    {
+        <div class="a4Container" id="page14">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>COMPONENT</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <div class="table-overflow-cont">
+                    <figure class="highcharts-figure">
+                        <div id="dvCOMPONENTChart" style="height:350px;width:800px"></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+        <div class="a4Container" id="page15">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>COMPONENT</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>NO. OF TICKS</th>
+                            <th>NO. OF CHECKS</th>
+                            <th>NON-COMPLIANCES</th>
+                            <th>COMPLIANCES</th>
+                        </tr>
+                        @foreach (var objIF in Model.DAR2COMPONENTList.OrderBy(x => x.OrderBy))
+                        {
+                            <tr>
+                                <th>@objIF.AssessmentTypeModuleProcessName</th>
+                                <td>@objIF.NoOfTicks</td>
+                                <td>@objIF.NoofChecks</td>
+                                <td>@objIF.NonCompliances %</td>
+                                <td>@objIF.Compliances %</td>
+                            </tr>
+                        }
+                    </thead>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+    }
+
+    @if (Model.DAR2ME)
+    {
+        <div class="a4Container" id="page16">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>ME</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <div class="table-overflow-cont">
+                    <figure class="highcharts-figure">
+                        <div id="dvMEChart" style="height:350px;width:800px"></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+        <div class="a4Container" id="page17">
+            <div class="header">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="50">
+                </div>
+                <h3 class="">
+                    % NON-COMPLIANCES OF PROJECT ELEMENTS
+                </h3>
+                <div class="">
+                    <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                </div>
+            </div>
+            <div class="headerDetail">
+                <table>
+                    <tr>
+                        <th>ASSESSMENT TYPE</th>
+                        <td>:</td>
+                        <td>ME</td>
+                    </tr>
+                    <tr>
+                        <th>DEVELOPER'S NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Developer_Name</td>
+                    </tr>
+                    <tr>
+                        <th>CONTRACTOR NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Contractor_Name</td>
+                    </tr>
+                    <tr>
+                        <th>PROJECT NAME</th>
+                        <td>:</td>
+                        <td>@Model.projectMasterViewModel.Project_Name</td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr class="dateRow">
+                        <th>Date</th>
+                        <td>:</td>
+                        <td>@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="a4Body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>NO. OF TICKS</th>
+                            <th>NO. OF CHECKS</th>
+                            <th>NON-COMPLIANCES</th>
+                            <th>COMPLIANCES</th>
+                        </tr>
+                        @foreach (var objIF in Model.DAR2MEList.OrderBy(x => x.OrderBy))
+                        {
+                            <tr>
+                                <th>@objIF.AssessmentTypeModuleProcessName</th>
+                                <td>@objIF.NoOfTicks</td>
+                                <td>@objIF.NoofChecks</td>
+                                <td>@objIF.NonCompliances %</td>
+                                <td>@objIF.Compliances %</td>
+                            </tr>
+                        }
+                    </thead>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="">
+                    <h3>FOR INTERNAL USE ONLY <br> COPYRIGHT @@ @Model.projectMasterViewModel.company_master.CompanyName @DateTime.Now.Year </h3>
+                </div>
+                <div class=""><small>Page @PageCnt of @Model.PageCount</small></div>
+                @{
+                    PageCnt++;
+                }
+            </div>
+        </div>
+        <div class="page-break"></div>
+    }
+
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/cylinder.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script>
+        GenerateChartReport();
+
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+        function GenerateChartReport() {
+            if ($('#DAR1IF').val() == "True") {
+                InternalFinishes();
+            }
+
+            if ($('#DAR2FLOOR').val() == "True") {
+                FLOOR();
+            }
+
+            if ($('#DAR2WALL').val() == "True") {
+                WALL();
+            }
+
+            if ($('#DAR2CEILING').val() == "True") {
+                CEILING();
+            }
+
+            if ($('#DAR2DOOR').val() == "True") {
+                DOOR();
+            }
+
+            if ($('#DAR2WINDOW').val() == "True") {
+                WINDOW();
+            }
+
+            if ($('#DAR2COMPONENT').val() == "True") {
+                COMPONENT();
+            }
+
+            if ($('#DAR2ME').val() == "True") {
+                ME();
+            }
+        }
+
+        function InternalFinishes() {
+            Highcharts.chart('dvInternalFinishesChart', {
+                chart: {
+                    type: 'cylinder',
+                    options3d: {
+                        enabled: true,
+                        alpha: 15,
+                        beta: 15,
+                        depth: 50,
+                        viewDistance: 25
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                plotOptions: {
+                    series: {
+                        depth: 25,
+                        colorByPoint: true
+                    }
+                },
+                xAxis: {
+                    //categories: ['FLOOR', 'WALL', 'CEILING', 'DOOR', 'WINDOW', 'COMPONENT', 'M & E FITTING']
+                    categories: []
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'NON-COMPLIANCES'
+                    }
+                },
+                series: [{
+                    type: 'column',
+                    colorByPoint: true,
+                    //data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6],
+                    data: [],
+                    showInLegend: true,
+                }],
+                credits: {
+                    enabled: false
+                }
+
+            });
+            var dvInternalFinishesChart = $('#dvInternalFinishesChart').highcharts();
+            $.ajax(
+                {
+                    //url: "/Assessment/JSGetInternalFinishesChart?PId=" + $('#hdnForProjectID').val() + "&Mid=" + $('#ddlReportType').val(),
+                    url: "/Assessment/JSGetInternalFinishesChart?PId=" + getUrlVars()["ID"] + "&Mid=-1",
+                    type: "get",
+                    success: function (items) {
+                        var categories = [];
+                        $.each(items, function (itemNo, item) {
+                            dvInternalFinishesChart.series[0].addPoint(item.Value, false);
+                            categories.push(item.Key);
+                        });
+                        dvInternalFinishesChart.xAxis[0].setCategories(categories)
+                        dvInternalFinishesChart.redraw();
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                    }
+                });
+        }
+
+        function FLOOR() {
+            Highcharts.chart('dvFLOORChart', {
+                chart: {
+                    type: 'cylinder',
+                    options3d: {
+                        enabled: true,
+                        alpha: 15,
+                        beta: 15,
+                        depth: 50,
+                        viewDistance: 25
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                plotOptions: {
+                    series: {
+                        depth: 25,
+                        colorByPoint: true
+                    }
+                },
+                xAxis: {
+                    //categories: ['FLOOR', 'WALL', 'CEILING', 'DOOR', 'WINDOW', 'COMPONENT', 'M & E FITTING']
+                    categories: []
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'NON-COMPLIANCES'
+                    }
+                },
+                series: [{
+                    type: 'column',
+                    colorByPoint: true,
+                    //data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6],
+                    data: [],
+                    showInLegend: true,
+                }],
+                credits: {
+                    enabled: false
+                }
+
+            });
+            var dvFLOORChart = $('#dvFLOORChart').highcharts();
+            $.ajax(
+                {
+                    //url: "/Assessment/JSGetInternalFinishesChart?PId=" + $('#hdnForProjectID').val() + "&Mid=" + $('#ddlReportType').val(),
+                    url: "/Assessment/JSGetInternalFinishesChart?PId=" + getUrlVars()["ID"] + "&Mid=1",
+                    type: "get",
+                    success: function (items) {
+                        var categories = [];
+                        $.each(items, function (itemNo, item) {
+                            dvFLOORChart.series[0].addPoint(item.Value, false);
+                            categories.push(item.Key);
+                        });
+                        dvFLOORChart.xAxis[0].setCategories(categories)
+                        dvFLOORChart.redraw();
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                    }
+                });
+        }
+
+        function WALL() {
+            Highcharts.chart('dvWALLChart', {
+                chart: {
+                    type: 'cylinder',
+                    options3d: {
+                        enabled: true,
+                        alpha: 15,
+                        beta: 15,
+                        depth: 50,
+                        viewDistance: 25
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                plotOptions: {
+                    series: {
+                        depth: 25,
+                        colorByPoint: true
+                    }
+                },
+                xAxis: {
+                    //categories: ['FLOOR', 'WALL', 'CEILING', 'DOOR', 'WINDOW', 'COMPONENT', 'M & E FITTING']
+                    categories: []
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'NON-COMPLIANCES'
+                    }
+                },
+                series: [{
+                    type: 'column',
+                    colorByPoint: true,
+                    //data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6],
+                    data: [],
+                    showInLegend: true,
+                }],
+                credits: {
+                    enabled: false
+                }
+
+            });
+            var dvWALLChart = $('#dvWALLChart').highcharts();
+            $.ajax(
+                {
+                    //url: "/Assessment/JSGetInternalFinishesChart?PId=" + $('#hdnForProjectID').val() + "&Mid=" + $('#ddlReportType').val(),
+                    url: "/Assessment/JSGetInternalFinishesChart?PId=" + getUrlVars()["ID"] + "&Mid=2",
+                    type: "get",
+                    success: function (items) {
+                        var categories = [];
+                        $.each(items, function (itemNo, item) {
+                            dvWALLChart.series[0].addPoint(item.Value, false);
+                            categories.push(item.Key);
+                        });
+                        dvWALLChart.xAxis[0].setCategories(categories)
+                        dvWALLChart.redraw();
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                    }
+                });
+        }
+
+        function CEILING() {
+            Highcharts.chart('dvCEILINGChart', {
+                chart: {
+                    type: 'cylinder',
+                    options3d: {
+                        enabled: true,
+                        alpha: 15,
+                        beta: 15,
+                        depth: 50,
+                        viewDistance: 25
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                plotOptions: {
+                    series: {
+                        depth: 25,
+                        colorByPoint: true
+                    }
+                },
+                xAxis: {
+                    //categories: ['FLOOR', 'WALL', 'CEILING', 'DOOR', 'WINDOW', 'COMPONENT', 'M & E FITTING']
+                    categories: []
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'NON-COMPLIANCES'
+                    }
+                },
+                series: [{
+                    type: 'column',
+                    colorByPoint: true,
+                    //data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6],
+                    data: [],
+                    showInLegend: true,
+                }],
+                credits: {
+                    enabled: false
+                }
+
+            });
+            var dvCEILINGChart = $('#dvCEILINGChart').highcharts();
+            $.ajax(
+                {
+                    //url: "/Assessment/JSGetInternalFinishesChart?PId=" + $('#hdnForProjectID').val() + "&Mid=" + $('#ddlReportType').val(),
+                    url: "/Assessment/JSGetInternalFinishesChart?PId=" + getUrlVars()["ID"] + "&Mid=3",
+                    type: "get",
+                    success: function (items) {
+                        var categories = [];
+                        $.each(items, function (itemNo, item) {
+                            dvCEILINGChart.series[0].addPoint(item.Value, false);
+                            categories.push(item.Key);
+                        });
+                        dvCEILINGChart.xAxis[0].setCategories(categories)
+                        dvCEILINGChart.redraw();
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                    }
+                });
+        }
+
+        function DOOR() {
+            Highcharts.chart('dvDOORChart', {
+                chart: {
+                    type: 'cylinder',
+                    options3d: {
+                        enabled: true,
+                        alpha: 15,
+                        beta: 15,
+                        depth: 50,
+                        viewDistance: 25
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                plotOptions: {
+                    series: {
+                        depth: 25,
+                        colorByPoint: true
+                    }
+                },
+                xAxis: {
+                    //categories: ['FLOOR', 'WALL', 'CEILING', 'DOOR', 'WINDOW', 'COMPONENT', 'M & E FITTING']
+                    categories: []
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'NON-COMPLIANCES'
+                    }
+                },
+                series: [{
+                    type: 'column',
+                    colorByPoint: true,
+                    //data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6],
+                    data: [],
+                    showInLegend: true,
+                }],
+                credits: {
+                    enabled: false
+                }
+
+            });
+            var dvDOORChart = $('#dvDOORChart').highcharts();
+            $.ajax(
+                {
+                    //url: "/Assessment/JSGetInternalFinishesChart?PId=" + $('#hdnForProjectID').val() + "&Mid=" + $('#ddlReportType').val(),
+                    url: "/Assessment/JSGetInternalFinishesChart?PId=" + getUrlVars()["ID"] + "&Mid=4",
+                    type: "get",
+                    success: function (items) {
+                        var categories = [];
+                        $.each(items, function (itemNo, item) {
+                            dvDOORChart.series[0].addPoint(item.Value, false);
+                            categories.push(item.Key);
+                        });
+                        dvDOORChart.xAxis[0].setCategories(categories)
+                        dvDOORChart.redraw();
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                    }
+                });
+        }
+
+        function WINDOW() {
+            Highcharts.chart('dvWINDOWChart', {
+                chart: {
+                    type: 'cylinder',
+                    options3d: {
+                        enabled: true,
+                        alpha: 15,
+                        beta: 15,
+                        depth: 50,
+                        viewDistance: 25
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                plotOptions: {
+                    series: {
+                        depth: 25,
+                        colorByPoint: true
+                    }
+                },
+                xAxis: {
+                    //categories: ['FLOOR', 'WALL', 'CEILING', 'DOOR', 'WINDOW', 'COMPONENT', 'M & E FITTING']
+                    categories: []
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'NON-COMPLIANCES'
+                    }
+                },
+                series: [{
+                    type: 'column',
+                    colorByPoint: true,
+                    //data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6],
+                    data: [],
+                    showInLegend: true,
+                }],
+                credits: {
+                    enabled: false
+                }
+
+            });
+            var dvWINDOWChart = $('#dvWINDOWChart').highcharts();
+            $.ajax(
+                {
+                    //url: "/Assessment/JSGetInternalFinishesChart?PId=" + $('#hdnForProjectID').val() + "&Mid=" + $('#ddlReportType').val(),
+                    url: "/Assessment/JSGetInternalFinishesChart?PId=" + getUrlVars()["ID"] + "&Mid=5",
+                    type: "get",
+                    success: function (items) {
+                        var categories = [];
+                        $.each(items, function (itemNo, item) {
+                            dvWINDOWChart.series[0].addPoint(item.Value, false);
+                            categories.push(item.Key);
+                        });
+                        dvWINDOWChart.xAxis[0].setCategories(categories)
+                        dvWINDOWChart.redraw();
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                    }
+                });
+        }
+
+        function COMPONENT() {
+            Highcharts.chart('dvCOMPONENTChart', {
+                chart: {
+                    type: 'cylinder',
+                    options3d: {
+                        enabled: true,
+                        alpha: 15,
+                        beta: 15,
+                        depth: 50,
+                        viewDistance: 25
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                plotOptions: {
+                    series: {
+                        depth: 25,
+                        colorByPoint: true
+                    }
+                },
+                xAxis: {
+                    //categories: ['FLOOR', 'WALL', 'CEILING', 'DOOR', 'WINDOW', 'COMPONENT', 'M & E FITTING']
+                    categories: []
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'NON-COMPLIANCES'
+                    }
+                },
+                series: [{
+                    type: 'column',
+                    colorByPoint: true,
+                    //data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6],
+                    data: [],
+                    showInLegend: true,
+                }],
+                credits: {
+                    enabled: false
+                }
+
+            });
+            var dvCOMPONENTChart = $('#dvCOMPONENTChart').highcharts();
+            $.ajax(
+                {
+                    //url: "/Assessment/JSGetInternalFinishesChart?PId=" + $('#hdnForProjectID').val() + "&Mid=" + $('#ddlReportType').val(),
+                    url: "/Assessment/JSGetInternalFinishesChart?PId=" + getUrlVars()["ID"] + "&Mid=6",
+                    type: "get",
+                    success: function (items) {
+                        var categories = [];
+                        $.each(items, function (itemNo, item) {
+                            dvCOMPONENTChart.series[0].addPoint(item.Value, false);
+                            categories.push(item.Key);
+                        });
+                        dvCOMPONENTChart.xAxis[0].setCategories(categories)
+                        dvCOMPONENTChart.redraw();
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                    }
+                });
+        }
+
+        function ME() {
+            Highcharts.chart('dvMEChart', {
+                chart: {
+                    type: 'cylinder',
+                    options3d: {
+                        enabled: true,
+                        alpha: 15,
+                        beta: 15,
+                        depth: 50,
+                        viewDistance: 25
+                    }
+                },
+                title: {
+                    text: ''
+                },
+                plotOptions: {
+                    series: {
+                        depth: 25,
+                        colorByPoint: true
+                    }
+                },
+                xAxis: {
+                    //categories: ['FLOOR', 'WALL', 'CEILING', 'DOOR', 'WINDOW', 'COMPONENT', 'M & E FITTING']
+                    categories: []
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'NON-COMPLIANCES'
+                    }
+                },
+                series: [{
+                    type: 'column',
+                    colorByPoint: true,
+                    //data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6],
+                    data: [],
+                    showInLegend: true,
+                }],
+                credits: {
+                    enabled: false
+                }
+
+            });
+            var dvMEChart = $('#dvMEChart').highcharts();
+            $.ajax(
+                {
+                    //url: "/Assessment/JSGetInternalFinishesChart?PId=" + $('#hdnForProjectID').val() + "&Mid=" + $('#ddlReportType').val(),
+                    url: "/Assessment/JSGetInternalFinishesChart?PId=" + getUrlVars()["ID"] + "&Mid=7",
+                    type: "get",
+                    success: function (items) {
+                        var categories = [];
+                        $.each(items, function (itemNo, item) {
+                            dvMEChart.series[0].addPoint(item.Value, false);
+                            categories.push(item.Key);
+                        });
+                        dvMEChart.xAxis[0].setCategories(categories)
+                        dvMEChart.redraw();
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                    }
+                });
+        }
+    </script>
+</body>
+</html>

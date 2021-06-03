@@ -1,0 +1,993 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BuildInspectModelStoreContainer" CdmEntityContainer="BuildInspectEntities">
+    <EntitySetMapping Name="AppUsers">
+      <EntityTypeMapping TypeName="BuildInspectModel.AppUser">
+        <MappingFragment StoreEntitySet="AppUser">
+          <ScalarProperty Name="AppClientID" ColumnName="AppClientID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AppGroupID" ColumnName="AppGroupID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="SmartFMUserID" ColumnName="SmartFMUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUserAssetMappings">
+      <EntityTypeMapping TypeName="BuildInspectModel.AppUserAssetMapping">
+        <MappingFragment StoreEntitySet="AppUserAssetMapping">
+          <ScalarProperty Name="AAMID" ColumnName="AAMID" />
+          <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+          <ScalarProperty Name="AUAMID" ColumnName="AUAMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUserGroups">
+      <EntityTypeMapping TypeName="BuildInspectModel.AppUserGroup">
+        <MappingFragment StoreEntitySet="AppUserGroup">
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_development_type_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_development_type_master">
+        <MappingFragment StoreEntitySet="assessment_development_type_master">
+          <ScalarProperty Name="MinimumCompliancePercentageThreshold" ColumnName="MinimumCompliancePercentageThreshold" />
+          <ScalarProperty Name="BuildQASScore" ColumnName="BuildQASScore" />
+          <ScalarProperty Name="MEWorksWeightage" ColumnName="MEWorksWeightage" />
+          <ScalarProperty Name="ArchitecturalWorksWeightage" ColumnName="ArchitecturalWorksWeightage" />
+          <ScalarProperty Name="DevelopmentTypeName" ColumnName="DevelopmentTypeName" />
+          <ScalarProperty Name="DevelopmentTypeID" ColumnName="DevelopmentTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_direction_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_direction_master">
+        <MappingFragment StoreEntitySet="assessment_direction_master">
+          <ScalarProperty Name="AssessmentDirectionName" ColumnName="AssessmentDirectionName" />
+          <ScalarProperty Name="AssessmentDirectionID" ColumnName="AssessmentDirectionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_external_wall_trn">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_external_wall_trn">
+        <MappingFragment StoreEntitySet="assessment_external_wall_trn">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="MobileAssessmentEWID" ColumnName="MobileAssessmentEWID" />
+          <ScalarProperty Name="Drawing_Image" ColumnName="Drawing_Image" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Block_Unit" ColumnName="Block_Unit" />
+          <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="AssessmentEWID" ColumnName="AssessmentEWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_external_wall_trn_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_external_wall_trn_detail">
+        <MappingFragment StoreEntitySet="assessment_external_wall_trn_detail">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="AssessmentTypeModuleProcessID" ColumnName="AssessmentTypeModuleProcessID" />
+          <ScalarProperty Name="AssessmentEWID" ColumnName="AssessmentEWID" />
+          <ScalarProperty Name="AssessmentEWDetailID" ColumnName="AssessmentEWDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_external_works_trn">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_external_works_trn">
+        <MappingFragment StoreEntitySet="assessment_external_works_trn">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="MobileAssessmentEWKID" ColumnName="MobileAssessmentEWKID" />
+          <ScalarProperty Name="Drawing_Image" ColumnName="Drawing_Image" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="AssessmentEWKID" ColumnName="AssessmentEWKID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_external_works_trn_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_external_works_trn_detail">
+        <MappingFragment StoreEntitySet="assessment_external_works_trn_detail">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="AssessmentTypeModuleProcessID" ColumnName="AssessmentTypeModuleProcessID" />
+          <ScalarProperty Name="AssessmentEWKID" ColumnName="AssessmentEWKID" />
+          <ScalarProperty Name="AssessmentEWKDetailID" ColumnName="AssessmentEWKDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_internal_finishes_trn">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_internal_finishes_trn">
+        <MappingFragment StoreEntitySet="assessment_internal_finishes_trn">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="MobileAssessmentIFID" ColumnName="MobileAssessmentIFID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Block_Unit" ColumnName="Block_Unit" />
+          <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="AssessmentIFID" ColumnName="AssessmentIFID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_internal_finishes_trn_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_internal_finishes_trn_detail">
+        <MappingFragment StoreEntitySet="assessment_internal_finishes_trn_detail">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="AssessmentTypeModuleProcessID" ColumnName="AssessmentTypeModuleProcessID" />
+          <ScalarProperty Name="AssessmentIFID" ColumnName="AssessmentIFID" />
+          <ScalarProperty Name="AssessmentIFDetailID" ColumnName="AssessmentIFDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_joint_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_joint_master">
+        <MappingFragment StoreEntitySet="assessment_joint_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="AssessmentJointName" ColumnName="AssessmentJointName" />
+          <ScalarProperty Name="AssessmentJointID" ColumnName="AssessmentJointID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_leak_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_leak_master">
+        <MappingFragment StoreEntitySet="assessment_leak_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="AssessmentLeakName" ColumnName="AssessmentLeakName" />
+          <ScalarProperty Name="AssessmentLeakID" ColumnName="AssessmentLeakID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_project_assessors_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_project_assessors_detail">
+        <MappingFragment StoreEntitySet="assessment_project_assessors_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="AssessorsID" ColumnName="AssessorsID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectAssessorsDetailID" ColumnName="ProjectAssessorsDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_project_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_project_master">
+        <MappingFragment StoreEntitySet="assessment_project_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Is_Completed" ColumnName="Is_Completed" />
+          <ScalarProperty Name="WetAreaWTT_Witness_Name" ColumnName="WetAreaWTT_Witness_Name" />
+          <ScalarProperty Name="WetAreaWTT_Contractor_Name" ColumnName="WetAreaWTT_Contractor_Name" />
+          <ScalarProperty Name="FieldWindowWTT_Witness_Name" ColumnName="FieldWindowWTT_Witness_Name" />
+          <ScalarProperty Name="FieldWindowWTT_Contractor_Name" ColumnName="FieldWindowWTT_Contractor_Name" />
+          <ScalarProperty Name="Is_WetAreaWTTApplicable" ColumnName="Is_WetAreaWTTApplicable" />
+          <ScalarProperty Name="Is_FieldWindowWTTApplicable" ColumnName="Is_FieldWindowWTTApplicable" />
+          <ScalarProperty Name="Is_RoofApplicable" ColumnName="Is_RoofApplicable" />
+          <ScalarProperty Name="Is_ExternalWorksApplicable" ColumnName="Is_ExternalWorksApplicable" />
+          <ScalarProperty Name="Is_ExternalWallApplicable" ColumnName="Is_ExternalWallApplicable" />
+          <ScalarProperty Name="MinimumCompliancePercentageThreshold" ColumnName="MinimumCompliancePercentageThreshold" />
+          <ScalarProperty Name="BuildQASScore" ColumnName="BuildQASScore" />
+          <ScalarProperty Name="MEWorksWeightage" ColumnName="MEWorksWeightage" />
+          <ScalarProperty Name="ArchitecturalWorksWeightage" ColumnName="ArchitecturalWorksWeightage" />
+          <ScalarProperty Name="DevelopmentTypeID" ColumnName="DevelopmentTypeID" />
+          <ScalarProperty Name="Assessment_Dates" ColumnName="Assessment_Dates" />
+          <ScalarProperty Name="Assessment_EndOn" ColumnName="Assessment_EndOn" />
+          <ScalarProperty Name="Assessment_StartOn" ColumnName="Assessment_StartOn" />
+          <ScalarProperty Name="Contractor_Name" ColumnName="Contractor_Name" />
+          <ScalarProperty Name="Developer_Name" ColumnName="Developer_Name" />
+          <ScalarProperty Name="Project_DocNo" ColumnName="Project_DocNo" />
+          <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+          <ScalarProperty Name="Project_Name" ColumnName="Project_Name" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_project_weightage_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_project_weightage_detail">
+        <MappingFragment StoreEntitySet="assessment_project_weightage_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Weightage" ColumnName="Weightage" />
+          <ScalarProperty Name="AssessmentTypeModuleID" ColumnName="AssessmentTypeModuleID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectWeightageDetailID" ColumnName="ProjectWeightageDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_roof_construction_trn">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_roof_construction_trn">
+        <MappingFragment StoreEntitySet="assessment_roof_construction_trn">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="MobileAssessmentRFCID" ColumnName="MobileAssessmentRFCID" />
+          <ScalarProperty Name="Drawing_Image" ColumnName="Drawing_Image" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Block_Unit" ColumnName="Block_Unit" />
+          <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="AssessmentRFCID" ColumnName="AssessmentRFCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_roof_construction_trn_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_roof_construction_trn_detail">
+        <MappingFragment StoreEntitySet="assessment_roof_construction_trn_detail">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="AssessmentTypeModuleProcessID" ColumnName="AssessmentTypeModuleProcessID" />
+          <ScalarProperty Name="AssessmentRFCID" ColumnName="AssessmentRFCID" />
+          <ScalarProperty Name="AssessmentRFCDetailID" ColumnName="AssessmentRFCDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_type_location_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_type_location_master">
+        <MappingFragment StoreEntitySet="assessment_type_location_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AssessmentTypeLocationType" ColumnName="AssessmentTypeLocationType" />
+          <ScalarProperty Name="AssessmentTypeLocationShortName" ColumnName="AssessmentTypeLocationShortName" />
+          <ScalarProperty Name="AssessmentTypeLocationName" ColumnName="AssessmentTypeLocationName" />
+          <ScalarProperty Name="AssessmentTypeID" ColumnName="AssessmentTypeID" />
+          <ScalarProperty Name="AssessmentTypeLocationID" ColumnName="AssessmentTypeLocationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_type_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_type_master">
+        <MappingFragment StoreEntitySet="assessment_type_master">
+          <ScalarProperty Name="AssessmentTypeName" ColumnName="AssessmentTypeName" />
+          <ScalarProperty Name="AssessmentTypeID" ColumnName="AssessmentTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_type_module_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_type_module_master">
+        <MappingFragment StoreEntitySet="assessment_type_module_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="NoOfRow" ColumnName="NoOfRow" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="AssessmentTypeModuleShortName" ColumnName="AssessmentTypeModuleShortName" />
+          <ScalarProperty Name="AssessmentTypeModuleName" ColumnName="AssessmentTypeModuleName" />
+          <ScalarProperty Name="AssessmentTypeID" ColumnName="AssessmentTypeID" />
+          <ScalarProperty Name="AssessmentTypeModuleID" ColumnName="AssessmentTypeModuleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_type_module_Process_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_type_module_Process_master">
+        <MappingFragment StoreEntitySet="assessment_type_module_Process_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="AssessmentTypeModuleProcessName" ColumnName="AssessmentTypeModuleProcessName" />
+          <ScalarProperty Name="AssessmentTypeLocationID" ColumnName="AssessmentTypeLocationID" />
+          <ScalarProperty Name="AssessmentTypeModuleID" ColumnName="AssessmentTypeModuleID" />
+          <ScalarProperty Name="AssessmentTypeModuleProcessID" ColumnName="AssessmentTypeModuleProcessID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_type_module_weightage">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_type_module_weightage">
+        <MappingFragment StoreEntitySet="assessment_type_module_weightage">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Weightage" ColumnName="Weightage" />
+          <ScalarProperty Name="AssessmentTypeModuleID" ColumnName="AssessmentTypeModuleID" />
+          <ScalarProperty Name="DevelopmentTypeID" ColumnName="DevelopmentTypeID" />
+          <ScalarProperty Name="AssessmentTypeModuleWeightageID" ColumnName="AssessmentTypeModuleWeightageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_wall_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_wall_master">
+        <MappingFragment StoreEntitySet="assessment_wall_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="AssessmentWallName" ColumnName="AssessmentWallName" />
+          <ScalarProperty Name="AssessmentWallID" ColumnName="AssessmentWallID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_wet_area_water_tightness_test_tran_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail">
+        <MappingFragment StoreEntitySet="assessment_wet_area_water_tightness_test_tran_detail">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="AssessmentTypeModuleProcessID" ColumnName="AssessmentTypeModuleProcessID" />
+          <ScalarProperty Name="AssessmentWAWTTID" ColumnName="AssessmentWAWTTID" />
+          <ScalarProperty Name="AssessmentWAWTTDetailID" ColumnName="AssessmentWAWTTDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_window_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_window_master">
+        <MappingFragment StoreEntitySet="assessment_window_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="AssessmentWindowName" ColumnName="AssessmentWindowName" />
+          <ScalarProperty Name="AssessmentWindowID" ColumnName="AssessmentWindowID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessors_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessors_master">
+        <MappingFragment StoreEntitySet="assessors_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AssessorsName" ColumnName="AssessorsName" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="AssessorsID" ColumnName="AssessorsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="company_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.company_master">
+        <MappingFragment StoreEntitySet="company_master">
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="GST" ColumnName="GST" />
+          <ScalarProperty Name="LogoPath" ColumnName="LogoPath" />
+          <ScalarProperty Name="GstRegNo" ColumnName="GstRegNo" />
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mob" ColumnName="Mob" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="BuildInspectModel.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DoR" ColumnName="DoR" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DoJ" ColumnName="DoJ" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="modules">
+      <EntityTypeMapping TypeName="BuildInspectModel.module">
+        <MappingFragment StoreEntitySet="module">
+          <ScalarProperty Name="Order_By" ColumnName="Order_By" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="AccessType" ColumnName="AccessType" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permissions">
+      <EntityTypeMapping TypeName="BuildInspectModel.permission">
+        <MappingFragment StoreEntitySet="permission">
+          <ScalarProperty Name="Access" ColumnName="Access" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_block_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_block_master">
+        <MappingFragment StoreEntitySet="qcinspection_block_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="BlockName" ColumnName="BlockName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="BlockID" ColumnName="BlockID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_defect_files">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_defect_files">
+        <MappingFragment StoreEntitySet="qcinspection_defect_files">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileCaption" ColumnName="FileCaption" />
+          <ScalarProperty Name="FileFor" ColumnName="FileFor" />
+          <ScalarProperty Name="QCInspectionDefectID" ColumnName="QCInspectionDefectID" />
+          <ScalarProperty Name="QCInspectionDefectFileID" ColumnName="QCInspectionDefectFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_defect_type_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_defect_type_master">
+        <MappingFragment StoreEntitySet="qcinspection_defect_type_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DefectName" ColumnName="DefectName" />
+          <ScalarProperty Name="DefectTypeID" ColumnName="DefectTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_level_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_level_master">
+        <MappingFragment StoreEntitySet="qcinspection_level_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="LevelName" ColumnName="LevelName" />
+          <ScalarProperty Name="BlockID" ColumnName="BlockID" />
+          <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_project_files">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_project_files">
+        <MappingFragment StoreEntitySet="qcinspection_project_files">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileCaption" ColumnName="FileCaption" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="QCInspectionProjectFileID" ColumnName="QCInspectionProjectFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_project_PM_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_project_PM_detail">
+        <MappingFragment StoreEntitySet="qcinspection_project_PM_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectPMDetailID" ColumnName="ProjectPMDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_project_rfwi_drawing_reference_files">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_project_rfwi_drawing_reference_files">
+        <MappingFragment StoreEntitySet="qcinspection_project_rfwi_drawing_reference_files">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileCaption" ColumnName="FileCaption" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="QCInspectionDrawingReferenceFileID" ColumnName="QCInspectionDrawingReferenceFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_project_Supervisor_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_project_Supervisor_detail">
+        <MappingFragment StoreEntitySet="qcinspection_project_Supervisor_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectSupervisorDetailID" ColumnName="ProjectSupervisorDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_rfwi_form_general_checklist_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_rfwi_form_general_checklist_detail">
+        <MappingFragment StoreEntitySet="qcinspection_rfwi_form_general_checklist_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="GeneralCheckListID" ColumnName="GeneralCheckListID" />
+          <ScalarProperty Name="QCInspectionRFWIFormID" ColumnName="QCInspectionRFWIFormID" />
+          <ScalarProperty Name="RFWIFormGeneralCheckListDetailID" ColumnName="RFWIFormGeneralCheckListDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_rfwi_form_location_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_rfwi_form_location_detail">
+        <MappingFragment StoreEntitySet="qcinspection_rfwi_form_location_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="QCInspectionDrawingReferenceFileID" ColumnName="QCInspectionDrawingReferenceFileID" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="QCInspectionRFWIFormID" ColumnName="QCInspectionRFWIFormID" />
+          <ScalarProperty Name="RFWIFormLocationDetailID" ColumnName="RFWIFormLocationDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_rfwi_form_trade_detailed_checklist_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_rfwi_form_trade_detailed_checklist_detail">
+        <MappingFragment StoreEntitySet="qcinspection_rfwi_form_trade_detailed_checklist_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="TradeDetailedCheckListID" ColumnName="TradeDetailedCheckListID" />
+          <ScalarProperty Name="QCInspectionRFWIFormID" ColumnName="QCInspectionRFWIFormID" />
+          <ScalarProperty Name="RFWIFormTradeDetailedCheckListDetailID" ColumnName="RFWIFormTradeDetailedCheckListDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_rfwi_form_trade_item_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_rfwi_form_trade_item_detail">
+        <MappingFragment StoreEntitySet="qcinspection_rfwi_form_trade_item_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="TradeItemID" ColumnName="TradeItemID" />
+          <ScalarProperty Name="QCInspectionRFWIFormID" ColumnName="QCInspectionRFWIFormID" />
+          <ScalarProperty Name="RFWIFormTradeItemDetailID" ColumnName="RFWIFormTradeItemDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_rfwi_general_checklist_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_rfwi_general_checklist_master">
+        <MappingFragment StoreEntitySet="qcinspection_rfwi_general_checklist_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="GeneralCheckListName" ColumnName="GeneralCheckListName" />
+          <ScalarProperty Name="GeneralCheckListID" ColumnName="GeneralCheckListID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_rfwi_trade_detailed_checklist_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_rfwi_trade_detailed_checklist_detail">
+        <MappingFragment StoreEntitySet="qcinspection_rfwi_trade_detailed_checklist_detail">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="DetailedCheckListName" ColumnName="DetailedCheckListName" />
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+          <ScalarProperty Name="TradeDetailedCheckListID" ColumnName="TradeDetailedCheckListID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_rfwi_trade_item_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_rfwi_trade_item_detail">
+        <MappingFragment StoreEntitySet="qcinspection_rfwi_trade_item_detail">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+          <ScalarProperty Name="TradeItemID" ColumnName="TradeItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_rfwi_trade_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_rfwi_trade_master">
+        <MappingFragment StoreEntitySet="qcinspection_rfwi_trade_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="TradeName" ColumnName="TradeName" />
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_subcontractor_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_subcontractor_master">
+        <MappingFragment StoreEntitySet="qcinspection_subcontractor_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mob" ColumnName="Mob" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="SubcontractorID" ColumnName="SubcontractorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_subcontractor_trade_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_subcontractor_trade_detail">
+        <MappingFragment StoreEntitySet="qcinspection_subcontractor_trade_detail">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+          <ScalarProperty Name="SubcontractorID" ColumnName="SubcontractorID" />
+          <ScalarProperty Name="SubcontractorTradeID" ColumnName="SubcontractorTradeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_trade_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_trade_master">
+        <MappingFragment StoreEntitySet="qcinspection_trade_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="TradeName" ColumnName="TradeName" />
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_unit_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_unit_master">
+        <MappingFragment StoreEntitySet="qcinspection_unit_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usergroups">
+      <EntityTypeMapping TypeName="BuildInspectModel.usergroup">
+        <MappingFragment StoreEntitySet="usergroup">
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="BuildInspectModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="Assessor_ID" ColumnName="Assessor_ID" />
+          <ScalarProperty Name="Supvsr_ID" ColumnName="Supvsr_ID" />
+          <ScalarProperty Name="SubCon_ID" ColumnName="SubCon_ID" />
+          <ScalarProperty Name="ProjMngr_ID" ColumnName="ProjMngr_ID" />
+          <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+          <ScalarProperty Name="TeamLead_ID" ColumnName="TeamLead_ID" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Zone" ColumnName="Zone" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_wet_area_water_tightness_test_result_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_wet_area_water_tightness_test_result_master">
+        <MappingFragment StoreEntitySet="assessment_wet_area_water_tightness_test_result_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="AssessmentWAWTTResult" ColumnName="AssessmentWAWTTResult" />
+          <ScalarProperty Name="AssessmentWAWTTResultID" ColumnName="AssessmentWAWTTResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_wet_area_water_tightness_test_tran_detail_result">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail_result">
+        <MappingFragment StoreEntitySet="assessment_wet_area_water_tightness_test_tran_detail_result">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="AssessmentWAWTTResultID" ColumnName="AssessmentWAWTTResultID" />
+          <ScalarProperty Name="AssessmentTypeModuleProcessID" ColumnName="AssessmentTypeModuleProcessID" />
+          <ScalarProperty Name="AssessmentWAWTTID" ColumnName="AssessmentWAWTTID" />
+          <ScalarProperty Name="AssessmentWAWTTDetailResultID" ColumnName="AssessmentWAWTTDetailResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_project_MEInspector_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_project_MEInspector_detail">
+        <MappingFragment StoreEntitySet="qcinspection_project_MEInspector_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectMEInspectorDetailID" ColumnName="ProjectMEInspectorDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_project_OtherInspector_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_project_OtherInspector_detail">
+        <MappingFragment StoreEntitySet="qcinspection_project_OtherInspector_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectOtherInspectorDetailID" ColumnName="ProjectOtherInspectorDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_project_StructureInspector_detail">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_project_StructureInspector_detail">
+        <MappingFragment StoreEntitySet="qcinspection_project_StructureInspector_detail">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectStructureInspectorDetailID" ColumnName="ProjectStructureInspectorDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_rfwi_form">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_rfwi_form">
+        <MappingFragment StoreEntitySet="qcinspection_rfwi_form">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="MobileQCInspectionRFWIFormID" ColumnName="MobileQCInspectionRFWIFormID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ReInspectionFormID" ColumnName="ReInspectionFormID" />
+          <ScalarProperty Name="CompletedSignature" ColumnName="CompletedSignature" />
+          <ScalarProperty Name="CompletedRemarks" ColumnName="CompletedRemarks" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="CompletedBy" ColumnName="CompletedBy" />
+          <ScalarProperty Name="OtherTradeClearance_OtherOn" ColumnName="OtherTradeClearance_OtherOn" />
+          <ScalarProperty Name="OtherTradeClearance_OtherSignature" ColumnName="OtherTradeClearance_OtherSignature" />
+          <ScalarProperty Name="OtherTradeClearance_OtherBy" ColumnName="OtherTradeClearance_OtherBy" />
+          <ScalarProperty Name="OtherTradeClearance_Other" ColumnName="OtherTradeClearance_Other" />
+          <ScalarProperty Name="OtherTradeClearance_MandEOn" ColumnName="OtherTradeClearance_MandEOn" />
+          <ScalarProperty Name="OtherTradeClearance_MandESignature" ColumnName="OtherTradeClearance_MandESignature" />
+          <ScalarProperty Name="OtherTradeClearance_MandEBy" ColumnName="OtherTradeClearance_MandEBy" />
+          <ScalarProperty Name="OtherTradeClearance_MandE" ColumnName="OtherTradeClearance_MandE" />
+          <ScalarProperty Name="OtherTradeClearance_StructureOn" ColumnName="OtherTradeClearance_StructureOn" />
+          <ScalarProperty Name="OtherTradeClearance_StructureSignature" ColumnName="OtherTradeClearance_StructureSignature" />
+          <ScalarProperty Name="OtherTradeClearance_StructureBy" ColumnName="OtherTradeClearance_StructureBy" />
+          <ScalarProperty Name="OtherTradeClearance_Structure" ColumnName="OtherTradeClearance_Structure" />
+          <ScalarProperty Name="DetailedCheckListOthers" ColumnName="DetailedCheckListOthers" />
+          <ScalarProperty Name="ItemOthers" ColumnName="ItemOthers" />
+          <ScalarProperty Name="RequestFor" ColumnName="RequestFor" />
+          <ScalarProperty Name="InspectorID" ColumnName="InspectorID" />
+          <ScalarProperty Name="InspectionEndOn" ColumnName="InspectionEndOn" />
+          <ScalarProperty Name="InspectionStartOn" ColumnName="InspectionStartOn" />
+          <ScalarProperty Name="InspectionOn" ColumnName="InspectionOn" />
+          <ScalarProperty Name="InspectionNo" ColumnName="InspectionNo" />
+          <ScalarProperty Name="NotiicationReceivedOn" ColumnName="NotiicationReceivedOn" />
+          <ScalarProperty Name="NotiicationReceivedSignature" ColumnName="NotiicationReceivedSignature" />
+          <ScalarProperty Name="NotiicationReceivedByName" ColumnName="NotiicationReceivedByName" />
+          <ScalarProperty Name="RequestSignature" ColumnName="RequestSignature" />
+          <ScalarProperty Name="RequestOn" ColumnName="RequestOn" />
+          <ScalarProperty Name="RequestBy" ColumnName="RequestBy" />
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="QCInspectionRFWINo" ColumnName="QCInspectionRFWINo" />
+          <ScalarProperty Name="QCInspectionRFWIFormID" ColumnName="QCInspectionRFWIFormID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_project_master">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_project_master">
+        <MappingFragment StoreEntitySet="qcinspection_project_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ProjectManagerID" ColumnName="ProjectManagerID" />
+          <ScalarProperty Name="Is_Completed" ColumnName="Is_Completed" />
+          <ScalarProperty Name="EndOn" ColumnName="EndOn" />
+          <ScalarProperty Name="StartOn" ColumnName="StartOn" />
+          <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+          <ScalarProperty Name="Project_Name" ColumnName="Project_Name" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qcinspection_defect_form">
+      <EntityTypeMapping TypeName="BuildInspectModel.qcinspection_defect_form">
+        <MappingFragment StoreEntitySet="qcinspection_defect_form">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="MobileQCInspectionDefectID" ColumnName="MobileQCInspectionDefectID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CompletedSignature" ColumnName="CompletedSignature" />
+          <ScalarProperty Name="CompletedRemarks" ColumnName="CompletedRemarks" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="CompletedBy" ColumnName="CompletedBy" />
+          <ScalarProperty Name="ReworkRemarks" ColumnName="ReworkRemarks" />
+          <ScalarProperty Name="ReworkDate" ColumnName="ReworkDate" />
+          <ScalarProperty Name="ReworkBy" ColumnName="ReworkBy" />
+          <ScalarProperty Name="RectificationSignature" ColumnName="RectificationSignature" />
+          <ScalarProperty Name="RectificationRemarks" ColumnName="RectificationRemarks" />
+          <ScalarProperty Name="RectificationDate" ColumnName="RectificationDate" />
+          <ScalarProperty Name="RectificationBy" ColumnName="RectificationBy" />
+          <ScalarProperty Name="ReDoDoneRemarks" ColumnName="ReDoDoneRemarks" />
+          <ScalarProperty Name="ReDoDoneDate" ColumnName="ReDoDoneDate" />
+          <ScalarProperty Name="ReDoDoneBy" ColumnName="ReDoDoneBy" />
+          <ScalarProperty Name="ReDoRemarks" ColumnName="ReDoRemarks" />
+          <ScalarProperty Name="ReDoDate" ColumnName="ReDoDate" />
+          <ScalarProperty Name="ReDoBy" ColumnName="ReDoBy" />
+          <ScalarProperty Name="ApprovedRemarks" ColumnName="ApprovedRemarks" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ProjectManagerID" ColumnName="ProjectManagerID" />
+          <ScalarProperty Name="SubcontractorID" ColumnName="SubcontractorID" />
+          <ScalarProperty Name="DefectRemarks" ColumnName="DefectRemarks" />
+          <ScalarProperty Name="DefectTypeID" ColumnName="DefectTypeID" />
+          <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="QCInspectionDefectNo" ColumnName="QCInspectionDefectNo" />
+          <ScalarProperty Name="QCInspectionDefectID" ColumnName="QCInspectionDefectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_wet_area_water_tightness_test_tran">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_wet_area_water_tightness_test_tran">
+        <MappingFragment StoreEntitySet="assessment_wet_area_water_tightness_test_tran">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="MobileAssessmentWAWTTID" ColumnName="MobileAssessmentWAWTTID" />
+          <ScalarProperty Name="Other_Result" ColumnName="Other_Result" />
+          <ScalarProperty Name="Drawing_Image" ColumnName="Drawing_Image" />
+          <ScalarProperty Name="Block_Unit" ColumnName="Block_Unit" />
+          <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="AssessmentWAWTTID" ColumnName="AssessmentWAWTTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessment_field_window_water_tightness_test">
+      <EntityTypeMapping TypeName="BuildInspectModel.assessment_field_window_water_tightness_test">
+        <MappingFragment StoreEntitySet="assessment_field_window_water_tightness_test">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="MobileAssessmentFWWTTID" ColumnName="MobileAssessmentFWWTTID" />
+          <ScalarProperty Name="Drawing_Image" ColumnName="Drawing_Image" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="AssessmentLeakID" ColumnName="AssessmentLeakID" />
+          <ScalarProperty Name="AssessmentDirectionID" ColumnName="AssessmentDirectionID" />
+          <ScalarProperty Name="AssessmentJointID" ColumnName="AssessmentJointID" />
+          <ScalarProperty Name="AssessmentWindowID" ColumnName="AssessmentWindowID" />
+          <ScalarProperty Name="AssessmentWallID" ColumnName="AssessmentWallID" />
+          <ScalarProperty Name="Block_Unit" ColumnName="Block_Unit" />
+          <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="AssessmentFWWTTID" ColumnName="AssessmentFWWTTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

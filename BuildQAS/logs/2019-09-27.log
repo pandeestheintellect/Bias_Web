@@ -1,0 +1,18 @@
+2019-09-27 20:30:37.6072|DEBUG|BuildInspect.Controllers.PdfCreationController|Pdf Error from Mobile:
+2019-09-27 20:30:37.6385|DEBUG|BuildInspect.Controllers.PdfCreationController|The model item passed into the dictionary is of type 'System.Collections.Generic.List`1[BuildInspect.Models.ViewModel.ChecklistSummaryMatrixViewModel]', but this dictionary requires a model item of type 'BuildInspect.Models.ViewModel.FilterViewModel'.
+2019-09-27 20:30:37.6541|DEBUG|BuildInspect.Controllers.PdfCreationController|   at System.Web.Mvc.ViewDataDictionary`1.SetModel(Object value)
+   at System.Web.Mvc.ViewDataDictionary..ctor(ViewDataDictionary dictionary)
+   at System.Web.Mvc.WebViewPage`1.SetViewData(ViewDataDictionary viewData)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at BuildInspect.Controllers.PdfCreationController.RenderRazorViewToString(String viewName, Object model) in F:\Proj-Pandees\EBI\BuildInspect_UAT\BuildInspect\Controllers\PdfCreationController.cs:line 576
+   at BuildInspect.Controllers.PdfCreationController.SendMailReminder(Int32 id, String key, Int32 mailflag) in F:\Proj-Pandees\EBI\BuildInspect_UAT\BuildInspect\Controllers\PdfCreationController.cs:line 495
+2019-09-27 20:31:30.7358|DEBUG|BuildInspect.Controllers.PdfCreationController|Pdf Error from Mobile:
+2019-09-27 20:31:30.7358|DEBUG|BuildInspect.Controllers.PdfCreationController|The model item passed into the dictionary is of type 'System.Collections.Generic.List`1[BuildInspect.Models.ViewModel.ChecklistSummaryMatrixViewModel]', but this dictionary requires a model item of type 'BuildInspect.Models.ViewModel.FilterViewModel'.
+2019-09-27 20:31:30.7358|DEBUG|BuildInspect.Controllers.PdfCreationController|   at System.Web.Mvc.ViewDataDictionary`1.SetModel(Object value)
+   at System.Web.Mvc.ViewDataDictionary..ctor(ViewDataDictionary dictionary)
+   at System.Web.Mvc.WebViewPage`1.SetViewData(ViewDataDictionary viewData)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at BuildInspect.Controllers.PdfCreationController.RenderRazorViewToString(String viewName, Object model) in F:\Proj-Pandees\EBI\BuildInspect_UAT\BuildInspect\Controllers\PdfCreationController.cs:line 576
+   at BuildInspect.Controllers.PdfCreationController.SendMailReminder(Int32 id, String key, Int32 mailflag) in F:\Proj-Pandees\EBI\BuildInspect_UAT\BuildInspect\Controllers\PdfCreationController.cs:line 495

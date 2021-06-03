@@ -1,0 +1,2164 @@
+2020-10-04 23:01:12.0930|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-10-04 23:01:12.1260|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-04 23:05:10.7429|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 2,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 3,
+        "CreatedOrUpdatedByUserId": 0,
+        
+    },
+    {
+        "AssessmentEWID": 3,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 3,
+        "CreatedOrUpdatedByUserId": 0,
+       
+    }
+]
+2020-10-04 23:05:10.7429|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-04 23:08:39.8903|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 10,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 25,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 26,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 27,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 28,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 29,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 30,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 31,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 32,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 33,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 34,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 35,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 36,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 37,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 38,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 39,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 40,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 41,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 42,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 43,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 44,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 11,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 45,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 46,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 47,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 48,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 49,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 50,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 51,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 52,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 53,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 54,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 55,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 56,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 57,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 58,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 59,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 60,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 61,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 62,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 63,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 64,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-04 23:08:39.9253|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-04 23:13:23.9018|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 10,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 25,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 26,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 27,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 28,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 29,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 30,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 31,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 32,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 33,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 34,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 35,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 36,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 37,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 38,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 39,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 40,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 41,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 42,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 43,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 44,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 11,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 45,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 46,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 47,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 48,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 49,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 50,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 51,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 52,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 53,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 54,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 55,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 56,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 57,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 58,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 59,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 60,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 61,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 62,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 63,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 64,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-04 23:13:23.9078|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-04 23:14:49.3011|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 10,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 25,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 26,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 27,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 28,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 29,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 30,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 31,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 32,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 33,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 34,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 35,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 36,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 37,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 38,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 39,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 40,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 41,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 42,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 43,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 44,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 11,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 45,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 46,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 47,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 48,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 49,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 50,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 51,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 52,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 53,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 54,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 55,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 56,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 57,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 58,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 59,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 60,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 61,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 62,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 63,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 64,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-04 23:14:49.3131|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-04 23:16:39.0220|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-10-04 23:16:39.0831|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-04 23:17:38.6282|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 4,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 3,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 65,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 66,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 67,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 68,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 69,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 70,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 71,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 72,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 73,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 74,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 75,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 76,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 77,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 78,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 79,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 80,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 81,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 82,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 83,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 84,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 5,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 3,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 85,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 86,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 87,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 88,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 89,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 90,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 91,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 92,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 93,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 94,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 95,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 96,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 97,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 98,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 99,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 100,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 101,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 102,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 103,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 104,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 6,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 3,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 105,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 106,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 107,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 108,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 109,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 110,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 111,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 112,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 113,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 114,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 115,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 116,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 117,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 118,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 119,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 120,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 121,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 122,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 123,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 124,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 7,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 3,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 125,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 126,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 127,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 128,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 129,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 130,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 131,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 132,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 133,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 134,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 135,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 136,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 137,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 138,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 139,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 140,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 141,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 142,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 143,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 144,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 8,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 3,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 145,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 146,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 147,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 148,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 149,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 150,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 151,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 152,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 153,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 154,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 155,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 156,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 157,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 158,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 159,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 160,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 161,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 162,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 163,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 164,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 9,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 3,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 165,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 166,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 167,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 168,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 169,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 170,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 171,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 172,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 173,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 174,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 175,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 176,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 177,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 178,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 179,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 180,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 181,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 182,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 183,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 184,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-04 23:17:38.6282|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-04 23:18:17.0769|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 10,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 25,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 26,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 27,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 28,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 29,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 30,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 31,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 32,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 33,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 34,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 35,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 36,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 37,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 38,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 39,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 40,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 41,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 42,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 43,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 44,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 11,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 45,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 46,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 47,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 48,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 49,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 50,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 51,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 52,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 53,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 54,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 55,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 56,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 57,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 58,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 59,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 60,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 61,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 62,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 63,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 64,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-04 23:18:17.0769|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-04 23:19:23.8070|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:23.8070|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:23.8549|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:24.6463|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:24.6463|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:24.6463|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:25.3116|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:25.3116|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:25.3116|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:26.0734|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:26.0744|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:26.0744|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:26.6937|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:26.6937|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:26.6937|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:28.2367|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:28.2367|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:28.2367|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:29.0170|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:29.0170|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:29.0170|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:29.5335|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:29.5335|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:29.5335|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:30.1007|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:30.1007|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:30.1007|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:30.7946|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:30.7946|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:30.7946|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:36.5728|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:36.5728|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:36.5748|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:37.1896|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:37.1896|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:37.1896|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:37.8389|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:37.8409|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:37.8409|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:38.3678|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:38.3678|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:38.3678|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:39.1477|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:39.1477|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:39.1477|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:39.7409|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:39.7409|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:39.7409|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:40.6597|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:40.6597|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:40.6597|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:41.2231|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:41.2231|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:41.2231|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:41.9240|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:41.9240|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:41.9240|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:42.5697|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:19:42.5697|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:19:42.5697|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:19:56.2441|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-10-04 23:19:56.2441|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-04 23:21:21.1970|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-10-04 23:21:21.1970|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-04 23:22:19.5246|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:22:19.5246|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:22:19.5246|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996
+2020-10-04 23:23:48.1067|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Save Assessment External Wall:
+2020-10-04 23:23:48.1067|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Attaching an entity of type 'BuildInspect.Models.Domain.assessment_external_wall_trn_detail' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+2020-10-04 23:23:48.1067|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.SaveAssessmentExternalWallDetail(AssessmentExternalWallTransDetailViewModel detailViewModel) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 996

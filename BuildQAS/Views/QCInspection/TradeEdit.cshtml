@@ -1,0 +1,116 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionTradeMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Trade Update</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item"><a href="#" class="QCInspectionTradeIndex">Trade List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Trade Update</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "TradeEditForm", @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.TradeID)
+    @Html.HiddenFor(model => model.CreatedBy)
+    @Html.HiddenFor(model => model.CreatedDate)
+    <div>&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="form-header text-uppercase">
+                        <i class="fa fa-user-circle-o"></i>
+                        Trade Info
+                    </h4>
+                    <div class="form-group row">
+                        <label for="input-1" class="col-sm-2 col-form-label">Trade name<span class="symbol required"></span></label>
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.TradeName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TradeName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input-1" class="col-sm-2 col-form-label">Display Order<span class="symbol required"></span></label>
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.OrderBy, new { htmlAttributes = new { @class = "form-control", @type = "number", @min = "1", @step = "1", @value = "0" } })
+                            @Html.ValidationMessageFor(model => model.OrderBy, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" id="btnCancelTrade" class="btn btn-danger QCInspectionTradeIndex"><i class="fa fa-times"></i> CANCEL</button>
+                        <button type="button" onclick="TradeUpdate()" id="btnUpdateTrade" class="btn btn-success"><i class="fa fa-check-square-o"></i> UPDATE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--End Row-->
+}
+<!-- End Row-->
+
+<script>
+    $().ready(function () {
+        $("#TradeEditForm").validate({
+            rules: {
+                TradeName: "required",
+                OrderBy: "required"
+            },
+            messages: {
+                TradeName: "Please enter your Trade Name",
+                OrderBy: "Please enter your Display Order",
+            }
+        });
+    });
+
+    function TradeUpdate()
+    {
+        if ($('#TradeEditForm').valid())
+        {
+            $.post("QCInspection/TradeEdit", $('#TradeEditForm').serialize(), function (data)
+            {
+                if (data.value == "OK") {
+                    swal($('#TradeName').val() + "- Trade has been updated!", {
+                        icon: "success",
+                        timer: 360000
+                    });
+                    Lobibox.notify('success', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: $('#TradeName').val() + "- Trade has been updated!"
+                    });
+                    $.get("QCInspection/TradeIndex", function (data) {
+                        $('#page-wrapper').html(data);
+                    });
+                }
+                else if (data.value == "Failed") {
+                    swal("Warning!", "Trade updation failed!", "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: "Trade updation failed!"
+                    });
+                }
+                else {
+                    swal("Warning!", data.value, "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: data.value
+                    });
+                }
+            });
+        }
+    }
+</script>
+
+

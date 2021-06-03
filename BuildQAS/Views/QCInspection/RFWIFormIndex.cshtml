@@ -1,0 +1,165 @@
+﻿@model IEnumerable<BuildInspect.Models.ViewModel.QCInspectionRFWIFormViewModel>
+
+@{
+    Layout = null;
+    var i = 1;
+    int gid = BuildInspect.Models.Utility.AppSession.GetCurrentUserGroup();
+    var LocationModels = (List<BuildInspect.Models.ViewModel.QCInspectionLocationMobileViewModel>)ViewBag.LocationModels;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">RFWI List</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">RFWI</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            @if (gid == 5)
+            {
+                <div class="card-header"><a href="" onclick="CreateRFWIForm()" data-toggle="modal" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-plus"></i> Add New RFWI</a></div>
+            }
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="RFWITable" class="table table-hover table-striped table-bordered">
+                        <thead style="background-color: #F16876; color: white">
+                            <tr>
+                                <th>S.No</th>
+                                <th>RFWI No</th>
+                                <th>Date</th>
+                                <th>Project Name</th>
+                                <th>Trade</th>
+                                <th>Location</th>
+                                <th>Inspector Name</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.OrderByDescending(x => x.QCInspectionRFWIFormID))
+                            {
+                                <tr>
+                                    <td>
+                                        @i
+                                    </td>
+                                    <td>@item.QCInspectionRFWINo</td>
+                                    <td>@string.Format("{0:dd-MMM-yyyy}", @item.CreatedDate)</td>
+                                    <td>@item.qcinspection_project_master.Project_Name</td>
+                                    <td>@item.qcinspection_rfwi_trade_master.TradeName</td>
+                                    <td>
+                                        @foreach (var location in item.qcinspection_rfwi_form_location_detail)
+                                        {
+                                            @LocationModels.Where(x => x.UnitID == location.UnitID).FirstOrDefault().UnitName;
+                                            <br />
+                                        }
+                                    </td>
+                                    <td>@item.user.DisplayName</td>
+                                    @if (item.Status == "Pending")
+                                    {
+                                        <td><span class="badge-dark">@item.Status</span></td>
+                                    }
+                                    else if (item.Status == "Approved")
+                                    {
+                                        <td>
+                                            <span class="badge-info">@item.Status</span>
+                                        </td>
+                                    }
+                                    else if (item.Status == "Requested")
+                                    {
+                                        <td><span class="badge-primary">@item.Status</span></td>
+                                    }
+                                    else if (item.Status == "Rejected")
+                                    {
+                                        <td><span class="badge-danger">@item.Status</span></td>
+                                    }
+                                    else if (item.Status == "Completed")
+                                    {
+                                        <td>
+                                            <span class="badge-success">@item.Status</span>
+                                        </td>
+                                    }
+                                    <td>
+                                        <button class="btn btn-success" onclick="EditRFWIForm(@item.QCInspectionRFWIFormID)"><i class="fa fa-edit"></i></button>
+                                        @if (@item.Status == "Pending" && gid == 5 && @item.OtherTradeClearance_MandESignature == null && item.OtherTradeClearance_StructureSignature == null && item.OtherTradeClearance_OtherSignature == null)
+                                        {
+                                            <button class="btn btn-danger" onclick="DeleteRFWIForm('@item.QCInspectionRFWIFormID','')"><i class="fa fa-trash"></i></button>
+                                        }
+                                        else if (item.Status == "Completed" && gid == 5)
+                                        {
+                                            <a href="" onclick="window.open('/QCInspection/RFWIFormReport?Id=@item.QCInspectionRFWIFormID');" data-toggle="modal" class="btn-icon btn btn-secondary"><i class="fa fa-print" title="Print Report"></i></a>
+                                        }
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row-->
+
+<script>
+    $(document).ready(function () {
+        var table1 = $('#RFWITable').DataTable({
+            //"autoWidth": true,
+            //"scrollX": true,
+            //dom: 'Bfrtipl',
+            responsive: true,
+            // "scrollY": true,
+            buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+        });
+        table1.buttons().container().appendTo('#RFWITable_wrapper .col-md-6:eq(0)');
+    });
+
+    function DeleteRFWIForm(id, un)
+    {
+        debugger
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this RFWI ?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            debugger
+            if (willDelete) {
+                debugger
+                $.post("QCInspection/DeleteRFWIForm", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    debugger
+                    if (data.value == "OK") {
+                        swal("RFWI has been deleted!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: "RFWI has been deleted!"
+                        });
+                        $.get("/QCInspection/RFWIFormIndex", function (data) {
+                            $('#page-wrapper').html(data);
+                        });
+                    }
+                    else {
+                        swal("Warning!", "RFWI Form deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'RFWI Form deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+</script>

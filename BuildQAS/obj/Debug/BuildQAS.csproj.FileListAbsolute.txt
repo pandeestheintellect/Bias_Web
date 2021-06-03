@@ -1,0 +1,2 @@
+C:\Users\DELL\Desktop\BuidlQAS_Source\BuildQAS\BuildQAS\BuildQAS\obj\Debug\BuildQAS.csprojAssemblyReference.cache
+C:\Users\DELL\Desktop\BuidlQAS_Source\BuildQAS\BuildQAS\BuildQAS\obj\Debug\BuildQAS.csproj.CoreCompileInputs.cache

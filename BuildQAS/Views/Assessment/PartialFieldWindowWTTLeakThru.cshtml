@@ -1,0 +1,19 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentFieldWindowWaterTightnessTestTransViewModel
+@{
+    ViewBag.Title = "Partial Field Window WTT Leak Thru";
+}
+<form id="AddFieldWindowWTTLeakThruForm">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.DropDownListFor(m => Model.AssessmentLeakID, new SelectList(ViewBag.LeakThruList, "AssessmentLeakID", "AssessmentLeakName"), new { @id = "ddlAddLeakThru", @title = "Select Leak Thru", @class = "form-control"})
+                    @Html.HiddenFor(model => Model.AssessmentFWWTTID, new { @id = "LeakThru_AssessmentFWWTTID" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-wide btn-success" id="btnSubmitSaveLeakThru" onclick="SaveFieldWindowWTTLeakThru()" title="Save"><i class="ti-save"></i>&nbsp;Save Other Result</button>
+    </div>
+</form>

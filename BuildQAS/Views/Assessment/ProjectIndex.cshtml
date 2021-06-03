@@ -1,0 +1,125 @@
+﻿@model IEnumerable<BuildInspect.Models.ViewModel.AssessmentProjectMasterViewModel>
+
+@{
+    Layout = null;
+    var i = 1;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Project List</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item active" aria-current="page">Project</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header"><a href="" onclick="CreateAssessmentProject()" data-toggle="modal" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-plus"></i> Add Project</a></div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="ProjectTable" class="table table-hover table-striped table-bordered">
+                        <thead style="background-color: #F16876; color: white">
+                            <tr>
+                                <td>Action</td>
+                                <th>S.No</th>
+                                <th>Project ID</th>
+                                <th>Project Name</th>
+                                <td>Developer</td>
+                                <td>Contractor</td>
+                                <td>Date of Assessments</td>
+                                <td>Assessors</td>
+                                <td>Type</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-success" onclick="EditAssessmentProject(@item.ProjectID)"><i class="fa fa-edit"></i></button>
+                                        @if (item.Is_Completed == 0)
+                                        {
+                                            <button class="btn btn-danger" onclick="DeleteAssessmentProject('@item.ProjectID','@item.Project_Name')"><i class="fa fa-trash"></i></button>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge-success">Completed</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @i
+                                    </td>
+                                    <td>@item.Project_ID</td>
+                                    <td>@item.Project_Name</td>
+                                    <td>@item.Developer_Name</td>
+                                    <td>@item.Contractor_Name</td>
+                                    <td>@item.Assessment_Dates</td>
+                                    <td>
+                                        @foreach (var item1 in item.assessment_project_assessors_detail)
+                                        {
+                                            //@item1.RowNo.ToString();
+                                            @item1.assessors_master.AssessorsName;
+                                            <br />
+                                        }
+                                    </td>
+                                    <td>@item.assessment_development_type_master.DevelopmentTypeName</td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row-->
+
+<script>
+    $(document).ready(function () {
+        var table1 = $('#ProjectTable').DataTable({
+            //"autoWidth": true,
+            //"scrollX": true,
+            //dom: 'Bfrtipl',
+            responsive: true,
+            // "scrollY": true,
+            buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+        });
+        table1.buttons().container().appendTo('#ProjectTable_wrapper .col-md-6:eq(0)');
+    });
+
+    function DeleteAssessmentProject(id, un)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Project - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("Assessment/DeleteProject/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    if (data.value == "OK") {
+                        swal(un + "- Project has been deleted!", {
+                            icon: "success",
+                        });
+                        $.get("Assessment/ProjectIndex", function (data) {
+                            $('#page-wrapper').html(data);
+                        });
+                    }
+                    else {
+                        swal("Warning!", "Assessor deletion failed!", "warning");
+                    }
+                });
+            }
+        });
+    }
+</script>

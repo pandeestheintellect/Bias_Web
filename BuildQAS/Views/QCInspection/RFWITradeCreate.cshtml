@@ -1,0 +1,101 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWITradeMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">RFWI Trade Creation</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item"><a href="#" class="QCInspectionRFWITradeIndex">RFWI Trade List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">RFWI Trade Creation</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "QCInspectionRFWITradeAddForm", @class = "form-horizontal" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div>&nbsp;</div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="row form-group">
+                                <label for="Tradename" class="col-sm-12 col-md-6 col-xl-3 control-label">Trade name<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    @Html.EditorFor(model => model.TradeName, new { htmlAttributes = new { @class = "form-control required" } })
+                                    @Html.ValidationMessageFor(model => model.TradeName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-footer">
+                                <button type="button" id="btnCancelRFWITrade" class="btn btn-danger QCInspectionRFWITradeIndex"><i class="fa fa-times"></i> CANCEL</button>
+                                <button type="button" onclick="RFWITradeCreate()" id="btnSaveRFWITrade" class="btn btn-success"><i class="fa fa-check-square-o"></i> SAVE</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Row-->
+
+<script>
+    $().ready(function () {
+        $("#QCInspectionRFWITradeAddForm").validate({
+            rules: {
+                TradeName: "required"
+            },
+            messages: {
+                TradeName: "Please enter your RFWI Trade Name",
+            }
+        });
+    });
+
+    function RFWITradeCreate()
+    {
+        if ($('#QCInspectionRFWITradeAddForm').valid()) {
+            $.post("QCInspection/RFWITradeCreate", $('#QCInspectionRFWITradeAddForm').serialize(), function (data) {
+                if (data.value == "OK") {
+                    swal($('#TradeName').val() + "- RFWI Trade has been created!", {
+                        icon: "success",
+                        timer: 360000
+                    });
+                    Lobibox.notify('success', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: $('#TradeName').val() + "- RFWI Trade has been created!"
+                    });
+                    $.get("QCInspection/RFWITradeIndex", function (data) {
+                        $('#page-wrapper').html(data);
+                    });
+                }
+                else if (data.value == "Failed") {
+                    swal("Warning!", "RFWI Trade Creation failed!", "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: "RFWI Trade Creation failed!"
+                    });
+                }
+                else {
+                    swal("Warning!", data.value, "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: data.value
+                    });
+                }
+            });
+        }
+    }
+</script>
+

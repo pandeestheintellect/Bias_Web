@@ -1,0 +1,16 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWIFormViewModel
+<div class="form-group">
+    <label for="@Model.SelectedTradeDetailedCheckListIds">Detailed Checklist<span class="symbol required"></span></label><br />
+    @foreach (var objItem in Model.TradeDetailedCheckList)
+    {
+        <div class="icheck-material-primary icheck-inline">
+            <input type="checkbox" id="TDCL_@objItem.Value" checked="checked" value="@objItem.Value" disabled="disabled" readonly="readonly" />
+            <label for="TDCL_@objItem.Value">@objItem.Text</label>
+            @*@if (@objItem.Text.ToLower() == "others")
+                {
+                    @Html.TextBoxFor(model => Model.DetailedCheckListOthers, new { @class = "form-control" })
+                }*@
+        </div>
+        <br />
+    }
+</div>

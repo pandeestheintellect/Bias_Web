@@ -1,0 +1,43 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentWetAreaWaterTightnessTestEntryViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "Add Wet Area Water Tightness Test";
+}
+<form id="AddRoofConstructionForm">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Block / Unit <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.Block_Unit, new { @title = "Enter Block/Unit", @placeholder = "BLK #, #00-00", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Assessment Date <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.AssessmentDate, "{0:dd/MM/yyyy}", new { @class = "form-control", @style = "width:250px" })
+                    @Html.ValidationMessageFor(model => model.AssessmentDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        @*<div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        6) Others please specify:
+                    </div>
+                    @Html.TextAreaFor(model => Model.Other_Result, new { @title = "Enter Other Remarks", @placeholder = "Remarks", @style = "width:250px" })
+                </div>
+            </div>
+        </div>*@
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-wide btn-success" id="btnSubmitSave" onclick="SaveWetAreaWaterTightnessTest()" title="Save"><i class="ti-save"></i>&nbsp;Create Entry</button>
+    </div>
+</form>

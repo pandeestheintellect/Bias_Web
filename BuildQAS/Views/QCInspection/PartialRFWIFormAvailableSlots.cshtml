@@ -1,0 +1,180 @@
+﻿@model List<BuildInspect.Models.ViewModel.AvailableSlotsModel>
+@{
+    ViewBag.Title = "Partial RFWI Form Available Slots";
+    var containerHeight = 720;
+    var minutesinDay = 60 * 12;
+    var top = 0;
+}
+<style>
+    /*body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, section, summary,
+    time, audio {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        font-family: 'Montserrat', sans-serif;
+        color: #D1D1D1;
+    }*/
+
+    .container {
+        height: 750px;
+        width: 500px;
+        display: inline-flex;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .timings {
+        text-align: right;
+        padding-right: 10px;
+        width: 100px;
+        height: 750px;
+        display: flex;
+        flex-direction: column;
+        /*justify-content: space-between;*/
+        background-color: white;
+        font-size: 0.5em;
+        box-sizing: border-box;
+        color: #D1D1D1;
+    }
+
+    .timings span {
+        font-size: 200%;
+        color: #696969;
+    }
+
+    .days {
+        height: 750px;
+        width: 620px;
+        padding: 0px 10px;
+        background-color: #F0F0F0;
+        border-color: #D1D1D1;
+        border-style: solid;
+        border-width: 1px;
+        box-sizing: border-box;
+    }
+
+    .event {
+        background-color: white;
+        border-style: solid;
+        border-width: 1px;
+        border-left-width: 5px;
+        border-color: #D1D1D1;
+        border-left-color: #57b986;
+        padding-left: 10px;
+        padding-top: 5px;
+        position: absolute;
+        font-size: 0.5em;
+        box-sizing: border-box;
+    }
+
+    .event .title {
+        color: #57b986;
+        font-size: 200%;
+    }
+    .event .location {
+        font-size: 180%;
+    }
+</style>
+
+<div class="container">
+    <div class="timings">
+        <div style="height:30px"> <span> 8:00 </span> AM </div>
+        <div style="height:30px;line-height: 30px;"> 8:30 </div>
+        <div style="height:30px"> <span> 9:00 </span> AM </div>
+        <div style="height:30px;line-height: 30px;"> 9:30 </div>
+        <div style="height:30px"> <span> 10:00 </span>AM </div>
+        <div style="height:30px;line-height: 30px;"> 10:30 </div>
+        <div style="height:30px"> <span> 11:00 </span>AM </div>
+        <div style="height:30px;line-height: 30px;"> 11:30 </div>
+        <div style="height:30px"> <span> 12:00 </span>PM </div>
+        <div style="height:30px;line-height: 30px;"> 12:30 </div>
+        <div style="height:30px"> <span> 1:00 </span>PM </div>
+        <div style="height:30px;line-height: 30px;"> 1:30 </div>
+        <div style="height:30px"> <span> 2:00 </span>PM </div>
+        <div style="height:30px;line-height: 30px;"> 2:30 </div>
+        <div style="height:30px"> <span> 3:00 </span>PM </div>
+        <div style="height:30px;line-height: 30px;"> 3:30 </div>
+        <div style="height:30px"> <span> 4:00 </span>PM </div>
+        <div style="height:30px;line-height: 30px;"> 4:30 </div>
+        <div style="height:30px"> <span> 5:00 </span>PM </div>
+        <div style="height:30px;line-height: 30px;"> 5:30 </div>
+        <div style="height:30px"> <span> 6:00 </span>PM </div>
+        <div style="height:30px;line-height: 30px;"> 6:30 </div>
+        <div style="height:30px"> <span> 7:00 </span>PM </div>
+        <div style="height:30px;line-height: 30px;"> 7:30 </div>
+        <div> <span> 8:00 </span>PM </div>
+    </div>
+    <div class="days" id="events">
+        @foreach (var item in Model)
+        {
+            if(item.InspectionStartOn.Value.Hours == 8)
+            {
+                top = 55;
+            }
+            else if(item.InspectionStartOn.Value.Hours == 9)
+            {
+                top = 115; // (60 + 55)
+            }
+            else if (item.InspectionStartOn.Value.Hours == 10)
+            {
+                top = 175; // (120 + 55)
+            }
+            else if (item.InspectionStartOn.Value.Hours == 11)
+            {
+                top = 235; // (180 + 55)
+            }
+            else if (item.InspectionStartOn.Value.Hours == 12)
+            {
+                top = 295; // (240 + 55)
+            }
+            else if (item.InspectionStartOn.Value.Hours == 13)
+            {
+                top = 355; // (300 + 55)
+            }
+            else if (item.InspectionStartOn.Value.Hours == 14)
+            {
+                top = 415; // (360 + 55)
+            }
+            else if (item.InspectionStartOn.Value.Hours == 15)
+            {
+                top = 475; // (420 + 55)
+            }
+            else if (item.InspectionStartOn.Value.Hours == 16)
+            {
+                top = 535; // (480 + 55)
+            }
+            else if (item.InspectionStartOn.Value.Hours == 17)
+            {
+                top = 595; // (540 + 55)
+            }
+            else if (item.InspectionStartOn.Value.Hours == 18)
+            {
+                top = 655; // (600 + 55)
+            }
+            else if (item.InspectionStartOn.Value.Hours == 19)
+            {
+                top = 715; // (660 + 55)
+            }
+
+            top = top + item.InspectionStartOn.Value.Minutes;
+            if (item.InspectionStartOn.Value.Hours > 8)
+            {
+                top = top + 10;
+            }
+            <div class="event" style="width: 390px; height: @((@item.InspectionEndOn.Value.TotalMinutes - @item.InspectionStartOn.Value.TotalMinutes)+7)px; top: @(top)px; left: 90px;"><span class="title">@item.QCInspectionRFWINo</span></div>
+        }
+    </div>
+</div>
+@*<script src="~/Content/assets/js/calendardayview.js"></script>*@

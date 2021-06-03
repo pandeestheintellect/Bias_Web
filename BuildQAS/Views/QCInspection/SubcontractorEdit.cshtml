@@ -1,0 +1,253 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionSubcontractorMasterViewModel
+
+@{
+    Layout = null;
+    var cells = 5;
+    int i = 0;
+}
+
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Subcontractor Update</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item"><a href="#" class="QCInspectionSubcontractorIndex">Subcontractor List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Subcontractor Update</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "SubcontractorEditForm", @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Trades)
+    @Html.HiddenFor(model => model.CompanyID)
+    @Html.HiddenFor(model => model.SubcontractorID)
+    @Html.HiddenFor(model => model.SubCon_ID)
+    @Html.HiddenFor(model => model.CreatedBy)
+    @Html.HiddenFor(model => model.CreatedDate)
+    <div>&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="form-header text-uppercase">
+                        <i class="fa fa-user-circle-o"></i>
+                        Subcontractor Info
+                    </h4>
+                    <div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label required" })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.ShortName, htmlAttributes: new { @class = "control-label required" })
+                                @Html.ValidationMessageFor(model => model.ShortName, "", new { @class = "text-danger" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.ShortName, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.SubCon_ID, htmlAttributes: new { @class = "control-label required" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Tel, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Fax, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.TextAreaFor(model => model.Address, 3, 40, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Pincode, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Pincode, new { htmlAttributes = new { @class = "form-control", @maxlength = "10" } })
+                                    @Html.ValidationMessageFor(model => model.Pincode, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row form-group">
+                            <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label required">Trades </label>
+                            <br />
+                            <div class="col-sm-12 col-md-12 col-xl-9">
+                                <table>
+                                    @foreach (var objSubcontractor in ViewBag.TradeList)
+                                    {
+                                        var checkBoxId = "trade_" + objSubcontractor.TradeID;
+                                        var tdId = "td" + objSubcontractor.TradeID;
+                                        var strChecked = "";
+                                        if (Model.qcinspection_subcontractor_trade_detail != null)
+                                        {
+                                            if (Model.qcinspection_subcontractor_trade_detail.Where(a => a.TradeID == objSubcontractor.TradeID).FirstOrDefault() != null)
+                                            {
+                                                strChecked = "checked";
+                                            }
+                                            else
+                                            {
+                                                strChecked = "";
+                                            }
+                                        }
+                                        if ((i % cells) == 0)
+                                        {
+                                            @:<tr>
+                                            }
+                                            <td width="350px" id="@tdId">
+                                                <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objSubcontractor.TradeID" />
+                                                @objSubcontractor.TradeName
+                                            </td>
+                                            if (i == (ViewBag.TradeList.Count - 1))
+                                            {
+                                                while ((i % cells) != 0)
+                                                {
+                                                    @:<td></td>
+                                                    {
+                                                        i++;
+                                                    }
+                                                }
+                                            }
+                                            if ((i % cells) == (cells - 1)) // aka: last row cell
+                                            {
+                                            @:</tr>
+                                        }
+                                        {
+                                            i++;
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" id="btnCancelSubcontractor" class="btn btn-danger QCInspectionSubcontractorIndex"><i class="fa fa-times"></i> CANCEL</button>
+                        <button type="button" onclick="SubcontractorUpdate()" id="btnUpdateSubcontractor" class="btn btn-success"><i class="fa fa-check-square-o"></i> UPDATE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--End Row-->
+}
+<!-- End Row-->
+
+<script>
+    $().ready(function () {
+        $("#SubcontractorEditForm").validate({
+            rules: {
+                Name: "required",
+                ShortName: "required"
+            },
+            messages: {
+                Name: "Please enter your Name",
+                ShortName: "Please enter your Short Name",
+            }
+        });
+    });
+
+    function SubcontractorUpdate() {
+        ///Trades
+        var TradesSelection = []
+        $.each($("input:checkbox[id^=trade_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                TradesSelection.push(intID)
+            }
+
+        });
+        $('#Trades').val(TradesSelection);
+
+        var ValidateMsg = "";
+        if (TradesSelection.length == 0) {
+            ValidateMsg = "Please select Trade list";
+        }
+
+        if (ValidateMsg == "") {
+            if ($('#SubcontractorEditForm').valid()) {
+                $.post("QCInspection/SubcontractorEdit", $('#SubcontractorEditForm').serialize(), function (data) {
+                    if (data.value == "OK") {
+                        swal($('#Name').val() + "- Subcontractor has been updated!", {
+                            icon: "success",
+                            timer: 360000
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: $('#Name').val() + "- Subcontractor has been updated!"
+                        });
+                        $.get("QCInspection/SubcontractorIndex", function (data) {
+                            $('#page-wrapper').html(data);
+                        });
+                    }
+                    else if (data.value == "Failed") {
+                        swal("Warning!", "Subcontractor Updation failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: "Subcontractor Updation failed!"
+                        });
+                    }
+                    else {
+                        swal("Warning!", data.value, "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: data.value
+                        });
+                    }
+                });
+            }
+        }
+        else {
+            swal("Warning!", ValidateMsg, "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: ValidateMsg
+            });
+        }
+    }
+</script>
+
+
+

@@ -1,0 +1,109 @@
+﻿@model BuildInspect.Models.ViewModel.AssessorsMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Assessor Creation</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item"><a href="#" class="AssessorIndex">Assessor List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Assessor Creation</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "AssessorsCreateForm", @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div>&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="form-header text-uppercase">
+                        <i class="fa fa-user-circle-o"></i>
+                        Assessor Info
+                    </h4>
+                    <div class="form-group row">
+                        <label for="input-1" class="col-sm-2 col-form-label">Assessors name<span class="symbol required"></span></label>
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.AssessorsName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AssessorsName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input-1" class="col-sm-2 col-form-label">User name<span class="symbol required"></span></label>
+                        <div class="col-sm-10">
+                            @Html.DropDownList("Assessor_ID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Assessor_ID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" id="btnCancelAssessor" class="btn btn-danger AssessorIndex"><i class="fa fa-times"></i> CANCEL</button>
+                        <button type="button" onclick="AssessorCreate()" class="btn btn-success"><i class="fa fa-check-square-o"></i> SAVE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--End Row-->
+}
+<!-- End Row-->
+
+
+<script>
+    $().ready(function () {
+        $("#AssessorsCreateForm").validate({
+            rules: {
+                AssessorsName: "required",
+                Assessor_ID: "required"
+            },
+            messages: {
+                AssessorsName: "Please enter your Assessors Name",
+                Assessor_ID: "Please select user Name",
+            }
+        });
+    });
+
+    function AssessorCreate() {
+        if ($('#AssessorsCreateForm').valid()) {
+            $.post("Assessment/AssessorCreate", $('#AssessorsCreateForm').serialize(), function (data) {
+                if (data.value == "OK") {
+                    swal($('#AssessorsName').val() + "- Assessor has been created!", {
+                        icon: "success",
+                        timer: 360000
+                    });
+                    Lobibox.notify('success', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: $('#AssessorsName').val() + "- Assessor has been created!"
+                    });
+                    $.get("Assessment/AssessorIndex", function (data) {
+                        $('#page-wrapper').html(data);
+                    });
+                }
+                else if (data.value == "Failed") {
+                    swal("Warning!", "Assessor Creation failed!", "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: "Joint Creation failed!"
+                    });
+                }
+                else {
+                    swal("Warning!", data.value, "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: data.value
+                    });
+                }
+            });
+        }
+    }
+</script>

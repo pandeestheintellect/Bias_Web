@@ -1,0 +1,336 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionProgressReportViewModel
+
+@{
+    Layout = null;
+    var i = 1;
+}
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">@ViewBag.Title</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Project Module </li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="#" class="RWFIProgressReport">QC Inspection Progress Status</a></li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-12 col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                QC Inspection Progress Summary
+            </div>
+            <div class="card-body">
+                <div class="progress-wrapper mb-4">
+                    @if (Model.RequestedCount > 0)
+                    {
+                        <p>Requested (@Model.TotalCount)<span class="float-right">@Model.RequestedPercentage%</span></p>
+                        <div class="progress" style="height:7px;">
+                            <div class="progress-bar gradient-scooter" style="width:@Model.RequestedPercentage%"></div>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Requested (@Model.RequestedCount)<span class="float-right">0%</span></p>
+                        <div class="progress" style="height:7px;">
+                            <div class="progress-bar gradient-scooter" style="width:0%"></div>
+                        </div>
+                    }
+                </div>
+
+                <div class="progress-wrapper mb-4">
+                    <p>Rectified (@Model.RectifiedCount)<span class="float-right">@Model.RectifiedPercentage%</span></p>
+                    <div class="progress" style="height:7px;">
+                        <div class="progress-bar gradient-ibiza" style="width:@Model.RectifiedPercentage%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-wrapper">
+                    <p>Completed (@Model.CompletedCount) <span class="float-right">@Model.CompletedPercentage%</span></p>
+                    <div class="progress" style="height:7px;">
+                        <div class="progress-bar gradient-quepal" style="width:@Model.CompletedPercentage%"></div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                Project Info
+            </div>
+            <div class="card-body">
+                <div class="row form-group">
+                    <label for="Projectname" class="col-sm-12 col-md-6 col-xl-3 control-label">Name</label>
+                    <div class="col-sm-12 col-md-6 col-xl-9">
+                        @Html.EditorFor(model => model.Project_Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Code</label>
+                    <div class="col-sm-12 col-md-6 col-xl-9">
+                        @Html.EditorFor(model => model.Project_ID, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Start Date</label>
+                    <div class="col-sm-12 col-md-6 col-xl-9">
+                        @Html.TextBoxFor(model => model.StartOn, "{0:dd-MMM-yyyy}", new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">End Date</label>
+                    <div class="col-sm-12 col-md-6 col-xl-9">
+                        @Html.TextBoxFor(model => model.EndOn, "{0:dd-MMM-yyyy}", new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                @if (Model.Is_Completed == 1)
+                {
+                    <div class="row form-group">
+                        <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Status</label>
+                        <div class="col-sm-12 col-md-6 col-xl-9">
+                            <span class="badge-success">Completed</span>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row form-group">
+                        <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Status</label>
+                        <div class="col-sm-12 col-md-6 col-xl-9">
+                            <span class="badge-primary">In-Progress</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="row">
+    <div class="col-12 col-lg-12">
+        <div class="card">
+            <div class="card-header border-0">
+                Summary Report
+            </div>
+            <div class="table-responsive">
+                <table id="ProjectTable1" class="table table-hover table-striped table-bordered">
+                    <thead style="background-color: #F16876; color: white">
+                        <tr>
+                            <th>Photo</th>
+                            <th>Product</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Completion</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="assets/images/products/01.png" class="product-img">
+                            </td>
+                            <td>Headphone GL</td>
+                            <td>$1,840 USD</td>
+                            <td>
+                                <span class="badge-dot">
+                                    <i class="bg-danger"></i> pending
+                                </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-ibiza" role="progressbar" style="width: 60%"></div>
+                                </div>
+                            </td>
+                            <td>10 July 2018</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="assets/images/products/02.png" class="product-img">
+                            </td>
+                            <td>Clasic Shoes</td>
+                            <td>$1,520 USD</td>
+                            <td>
+                                <span class="badge-dot">
+                                    <i class="bg-success"></i> completed
+                                </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-ohhappiness" role="progressbar" style="width: 100%"></div>
+                                </div>
+                            </td>
+                            <td>12 July 2018</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="assets/images/products/03.png" class="product-img">
+                            </td>
+                            <td>Hand Watch</td>
+                            <td>$1,620 USD</td>
+                            <td>
+                                <span class="badge-dot">
+                                    <i class="bg-warning"></i> delayed
+                                </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-orange" role="progressbar" style="width: 70%"></div>
+                                </div>
+                            </td>
+                            <td>14 July 2018</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="assets/images/products/04.png" class="product-img">
+                            </td>
+                            <td>Hand Camera</td>
+                            <td>$2,220 USD</td>
+                            <td>
+                                <span class="badge-dot">
+                                    <i class="bg-info"></i> on schedule
+                                </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-scooter" role="progressbar" style="width: 85%"></div>
+                                </div>
+                            </td>
+                            <td>16 July 2018</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="assets/images/products/05.png" class="product-img">
+                            </td>
+                            <td>Iphone-X Pro</td>
+                            <td>$9,890 USD</td>
+                            <td>
+                                <span class="badge-dot">
+                                    <i class="bg-success"></i> completed
+                                </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-ohhappiness" role="progressbar" style="width: 100%"></div>
+                                </div>
+                            </td>
+                            <td>17 July 2018</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="assets/images/products/06.png" class="product-img">
+                            </td>
+                            <td>Ladies Purse</td>
+                            <td>$3,420 USD</td>
+                            <td>
+                                <span class="badge-dot">
+                                    <i class="bg-danger"></i> pending
+                                </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-ibiza" role="progressbar" style="width: 80%"></div>
+                                </div>
+                            </td>
+                            <td>18 July 2018</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<div class="row">
+    <div class="col-12 col-lg-12">
+        <div class="card">
+            <div class="card-header border-0">
+                Detailed Report
+            </div>
+            <div class="table-responsive">
+                <table id="ProjectTable" class="table table-hover table-striped table-bordered">
+                    <thead style="background-color: #F16876; color: white">
+                        <tr>
+                            <th>S.No</th>
+                            <th>QC Inspection Ref No</th>
+                            <th>Requested Date</th>
+                            <th>Trade</th>
+                            <th>Sub-Con Name</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.QCInspectionProgressReportDetailModels)
+                        {
+                            <tr>
+                                <td>
+                                    @i
+                                </td>
+                                <td>@item.QCInspectionDefectNo</td>
+                                <td>@string.Format("{0:dd-MMM-yyyy}", @item.RequestedOn)</td>
+                                <td>@item.Trade</td>
+                                <td>@item.SubcontractorName</td>
+                                @if (@item.Status == "Pending")
+                                {
+                                    <td><span class="badge-dark">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "Approved")
+                                {
+                                    <td><span class="badge-primary">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "ReDo")
+                                {
+                                    <td><span class="badge-warning">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "ReDo-Done")
+                                {
+                                    <td><span class="badge-light">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "Rectified")
+                                {
+                                    <td><span class="badge-info">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "Rework")
+                                {
+                                    <td><span class="badge-secondary">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "Rework-Done")
+                                {
+                                    <td><span class="badge-secondary">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "Completed")
+                                {
+                                    <td><span class="badge-success">@item.Status</span></td>
+                                }
+                            </tr>
+                            i++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var table1 = $('#ProjectTable').DataTable({
+            //"autoWidth": true,
+            //"scrollX": true,
+            //dom: 'Bfrtipl',
+            responsive: true,
+            // "scrollY": true,
+        });
+
+        var table2 = $('#ProjectTable1').DataTable({
+            //"autoWidth": true,
+            //"scrollX": true,
+            //dom: 'Bfrtipl',
+            responsive: true,
+            // "scrollY": true,
+        });
+    });
+</script>

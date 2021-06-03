@@ -1,0 +1,2505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BuildInspectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BuildInspectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AppUsers" EntityType="BuildInspectModel.AppUser" />
+    <EntitySet Name="AppUserAssetMappings" EntityType="BuildInspectModel.AppUserAssetMapping" />
+    <EntitySet Name="AppUserGroups" EntityType="BuildInspectModel.AppUserGroup" />
+    <EntitySet Name="assessment_development_type_master" EntityType="BuildInspectModel.assessment_development_type_master" />
+    <EntitySet Name="assessment_direction_master" EntityType="BuildInspectModel.assessment_direction_master" />
+    <EntitySet Name="assessment_external_wall_trn" EntityType="BuildInspectModel.assessment_external_wall_trn" />
+    <EntitySet Name="assessment_external_wall_trn_detail" EntityType="BuildInspectModel.assessment_external_wall_trn_detail" />
+    <EntitySet Name="assessment_external_works_trn" EntityType="BuildInspectModel.assessment_external_works_trn" />
+    <EntitySet Name="assessment_external_works_trn_detail" EntityType="BuildInspectModel.assessment_external_works_trn_detail" />
+    <EntitySet Name="assessment_internal_finishes_trn" EntityType="BuildInspectModel.assessment_internal_finishes_trn" />
+    <EntitySet Name="assessment_internal_finishes_trn_detail" EntityType="BuildInspectModel.assessment_internal_finishes_trn_detail" />
+    <EntitySet Name="assessment_joint_master" EntityType="BuildInspectModel.assessment_joint_master" />
+    <EntitySet Name="assessment_leak_master" EntityType="BuildInspectModel.assessment_leak_master" />
+    <EntitySet Name="assessment_project_assessors_detail" EntityType="BuildInspectModel.assessment_project_assessors_detail" />
+    <EntitySet Name="assessment_project_master" EntityType="BuildInspectModel.assessment_project_master" />
+    <EntitySet Name="assessment_project_weightage_detail" EntityType="BuildInspectModel.assessment_project_weightage_detail" />
+    <EntitySet Name="assessment_roof_construction_trn" EntityType="BuildInspectModel.assessment_roof_construction_trn" />
+    <EntitySet Name="assessment_roof_construction_trn_detail" EntityType="BuildInspectModel.assessment_roof_construction_trn_detail" />
+    <EntitySet Name="assessment_type_location_master" EntityType="BuildInspectModel.assessment_type_location_master" />
+    <EntitySet Name="assessment_type_master" EntityType="BuildInspectModel.assessment_type_master" />
+    <EntitySet Name="assessment_type_module_master" EntityType="BuildInspectModel.assessment_type_module_master" />
+    <EntitySet Name="assessment_type_module_Process_master" EntityType="BuildInspectModel.assessment_type_module_Process_master" />
+    <EntitySet Name="assessment_type_module_weightage" EntityType="BuildInspectModel.assessment_type_module_weightage" />
+    <EntitySet Name="assessment_wall_master" EntityType="BuildInspectModel.assessment_wall_master" />
+    <EntitySet Name="assessment_wet_area_water_tightness_test_tran_detail" EntityType="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail" />
+    <EntitySet Name="assessment_window_master" EntityType="BuildInspectModel.assessment_window_master" />
+    <EntitySet Name="assessors_master" EntityType="BuildInspectModel.assessors_master" />
+    <EntitySet Name="company_master" EntityType="BuildInspectModel.company_master" />
+    <EntitySet Name="employees" EntityType="BuildInspectModel.employee" />
+    <EntitySet Name="modules" EntityType="BuildInspectModel.module" />
+    <EntitySet Name="permissions" EntityType="BuildInspectModel.permission" />
+    <EntitySet Name="qcinspection_block_master" EntityType="BuildInspectModel.qcinspection_block_master" />
+    <EntitySet Name="qcinspection_defect_files" EntityType="BuildInspectModel.qcinspection_defect_files" />
+    <EntitySet Name="qcinspection_defect_type_master" EntityType="BuildInspectModel.qcinspection_defect_type_master" />
+    <EntitySet Name="qcinspection_level_master" EntityType="BuildInspectModel.qcinspection_level_master" />
+    <EntitySet Name="qcinspection_project_files" EntityType="BuildInspectModel.qcinspection_project_files" />
+    <EntitySet Name="qcinspection_project_PM_detail" EntityType="BuildInspectModel.qcinspection_project_PM_detail" />
+    <EntitySet Name="qcinspection_project_rfwi_drawing_reference_files" EntityType="BuildInspectModel.qcinspection_project_rfwi_drawing_reference_files" />
+    <EntitySet Name="qcinspection_project_Supervisor_detail" EntityType="BuildInspectModel.qcinspection_project_Supervisor_detail" />
+    <EntitySet Name="qcinspection_rfwi_form_general_checklist_detail" EntityType="BuildInspectModel.qcinspection_rfwi_form_general_checklist_detail" />
+    <EntitySet Name="qcinspection_rfwi_form_location_detail" EntityType="BuildInspectModel.qcinspection_rfwi_form_location_detail" />
+    <EntitySet Name="qcinspection_rfwi_form_trade_detailed_checklist_detail" EntityType="BuildInspectModel.qcinspection_rfwi_form_trade_detailed_checklist_detail" />
+    <EntitySet Name="qcinspection_rfwi_form_trade_item_detail" EntityType="BuildInspectModel.qcinspection_rfwi_form_trade_item_detail" />
+    <EntitySet Name="qcinspection_rfwi_general_checklist_master" EntityType="BuildInspectModel.qcinspection_rfwi_general_checklist_master" />
+    <EntitySet Name="qcinspection_rfwi_trade_detailed_checklist_detail" EntityType="BuildInspectModel.qcinspection_rfwi_trade_detailed_checklist_detail" />
+    <EntitySet Name="qcinspection_rfwi_trade_item_detail" EntityType="BuildInspectModel.qcinspection_rfwi_trade_item_detail" />
+    <EntitySet Name="qcinspection_rfwi_trade_master" EntityType="BuildInspectModel.qcinspection_rfwi_trade_master" />
+    <EntitySet Name="qcinspection_subcontractor_master" EntityType="BuildInspectModel.qcinspection_subcontractor_master" />
+    <EntitySet Name="qcinspection_subcontractor_trade_detail" EntityType="BuildInspectModel.qcinspection_subcontractor_trade_detail" />
+    <EntitySet Name="qcinspection_trade_master" EntityType="BuildInspectModel.qcinspection_trade_master" />
+    <EntitySet Name="qcinspection_unit_master" EntityType="BuildInspectModel.qcinspection_unit_master" />
+    <EntitySet Name="usergroups" EntityType="BuildInspectModel.usergroup" />
+    <AssociationSet Name="FK_assessment_project_assessment_development_type_master" Association="BuildInspectModel.FK_assessment_project_assessment_development_type_master">
+      <End Role="assessment_development_type_master" EntitySet="assessment_development_type_master" />
+      <End Role="assessment_project_master" EntitySet="assessment_project_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_type_module_weightage_assessment_development_type_master" Association="BuildInspectModel.FK_assessment_type_module_weightage_assessment_development_type_master">
+      <End Role="assessment_development_type_master" EntitySet="assessment_development_type_master" />
+      <End Role="assessment_type_module_weightage" EntitySet="assessment_type_module_weightage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_external_wall_trn_assessment_project_master" Association="BuildInspectModel.FK_assessment_external_wall_trn_assessment_project_master">
+      <End Role="assessment_project_master" EntitySet="assessment_project_master" />
+      <End Role="assessment_external_wall_trn" EntitySet="assessment_external_wall_trn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_external_wall_trn_assessment_type_location_master" Association="BuildInspectModel.FK_assessment_external_wall_trn_assessment_type_location_master">
+      <End Role="assessment_type_location_master" EntitySet="assessment_type_location_master" />
+      <End Role="assessment_external_wall_trn" EntitySet="assessment_external_wall_trn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_external_wall_trn_detail_assessment_external_wall_trn_detail" Association="BuildInspectModel.FK_assessment_external_wall_trn_detail_assessment_external_wall_trn_detail">
+      <End Role="assessment_external_wall_trn" EntitySet="assessment_external_wall_trn" />
+      <End Role="assessment_external_wall_trn_detail" EntitySet="assessment_external_wall_trn_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_external_wall_trn_detail_assessment_type_module_Process_master" Association="BuildInspectModel.FK_assessment_external_wall_trn_detail_assessment_type_module_Process_master">
+      <End Role="assessment_type_module_Process_master" EntitySet="assessment_type_module_Process_master" />
+      <End Role="assessment_external_wall_trn_detail" EntitySet="assessment_external_wall_trn_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_external_works_trn_assessment_project_master" Association="BuildInspectModel.FK_assessment_external_works_trn_assessment_project_master">
+      <End Role="assessment_project_master" EntitySet="assessment_project_master" />
+      <End Role="assessment_external_works_trn" EntitySet="assessment_external_works_trn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_external_works_trn_assessment_type_location_master" Association="BuildInspectModel.FK_assessment_external_works_trn_assessment_type_location_master">
+      <End Role="assessment_type_location_master" EntitySet="assessment_type_location_master" />
+      <End Role="assessment_external_works_trn" EntitySet="assessment_external_works_trn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_external_works_trn_detail_assessment_external_works_trn" Association="BuildInspectModel.FK_assessment_external_works_trn_detail_assessment_external_works_trn">
+      <End Role="assessment_external_works_trn" EntitySet="assessment_external_works_trn" />
+      <End Role="assessment_external_works_trn_detail" EntitySet="assessment_external_works_trn_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_external_works_trn_detail_assessment_type_module_Process_master" Association="BuildInspectModel.FK_assessment_external_works_trn_detail_assessment_type_module_Process_master">
+      <End Role="assessment_type_module_Process_master" EntitySet="assessment_type_module_Process_master" />
+      <End Role="assessment_external_works_trn_detail" EntitySet="assessment_external_works_trn_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_internal_finishes_trn_assessment_project_master" Association="BuildInspectModel.FK_assessment_internal_finishes_trn_assessment_project_master">
+      <End Role="assessment_project_master" EntitySet="assessment_project_master" />
+      <End Role="assessment_internal_finishes_trn" EntitySet="assessment_internal_finishes_trn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_internal_finishes_trn_assessment_type_location_master" Association="BuildInspectModel.FK_assessment_internal_finishes_trn_assessment_type_location_master">
+      <End Role="assessment_type_location_master" EntitySet="assessment_type_location_master" />
+      <End Role="assessment_internal_finishes_trn" EntitySet="assessment_internal_finishes_trn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_internal_finishes_trn_detail_assessment_internal_finishes_trn" Association="BuildInspectModel.FK_assessment_internal_finishes_trn_detail_assessment_internal_finishes_trn">
+      <End Role="assessment_internal_finishes_trn" EntitySet="assessment_internal_finishes_trn" />
+      <End Role="assessment_internal_finishes_trn_detail" EntitySet="assessment_internal_finishes_trn_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_internal_finishes_trn_detail_assessment_type_module_Process_master" Association="BuildInspectModel.FK_assessment_internal_finishes_trn_detail_assessment_type_module_Process_master">
+      <End Role="assessment_type_module_Process_master" EntitySet="assessment_type_module_Process_master" />
+      <End Role="assessment_internal_finishes_trn_detail" EntitySet="assessment_internal_finishes_trn_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_project_assessors_detail_assessment_project_master" Association="BuildInspectModel.FK_assessment_project_assessors_detail_assessment_project_master">
+      <End Role="assessment_project_master" EntitySet="assessment_project_master" />
+      <End Role="assessment_project_assessors_detail" EntitySet="assessment_project_assessors_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_project_assessors_detail_assessors_master" Association="BuildInspectModel.FK_assessment_project_assessors_detail_assessors_master">
+      <End Role="assessors_master" EntitySet="assessors_master" />
+      <End Role="assessment_project_assessors_detail" EntitySet="assessment_project_assessors_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_project_master_company_master" Association="BuildInspectModel.FK_assessment_project_master_company_master">
+      <End Role="company_master" EntitySet="company_master" />
+      <End Role="assessment_project_master" EntitySet="assessment_project_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_project_weightage_detail_assessment_project_master" Association="BuildInspectModel.FK_assessment_project_weightage_detail_assessment_project_master">
+      <End Role="assessment_project_master" EntitySet="assessment_project_master" />
+      <End Role="assessment_project_weightage_detail" EntitySet="assessment_project_weightage_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_roof_construction_trn_assessment_project_master" Association="BuildInspectModel.FK_assessment_roof_construction_trn_assessment_project_master">
+      <End Role="assessment_project_master" EntitySet="assessment_project_master" />
+      <End Role="assessment_roof_construction_trn" EntitySet="assessment_roof_construction_trn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_project_weightage_detail_assessment_type_module_master" Association="BuildInspectModel.FK_assessment_project_weightage_detail_assessment_type_module_master">
+      <End Role="assessment_type_module_master" EntitySet="assessment_type_module_master" />
+      <End Role="assessment_project_weightage_detail" EntitySet="assessment_project_weightage_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_roof_construction_trn_assessment_type_location_master" Association="BuildInspectModel.FK_assessment_roof_construction_trn_assessment_type_location_master">
+      <End Role="assessment_type_location_master" EntitySet="assessment_type_location_master" />
+      <End Role="assessment_roof_construction_trn" EntitySet="assessment_roof_construction_trn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_roof_construction_trn_detail_assessment_roof_construction_trn" Association="BuildInspectModel.FK_assessment_roof_construction_trn_detail_assessment_roof_construction_trn">
+      <End Role="assessment_roof_construction_trn" EntitySet="assessment_roof_construction_trn" />
+      <End Role="assessment_roof_construction_trn_detail" EntitySet="assessment_roof_construction_trn_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_roof_construction_trn_detail_assessment_type_module_Process_master" Association="BuildInspectModel.FK_assessment_roof_construction_trn_detail_assessment_type_module_Process_master">
+      <End Role="assessment_type_module_Process_master" EntitySet="assessment_type_module_Process_master" />
+      <End Role="assessment_roof_construction_trn_detail" EntitySet="assessment_roof_construction_trn_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_type_location_master_assessment_type_master" Association="BuildInspectModel.FK_assessment_type_location_master_assessment_type_master">
+      <End Role="assessment_type_master" EntitySet="assessment_type_master" />
+      <End Role="assessment_type_location_master" EntitySet="assessment_type_location_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_type_module_Process_master_assessment_type_location_master" Association="BuildInspectModel.FK_assessment_type_module_Process_master_assessment_type_location_master">
+      <End Role="assessment_type_location_master" EntitySet="assessment_type_location_master" />
+      <End Role="assessment_type_module_Process_master" EntitySet="assessment_type_module_Process_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_type_module_master_assessment_type_master" Association="BuildInspectModel.FK_assessment_type_module_master_assessment_type_master">
+      <End Role="assessment_type_master" EntitySet="assessment_type_master" />
+      <End Role="assessment_type_module_master" EntitySet="assessment_type_module_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_type_module_Process_master_assessment_type_module_master" Association="BuildInspectModel.FK_assessment_type_module_Process_master_assessment_type_module_master">
+      <End Role="assessment_type_module_master" EntitySet="assessment_type_module_master" />
+      <End Role="assessment_type_module_Process_master" EntitySet="assessment_type_module_Process_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_type_module_weightage_assessment_type_module_master" Association="BuildInspectModel.FK_assessment_type_module_weightage_assessment_type_module_master">
+      <End Role="assessment_type_module_master" EntitySet="assessment_type_module_master" />
+      <End Role="assessment_type_module_weightage" EntitySet="assessment_type_module_weightage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_type_module_Process_master" Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_type_module_Process_master">
+      <End Role="assessment_type_module_Process_master" EntitySet="assessment_type_module_Process_master" />
+      <End Role="assessment_wet_area_water_tightness_test_tran_detail" EntitySet="assessment_wet_area_water_tightness_test_tran_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessors_master_company_master" Association="BuildInspectModel.FK_assessors_master_company_master">
+      <End Role="company_master" EntitySet="company_master" />
+      <End Role="assessors_master" EntitySet="assessors_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_subcontractor_master_company_master" Association="BuildInspectModel.FK_qcinspection_subcontractor_master_company_master">
+      <End Role="company_master" EntitySet="company_master" />
+      <End Role="qcinspection_subcontractor_master" EntitySet="qcinspection_subcontractor_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rapid_permission_rapid_module" Association="BuildInspectModel.FK_rapid_permission_rapid_module">
+      <End Role="module" EntitySet="modules" />
+      <End Role="permission" EntitySet="permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rapid_permission_rapid_usergroup" Association="BuildInspectModel.FK_rapid_permission_rapid_usergroup">
+      <End Role="usergroup" EntitySet="usergroups" />
+      <End Role="permission" EntitySet="permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_level_master_qcinspection_block_master" Association="BuildInspectModel.FK_qcinspection_level_master_qcinspection_block_master">
+      <End Role="qcinspection_block_master" EntitySet="qcinspection_block_master" />
+      <End Role="qcinspection_level_master" EntitySet="qcinspection_level_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_unit_master_qcinspection_level_master" Association="BuildInspectModel.FK_qcinspection_unit_master_qcinspection_level_master">
+      <End Role="qcinspection_level_master" EntitySet="qcinspection_level_master" />
+      <End Role="qcinspection_unit_master" EntitySet="qcinspection_unit_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_location_detail_qcinspection_project_rfwi_drawing_reference_files" Association="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_project_rfwi_drawing_reference_files">
+      <End Role="qcinspection_project_rfwi_drawing_reference_files" EntitySet="qcinspection_project_rfwi_drawing_reference_files" />
+      <End Role="qcinspection_rfwi_form_location_detail" EntitySet="qcinspection_rfwi_form_location_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_general_checklist_master" Association="BuildInspectModel.FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_general_checklist_master">
+      <End Role="qcinspection_rfwi_general_checklist_master" EntitySet="qcinspection_rfwi_general_checklist_master" />
+      <End Role="qcinspection_rfwi_form_general_checklist_detail" EntitySet="qcinspection_rfwi_form_general_checklist_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_location_detail_qcinspection_unit_master" Association="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_unit_master">
+      <End Role="qcinspection_unit_master" EntitySet="qcinspection_unit_master" />
+      <End Role="qcinspection_rfwi_form_location_detail" EntitySet="qcinspection_rfwi_form_location_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_trade_detailed_checklist_detail" Association="BuildInspectModel.FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_trade_detailed_checklist_detail">
+      <End Role="qcinspection_rfwi_trade_detailed_checklist_detail" EntitySet="qcinspection_rfwi_trade_detailed_checklist_detail" />
+      <End Role="qcinspection_rfwi_form_trade_detailed_checklist_detail" EntitySet="qcinspection_rfwi_form_trade_detailed_checklist_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_trade_item_detail" Association="BuildInspectModel.FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_trade_item_detail">
+      <End Role="qcinspection_rfwi_trade_item_detail" EntitySet="qcinspection_rfwi_trade_item_detail" />
+      <End Role="qcinspection_rfwi_form_trade_item_detail" EntitySet="qcinspection_rfwi_form_trade_item_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_trade_detailed_checklist_detail_qcinspection_rfwi_trade_master" Association="BuildInspectModel.FK_qcinspection_rfwi_trade_detailed_checklist_detail_qcinspection_rfwi_trade_master">
+      <End Role="qcinspection_rfwi_trade_master" EntitySet="qcinspection_rfwi_trade_master" />
+      <End Role="qcinspection_rfwi_trade_detailed_checklist_detail" EntitySet="qcinspection_rfwi_trade_detailed_checklist_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_trade_item_detail_qcinspection_rfwi_trade_master" Association="BuildInspectModel.FK_qcinspection_rfwi_trade_item_detail_qcinspection_rfwi_trade_master">
+      <End Role="qcinspection_rfwi_trade_master" EntitySet="qcinspection_rfwi_trade_master" />
+      <End Role="qcinspection_rfwi_trade_item_detail" EntitySet="qcinspection_rfwi_trade_item_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_subcontractor_trade_detail_qcinspection_subcontractor_master" Association="BuildInspectModel.FK_qcinspection_subcontractor_trade_detail_qcinspection_subcontractor_master">
+      <End Role="qcinspection_subcontractor_master" EntitySet="qcinspection_subcontractor_master" />
+      <End Role="qcinspection_subcontractor_trade_detail" EntitySet="qcinspection_subcontractor_trade_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_subcontractor_trade_detail_qcinspection_trade_master" Association="BuildInspectModel.FK_qcinspection_subcontractor_trade_detail_qcinspection_trade_master">
+      <End Role="qcinspection_trade_master" EntitySet="qcinspection_trade_master" />
+      <End Role="qcinspection_subcontractor_trade_detail" EntitySet="qcinspection_subcontractor_trade_detail" />
+    </AssociationSet>
+    <EntitySet Name="users" EntityType="BuildInspectModel.user" />
+    <AssociationSet Name="FK_users_company_master" Association="BuildInspectModel.FK_users_company_master">
+      <End Role="company_master" EntitySet="company_master" />
+      <End Role="user" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_PM_detail_users" Association="BuildInspectModel.FK_qcinspection_project_PM_detail_users">
+      <End Role="user" EntitySet="users" />
+      <End Role="qcinspection_project_PM_detail" EntitySet="qcinspection_project_PM_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_Supervisor_detail_users" Association="BuildInspectModel.FK_qcinspection_project_Supervisor_detail_users">
+      <End Role="user" EntitySet="users" />
+      <End Role="qcinspection_project_Supervisor_detail" EntitySet="qcinspection_project_Supervisor_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rapid_users_rapid_usergroup" Association="BuildInspectModel.FK_rapid_users_rapid_usergroup">
+      <End Role="usergroup" EntitySet="usergroups" />
+      <End Role="user" EntitySet="users" />
+    </AssociationSet>
+    <EntitySet Name="assessment_wet_area_water_tightness_test_result_master" EntityType="BuildInspectModel.assessment_wet_area_water_tightness_test_result_master" />
+    <EntitySet Name="assessment_wet_area_water_tightness_test_tran_detail_result" EntityType="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail_result" />
+    <AssociationSet Name="FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_type_module_Process_master" Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_type_module_Process_master">
+      <End Role="assessment_type_module_Process_master" EntitySet="assessment_type_module_Process_master" />
+      <End Role="assessment_wet_area_water_tightness_test_tran_detail_result" EntitySet="assessment_wet_area_water_tightness_test_tran_detail_result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_result_master" Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_result_master">
+      <End Role="assessment_wet_area_water_tightness_test_result_master" EntitySet="assessment_wet_area_water_tightness_test_result_master" />
+      <End Role="assessment_wet_area_water_tightness_test_tran_detail_result" EntitySet="assessment_wet_area_water_tightness_test_tran_detail_result" />
+    </AssociationSet>
+    <EntitySet Name="qcinspection_project_MEInspector_detail" EntityType="BuildInspectModel.qcinspection_project_MEInspector_detail" />
+    <EntitySet Name="qcinspection_project_OtherInspector_detail" EntityType="BuildInspectModel.qcinspection_project_OtherInspector_detail" />
+    <EntitySet Name="qcinspection_project_StructureInspector_detail" EntityType="BuildInspectModel.qcinspection_project_StructureInspector_detail" />
+    <AssociationSet Name="FK_qcinspection_project_MEInspector_detail_users" Association="BuildInspectModel.FK_qcinspection_project_MEInspector_detail_users">
+      <End Role="user" EntitySet="users" />
+      <End Role="qcinspection_project_MEInspector_detail" EntitySet="qcinspection_project_MEInspector_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_OtherInspector_detail_users" Association="BuildInspectModel.FK_qcinspection_project_OtherInspector_detail_users">
+      <End Role="user" EntitySet="users" />
+      <End Role="qcinspection_project_OtherInspector_detail" EntitySet="qcinspection_project_OtherInspector_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_StructureInspector_detail_users" Association="BuildInspectModel.FK_qcinspection_project_StructureInspector_detail_users">
+      <End Role="user" EntitySet="users" />
+      <End Role="qcinspection_project_StructureInspector_detail" EntitySet="qcinspection_project_StructureInspector_detail" />
+    </AssociationSet>
+    <EntitySet Name="qcinspection_rfwi_form" EntityType="BuildInspectModel.qcinspection_rfwi_form" />
+    <AssociationSet Name="FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_form" Association="BuildInspectModel.FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_form">
+      <End Role="qcinspection_rfwi_form" EntitySet="qcinspection_rfwi_form" />
+      <End Role="qcinspection_rfwi_form_general_checklist_detail" EntitySet="qcinspection_rfwi_form_general_checklist_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_location_detail_qcinspection_rfwi_form" Association="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_rfwi_form">
+      <End Role="qcinspection_rfwi_form" EntitySet="qcinspection_rfwi_form" />
+      <End Role="qcinspection_rfwi_form_location_detail" EntitySet="qcinspection_rfwi_form_location_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_qcinspection_rfwi_trade_master" Association="BuildInspectModel.FK_qcinspection_rfwi_form_qcinspection_rfwi_trade_master">
+      <End Role="qcinspection_rfwi_trade_master" EntitySet="qcinspection_rfwi_trade_master" />
+      <End Role="qcinspection_rfwi_form" EntitySet="qcinspection_rfwi_form" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_form" Association="BuildInspectModel.FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_form">
+      <End Role="qcinspection_rfwi_form" EntitySet="qcinspection_rfwi_form" />
+      <End Role="qcinspection_rfwi_form_trade_detailed_checklist_detail" EntitySet="qcinspection_rfwi_form_trade_detailed_checklist_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_form" Association="BuildInspectModel.FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_form">
+      <End Role="qcinspection_rfwi_form" EntitySet="qcinspection_rfwi_form" />
+      <End Role="qcinspection_rfwi_form_trade_item_detail" EntitySet="qcinspection_rfwi_form_trade_item_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_users" Association="BuildInspectModel.FK_qcinspection_rfwi_form_users">
+      <End Role="user" EntitySet="users" />
+      <End Role="qcinspection_rfwi_form" EntitySet="qcinspection_rfwi_form" />
+    </AssociationSet>
+    <EntitySet Name="qcinspection_project_master" EntityType="BuildInspectModel.qcinspection_project_master" />
+    <AssociationSet Name="FK_qcinspection_project_master_company_master" Association="BuildInspectModel.FK_qcinspection_project_master_company_master">
+      <End Role="company_master" EntitySet="company_master" />
+      <End Role="qcinspection_project_master" EntitySet="qcinspection_project_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_block_master_qcinspection_project_master" Association="BuildInspectModel.FK_qcinspection_block_master_qcinspection_project_master">
+      <End Role="qcinspection_project_master" EntitySet="qcinspection_project_master" />
+      <End Role="qcinspection_block_master" EntitySet="qcinspection_block_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_files_qcinspection_project_master" Association="BuildInspectModel.FK_qcinspection_project_files_qcinspection_project_master">
+      <End Role="qcinspection_project_master" EntitySet="qcinspection_project_master" />
+      <End Role="qcinspection_project_files" EntitySet="qcinspection_project_files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_MEInspector_detail_qcinspection_project_master" Association="BuildInspectModel.FK_qcinspection_project_MEInspector_detail_qcinspection_project_master">
+      <End Role="qcinspection_project_master" EntitySet="qcinspection_project_master" />
+      <End Role="qcinspection_project_MEInspector_detail" EntitySet="qcinspection_project_MEInspector_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_OtherInspector_detail_qcinspection_project_master" Association="BuildInspectModel.FK_qcinspection_project_OtherInspector_detail_qcinspection_project_master">
+      <End Role="qcinspection_project_master" EntitySet="qcinspection_project_master" />
+      <End Role="qcinspection_project_OtherInspector_detail" EntitySet="qcinspection_project_OtherInspector_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_PM_detail_qcinspection_project_master" Association="BuildInspectModel.FK_qcinspection_project_PM_detail_qcinspection_project_master">
+      <End Role="qcinspection_project_master" EntitySet="qcinspection_project_master" />
+      <End Role="qcinspection_project_PM_detail" EntitySet="qcinspection_project_PM_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_rfwi_drawing_reference_files_qcinspection_project_master" Association="BuildInspectModel.FK_qcinspection_project_rfwi_drawing_reference_files_qcinspection_project_master">
+      <End Role="qcinspection_project_master" EntitySet="qcinspection_project_master" />
+      <End Role="qcinspection_project_rfwi_drawing_reference_files" EntitySet="qcinspection_project_rfwi_drawing_reference_files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_StructureInspector_detail_qcinspection_project_master" Association="BuildInspectModel.FK_qcinspection_project_StructureInspector_detail_qcinspection_project_master">
+      <End Role="qcinspection_project_master" EntitySet="qcinspection_project_master" />
+      <End Role="qcinspection_project_StructureInspector_detail" EntitySet="qcinspection_project_StructureInspector_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_project_Supervisor_detail_qcinspection_project_master" Association="BuildInspectModel.FK_qcinspection_project_Supervisor_detail_qcinspection_project_master">
+      <End Role="qcinspection_project_master" EntitySet="qcinspection_project_master" />
+      <End Role="qcinspection_project_Supervisor_detail" EntitySet="qcinspection_project_Supervisor_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_rfwi_form_qcinspection_project_master" Association="BuildInspectModel.FK_qcinspection_rfwi_form_qcinspection_project_master">
+      <End Role="qcinspection_project_master" EntitySet="qcinspection_project_master" />
+      <End Role="qcinspection_rfwi_form" EntitySet="qcinspection_rfwi_form" />
+    </AssociationSet>
+    <EntitySet Name="qcinspection_defect_form" EntityType="BuildInspectModel.qcinspection_defect_form" />
+    <AssociationSet Name="FK_qcinspection_defect_files_qcinspection_defect_form" Association="BuildInspectModel.FK_qcinspection_defect_files_qcinspection_defect_form">
+      <End Role="qcinspection_defect_form" EntitySet="qcinspection_defect_form" />
+      <End Role="qcinspection_defect_files" EntitySet="qcinspection_defect_files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_defect_form_qcinspection_defect_type_master" Association="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_defect_type_master">
+      <End Role="qcinspection_defect_type_master" EntitySet="qcinspection_defect_type_master" />
+      <End Role="qcinspection_defect_form" EntitySet="qcinspection_defect_form" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_defect_form_qcinspection_subcontractor_master" Association="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_subcontractor_master">
+      <End Role="qcinspection_subcontractor_master" EntitySet="qcinspection_subcontractor_master" />
+      <End Role="qcinspection_defect_form" EntitySet="qcinspection_defect_form" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_defect_form_qcinspection_trade_master" Association="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_trade_master">
+      <End Role="qcinspection_trade_master" EntitySet="qcinspection_trade_master" />
+      <End Role="qcinspection_defect_form" EntitySet="qcinspection_defect_form" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_defect_form_qcinspection_unit_master" Association="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_unit_master">
+      <End Role="qcinspection_unit_master" EntitySet="qcinspection_unit_master" />
+      <End Role="qcinspection_defect_form" EntitySet="qcinspection_defect_form" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qcinspection_defect_form_users" Association="BuildInspectModel.FK_qcinspection_defect_form_users">
+      <End Role="user" EntitySet="users" />
+      <End Role="qcinspection_defect_form" EntitySet="qcinspection_defect_form" />
+    </AssociationSet>
+    <EntitySet Name="assessment_wet_area_water_tightness_test_tran" EntityType="BuildInspectModel.assessment_wet_area_water_tightness_test_tran" />
+    <AssociationSet Name="FK_assessment_wet_area_water_tightness_test_tran_assessment_project_master" Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_assessment_project_master">
+      <End Role="assessment_project_master" EntitySet="assessment_project_master" />
+      <End Role="assessment_wet_area_water_tightness_test_tran" EntitySet="assessment_wet_area_water_tightness_test_tran" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_wet_area_water_tightness_test_tran" Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_wet_area_water_tightness_test_tran">
+      <End Role="assessment_wet_area_water_tightness_test_tran" EntitySet="assessment_wet_area_water_tightness_test_tran" />
+      <End Role="assessment_wet_area_water_tightness_test_tran_detail" EntitySet="assessment_wet_area_water_tightness_test_tran_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_tran" Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_tran">
+      <End Role="assessment_wet_area_water_tightness_test_tran" EntitySet="assessment_wet_area_water_tightness_test_tran" />
+      <End Role="assessment_wet_area_water_tightness_test_tran_detail_result" EntitySet="assessment_wet_area_water_tightness_test_tran_detail_result" />
+    </AssociationSet>
+    <EntitySet Name="assessment_field_window_water_tightness_test" EntityType="BuildInspectModel.assessment_field_window_water_tightness_test" />
+    <AssociationSet Name="FK_assessment_field_window_water_tightness_test_assessment_direction_master" Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_direction_master">
+      <End Role="assessment_direction_master" EntitySet="assessment_direction_master" />
+      <End Role="assessment_field_window_water_tightness_test" EntitySet="assessment_field_window_water_tightness_test" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_field_window_water_tightness_test_assessment_joint_master" Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_joint_master">
+      <End Role="assessment_joint_master" EntitySet="assessment_joint_master" />
+      <End Role="assessment_field_window_water_tightness_test" EntitySet="assessment_field_window_water_tightness_test" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_field_window_water_tightness_test_assessment_leak_master" Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_leak_master">
+      <End Role="assessment_leak_master" EntitySet="assessment_leak_master" />
+      <End Role="assessment_field_window_water_tightness_test" EntitySet="assessment_field_window_water_tightness_test" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_field_window_water_tightness_test_assessment_project_master" Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_project_master">
+      <End Role="assessment_project_master" EntitySet="assessment_project_master" />
+      <End Role="assessment_field_window_water_tightness_test" EntitySet="assessment_field_window_water_tightness_test" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_field_window_water_tightness_test_assessment_wall_master" Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_wall_master">
+      <End Role="assessment_wall_master" EntitySet="assessment_wall_master" />
+      <End Role="assessment_field_window_water_tightness_test" EntitySet="assessment_field_window_water_tightness_test" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assessment_field_window_water_tightness_test_assessment_window_master" Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_window_master">
+      <End Role="assessment_window_master" EntitySet="assessment_window_master" />
+      <End Role="assessment_field_window_water_tightness_test" EntitySet="assessment_field_window_water_tightness_test" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AppUser">
+    <Key>
+      <PropertyRef Name="SmartFMUserID" />
+    </Key>
+    <Property Name="SmartFMUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AppGroupID" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="AppClientID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AppUserAssetMapping">
+    <Key>
+      <PropertyRef Name="AUAMID" />
+    </Key>
+    <Property Name="AUAMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppUserID" Type="Int32" />
+    <Property Name="AAMID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AppUserGroup">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="assessment_development_type_master">
+    <Key>
+      <PropertyRef Name="DevelopmentTypeID" />
+    </Key>
+    <Property Name="DevelopmentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DevelopmentTypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ArchitecturalWorksWeightage" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MEWorksWeightage" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BuildQASScore" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MinimumCompliancePercentageThreshold" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="assessment_project_master" Relationship="BuildInspectModel.FK_assessment_project_assessment_development_type_master" FromRole="assessment_development_type_master" ToRole="assessment_project_master" />
+    <NavigationProperty Name="assessment_type_module_weightage" Relationship="BuildInspectModel.FK_assessment_type_module_weightage_assessment_development_type_master" FromRole="assessment_development_type_master" ToRole="assessment_type_module_weightage" />
+  </EntityType>
+  <EntityType Name="assessment_direction_master">
+    <Key>
+      <PropertyRef Name="AssessmentDirectionID" />
+    </Key>
+    <Property Name="AssessmentDirectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentDirectionName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="assessment_field_window_water_tightness_test" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_direction_master" FromRole="assessment_direction_master" ToRole="assessment_field_window_water_tightness_test" />
+  </EntityType>
+  <EntityType Name="assessment_external_wall_trn">
+    <Key>
+      <PropertyRef Name="AssessmentEWID" />
+    </Key>
+    <Property Name="AssessmentEWID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="AssessmentDate" Type="DateTime" Precision="0" />
+    <Property Name="Block_Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="Drawing_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileAssessmentEWID" Type="Int32" Nullable="false" />
+    <Property Name="BatchID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_project_master" Relationship="BuildInspectModel.FK_assessment_external_wall_trn_assessment_project_master" FromRole="assessment_external_wall_trn" ToRole="assessment_project_master" />
+    <NavigationProperty Name="assessment_type_location_master" Relationship="BuildInspectModel.FK_assessment_external_wall_trn_assessment_type_location_master" FromRole="assessment_external_wall_trn" ToRole="assessment_type_location_master" />
+    <NavigationProperty Name="assessment_external_wall_trn_detail" Relationship="BuildInspectModel.FK_assessment_external_wall_trn_detail_assessment_external_wall_trn_detail" FromRole="assessment_external_wall_trn" ToRole="assessment_external_wall_trn_detail" />
+  </EntityType>
+  <EntityType Name="assessment_external_wall_trn_detail">
+    <Key>
+      <PropertyRef Name="AssessmentEWDetailID" />
+    </Key>
+    <Property Name="AssessmentEWDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentEWID" Type="Int32" />
+    <Property Name="AssessmentTypeModuleProcessID" Type="Int32" />
+    <Property Name="Result" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="RowNo" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_external_wall_trn" Relationship="BuildInspectModel.FK_assessment_external_wall_trn_detail_assessment_external_wall_trn_detail" FromRole="assessment_external_wall_trn_detail" ToRole="assessment_external_wall_trn" />
+    <NavigationProperty Name="assessment_type_module_Process_master" Relationship="BuildInspectModel.FK_assessment_external_wall_trn_detail_assessment_type_module_Process_master" FromRole="assessment_external_wall_trn_detail" ToRole="assessment_type_module_Process_master" />
+  </EntityType>
+  <EntityType Name="assessment_external_works_trn">
+    <Key>
+      <PropertyRef Name="AssessmentEWKID" />
+    </Key>
+    <Property Name="AssessmentEWKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="AssessmentDate" Type="DateTime" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="Drawing_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileAssessmentEWKID" Type="Int32" Nullable="false" />
+    <Property Name="BatchID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_project_master" Relationship="BuildInspectModel.FK_assessment_external_works_trn_assessment_project_master" FromRole="assessment_external_works_trn" ToRole="assessment_project_master" />
+    <NavigationProperty Name="assessment_type_location_master" Relationship="BuildInspectModel.FK_assessment_external_works_trn_assessment_type_location_master" FromRole="assessment_external_works_trn" ToRole="assessment_type_location_master" />
+    <NavigationProperty Name="assessment_external_works_trn_detail" Relationship="BuildInspectModel.FK_assessment_external_works_trn_detail_assessment_external_works_trn" FromRole="assessment_external_works_trn" ToRole="assessment_external_works_trn_detail" />
+  </EntityType>
+  <EntityType Name="assessment_external_works_trn_detail">
+    <Key>
+      <PropertyRef Name="AssessmentEWKDetailID" />
+    </Key>
+    <Property Name="AssessmentEWKDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentEWKID" Type="Int32" />
+    <Property Name="AssessmentTypeModuleProcessID" Type="Int32" />
+    <Property Name="Result" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="RowNo" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_external_works_trn" Relationship="BuildInspectModel.FK_assessment_external_works_trn_detail_assessment_external_works_trn" FromRole="assessment_external_works_trn_detail" ToRole="assessment_external_works_trn" />
+    <NavigationProperty Name="assessment_type_module_Process_master" Relationship="BuildInspectModel.FK_assessment_external_works_trn_detail_assessment_type_module_Process_master" FromRole="assessment_external_works_trn_detail" ToRole="assessment_type_module_Process_master" />
+  </EntityType>
+  <EntityType Name="assessment_internal_finishes_trn">
+    <Key>
+      <PropertyRef Name="AssessmentIFID" />
+    </Key>
+    <Property Name="AssessmentIFID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="AssessmentDate" Type="DateTime" Precision="0" />
+    <Property Name="Block_Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="MobileAssessmentIFID" Type="Int32" Nullable="false" />
+    <Property Name="BatchID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_project_master" Relationship="BuildInspectModel.FK_assessment_internal_finishes_trn_assessment_project_master" FromRole="assessment_internal_finishes_trn" ToRole="assessment_project_master" />
+    <NavigationProperty Name="assessment_type_location_master" Relationship="BuildInspectModel.FK_assessment_internal_finishes_trn_assessment_type_location_master" FromRole="assessment_internal_finishes_trn" ToRole="assessment_type_location_master" />
+    <NavigationProperty Name="assessment_internal_finishes_trn_detail" Relationship="BuildInspectModel.FK_assessment_internal_finishes_trn_detail_assessment_internal_finishes_trn" FromRole="assessment_internal_finishes_trn" ToRole="assessment_internal_finishes_trn_detail" />
+  </EntityType>
+  <EntityType Name="assessment_internal_finishes_trn_detail">
+    <Key>
+      <PropertyRef Name="AssessmentIFDetailID" />
+    </Key>
+    <Property Name="AssessmentIFDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentIFID" Type="Int32" />
+    <Property Name="AssessmentTypeModuleProcessID" Type="Int32" />
+    <Property Name="Result" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="RowNo" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_internal_finishes_trn" Relationship="BuildInspectModel.FK_assessment_internal_finishes_trn_detail_assessment_internal_finishes_trn" FromRole="assessment_internal_finishes_trn_detail" ToRole="assessment_internal_finishes_trn" />
+    <NavigationProperty Name="assessment_type_module_Process_master" Relationship="BuildInspectModel.FK_assessment_internal_finishes_trn_detail_assessment_type_module_Process_master" FromRole="assessment_internal_finishes_trn_detail" ToRole="assessment_type_module_Process_master" />
+  </EntityType>
+  <EntityType Name="assessment_joint_master">
+    <Key>
+      <PropertyRef Name="AssessmentJointID" />
+    </Key>
+    <Property Name="AssessmentJointID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentJointName" Type="String" MaxLength="299" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_field_window_water_tightness_test" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_joint_master" FromRole="assessment_joint_master" ToRole="assessment_field_window_water_tightness_test" />
+  </EntityType>
+  <EntityType Name="assessment_leak_master">
+    <Key>
+      <PropertyRef Name="AssessmentLeakID" />
+    </Key>
+    <Property Name="AssessmentLeakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentLeakName" Type="String" MaxLength="299" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_field_window_water_tightness_test" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_leak_master" FromRole="assessment_leak_master" ToRole="assessment_field_window_water_tightness_test" />
+  </EntityType>
+  <EntityType Name="assessment_project_assessors_detail">
+    <Key>
+      <PropertyRef Name="ProjectAssessorsDetailID" />
+    </Key>
+    <Property Name="ProjectAssessorsDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="AssessorsID" Type="Int32" />
+    <Property Name="RowNo" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_project_master" Relationship="BuildInspectModel.FK_assessment_project_assessors_detail_assessment_project_master" FromRole="assessment_project_assessors_detail" ToRole="assessment_project_master" />
+    <NavigationProperty Name="assessors_master" Relationship="BuildInspectModel.FK_assessment_project_assessors_detail_assessors_master" FromRole="assessment_project_assessors_detail" ToRole="assessors_master" />
+  </EntityType>
+  <EntityType Name="assessment_project_master">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="Project_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Project_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Project_DocNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Developer_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Contractor_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Assessment_StartOn" Type="DateTime" Precision="0" />
+    <Property Name="Assessment_EndOn" Type="DateTime" Precision="0" />
+    <Property Name="Assessment_Dates" Type="String" MaxLength="22" FixedLength="false" Unicode="true" />
+    <Property Name="DevelopmentTypeID" Type="Int32" />
+    <Property Name="ArchitecturalWorksWeightage" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MEWorksWeightage" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BuildQASScore" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MinimumCompliancePercentageThreshold" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Is_ExternalWallApplicable" Type="Int32" />
+    <Property Name="Is_ExternalWorksApplicable" Type="Int32" />
+    <Property Name="Is_RoofApplicable" Type="Int32" />
+    <Property Name="Is_FieldWindowWTTApplicable" Type="Int32" />
+    <Property Name="Is_WetAreaWTTApplicable" Type="Int32" />
+    <Property Name="FieldWindowWTT_Contractor_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FieldWindowWTT_Witness_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WetAreaWTT_Contractor_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WetAreaWTT_Witness_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Completed" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_development_type_master" Relationship="BuildInspectModel.FK_assessment_project_assessment_development_type_master" FromRole="assessment_project_master" ToRole="assessment_development_type_master" />
+    <NavigationProperty Name="assessment_external_wall_trn" Relationship="BuildInspectModel.FK_assessment_external_wall_trn_assessment_project_master" FromRole="assessment_project_master" ToRole="assessment_external_wall_trn" />
+    <NavigationProperty Name="assessment_external_works_trn" Relationship="BuildInspectModel.FK_assessment_external_works_trn_assessment_project_master" FromRole="assessment_project_master" ToRole="assessment_external_works_trn" />
+    <NavigationProperty Name="assessment_internal_finishes_trn" Relationship="BuildInspectModel.FK_assessment_internal_finishes_trn_assessment_project_master" FromRole="assessment_project_master" ToRole="assessment_internal_finishes_trn" />
+    <NavigationProperty Name="assessment_project_assessors_detail" Relationship="BuildInspectModel.FK_assessment_project_assessors_detail_assessment_project_master" FromRole="assessment_project_master" ToRole="assessment_project_assessors_detail" />
+    <NavigationProperty Name="company_master" Relationship="BuildInspectModel.FK_assessment_project_master_company_master" FromRole="assessment_project_master" ToRole="company_master" />
+    <NavigationProperty Name="assessment_project_weightage_detail" Relationship="BuildInspectModel.FK_assessment_project_weightage_detail_assessment_project_master" FromRole="assessment_project_master" ToRole="assessment_project_weightage_detail" />
+    <NavigationProperty Name="assessment_roof_construction_trn" Relationship="BuildInspectModel.FK_assessment_roof_construction_trn_assessment_project_master" FromRole="assessment_project_master" ToRole="assessment_roof_construction_trn" />
+    <NavigationProperty Name="assessment_wet_area_water_tightness_test_tran" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_assessment_project_master" FromRole="assessment_project_master" ToRole="assessment_wet_area_water_tightness_test_tran" />
+    <NavigationProperty Name="assessment_field_window_water_tightness_test" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_project_master" FromRole="assessment_project_master" ToRole="assessment_field_window_water_tightness_test" />
+  </EntityType>
+  <EntityType Name="assessment_project_weightage_detail">
+    <Key>
+      <PropertyRef Name="ProjectWeightageDetailID" />
+    </Key>
+    <Property Name="ProjectWeightageDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="AssessmentTypeModuleID" Type="Int32" />
+    <Property Name="Weightage" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="RowNo" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_project_master" Relationship="BuildInspectModel.FK_assessment_project_weightage_detail_assessment_project_master" FromRole="assessment_project_weightage_detail" ToRole="assessment_project_master" />
+    <NavigationProperty Name="assessment_type_module_master" Relationship="BuildInspectModel.FK_assessment_project_weightage_detail_assessment_type_module_master" FromRole="assessment_project_weightage_detail" ToRole="assessment_type_module_master" />
+  </EntityType>
+  <EntityType Name="assessment_roof_construction_trn">
+    <Key>
+      <PropertyRef Name="AssessmentRFCID" />
+    </Key>
+    <Property Name="AssessmentRFCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="AssessmentDate" Type="DateTime" Precision="0" />
+    <Property Name="Block_Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="Drawing_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileAssessmentRFCID" Type="Int32" Nullable="false" />
+    <Property Name="BatchID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_project_master" Relationship="BuildInspectModel.FK_assessment_roof_construction_trn_assessment_project_master" FromRole="assessment_roof_construction_trn" ToRole="assessment_project_master" />
+    <NavigationProperty Name="assessment_type_location_master" Relationship="BuildInspectModel.FK_assessment_roof_construction_trn_assessment_type_location_master" FromRole="assessment_roof_construction_trn" ToRole="assessment_type_location_master" />
+    <NavigationProperty Name="assessment_roof_construction_trn_detail" Relationship="BuildInspectModel.FK_assessment_roof_construction_trn_detail_assessment_roof_construction_trn" FromRole="assessment_roof_construction_trn" ToRole="assessment_roof_construction_trn_detail" />
+  </EntityType>
+  <EntityType Name="assessment_roof_construction_trn_detail">
+    <Key>
+      <PropertyRef Name="AssessmentRFCDetailID" />
+    </Key>
+    <Property Name="AssessmentRFCDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentRFCID" Type="Int32" />
+    <Property Name="AssessmentTypeModuleProcessID" Type="Int32" />
+    <Property Name="Result" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="RowNo" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_roof_construction_trn" Relationship="BuildInspectModel.FK_assessment_roof_construction_trn_detail_assessment_roof_construction_trn" FromRole="assessment_roof_construction_trn_detail" ToRole="assessment_roof_construction_trn" />
+    <NavigationProperty Name="assessment_type_module_Process_master" Relationship="BuildInspectModel.FK_assessment_roof_construction_trn_detail_assessment_type_module_Process_master" FromRole="assessment_roof_construction_trn_detail" ToRole="assessment_type_module_Process_master" />
+  </EntityType>
+  <EntityType Name="assessment_type_location_master">
+    <Key>
+      <PropertyRef Name="AssessmentTypeLocationID" />
+    </Key>
+    <Property Name="AssessmentTypeLocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentTypeID" Type="Int32" />
+    <Property Name="AssessmentTypeLocationName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AssessmentTypeLocationShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="AssessmentTypeLocationType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_external_wall_trn" Relationship="BuildInspectModel.FK_assessment_external_wall_trn_assessment_type_location_master" FromRole="assessment_type_location_master" ToRole="assessment_external_wall_trn" />
+    <NavigationProperty Name="assessment_external_works_trn" Relationship="BuildInspectModel.FK_assessment_external_works_trn_assessment_type_location_master" FromRole="assessment_type_location_master" ToRole="assessment_external_works_trn" />
+    <NavigationProperty Name="assessment_internal_finishes_trn" Relationship="BuildInspectModel.FK_assessment_internal_finishes_trn_assessment_type_location_master" FromRole="assessment_type_location_master" ToRole="assessment_internal_finishes_trn" />
+    <NavigationProperty Name="assessment_roof_construction_trn" Relationship="BuildInspectModel.FK_assessment_roof_construction_trn_assessment_type_location_master" FromRole="assessment_type_location_master" ToRole="assessment_roof_construction_trn" />
+    <NavigationProperty Name="assessment_type_master" Relationship="BuildInspectModel.FK_assessment_type_location_master_assessment_type_master" FromRole="assessment_type_location_master" ToRole="assessment_type_master" />
+    <NavigationProperty Name="assessment_type_module_Process_master" Relationship="BuildInspectModel.FK_assessment_type_module_Process_master_assessment_type_location_master" FromRole="assessment_type_location_master" ToRole="assessment_type_module_Process_master" />
+  </EntityType>
+  <EntityType Name="assessment_type_master">
+    <Key>
+      <PropertyRef Name="AssessmentTypeID" />
+    </Key>
+    <Property Name="AssessmentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentTypeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="assessment_type_location_master" Relationship="BuildInspectModel.FK_assessment_type_location_master_assessment_type_master" FromRole="assessment_type_master" ToRole="assessment_type_location_master" />
+    <NavigationProperty Name="assessment_type_module_master" Relationship="BuildInspectModel.FK_assessment_type_module_master_assessment_type_master" FromRole="assessment_type_master" ToRole="assessment_type_module_master" />
+  </EntityType>
+  <EntityType Name="assessment_type_module_master">
+    <Key>
+      <PropertyRef Name="AssessmentTypeModuleID" />
+    </Key>
+    <Property Name="AssessmentTypeModuleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentTypeID" Type="Int32" />
+    <Property Name="AssessmentTypeModuleName" Type="String" MaxLength="299" FixedLength="false" Unicode="true" />
+    <Property Name="AssessmentTypeModuleShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" />
+    <Property Name="NoOfRow" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_project_weightage_detail" Relationship="BuildInspectModel.FK_assessment_project_weightage_detail_assessment_type_module_master" FromRole="assessment_type_module_master" ToRole="assessment_project_weightage_detail" />
+    <NavigationProperty Name="assessment_type_master" Relationship="BuildInspectModel.FK_assessment_type_module_master_assessment_type_master" FromRole="assessment_type_module_master" ToRole="assessment_type_master" />
+    <NavigationProperty Name="assessment_type_module_Process_master" Relationship="BuildInspectModel.FK_assessment_type_module_Process_master_assessment_type_module_master" FromRole="assessment_type_module_master" ToRole="assessment_type_module_Process_master" />
+    <NavigationProperty Name="assessment_type_module_weightage" Relationship="BuildInspectModel.FK_assessment_type_module_weightage_assessment_type_module_master" FromRole="assessment_type_module_master" ToRole="assessment_type_module_weightage" />
+  </EntityType>
+  <EntityType Name="assessment_type_module_Process_master">
+    <Key>
+      <PropertyRef Name="AssessmentTypeModuleProcessID" />
+    </Key>
+    <Property Name="AssessmentTypeModuleProcessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentTypeModuleID" Type="Int32" />
+    <Property Name="AssessmentTypeLocationID" Type="Int32" />
+    <Property Name="AssessmentTypeModuleProcessName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_external_wall_trn_detail" Relationship="BuildInspectModel.FK_assessment_external_wall_trn_detail_assessment_type_module_Process_master" FromRole="assessment_type_module_Process_master" ToRole="assessment_external_wall_trn_detail" />
+    <NavigationProperty Name="assessment_external_works_trn_detail" Relationship="BuildInspectModel.FK_assessment_external_works_trn_detail_assessment_type_module_Process_master" FromRole="assessment_type_module_Process_master" ToRole="assessment_external_works_trn_detail" />
+    <NavigationProperty Name="assessment_internal_finishes_trn_detail" Relationship="BuildInspectModel.FK_assessment_internal_finishes_trn_detail_assessment_type_module_Process_master" FromRole="assessment_type_module_Process_master" ToRole="assessment_internal_finishes_trn_detail" />
+    <NavigationProperty Name="assessment_roof_construction_trn_detail" Relationship="BuildInspectModel.FK_assessment_roof_construction_trn_detail_assessment_type_module_Process_master" FromRole="assessment_type_module_Process_master" ToRole="assessment_roof_construction_trn_detail" />
+    <NavigationProperty Name="assessment_type_location_master" Relationship="BuildInspectModel.FK_assessment_type_module_Process_master_assessment_type_location_master" FromRole="assessment_type_module_Process_master" ToRole="assessment_type_location_master" />
+    <NavigationProperty Name="assessment_type_module_master" Relationship="BuildInspectModel.FK_assessment_type_module_Process_master_assessment_type_module_master" FromRole="assessment_type_module_Process_master" ToRole="assessment_type_module_master" />
+    <NavigationProperty Name="assessment_wet_area_water_tightness_test_tran_detail" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_type_module_Process_master" FromRole="assessment_type_module_Process_master" ToRole="assessment_wet_area_water_tightness_test_tran_detail" />
+    <NavigationProperty Name="assessment_wet_area_water_tightness_test_tran_detail_result" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_type_module_Process_master" FromRole="assessment_type_module_Process_master" ToRole="assessment_wet_area_water_tightness_test_tran_detail_result" />
+  </EntityType>
+  <EntityType Name="assessment_type_module_weightage">
+    <Key>
+      <PropertyRef Name="AssessmentTypeModuleWeightageID" />
+    </Key>
+    <Property Name="AssessmentTypeModuleWeightageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DevelopmentTypeID" Type="Int32" />
+    <Property Name="AssessmentTypeModuleID" Type="Int32" />
+    <Property Name="Weightage" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_development_type_master" Relationship="BuildInspectModel.FK_assessment_type_module_weightage_assessment_development_type_master" FromRole="assessment_type_module_weightage" ToRole="assessment_development_type_master" />
+    <NavigationProperty Name="assessment_type_module_master" Relationship="BuildInspectModel.FK_assessment_type_module_weightage_assessment_type_module_master" FromRole="assessment_type_module_weightage" ToRole="assessment_type_module_master" />
+  </EntityType>
+  <EntityType Name="assessment_wall_master">
+    <Key>
+      <PropertyRef Name="AssessmentWallID" />
+    </Key>
+    <Property Name="AssessmentWallID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentWallName" Type="String" MaxLength="299" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_field_window_water_tightness_test" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_wall_master" FromRole="assessment_wall_master" ToRole="assessment_field_window_water_tightness_test" />
+  </EntityType>
+  <EntityType Name="assessment_wet_area_water_tightness_test_tran_detail">
+    <Key>
+      <PropertyRef Name="AssessmentWAWTTDetailID" />
+    </Key>
+    <Property Name="AssessmentWAWTTDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentWAWTTID" Type="Int32" />
+    <Property Name="AssessmentTypeModuleProcessID" Type="Int32" />
+    <Property Name="Result" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="RowNo" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_type_module_Process_master" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_type_module_Process_master" FromRole="assessment_wet_area_water_tightness_test_tran_detail" ToRole="assessment_type_module_Process_master" />
+    <NavigationProperty Name="assessment_wet_area_water_tightness_test_tran" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_wet_area_water_tightness_test_tran" FromRole="assessment_wet_area_water_tightness_test_tran_detail" ToRole="assessment_wet_area_water_tightness_test_tran" />
+  </EntityType>
+  <EntityType Name="assessment_window_master">
+    <Key>
+      <PropertyRef Name="AssessmentWindowID" />
+    </Key>
+    <Property Name="AssessmentWindowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentWindowName" Type="String" MaxLength="299" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_field_window_water_tightness_test" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_window_master" FromRole="assessment_window_master" ToRole="assessment_field_window_water_tightness_test" />
+  </EntityType>
+  <EntityType Name="assessors_master">
+    <Key>
+      <PropertyRef Name="AssessorsID" />
+    </Key>
+    <Property Name="AssessorsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="AssessorsName" Type="String" MaxLength="299" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_project_assessors_detail" Relationship="BuildInspectModel.FK_assessment_project_assessors_detail_assessors_master" FromRole="assessors_master" ToRole="assessment_project_assessors_detail" />
+    <NavigationProperty Name="company_master" Relationship="BuildInspectModel.FK_assessors_master_company_master" FromRole="assessors_master" ToRole="company_master" />
+  </EntityType>
+  <EntityType Name="company_master">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Pincode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Mob" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="RegNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GstRegNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LogoPath" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GST" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="ShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="assessment_project_master" Relationship="BuildInspectModel.FK_assessment_project_master_company_master" FromRole="company_master" ToRole="assessment_project_master" />
+    <NavigationProperty Name="assessors_master" Relationship="BuildInspectModel.FK_assessors_master_company_master" FromRole="company_master" ToRole="assessors_master" />
+    <NavigationProperty Name="qcinspection_subcontractor_master" Relationship="BuildInspectModel.FK_qcinspection_subcontractor_master_company_master" FromRole="company_master" ToRole="qcinspection_subcontractor_master" />
+    <NavigationProperty Name="users" Relationship="BuildInspectModel.FK_users_company_master" FromRole="company_master" ToRole="user" />
+    <NavigationProperty Name="qcinspection_project_master" Relationship="BuildInspectModel.FK_qcinspection_project_master_company_master" FromRole="company_master" ToRole="qcinspection_project_master" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoPath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationID" Type="Int32" />
+    <Property Name="ScheduleID" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DoJ" Type="DateTime" Precision="0" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DoR" Type="DateTime" Precision="0" />
+    <Property Name="IsActive" Type="Int32" />
+  </EntityType>
+  <EntityType Name="module">
+    <Key>
+      <PropertyRef Name="ModuleID" />
+    </Key>
+    <Property Name="ModuleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccessType" Type="Int32" Nullable="false" />
+    <Property Name="ModuleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Order_By" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="permissions" Relationship="BuildInspectModel.FK_rapid_permission_rapid_module" FromRole="module" ToRole="permission" />
+  </EntityType>
+  <EntityType Name="permission">
+    <Key>
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="PermissionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="ModuleID" Type="Int32" />
+    <Property Name="Access" Type="Int32" />
+    <NavigationProperty Name="module" Relationship="BuildInspectModel.FK_rapid_permission_rapid_module" FromRole="permission" ToRole="module" />
+    <NavigationProperty Name="usergroup" Relationship="BuildInspectModel.FK_rapid_permission_rapid_usergroup" FromRole="permission" ToRole="usergroup" />
+  </EntityType>
+  <EntityType Name="qcinspection_block_master">
+    <Key>
+      <PropertyRef Name="BlockID" />
+    </Key>
+    <Property Name="BlockID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="BlockName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_level_master" Relationship="BuildInspectModel.FK_qcinspection_level_master_qcinspection_block_master" FromRole="qcinspection_block_master" ToRole="qcinspection_level_master" />
+    <NavigationProperty Name="qcinspection_project_master" Relationship="BuildInspectModel.FK_qcinspection_block_master_qcinspection_project_master" FromRole="qcinspection_block_master" ToRole="qcinspection_project_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_defect_files">
+    <Key>
+      <PropertyRef Name="QCInspectionDefectFileID" />
+    </Key>
+    <Property Name="QCInspectionDefectFileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QCInspectionDefectID" Type="Int32" Nullable="false" />
+    <Property Name="FileFor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FileCaption" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="FilePath" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_defect_form" Relationship="BuildInspectModel.FK_qcinspection_defect_files_qcinspection_defect_form" FromRole="qcinspection_defect_files" ToRole="qcinspection_defect_form" />
+  </EntityType>
+  <EntityType Name="qcinspection_defect_type_master">
+    <Key>
+      <PropertyRef Name="DefectTypeID" />
+    </Key>
+    <Property Name="DefectTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DefectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="OrderBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_defect_form" Relationship="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_defect_type_master" FromRole="qcinspection_defect_type_master" ToRole="qcinspection_defect_form" />
+  </EntityType>
+  <EntityType Name="qcinspection_level_master">
+    <Key>
+      <PropertyRef Name="LevelID" />
+    </Key>
+    <Property Name="LevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BlockID" Type="Int32" Nullable="false" />
+    <Property Name="LevelName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_block_master" Relationship="BuildInspectModel.FK_qcinspection_level_master_qcinspection_block_master" FromRole="qcinspection_level_master" ToRole="qcinspection_block_master" />
+    <NavigationProperty Name="qcinspection_unit_master" Relationship="BuildInspectModel.FK_qcinspection_unit_master_qcinspection_level_master" FromRole="qcinspection_level_master" ToRole="qcinspection_unit_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_project_files">
+    <Key>
+      <PropertyRef Name="QCInspectionProjectFileID" />
+    </Key>
+    <Property Name="QCInspectionProjectFileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="FileCaption" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="FilePath" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_project_master" Relationship="BuildInspectModel.FK_qcinspection_project_files_qcinspection_project_master" FromRole="qcinspection_project_files" ToRole="qcinspection_project_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_project_PM_detail">
+    <Key>
+      <PropertyRef Name="ProjectPMDetailID" />
+    </Key>
+    <Property Name="ProjectPMDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="user" Relationship="BuildInspectModel.FK_qcinspection_project_PM_detail_users" FromRole="qcinspection_project_PM_detail" ToRole="user" />
+    <NavigationProperty Name="qcinspection_project_master" Relationship="BuildInspectModel.FK_qcinspection_project_PM_detail_qcinspection_project_master" FromRole="qcinspection_project_PM_detail" ToRole="qcinspection_project_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_project_rfwi_drawing_reference_files">
+    <Key>
+      <PropertyRef Name="QCInspectionDrawingReferenceFileID" />
+    </Key>
+    <Property Name="QCInspectionDrawingReferenceFileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="FileCaption" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="FilePath" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_rfwi_form_location_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_project_rfwi_drawing_reference_files" FromRole="qcinspection_project_rfwi_drawing_reference_files" ToRole="qcinspection_rfwi_form_location_detail" />
+    <NavigationProperty Name="qcinspection_project_master" Relationship="BuildInspectModel.FK_qcinspection_project_rfwi_drawing_reference_files_qcinspection_project_master" FromRole="qcinspection_project_rfwi_drawing_reference_files" ToRole="qcinspection_project_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_project_Supervisor_detail">
+    <Key>
+      <PropertyRef Name="ProjectSupervisorDetailID" />
+    </Key>
+    <Property Name="ProjectSupervisorDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="user" Relationship="BuildInspectModel.FK_qcinspection_project_Supervisor_detail_users" FromRole="qcinspection_project_Supervisor_detail" ToRole="user" />
+    <NavigationProperty Name="qcinspection_project_master" Relationship="BuildInspectModel.FK_qcinspection_project_Supervisor_detail_qcinspection_project_master" FromRole="qcinspection_project_Supervisor_detail" ToRole="qcinspection_project_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_rfwi_form_general_checklist_detail">
+    <Key>
+      <PropertyRef Name="RFWIFormGeneralCheckListDetailID" />
+    </Key>
+    <Property Name="RFWIFormGeneralCheckListDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QCInspectionRFWIFormID" Type="Int32" Nullable="false" />
+    <Property Name="GeneralCheckListID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_rfwi_general_checklist_master" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_general_checklist_master" FromRole="qcinspection_rfwi_form_general_checklist_detail" ToRole="qcinspection_rfwi_general_checklist_master" />
+    <NavigationProperty Name="qcinspection_rfwi_form" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_form" FromRole="qcinspection_rfwi_form_general_checklist_detail" ToRole="qcinspection_rfwi_form" />
+  </EntityType>
+  <EntityType Name="qcinspection_rfwi_form_location_detail">
+    <Key>
+      <PropertyRef Name="RFWIFormLocationDetailID" />
+    </Key>
+    <Property Name="RFWIFormLocationDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QCInspectionRFWIFormID" Type="Int32" Nullable="false" />
+    <Property Name="UnitID" Type="Int32" Nullable="false" />
+    <Property Name="QCInspectionDrawingReferenceFileID" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_project_rfwi_drawing_reference_files" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_project_rfwi_drawing_reference_files" FromRole="qcinspection_rfwi_form_location_detail" ToRole="qcinspection_project_rfwi_drawing_reference_files" />
+    <NavigationProperty Name="qcinspection_unit_master" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_unit_master" FromRole="qcinspection_rfwi_form_location_detail" ToRole="qcinspection_unit_master" />
+    <NavigationProperty Name="qcinspection_rfwi_form" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_rfwi_form" FromRole="qcinspection_rfwi_form_location_detail" ToRole="qcinspection_rfwi_form" />
+  </EntityType>
+  <EntityType Name="qcinspection_rfwi_form_trade_detailed_checklist_detail">
+    <Key>
+      <PropertyRef Name="RFWIFormTradeDetailedCheckListDetailID" />
+    </Key>
+    <Property Name="RFWIFormTradeDetailedCheckListDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QCInspectionRFWIFormID" Type="Int32" Nullable="false" />
+    <Property Name="TradeDetailedCheckListID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_rfwi_trade_detailed_checklist_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_trade_detailed_checklist_detail" FromRole="qcinspection_rfwi_form_trade_detailed_checklist_detail" ToRole="qcinspection_rfwi_trade_detailed_checklist_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_form" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_form" FromRole="qcinspection_rfwi_form_trade_detailed_checklist_detail" ToRole="qcinspection_rfwi_form" />
+  </EntityType>
+  <EntityType Name="qcinspection_rfwi_form_trade_item_detail">
+    <Key>
+      <PropertyRef Name="RFWIFormTradeItemDetailID" />
+    </Key>
+    <Property Name="RFWIFormTradeItemDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QCInspectionRFWIFormID" Type="Int32" Nullable="false" />
+    <Property Name="TradeItemID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_rfwi_trade_item_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_trade_item_detail" FromRole="qcinspection_rfwi_form_trade_item_detail" ToRole="qcinspection_rfwi_trade_item_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_form" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_form" FromRole="qcinspection_rfwi_form_trade_item_detail" ToRole="qcinspection_rfwi_form" />
+  </EntityType>
+  <EntityType Name="qcinspection_rfwi_general_checklist_master">
+    <Key>
+      <PropertyRef Name="GeneralCheckListID" />
+    </Key>
+    <Property Name="GeneralCheckListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GeneralCheckListName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_rfwi_form_general_checklist_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_general_checklist_master" FromRole="qcinspection_rfwi_general_checklist_master" ToRole="qcinspection_rfwi_form_general_checklist_detail" />
+  </EntityType>
+  <EntityType Name="qcinspection_rfwi_trade_detailed_checklist_detail">
+    <Key>
+      <PropertyRef Name="TradeDetailedCheckListID" />
+    </Key>
+    <Property Name="TradeDetailedCheckListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TradeID" Type="Int32" Nullable="false" />
+    <Property Name="DetailedCheckListName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_rfwi_form_trade_detailed_checklist_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_trade_detailed_checklist_detail" FromRole="qcinspection_rfwi_trade_detailed_checklist_detail" ToRole="qcinspection_rfwi_form_trade_detailed_checklist_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_trade_master" Relationship="BuildInspectModel.FK_qcinspection_rfwi_trade_detailed_checklist_detail_qcinspection_rfwi_trade_master" FromRole="qcinspection_rfwi_trade_detailed_checklist_detail" ToRole="qcinspection_rfwi_trade_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_rfwi_trade_item_detail">
+    <Key>
+      <PropertyRef Name="TradeItemID" />
+    </Key>
+    <Property Name="TradeItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TradeID" Type="Int32" Nullable="false" />
+    <Property Name="ItemName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_rfwi_form_trade_item_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_trade_item_detail" FromRole="qcinspection_rfwi_trade_item_detail" ToRole="qcinspection_rfwi_form_trade_item_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_trade_master" Relationship="BuildInspectModel.FK_qcinspection_rfwi_trade_item_detail_qcinspection_rfwi_trade_master" FromRole="qcinspection_rfwi_trade_item_detail" ToRole="qcinspection_rfwi_trade_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_rfwi_trade_master">
+    <Key>
+      <PropertyRef Name="TradeID" />
+    </Key>
+    <Property Name="TradeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TradeName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_rfwi_trade_detailed_checklist_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_trade_detailed_checklist_detail_qcinspection_rfwi_trade_master" FromRole="qcinspection_rfwi_trade_master" ToRole="qcinspection_rfwi_trade_detailed_checklist_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_trade_item_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_trade_item_detail_qcinspection_rfwi_trade_master" FromRole="qcinspection_rfwi_trade_master" ToRole="qcinspection_rfwi_trade_item_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_form" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_qcinspection_rfwi_trade_master" FromRole="qcinspection_rfwi_trade_master" ToRole="qcinspection_rfwi_form" />
+  </EntityType>
+  <EntityType Name="qcinspection_subcontractor_master">
+    <Key>
+      <PropertyRef Name="SubcontractorID" />
+    </Key>
+    <Property Name="SubcontractorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Pincode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Mob" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="company_master" Relationship="BuildInspectModel.FK_qcinspection_subcontractor_master_company_master" FromRole="qcinspection_subcontractor_master" ToRole="company_master" />
+    <NavigationProperty Name="qcinspection_subcontractor_trade_detail" Relationship="BuildInspectModel.FK_qcinspection_subcontractor_trade_detail_qcinspection_subcontractor_master" FromRole="qcinspection_subcontractor_master" ToRole="qcinspection_subcontractor_trade_detail" />
+    <NavigationProperty Name="qcinspection_defect_form" Relationship="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_subcontractor_master" FromRole="qcinspection_subcontractor_master" ToRole="qcinspection_defect_form" />
+  </EntityType>
+  <EntityType Name="qcinspection_subcontractor_trade_detail">
+    <Key>
+      <PropertyRef Name="SubcontractorTradeID" />
+    </Key>
+    <Property Name="SubcontractorTradeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubcontractorID" Type="Int32" Nullable="false" />
+    <Property Name="TradeID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_subcontractor_master" Relationship="BuildInspectModel.FK_qcinspection_subcontractor_trade_detail_qcinspection_subcontractor_master" FromRole="qcinspection_subcontractor_trade_detail" ToRole="qcinspection_subcontractor_master" />
+    <NavigationProperty Name="qcinspection_trade_master" Relationship="BuildInspectModel.FK_qcinspection_subcontractor_trade_detail_qcinspection_trade_master" FromRole="qcinspection_subcontractor_trade_detail" ToRole="qcinspection_trade_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_trade_master">
+    <Key>
+      <PropertyRef Name="TradeID" />
+    </Key>
+    <Property Name="TradeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TradeName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_subcontractor_trade_detail" Relationship="BuildInspectModel.FK_qcinspection_subcontractor_trade_detail_qcinspection_trade_master" FromRole="qcinspection_trade_master" ToRole="qcinspection_subcontractor_trade_detail" />
+    <NavigationProperty Name="qcinspection_defect_form" Relationship="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_trade_master" FromRole="qcinspection_trade_master" ToRole="qcinspection_defect_form" />
+  </EntityType>
+  <EntityType Name="qcinspection_unit_master">
+    <Key>
+      <PropertyRef Name="UnitID" />
+    </Key>
+    <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LevelID" Type="Int32" Nullable="false" />
+    <Property Name="UnitName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_level_master" Relationship="BuildInspectModel.FK_qcinspection_unit_master_qcinspection_level_master" FromRole="qcinspection_unit_master" ToRole="qcinspection_level_master" />
+    <NavigationProperty Name="qcinspection_rfwi_form_location_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_unit_master" FromRole="qcinspection_unit_master" ToRole="qcinspection_rfwi_form_location_detail" />
+    <NavigationProperty Name="qcinspection_defect_form" Relationship="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_unit_master" FromRole="qcinspection_unit_master" ToRole="qcinspection_defect_form" />
+  </EntityType>
+  <EntityType Name="usergroup">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="permissions" Relationship="BuildInspectModel.FK_rapid_permission_rapid_usergroup" FromRole="usergroup" ToRole="permission" />
+    <NavigationProperty Name="users" Relationship="BuildInspectModel.FK_rapid_users_rapid_usergroup" FromRole="usergroup" ToRole="user" />
+  </EntityType>
+  <Association Name="FK_assessment_project_assessment_development_type_master">
+    <End Type="BuildInspectModel.assessment_development_type_master" Role="assessment_development_type_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_project_master" Role="assessment_project_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_development_type_master">
+        <PropertyRef Name="DevelopmentTypeID" />
+      </Principal>
+      <Dependent Role="assessment_project_master">
+        <PropertyRef Name="DevelopmentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_type_module_weightage_assessment_development_type_master">
+    <End Type="BuildInspectModel.assessment_development_type_master" Role="assessment_development_type_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_type_module_weightage" Role="assessment_type_module_weightage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_development_type_master">
+        <PropertyRef Name="DevelopmentTypeID" />
+      </Principal>
+      <Dependent Role="assessment_type_module_weightage">
+        <PropertyRef Name="DevelopmentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_external_wall_trn_assessment_project_master">
+    <End Type="BuildInspectModel.assessment_project_master" Role="assessment_project_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_external_wall_trn" Role="assessment_external_wall_trn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="assessment_external_wall_trn">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_external_wall_trn_assessment_type_location_master">
+    <End Type="BuildInspectModel.assessment_type_location_master" Role="assessment_type_location_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_external_wall_trn" Role="assessment_external_wall_trn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_location_master">
+        <PropertyRef Name="AssessmentTypeLocationID" />
+      </Principal>
+      <Dependent Role="assessment_external_wall_trn">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_external_wall_trn_detail_assessment_external_wall_trn_detail">
+    <End Type="BuildInspectModel.assessment_external_wall_trn" Role="assessment_external_wall_trn" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_external_wall_trn_detail" Role="assessment_external_wall_trn_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_external_wall_trn">
+        <PropertyRef Name="AssessmentEWID" />
+      </Principal>
+      <Dependent Role="assessment_external_wall_trn_detail">
+        <PropertyRef Name="AssessmentEWID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_external_wall_trn_detail_assessment_type_module_Process_master">
+    <End Type="BuildInspectModel.assessment_type_module_Process_master" Role="assessment_type_module_Process_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_external_wall_trn_detail" Role="assessment_external_wall_trn_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_module_Process_master">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Principal>
+      <Dependent Role="assessment_external_wall_trn_detail">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_external_works_trn_assessment_project_master">
+    <End Type="BuildInspectModel.assessment_project_master" Role="assessment_project_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_external_works_trn" Role="assessment_external_works_trn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="assessment_external_works_trn">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_external_works_trn_assessment_type_location_master">
+    <End Type="BuildInspectModel.assessment_type_location_master" Role="assessment_type_location_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_external_works_trn" Role="assessment_external_works_trn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_location_master">
+        <PropertyRef Name="AssessmentTypeLocationID" />
+      </Principal>
+      <Dependent Role="assessment_external_works_trn">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_external_works_trn_detail_assessment_external_works_trn">
+    <End Type="BuildInspectModel.assessment_external_works_trn" Role="assessment_external_works_trn" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_external_works_trn_detail" Role="assessment_external_works_trn_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_external_works_trn">
+        <PropertyRef Name="AssessmentEWKID" />
+      </Principal>
+      <Dependent Role="assessment_external_works_trn_detail">
+        <PropertyRef Name="AssessmentEWKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_external_works_trn_detail_assessment_type_module_Process_master">
+    <End Type="BuildInspectModel.assessment_type_module_Process_master" Role="assessment_type_module_Process_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_external_works_trn_detail" Role="assessment_external_works_trn_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_module_Process_master">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Principal>
+      <Dependent Role="assessment_external_works_trn_detail">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_internal_finishes_trn_assessment_project_master">
+    <End Type="BuildInspectModel.assessment_project_master" Role="assessment_project_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_internal_finishes_trn" Role="assessment_internal_finishes_trn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="assessment_internal_finishes_trn">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_internal_finishes_trn_assessment_type_location_master">
+    <End Type="BuildInspectModel.assessment_type_location_master" Role="assessment_type_location_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_internal_finishes_trn" Role="assessment_internal_finishes_trn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_location_master">
+        <PropertyRef Name="AssessmentTypeLocationID" />
+      </Principal>
+      <Dependent Role="assessment_internal_finishes_trn">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_internal_finishes_trn_detail_assessment_internal_finishes_trn">
+    <End Type="BuildInspectModel.assessment_internal_finishes_trn" Role="assessment_internal_finishes_trn" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_internal_finishes_trn_detail" Role="assessment_internal_finishes_trn_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_internal_finishes_trn">
+        <PropertyRef Name="AssessmentIFID" />
+      </Principal>
+      <Dependent Role="assessment_internal_finishes_trn_detail">
+        <PropertyRef Name="AssessmentIFID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_internal_finishes_trn_detail_assessment_type_module_Process_master">
+    <End Type="BuildInspectModel.assessment_type_module_Process_master" Role="assessment_type_module_Process_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_internal_finishes_trn_detail" Role="assessment_internal_finishes_trn_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_module_Process_master">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Principal>
+      <Dependent Role="assessment_internal_finishes_trn_detail">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_project_assessors_detail_assessment_project_master">
+    <End Type="BuildInspectModel.assessment_project_master" Role="assessment_project_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_project_assessors_detail" Role="assessment_project_assessors_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="assessment_project_assessors_detail">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_project_assessors_detail_assessors_master">
+    <End Type="BuildInspectModel.assessors_master" Role="assessors_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_project_assessors_detail" Role="assessment_project_assessors_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessors_master">
+        <PropertyRef Name="AssessorsID" />
+      </Principal>
+      <Dependent Role="assessment_project_assessors_detail">
+        <PropertyRef Name="AssessorsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_project_master_company_master">
+    <End Type="BuildInspectModel.company_master" Role="company_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_project_master" Role="assessment_project_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company_master">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="assessment_project_master">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_project_weightage_detail_assessment_project_master">
+    <End Type="BuildInspectModel.assessment_project_master" Role="assessment_project_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_project_weightage_detail" Role="assessment_project_weightage_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="assessment_project_weightage_detail">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_roof_construction_trn_assessment_project_master">
+    <End Type="BuildInspectModel.assessment_project_master" Role="assessment_project_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_roof_construction_trn" Role="assessment_roof_construction_trn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="assessment_roof_construction_trn">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_project_weightage_detail_assessment_type_module_master">
+    <End Type="BuildInspectModel.assessment_type_module_master" Role="assessment_type_module_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_project_weightage_detail" Role="assessment_project_weightage_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_module_master">
+        <PropertyRef Name="AssessmentTypeModuleID" />
+      </Principal>
+      <Dependent Role="assessment_project_weightage_detail">
+        <PropertyRef Name="AssessmentTypeModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_roof_construction_trn_assessment_type_location_master">
+    <End Type="BuildInspectModel.assessment_type_location_master" Role="assessment_type_location_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_roof_construction_trn" Role="assessment_roof_construction_trn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_location_master">
+        <PropertyRef Name="AssessmentTypeLocationID" />
+      </Principal>
+      <Dependent Role="assessment_roof_construction_trn">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_roof_construction_trn_detail_assessment_roof_construction_trn">
+    <End Type="BuildInspectModel.assessment_roof_construction_trn" Role="assessment_roof_construction_trn" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_roof_construction_trn_detail" Role="assessment_roof_construction_trn_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_roof_construction_trn">
+        <PropertyRef Name="AssessmentRFCID" />
+      </Principal>
+      <Dependent Role="assessment_roof_construction_trn_detail">
+        <PropertyRef Name="AssessmentRFCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_roof_construction_trn_detail_assessment_type_module_Process_master">
+    <End Type="BuildInspectModel.assessment_type_module_Process_master" Role="assessment_type_module_Process_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_roof_construction_trn_detail" Role="assessment_roof_construction_trn_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_module_Process_master">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Principal>
+      <Dependent Role="assessment_roof_construction_trn_detail">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_type_location_master_assessment_type_master">
+    <End Type="BuildInspectModel.assessment_type_master" Role="assessment_type_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_type_location_master" Role="assessment_type_location_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_master">
+        <PropertyRef Name="AssessmentTypeID" />
+      </Principal>
+      <Dependent Role="assessment_type_location_master">
+        <PropertyRef Name="AssessmentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_type_module_Process_master_assessment_type_location_master">
+    <End Type="BuildInspectModel.assessment_type_location_master" Role="assessment_type_location_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_type_module_Process_master" Role="assessment_type_module_Process_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_location_master">
+        <PropertyRef Name="AssessmentTypeLocationID" />
+      </Principal>
+      <Dependent Role="assessment_type_module_Process_master">
+        <PropertyRef Name="AssessmentTypeLocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_type_module_master_assessment_type_master">
+    <End Type="BuildInspectModel.assessment_type_master" Role="assessment_type_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_type_module_master" Role="assessment_type_module_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_master">
+        <PropertyRef Name="AssessmentTypeID" />
+      </Principal>
+      <Dependent Role="assessment_type_module_master">
+        <PropertyRef Name="AssessmentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_type_module_Process_master_assessment_type_module_master">
+    <End Type="BuildInspectModel.assessment_type_module_master" Role="assessment_type_module_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_type_module_Process_master" Role="assessment_type_module_Process_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_module_master">
+        <PropertyRef Name="AssessmentTypeModuleID" />
+      </Principal>
+      <Dependent Role="assessment_type_module_Process_master">
+        <PropertyRef Name="AssessmentTypeModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_type_module_weightage_assessment_type_module_master">
+    <End Type="BuildInspectModel.assessment_type_module_master" Role="assessment_type_module_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_type_module_weightage" Role="assessment_type_module_weightage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_module_master">
+        <PropertyRef Name="AssessmentTypeModuleID" />
+      </Principal>
+      <Dependent Role="assessment_type_module_weightage">
+        <PropertyRef Name="AssessmentTypeModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_type_module_Process_master">
+    <End Type="BuildInspectModel.assessment_type_module_Process_master" Role="assessment_type_module_Process_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail" Role="assessment_wet_area_water_tightness_test_tran_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_module_Process_master">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Principal>
+      <Dependent Role="assessment_wet_area_water_tightness_test_tran_detail">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessors_master_company_master">
+    <End Type="BuildInspectModel.company_master" Role="company_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessors_master" Role="assessors_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company_master">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="assessors_master">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_subcontractor_master_company_master">
+    <End Type="BuildInspectModel.company_master" Role="company_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_subcontractor_master" Role="qcinspection_subcontractor_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company_master">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="qcinspection_subcontractor_master">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rapid_permission_rapid_module">
+    <End Type="BuildInspectModel.module" Role="module" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.permission" Role="permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="module">
+        <PropertyRef Name="ModuleID" />
+      </Principal>
+      <Dependent Role="permission">
+        <PropertyRef Name="ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rapid_permission_rapid_usergroup">
+    <End Type="BuildInspectModel.usergroup" Role="usergroup" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.permission" Role="permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usergroup">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="permission">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_level_master_qcinspection_block_master">
+    <End Type="BuildInspectModel.qcinspection_block_master" Role="qcinspection_block_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_level_master" Role="qcinspection_level_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_block_master">
+        <PropertyRef Name="BlockID" />
+      </Principal>
+      <Dependent Role="qcinspection_level_master">
+        <PropertyRef Name="BlockID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_unit_master_qcinspection_level_master">
+    <End Type="BuildInspectModel.qcinspection_level_master" Role="qcinspection_level_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_unit_master" Role="qcinspection_unit_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_level_master">
+        <PropertyRef Name="LevelID" />
+      </Principal>
+      <Dependent Role="qcinspection_unit_master">
+        <PropertyRef Name="LevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_location_detail_qcinspection_project_rfwi_drawing_reference_files">
+    <End Type="BuildInspectModel.qcinspection_project_rfwi_drawing_reference_files" Role="qcinspection_project_rfwi_drawing_reference_files" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form_location_detail" Role="qcinspection_rfwi_form_location_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_project_rfwi_drawing_reference_files">
+        <PropertyRef Name="QCInspectionDrawingReferenceFileID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form_location_detail">
+        <PropertyRef Name="QCInspectionDrawingReferenceFileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_general_checklist_master">
+    <End Type="BuildInspectModel.qcinspection_rfwi_general_checklist_master" Role="qcinspection_rfwi_general_checklist_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form_general_checklist_detail" Role="qcinspection_rfwi_form_general_checklist_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_rfwi_general_checklist_master">
+        <PropertyRef Name="GeneralCheckListID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form_general_checklist_detail">
+        <PropertyRef Name="GeneralCheckListID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_location_detail_qcinspection_unit_master">
+    <End Type="BuildInspectModel.qcinspection_unit_master" Role="qcinspection_unit_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form_location_detail" Role="qcinspection_rfwi_form_location_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_unit_master">
+        <PropertyRef Name="UnitID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form_location_detail">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_trade_detailed_checklist_detail">
+    <End Type="BuildInspectModel.qcinspection_rfwi_trade_detailed_checklist_detail" Role="qcinspection_rfwi_trade_detailed_checklist_detail" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form_trade_detailed_checklist_detail" Role="qcinspection_rfwi_form_trade_detailed_checklist_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_rfwi_trade_detailed_checklist_detail">
+        <PropertyRef Name="TradeDetailedCheckListID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form_trade_detailed_checklist_detail">
+        <PropertyRef Name="TradeDetailedCheckListID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_trade_item_detail">
+    <End Type="BuildInspectModel.qcinspection_rfwi_trade_item_detail" Role="qcinspection_rfwi_trade_item_detail" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form_trade_item_detail" Role="qcinspection_rfwi_form_trade_item_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_rfwi_trade_item_detail">
+        <PropertyRef Name="TradeItemID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form_trade_item_detail">
+        <PropertyRef Name="TradeItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_trade_detailed_checklist_detail_qcinspection_rfwi_trade_master">
+    <End Type="BuildInspectModel.qcinspection_rfwi_trade_master" Role="qcinspection_rfwi_trade_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_trade_detailed_checklist_detail" Role="qcinspection_rfwi_trade_detailed_checklist_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_rfwi_trade_master">
+        <PropertyRef Name="TradeID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_trade_detailed_checklist_detail">
+        <PropertyRef Name="TradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_trade_item_detail_qcinspection_rfwi_trade_master">
+    <End Type="BuildInspectModel.qcinspection_rfwi_trade_master" Role="qcinspection_rfwi_trade_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_trade_item_detail" Role="qcinspection_rfwi_trade_item_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_rfwi_trade_master">
+        <PropertyRef Name="TradeID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_trade_item_detail">
+        <PropertyRef Name="TradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_subcontractor_trade_detail_qcinspection_subcontractor_master">
+    <End Type="BuildInspectModel.qcinspection_subcontractor_master" Role="qcinspection_subcontractor_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_subcontractor_trade_detail" Role="qcinspection_subcontractor_trade_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_subcontractor_master">
+        <PropertyRef Name="SubcontractorID" />
+      </Principal>
+      <Dependent Role="qcinspection_subcontractor_trade_detail">
+        <PropertyRef Name="SubcontractorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_subcontractor_trade_detail_qcinspection_trade_master">
+    <End Type="BuildInspectModel.qcinspection_trade_master" Role="qcinspection_trade_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_subcontractor_trade_detail" Role="qcinspection_subcontractor_trade_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_trade_master">
+        <PropertyRef Name="TradeID" />
+      </Principal>
+      <Dependent Role="qcinspection_subcontractor_trade_detail">
+        <PropertyRef Name="TradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EmpID" Type="Int32" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="DisplayName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="LastLogin" Type="DateTime" Precision="0" />
+    <Property Name="UID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Zone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TeamLead_ID" Type="Int32" />
+    <Property Name="Admin_ID" Type="Int32" />
+    <Property Name="ProjMngr_ID" Type="Int32" />
+    <Property Name="SubCon_ID" Type="Int32" />
+    <Property Name="Supvsr_ID" Type="Int32" />
+    <Property Name="Assessor_ID" Type="Int32" />
+    <Property Name="DeviceID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="company_master" Relationship="BuildInspectModel.FK_users_company_master" FromRole="user" ToRole="company_master" />
+    <NavigationProperty Name="qcinspection_project_PM_detail" Relationship="BuildInspectModel.FK_qcinspection_project_PM_detail_users" FromRole="user" ToRole="qcinspection_project_PM_detail" />
+    <NavigationProperty Name="qcinspection_project_Supervisor_detail" Relationship="BuildInspectModel.FK_qcinspection_project_Supervisor_detail_users" FromRole="user" ToRole="qcinspection_project_Supervisor_detail" />
+    <NavigationProperty Name="usergroup" Relationship="BuildInspectModel.FK_rapid_users_rapid_usergroup" FromRole="user" ToRole="usergroup" />
+    <NavigationProperty Name="qcinspection_project_MEInspector_detail" Relationship="BuildInspectModel.FK_qcinspection_project_MEInspector_detail_users" FromRole="user" ToRole="qcinspection_project_MEInspector_detail" />
+    <NavigationProperty Name="qcinspection_project_OtherInspector_detail" Relationship="BuildInspectModel.FK_qcinspection_project_OtherInspector_detail_users" FromRole="user" ToRole="qcinspection_project_OtherInspector_detail" />
+    <NavigationProperty Name="qcinspection_project_StructureInspector_detail" Relationship="BuildInspectModel.FK_qcinspection_project_StructureInspector_detail_users" FromRole="user" ToRole="qcinspection_project_StructureInspector_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_form" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_users" FromRole="user" ToRole="qcinspection_rfwi_form" />
+    <NavigationProperty Name="qcinspection_defect_form" Relationship="BuildInspectModel.FK_qcinspection_defect_form_users" FromRole="user" ToRole="qcinspection_defect_form" />
+  </EntityType>
+  <Association Name="FK_users_company_master">
+    <End Type="BuildInspectModel.company_master" Role="company_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.user" Role="user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company_master">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_PM_detail_users">
+    <End Type="BuildInspectModel.user" Role="user" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_PM_detail" Role="qcinspection_project_PM_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_PM_detail">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_Supervisor_detail_users">
+    <End Type="BuildInspectModel.user" Role="user" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_Supervisor_detail" Role="qcinspection_project_Supervisor_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_Supervisor_detail">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rapid_users_rapid_usergroup">
+    <End Type="BuildInspectModel.usergroup" Role="usergroup" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.user" Role="user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usergroup">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="assessment_wet_area_water_tightness_test_result_master">
+    <Key>
+      <PropertyRef Name="AssessmentWAWTTResultID" />
+    </Key>
+    <Property Name="AssessmentWAWTTResultID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentWAWTTResult" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_wet_area_water_tightness_test_tran_detail_result" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_result_master" FromRole="assessment_wet_area_water_tightness_test_result_master" ToRole="assessment_wet_area_water_tightness_test_tran_detail_result" />
+  </EntityType>
+  <EntityType Name="assessment_wet_area_water_tightness_test_tran_detail_result">
+    <Key>
+      <PropertyRef Name="AssessmentWAWTTDetailResultID" />
+    </Key>
+    <Property Name="AssessmentWAWTTDetailResultID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssessmentWAWTTID" Type="Int32" />
+    <Property Name="AssessmentTypeModuleProcessID" Type="Int32" />
+    <Property Name="AssessmentWAWTTResultID" Type="Int32" />
+    <Property Name="Result" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_type_module_Process_master" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_type_module_Process_master" FromRole="assessment_wet_area_water_tightness_test_tran_detail_result" ToRole="assessment_type_module_Process_master" />
+    <NavigationProperty Name="assessment_wet_area_water_tightness_test_result_master" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_result_master" FromRole="assessment_wet_area_water_tightness_test_tran_detail_result" ToRole="assessment_wet_area_water_tightness_test_result_master" />
+    <NavigationProperty Name="assessment_wet_area_water_tightness_test_tran" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_tran" FromRole="assessment_wet_area_water_tightness_test_tran_detail_result" ToRole="assessment_wet_area_water_tightness_test_tran" />
+  </EntityType>
+  <Association Name="FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_type_module_Process_master">
+    <End Type="BuildInspectModel.assessment_type_module_Process_master" Role="assessment_type_module_Process_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail_result" Role="assessment_wet_area_water_tightness_test_tran_detail_result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_type_module_Process_master">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Principal>
+      <Dependent Role="assessment_wet_area_water_tightness_test_tran_detail_result">
+        <PropertyRef Name="AssessmentTypeModuleProcessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_result_master">
+    <End Type="BuildInspectModel.assessment_wet_area_water_tightness_test_result_master" Role="assessment_wet_area_water_tightness_test_result_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail_result" Role="assessment_wet_area_water_tightness_test_tran_detail_result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_wet_area_water_tightness_test_result_master">
+        <PropertyRef Name="AssessmentWAWTTResultID" />
+      </Principal>
+      <Dependent Role="assessment_wet_area_water_tightness_test_tran_detail_result">
+        <PropertyRef Name="AssessmentWAWTTResultID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="qcinspection_project_MEInspector_detail">
+    <Key>
+      <PropertyRef Name="ProjectMEInspectorDetailID" />
+    </Key>
+    <Property Name="ProjectMEInspectorDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="user" Relationship="BuildInspectModel.FK_qcinspection_project_MEInspector_detail_users" FromRole="qcinspection_project_MEInspector_detail" ToRole="user" />
+    <NavigationProperty Name="qcinspection_project_master" Relationship="BuildInspectModel.FK_qcinspection_project_MEInspector_detail_qcinspection_project_master" FromRole="qcinspection_project_MEInspector_detail" ToRole="qcinspection_project_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_project_OtherInspector_detail">
+    <Key>
+      <PropertyRef Name="ProjectOtherInspectorDetailID" />
+    </Key>
+    <Property Name="ProjectOtherInspectorDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="user" Relationship="BuildInspectModel.FK_qcinspection_project_OtherInspector_detail_users" FromRole="qcinspection_project_OtherInspector_detail" ToRole="user" />
+    <NavigationProperty Name="qcinspection_project_master" Relationship="BuildInspectModel.FK_qcinspection_project_OtherInspector_detail_qcinspection_project_master" FromRole="qcinspection_project_OtherInspector_detail" ToRole="qcinspection_project_master" />
+  </EntityType>
+  <EntityType Name="qcinspection_project_StructureInspector_detail">
+    <Key>
+      <PropertyRef Name="ProjectStructureInspectorDetailID" />
+    </Key>
+    <Property Name="ProjectStructureInspectorDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="user" Relationship="BuildInspectModel.FK_qcinspection_project_StructureInspector_detail_users" FromRole="qcinspection_project_StructureInspector_detail" ToRole="user" />
+    <NavigationProperty Name="qcinspection_project_master" Relationship="BuildInspectModel.FK_qcinspection_project_StructureInspector_detail_qcinspection_project_master" FromRole="qcinspection_project_StructureInspector_detail" ToRole="qcinspection_project_master" />
+  </EntityType>
+  <Association Name="FK_qcinspection_project_MEInspector_detail_users">
+    <End Type="BuildInspectModel.user" Role="user" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_MEInspector_detail" Role="qcinspection_project_MEInspector_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_MEInspector_detail">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_OtherInspector_detail_users">
+    <End Type="BuildInspectModel.user" Role="user" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_OtherInspector_detail" Role="qcinspection_project_OtherInspector_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_OtherInspector_detail">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_StructureInspector_detail_users">
+    <End Type="BuildInspectModel.user" Role="user" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_StructureInspector_detail" Role="qcinspection_project_StructureInspector_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_StructureInspector_detail">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="qcinspection_rfwi_form">
+    <Key>
+      <PropertyRef Name="QCInspectionRFWIFormID" />
+    </Key>
+    <Property Name="QCInspectionRFWIFormID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QCInspectionRFWINo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="TradeID" Type="Int32" Nullable="false" />
+    <Property Name="RequestBy" Type="Int32" />
+    <Property Name="RequestOn" Type="DateTime" Precision="3" />
+    <Property Name="RequestSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotiicationReceivedByName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NotiicationReceivedSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotiicationReceivedOn" Type="DateTime" Precision="3" />
+    <Property Name="InspectionNo" Type="Byte" Nullable="false" />
+    <Property Name="InspectionOn" Type="DateTime" Precision="0" />
+    <Property Name="InspectionStartOn" Type="Time" Precision="7" />
+    <Property Name="InspectionEndOn" Type="Time" Precision="7" />
+    <Property Name="InspectorID" Type="Int32" />
+    <Property Name="RequestFor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ItemOthers" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DetailedCheckListOthers" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OtherTradeClearance_Structure" Type="Boolean" Nullable="false" />
+    <Property Name="OtherTradeClearance_StructureBy" Type="Int32" />
+    <Property Name="OtherTradeClearance_StructureSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherTradeClearance_StructureOn" Type="DateTime" Precision="3" />
+    <Property Name="OtherTradeClearance_MandE" Type="Boolean" Nullable="false" />
+    <Property Name="OtherTradeClearance_MandEBy" Type="Int32" />
+    <Property Name="OtherTradeClearance_MandESignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherTradeClearance_MandEOn" Type="DateTime" Precision="3" />
+    <Property Name="OtherTradeClearance_Other" Type="Boolean" Nullable="false" />
+    <Property Name="OtherTradeClearance_OtherBy" Type="Int32" />
+    <Property Name="OtherTradeClearance_OtherSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherTradeClearance_OtherOn" Type="DateTime" Precision="3" />
+    <Property Name="CompletedBy" Type="Int32" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+    <Property Name="CompletedRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompletedSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReInspectionFormID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MobileQCInspectionRFWIFormID" Type="Int32" />
+    <Property Name="BatchID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_rfwi_form_general_checklist_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_form" FromRole="qcinspection_rfwi_form" ToRole="qcinspection_rfwi_form_general_checklist_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_form_location_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_rfwi_form" FromRole="qcinspection_rfwi_form" ToRole="qcinspection_rfwi_form_location_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_trade_master" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_qcinspection_rfwi_trade_master" FromRole="qcinspection_rfwi_form" ToRole="qcinspection_rfwi_trade_master" />
+    <NavigationProperty Name="qcinspection_rfwi_form_trade_detailed_checklist_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_form" FromRole="qcinspection_rfwi_form" ToRole="qcinspection_rfwi_form_trade_detailed_checklist_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_form_trade_item_detail" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_form" FromRole="qcinspection_rfwi_form" ToRole="qcinspection_rfwi_form_trade_item_detail" />
+    <NavigationProperty Name="user" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_users" FromRole="qcinspection_rfwi_form" ToRole="user" />
+    <NavigationProperty Name="qcinspection_project_master" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_qcinspection_project_master" FromRole="qcinspection_rfwi_form" ToRole="qcinspection_project_master" />
+  </EntityType>
+  <Association Name="FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_form">
+    <End Type="BuildInspectModel.qcinspection_rfwi_form" Role="qcinspection_rfwi_form" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form_general_checklist_detail" Role="qcinspection_rfwi_form_general_checklist_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_rfwi_form">
+        <PropertyRef Name="QCInspectionRFWIFormID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form_general_checklist_detail">
+        <PropertyRef Name="QCInspectionRFWIFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_location_detail_qcinspection_rfwi_form">
+    <End Type="BuildInspectModel.qcinspection_rfwi_form" Role="qcinspection_rfwi_form" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form_location_detail" Role="qcinspection_rfwi_form_location_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_rfwi_form">
+        <PropertyRef Name="QCInspectionRFWIFormID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form_location_detail">
+        <PropertyRef Name="QCInspectionRFWIFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_qcinspection_rfwi_trade_master">
+    <End Type="BuildInspectModel.qcinspection_rfwi_trade_master" Role="qcinspection_rfwi_trade_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form" Role="qcinspection_rfwi_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_rfwi_trade_master">
+        <PropertyRef Name="TradeID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form">
+        <PropertyRef Name="TradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_form">
+    <End Type="BuildInspectModel.qcinspection_rfwi_form" Role="qcinspection_rfwi_form" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form_trade_detailed_checklist_detail" Role="qcinspection_rfwi_form_trade_detailed_checklist_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_rfwi_form">
+        <PropertyRef Name="QCInspectionRFWIFormID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form_trade_detailed_checklist_detail">
+        <PropertyRef Name="QCInspectionRFWIFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_form">
+    <End Type="BuildInspectModel.qcinspection_rfwi_form" Role="qcinspection_rfwi_form" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form_trade_item_detail" Role="qcinspection_rfwi_form_trade_item_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_rfwi_form">
+        <PropertyRef Name="QCInspectionRFWIFormID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form_trade_item_detail">
+        <PropertyRef Name="QCInspectionRFWIFormID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_users">
+    <End Type="BuildInspectModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form" Role="qcinspection_rfwi_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form">
+        <PropertyRef Name="InspectorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="qcinspection_project_master">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="Project_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Project_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="StartOn" Type="DateTime" Precision="0" />
+    <Property Name="EndOn" Type="DateTime" Precision="0" />
+    <Property Name="Is_Completed" Type="Int32" />
+    <Property Name="ProjectManagerID" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="company_master" Relationship="BuildInspectModel.FK_qcinspection_project_master_company_master" FromRole="qcinspection_project_master" ToRole="company_master" />
+    <NavigationProperty Name="qcinspection_block_master" Relationship="BuildInspectModel.FK_qcinspection_block_master_qcinspection_project_master" FromRole="qcinspection_project_master" ToRole="qcinspection_block_master" />
+    <NavigationProperty Name="qcinspection_project_files" Relationship="BuildInspectModel.FK_qcinspection_project_files_qcinspection_project_master" FromRole="qcinspection_project_master" ToRole="qcinspection_project_files" />
+    <NavigationProperty Name="qcinspection_project_MEInspector_detail" Relationship="BuildInspectModel.FK_qcinspection_project_MEInspector_detail_qcinspection_project_master" FromRole="qcinspection_project_master" ToRole="qcinspection_project_MEInspector_detail" />
+    <NavigationProperty Name="qcinspection_project_OtherInspector_detail" Relationship="BuildInspectModel.FK_qcinspection_project_OtherInspector_detail_qcinspection_project_master" FromRole="qcinspection_project_master" ToRole="qcinspection_project_OtherInspector_detail" />
+    <NavigationProperty Name="qcinspection_project_PM_detail" Relationship="BuildInspectModel.FK_qcinspection_project_PM_detail_qcinspection_project_master" FromRole="qcinspection_project_master" ToRole="qcinspection_project_PM_detail" />
+    <NavigationProperty Name="qcinspection_project_rfwi_drawing_reference_files" Relationship="BuildInspectModel.FK_qcinspection_project_rfwi_drawing_reference_files_qcinspection_project_master" FromRole="qcinspection_project_master" ToRole="qcinspection_project_rfwi_drawing_reference_files" />
+    <NavigationProperty Name="qcinspection_project_StructureInspector_detail" Relationship="BuildInspectModel.FK_qcinspection_project_StructureInspector_detail_qcinspection_project_master" FromRole="qcinspection_project_master" ToRole="qcinspection_project_StructureInspector_detail" />
+    <NavigationProperty Name="qcinspection_project_Supervisor_detail" Relationship="BuildInspectModel.FK_qcinspection_project_Supervisor_detail_qcinspection_project_master" FromRole="qcinspection_project_master" ToRole="qcinspection_project_Supervisor_detail" />
+    <NavigationProperty Name="qcinspection_rfwi_form" Relationship="BuildInspectModel.FK_qcinspection_rfwi_form_qcinspection_project_master" FromRole="qcinspection_project_master" ToRole="qcinspection_rfwi_form" />
+  </EntityType>
+  <Association Name="FK_qcinspection_project_master_company_master">
+    <End Type="BuildInspectModel.company_master" Role="company_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.qcinspection_project_master" Role="qcinspection_project_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company_master">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_master">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_block_master_qcinspection_project_master">
+    <End Type="BuildInspectModel.qcinspection_project_master" Role="qcinspection_project_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_block_master" Role="qcinspection_block_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="qcinspection_block_master">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_files_qcinspection_project_master">
+    <End Type="BuildInspectModel.qcinspection_project_master" Role="qcinspection_project_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_files" Role="qcinspection_project_files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_files">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_MEInspector_detail_qcinspection_project_master">
+    <End Type="BuildInspectModel.qcinspection_project_master" Role="qcinspection_project_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_MEInspector_detail" Role="qcinspection_project_MEInspector_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_MEInspector_detail">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_OtherInspector_detail_qcinspection_project_master">
+    <End Type="BuildInspectModel.qcinspection_project_master" Role="qcinspection_project_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_OtherInspector_detail" Role="qcinspection_project_OtherInspector_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_OtherInspector_detail">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_PM_detail_qcinspection_project_master">
+    <End Type="BuildInspectModel.qcinspection_project_master" Role="qcinspection_project_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_PM_detail" Role="qcinspection_project_PM_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_PM_detail">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_rfwi_drawing_reference_files_qcinspection_project_master">
+    <End Type="BuildInspectModel.qcinspection_project_master" Role="qcinspection_project_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_rfwi_drawing_reference_files" Role="qcinspection_project_rfwi_drawing_reference_files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_rfwi_drawing_reference_files">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_StructureInspector_detail_qcinspection_project_master">
+    <End Type="BuildInspectModel.qcinspection_project_master" Role="qcinspection_project_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_StructureInspector_detail" Role="qcinspection_project_StructureInspector_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_StructureInspector_detail">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_project_Supervisor_detail_qcinspection_project_master">
+    <End Type="BuildInspectModel.qcinspection_project_master" Role="qcinspection_project_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_project_Supervisor_detail" Role="qcinspection_project_Supervisor_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="qcinspection_project_Supervisor_detail">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_rfwi_form_qcinspection_project_master">
+    <End Type="BuildInspectModel.qcinspection_project_master" Role="qcinspection_project_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_rfwi_form" Role="qcinspection_rfwi_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="qcinspection_rfwi_form">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="qcinspection_defect_form">
+    <Key>
+      <PropertyRef Name="QCInspectionDefectID" />
+    </Key>
+    <Property Name="QCInspectionDefectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QCInspectionDefectNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="UnitID" Type="Int32" Nullable="false" />
+    <Property Name="TradeID" Type="Int32" Nullable="false" />
+    <Property Name="DefectTypeID" Type="Int32" Nullable="false" />
+    <Property Name="DefectRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SubcontractorID" Type="Int32" Nullable="false" />
+    <Property Name="ProjectManagerID" Type="Int32" Nullable="false" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovedDate" Type="DateTime" Precision="0" />
+    <Property Name="ApprovedRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReDoBy" Type="Int32" />
+    <Property Name="ReDoDate" Type="DateTime" Precision="0" />
+    <Property Name="ReDoRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReDoDoneBy" Type="Int32" />
+    <Property Name="ReDoDoneDate" Type="DateTime" Precision="0" />
+    <Property Name="ReDoDoneRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RectificationBy" Type="Int32" />
+    <Property Name="RectificationDate" Type="DateTime" Precision="0" />
+    <Property Name="RectificationRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RectificationSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReworkBy" Type="Int32" />
+    <Property Name="ReworkDate" Type="DateTime" Precision="0" />
+    <Property Name="ReworkRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompletedBy" Type="Int32" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="0" />
+    <Property Name="CompletedRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompletedSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MobileQCInspectionDefectID" Type="Int32" />
+    <Property Name="BatchID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="qcinspection_defect_files" Relationship="BuildInspectModel.FK_qcinspection_defect_files_qcinspection_defect_form" FromRole="qcinspection_defect_form" ToRole="qcinspection_defect_files" />
+    <NavigationProperty Name="qcinspection_defect_type_master" Relationship="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_defect_type_master" FromRole="qcinspection_defect_form" ToRole="qcinspection_defect_type_master" />
+    <NavigationProperty Name="qcinspection_subcontractor_master" Relationship="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_subcontractor_master" FromRole="qcinspection_defect_form" ToRole="qcinspection_subcontractor_master" />
+    <NavigationProperty Name="qcinspection_trade_master" Relationship="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_trade_master" FromRole="qcinspection_defect_form" ToRole="qcinspection_trade_master" />
+    <NavigationProperty Name="qcinspection_unit_master" Relationship="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_unit_master" FromRole="qcinspection_defect_form" ToRole="qcinspection_unit_master" />
+    <NavigationProperty Name="user" Relationship="BuildInspectModel.FK_qcinspection_defect_form_users" FromRole="qcinspection_defect_form" ToRole="user" />
+  </EntityType>
+  <Association Name="FK_qcinspection_defect_files_qcinspection_defect_form">
+    <End Type="BuildInspectModel.qcinspection_defect_form" Role="qcinspection_defect_form" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_defect_files" Role="qcinspection_defect_files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_defect_form">
+        <PropertyRef Name="QCInspectionDefectID" />
+      </Principal>
+      <Dependent Role="qcinspection_defect_files">
+        <PropertyRef Name="QCInspectionDefectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_defect_form_qcinspection_defect_type_master">
+    <End Type="BuildInspectModel.qcinspection_defect_type_master" Role="qcinspection_defect_type_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_defect_form" Role="qcinspection_defect_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_defect_type_master">
+        <PropertyRef Name="DefectTypeID" />
+      </Principal>
+      <Dependent Role="qcinspection_defect_form">
+        <PropertyRef Name="DefectTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_defect_form_qcinspection_subcontractor_master">
+    <End Type="BuildInspectModel.qcinspection_subcontractor_master" Role="qcinspection_subcontractor_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_defect_form" Role="qcinspection_defect_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_subcontractor_master">
+        <PropertyRef Name="SubcontractorID" />
+      </Principal>
+      <Dependent Role="qcinspection_defect_form">
+        <PropertyRef Name="SubcontractorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_defect_form_qcinspection_trade_master">
+    <End Type="BuildInspectModel.qcinspection_trade_master" Role="qcinspection_trade_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_defect_form" Role="qcinspection_defect_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_trade_master">
+        <PropertyRef Name="TradeID" />
+      </Principal>
+      <Dependent Role="qcinspection_defect_form">
+        <PropertyRef Name="TradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_defect_form_qcinspection_unit_master">
+    <End Type="BuildInspectModel.qcinspection_unit_master" Role="qcinspection_unit_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_defect_form" Role="qcinspection_defect_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="qcinspection_unit_master">
+        <PropertyRef Name="UnitID" />
+      </Principal>
+      <Dependent Role="qcinspection_defect_form">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qcinspection_defect_form_users">
+    <End Type="BuildInspectModel.user" Role="user" Multiplicity="1" />
+    <End Type="BuildInspectModel.qcinspection_defect_form" Role="qcinspection_defect_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="qcinspection_defect_form">
+        <PropertyRef Name="ProjectManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="assessment_wet_area_water_tightness_test_tran">
+    <Key>
+      <PropertyRef Name="AssessmentWAWTTID" />
+    </Key>
+    <Property Name="AssessmentWAWTTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="AssessmentDate" Type="DateTime" Precision="0" />
+    <Property Name="Block_Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Drawing_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Other_Result" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MobileAssessmentWAWTTID" Type="Int32" Nullable="false" />
+    <Property Name="BatchID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_project_master" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_assessment_project_master" FromRole="assessment_wet_area_water_tightness_test_tran" ToRole="assessment_project_master" />
+    <NavigationProperty Name="assessment_wet_area_water_tightness_test_tran_detail" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_wet_area_water_tightness_test_tran" FromRole="assessment_wet_area_water_tightness_test_tran" ToRole="assessment_wet_area_water_tightness_test_tran_detail" />
+    <NavigationProperty Name="assessment_wet_area_water_tightness_test_tran_detail_result" Relationship="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_tran" FromRole="assessment_wet_area_water_tightness_test_tran" ToRole="assessment_wet_area_water_tightness_test_tran_detail_result" />
+  </EntityType>
+  <Association Name="FK_assessment_wet_area_water_tightness_test_tran_assessment_project_master">
+    <End Type="BuildInspectModel.assessment_project_master" Role="assessment_project_master" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_wet_area_water_tightness_test_tran" Role="assessment_wet_area_water_tightness_test_tran" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="assessment_wet_area_water_tightness_test_tran">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_wet_area_water_tightness_test_tran">
+    <End Type="BuildInspectModel.assessment_wet_area_water_tightness_test_tran" Role="assessment_wet_area_water_tightness_test_tran" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail" Role="assessment_wet_area_water_tightness_test_tran_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_wet_area_water_tightness_test_tran">
+        <PropertyRef Name="AssessmentWAWTTID" />
+      </Principal>
+      <Dependent Role="assessment_wet_area_water_tightness_test_tran_detail">
+        <PropertyRef Name="AssessmentWAWTTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_tran">
+    <End Type="BuildInspectModel.assessment_wet_area_water_tightness_test_tran" Role="assessment_wet_area_water_tightness_test_tran" Multiplicity="0..1" />
+    <End Type="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail_result" Role="assessment_wet_area_water_tightness_test_tran_detail_result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_wet_area_water_tightness_test_tran">
+        <PropertyRef Name="AssessmentWAWTTID" />
+      </Principal>
+      <Dependent Role="assessment_wet_area_water_tightness_test_tran_detail_result">
+        <PropertyRef Name="AssessmentWAWTTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="assessment_field_window_water_tightness_test">
+    <Key>
+      <PropertyRef Name="AssessmentFWWTTID" />
+    </Key>
+    <Property Name="AssessmentFWWTTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="AssessmentDate" Type="DateTime" Precision="0" />
+    <Property Name="Block_Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AssessmentWallID" Type="Int32" Nullable="false" />
+    <Property Name="AssessmentWindowID" Type="Int32" Nullable="false" />
+    <Property Name="AssessmentJointID" Type="Int32" Nullable="false" />
+    <Property Name="AssessmentDirectionID" Type="Int32" Nullable="false" />
+    <Property Name="AssessmentLeakID" Type="Int32" Nullable="false" />
+    <Property Name="Result" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Drawing_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileAssessmentFWWTTID" Type="Int32" Nullable="false" />
+    <Property Name="BatchID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="assessment_direction_master" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_direction_master" FromRole="assessment_field_window_water_tightness_test" ToRole="assessment_direction_master" />
+    <NavigationProperty Name="assessment_joint_master" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_joint_master" FromRole="assessment_field_window_water_tightness_test" ToRole="assessment_joint_master" />
+    <NavigationProperty Name="assessment_leak_master" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_leak_master" FromRole="assessment_field_window_water_tightness_test" ToRole="assessment_leak_master" />
+    <NavigationProperty Name="assessment_project_master" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_project_master" FromRole="assessment_field_window_water_tightness_test" ToRole="assessment_project_master" />
+    <NavigationProperty Name="assessment_wall_master" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_wall_master" FromRole="assessment_field_window_water_tightness_test" ToRole="assessment_wall_master" />
+    <NavigationProperty Name="assessment_window_master" Relationship="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_window_master" FromRole="assessment_field_window_water_tightness_test" ToRole="assessment_window_master" />
+  </EntityType>
+  <Association Name="FK_assessment_field_window_water_tightness_test_assessment_direction_master">
+    <End Type="BuildInspectModel.assessment_direction_master" Role="assessment_direction_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.assessment_field_window_water_tightness_test" Role="assessment_field_window_water_tightness_test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_direction_master">
+        <PropertyRef Name="AssessmentDirectionID" />
+      </Principal>
+      <Dependent Role="assessment_field_window_water_tightness_test">
+        <PropertyRef Name="AssessmentDirectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_field_window_water_tightness_test_assessment_joint_master">
+    <End Type="BuildInspectModel.assessment_joint_master" Role="assessment_joint_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.assessment_field_window_water_tightness_test" Role="assessment_field_window_water_tightness_test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_joint_master">
+        <PropertyRef Name="AssessmentJointID" />
+      </Principal>
+      <Dependent Role="assessment_field_window_water_tightness_test">
+        <PropertyRef Name="AssessmentJointID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_field_window_water_tightness_test_assessment_leak_master">
+    <End Type="BuildInspectModel.assessment_leak_master" Role="assessment_leak_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.assessment_field_window_water_tightness_test" Role="assessment_field_window_water_tightness_test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_leak_master">
+        <PropertyRef Name="AssessmentLeakID" />
+      </Principal>
+      <Dependent Role="assessment_field_window_water_tightness_test">
+        <PropertyRef Name="AssessmentLeakID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_field_window_water_tightness_test_assessment_project_master">
+    <End Type="BuildInspectModel.assessment_project_master" Role="assessment_project_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.assessment_field_window_water_tightness_test" Role="assessment_field_window_water_tightness_test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="assessment_field_window_water_tightness_test">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_field_window_water_tightness_test_assessment_wall_master">
+    <End Type="BuildInspectModel.assessment_wall_master" Role="assessment_wall_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.assessment_field_window_water_tightness_test" Role="assessment_field_window_water_tightness_test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_wall_master">
+        <PropertyRef Name="AssessmentWallID" />
+      </Principal>
+      <Dependent Role="assessment_field_window_water_tightness_test">
+        <PropertyRef Name="AssessmentWallID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assessment_field_window_water_tightness_test_assessment_window_master">
+    <End Type="BuildInspectModel.assessment_window_master" Role="assessment_window_master" Multiplicity="1" />
+    <End Type="BuildInspectModel.assessment_field_window_water_tightness_test" Role="assessment_field_window_water_tightness_test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assessment_window_master">
+        <PropertyRef Name="AssessmentWindowID" />
+      </Principal>
+      <Dependent Role="assessment_field_window_water_tightness_test">
+        <PropertyRef Name="AssessmentWindowID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

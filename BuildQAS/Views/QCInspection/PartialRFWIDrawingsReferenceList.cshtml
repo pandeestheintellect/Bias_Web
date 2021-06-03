@@ -1,0 +1,48 @@
+﻿@model List<BuildInspect.Models.ViewModel.QCInspectionProjectRFWIDrawingReferenceFilesViewModel>
+
+@{
+    var DrawingRefSno = 1;
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            @if (@ViewBag.ProjectCompleted == 0)
+            {
+                <div class="card-header"><a href="" id="aAddRFWIDrawingsReference" onclick="AddRFWIDrawingsReference()" data-toggle="modal" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-plus"></i> Add RFWI Drawing Reference</a></div>
+            }
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="RFWIDrawingsReferenceTable" class="table table-hover table-striped table-bordered">
+                        <thead style="background-color: #F16876; color: white">
+                            <tr>
+                                <th>S.No</th>
+                                <th>File Caption</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @DrawingRefSno
+                                    </td>
+                                    <td>@item.FileCaption</td>
+                                    <td>
+                                        <a class="btn btn-info" target="_blank" href="~/images/RFWIDrawings/@item.ProjectID.ToString()/@item.FileName"><i class="fa fa-download"></i></a>
+                                        @if (@ViewBag.ProjectCompleted == 0)
+                                        {
+                                            <button class="btn btn-danger" onclick="DeleteRFWIDrawingsReference('@item.QCInspectionDrawingReferenceFileID','@item.FileCaption')"><i class="fa fa-trash"></i></button>
+                                        }
+                                    </td>
+                                </tr>
+                                DrawingRefSno++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

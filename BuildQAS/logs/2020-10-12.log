@@ -1,0 +1,714 @@
+2020-10-12 21:06:43.9059|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 10,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 25,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 26,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 27,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 28,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 29,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 30,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 31,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 32,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 33,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 34,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 35,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 36,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 37,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 38,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 39,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 40,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 41,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 42,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 43,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 44,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 11,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 45,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 46,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 47,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 48,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 49,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 50,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 51,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 52,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 53,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 54,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 55,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 56,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 57,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 58,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 59,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 60,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 61,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 62,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 63,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 64,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-12 21:06:44.0710|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-12 21:06:45.5630|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Create Assessment External Wall:
+2020-10-12 21:06:45.5630|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Unable to load the specified metadata resource.
+2020-10-12 21:06:45.6180|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.CreateAssessmentExternalWallMaster(AssessmentExternalWallTransMasterViewModel masterViewModel, List`1 detailViewModels) in E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Models\Repository\Imp\AssessmentRepository.cs:line 955
+2020-10-12 21:06:45.6651|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Create Assessment External Wall:
+2020-10-12 21:06:45.6651|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Unable to load the specified metadata resource.
+2020-10-12 21:06:45.6651|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.CreateAssessmentExternalWallMaster(AssessmentExternalWallTransMasterViewModel masterViewModel, List`1 detailViewModels) in E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Models\Repository\Imp\AssessmentRepository.cs:line 955
+2020-10-12 21:07:01.7638|DEBUG|BuildInspect.Models.Repository.Interface.UserRepository|ValidateLoginWeb:
+2020-10-12 21:07:01.7638|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|Unable to load the specified metadata resource.
+2020-10-12 21:07:01.7638|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BuildInspect.Models.Repository.Interface.UserRepository.ValidateUserLoginWeb(String username, String password) in E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Models\Repository\Imp\UserRepository.cs:line 60
+2020-10-12 21:07:01.7638|INFO|BuildInspect.Models.Repository.Interface.UserRepository|bqasadmin:eRz0byRr6i047xXa8o+ejA==;
+2020-10-12 21:07:02.1525|DEBUG|BuildInspect.Models.Repository.Interface.UserRepository|ValidateLoginWeb:
+2020-10-12 21:07:02.1525|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|Unable to load the specified metadata resource.
+2020-10-12 21:07:02.1525|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BuildInspect.Models.Repository.Interface.UserRepository.ValidateUserLoginWeb(String username, String password) in E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Models\Repository\Imp\UserRepository.cs:line 60
+2020-10-12 21:07:02.1525|INFO|BuildInspect.Models.Repository.Interface.UserRepository|bqasadmin:eRz0byRr6i047xXa8o+ejA==;
+2020-10-12 21:07:35.2770|DEBUG|BuildInspect.Models.Repository.Interface.UserRepository|ValidateLoginWeb:
+2020-10-12 21:07:35.3030|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|Unable to load the specified metadata resource.
+2020-10-12 21:07:35.3110|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at BuildInspect.Models.Repository.Interface.UserRepository.ValidateUserLoginWeb(String username, String password) in E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Models\Repository\Imp\UserRepository.cs:line 60
+2020-10-12 21:07:35.3110|INFO|BuildInspect.Models.Repository.Interface.UserRepository|bqasadmin:eRz0byRr6i047xXa8o+ejA==;
+2020-10-12 21:07:38.6872|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 10,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 25,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 26,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 27,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 28,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 29,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 30,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 31,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 32,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 33,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 34,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 35,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 36,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 37,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 38,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 39,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 40,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 41,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 42,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 43,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 44,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 0,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 11,
+        "BatchID": "",
+        "Status": 1,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 45,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 46,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 47,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 48,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 49,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 50,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 51,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 52,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 53,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 54,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 55,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 56,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 57,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 58,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 59,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 60,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 61,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 62,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 63,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 64,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-12 21:07:38.6972|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-12 21:07:39.6660|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Create Assessment External Wall:
+2020-10-12 21:07:39.6660|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Unable to load the specified metadata resource.
+2020-10-12 21:07:39.6660|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.CreateAssessmentExternalWallMaster(AssessmentExternalWallTransMasterViewModel masterViewModel, List`1 detailViewModels) in E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Models\Repository\Imp\AssessmentRepository.cs:line 955
+2020-10-12 21:07:39.6970|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Create Assessment External Wall:
+2020-10-12 21:07:39.6970|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Unable to load the specified metadata resource.
+2020-10-12 21:07:39.6970|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoader.Create(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   at System.Data.Entity.Core.Objects.ObjectContext.RetrieveMetadataWorkspaceFromConnection()
+   at System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.CreateAssessmentExternalWallMaster(AssessmentExternalWallTransMasterViewModel masterViewModel, List`1 detailViewModels) in E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Models\Repository\Imp\AssessmentRepository.cs:line 955

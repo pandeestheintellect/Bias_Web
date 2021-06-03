@@ -1,0 +1,821 @@
+2020-10-05 07:54:48.5358|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-10-05 07:54:48.5839|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-05 07:58:13.5835|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 10,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 2,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 185,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 186,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 187,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 188,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 189,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 190,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 191,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 192,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 193,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 194,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 195,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 196,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 197,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 198,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 199,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 200,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 201,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 202,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 203,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 204,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 11,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 2,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 205,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 206,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 207,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 208,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 209,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 210,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 211,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 212,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 213,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 214,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 215,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 216,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 217,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 218,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 219,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 220,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 221,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 222,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 223,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 224,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-05 07:58:13.5835|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-05 08:04:49.6002|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 10,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 2,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 185,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 186,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 187,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 188,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 189,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 190,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 191,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 192,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 193,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 194,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 195,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 196,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 197,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 198,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 199,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 200,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 201,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 202,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 203,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 204,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 11,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 2,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 205,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 206,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 207,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 208,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 209,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 210,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 211,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 212,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 213,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 214,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 215,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 216,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 217,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 218,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 219,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 220,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 221,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 222,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 223,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 224,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-05 08:04:49.6533|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-05 08:10:20.1737|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 10,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 2,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 185,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 186,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 187,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 188,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 189,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 190,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 191,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 192,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 193,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 194,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 195,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 196,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 197,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 198,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 199,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 200,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 201,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 202,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 203,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 204,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    },
+    {
+        "AssessmentEWID": 11,
+        "ProjectID": 4,
+        "AssessmentDate": "2020-10-03T00:00:00",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 25,
+        "LocationName": "Ext Wall Preset Loc 2",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 2,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 205,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 206,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 207,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 208,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 209,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 210,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 211,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 212,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 213,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 214,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 215,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 216,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 217,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 218,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 219,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 220,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 2,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 221,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 222,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 223,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 224,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-05 08:10:20.2647|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True

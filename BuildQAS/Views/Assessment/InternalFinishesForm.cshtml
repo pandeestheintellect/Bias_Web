@@ -1,0 +1,833 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentInternalFinishesEntryViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    Layout = null;
+    var RowCnt = 1;
+    var modRowCnt = 1;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <!-- <link rel="stylesheet" href="css/text.css"> -->
+    <title>@ViewBag.Title</title>
+    <style>
+        .datepicker {
+            z-index: 99999 !important;
+        }
+
+        #ui-datepicker-div {
+            width: 30% !important;
+        }
+        .table-overflow-cont {
+            overflow-x: scroll;
+            width: 100%;
+            overflow-y: visible;
+            height: calc(100vh - 44px);
+        }
+
+        .min-w-200px {
+            min-width: 200px;
+        }
+
+        .min-w-150px {
+            min-width: 150px;
+        }
+
+        .min-w-50px {
+            min-width: 50px;
+        }
+        /* table border css - start */
+
+        table#intenal-finishes-tbl {
+            border-collapse: separate;
+            border: none;
+            border-spacing: 0;
+        }
+
+            table#intenal-finishes-tbl tr td {
+                padding: 5px;
+                border-left: none;
+                border-right: 1px solid #000000;
+                border-top: none;
+                border-bottom: 1px solid #000000;
+            }
+
+            table#intenal-finishes-tbl thead tr:first-child td {
+                border-top: 1px solid #000000;
+            }
+
+            table#intenal-finishes-tbl tbody tr td.sticky-col-1:first-child,
+            table#intenal-finishes-tbl thead tr td:first-child,
+            table#intenal-finishes-tbl tfoot tr td:first-child {
+                border-left: 1px solid #000000;
+            }
+
+            table#intenal-finishes-tbl thead tr:first-child td:first-child {
+                border-top-left-radius: 5px;
+            }
+
+            table#intenal-finishes-tbl thead tr:first-child td:last-child {
+                border-top-right-radius: 5px;
+            }
+
+            table#intenal-finishes-tbl tfoot tr:last-child td:first-child {
+                border-bottom-left-radius: 5px;
+            }
+
+            table#intenal-finishes-tbl tfoot tr:last-child td:last-child {
+                border-bottom-right-radius: 5px;
+            }
+        /* table border css - end */
+        /* sticky table column - start */
+
+        #intenal-finishes-tbl .sticky-col-1,
+        #intenal-finishes-tbl .sticky-col-2,
+        #intenal-finishes-tbl .sticky-col-3 {
+            position: sticky;
+            z-index: 3;
+            background-color: #ffffff;
+        }
+
+        #intenal-finishes-tbl .sticky-col-1 {
+            left: 0;
+            text-align: center;
+        }
+
+        #intenal-finishes-tbl .sticky-col-2 {
+            left: 50px;
+        }
+
+        #intenal-finishes-tbl .sticky-col-3 {
+            left: calc(50px + 200px);
+        }
+        /* sticky table column - end */
+        /* sticky table row - start */
+
+        #intenal-finishes-tbl thead tr.sticky-row-1 td,
+        #intenal-finishes-tbl thead tr.sticky-row-2 td,
+        #intenal-finishes-tbl thead tr.sticky-row-3 td,
+        #intenal-finishes-tbl thead tr.sticky-row-4 td,
+        #intenal-finishes-tbl thead tr.sticky-row-1 td:first-child,
+        #intenal-finishes-tbl thead tr.sticky-row-2 td:first-child,
+        #intenal-finishes-tbl thead tr.sticky-row-3 td:first-child,
+        #intenal-finishes-tbl thead tr.sticky-row-4 td:first-child,
+        #intenal-finishes-tbl tfoot tr td:first-child,
+        #intenal-finishes-tbl thead tr.sticky-row-1 td:nth-child(2),
+        #intenal-finishes-tbl thead tr.sticky-row-2 td:nth-child(2),
+        #intenal-finishes-tbl thead tr.sticky-row-3 td:nth-child(2),
+        #intenal-finishes-tbl thead tr.sticky-row-1 td:nth-child(3),
+        #intenal-finishes-tbl thead tr.sticky-row-2 td:nth-child(3),
+        #intenal-finishes-tbl thead tr.sticky-row-3 td:nth-child(3),
+        #intenal-finishes-tbl thead tr.sticky-row-4 td:nth-child(2) {
+            position: sticky;
+            background-color: #ffffff;
+        }
+
+        #intenal-finishes-tbl thead tr.sticky-row-1 td,
+        #intenal-finishes-tbl thead tr.sticky-row-2 td,
+        #intenal-finishes-tbl thead tr.sticky-row-3 td,
+        #intenal-finishes-tbl thead tr.sticky-row-4 td {
+            /*position: sticky;*/
+            z-index: 10;
+            /*background-color: #ffffff;*/
+        }
+
+            #intenal-finishes-tbl thead tr.sticky-row-1 td:first-child,
+            #intenal-finishes-tbl thead tr.sticky-row-2 td:first-child,
+            #intenal-finishes-tbl thead tr.sticky-row-3 td:first-child,
+            #intenal-finishes-tbl thead tr.sticky-row-4 td:first-child,
+            #intenal-finishes-tbl tfoot tr td:first-child {
+                /*position: sticky;*/
+                left: 0;
+                z-index: 11;
+                /*background-color: #ffffff;*/
+            }
+
+            #intenal-finishes-tbl thead tr.sticky-row-1 td:nth-child(2),
+            #intenal-finishes-tbl thead tr.sticky-row-2 td:nth-child(2),
+            #intenal-finishes-tbl thead tr.sticky-row-3 td:nth-child(2) {
+                /*position: sticky;*/
+                left: 50px;
+                z-index: 11;
+                /*background-color: #ffffff;*/
+            }
+
+            #intenal-finishes-tbl thead tr.sticky-row-1 td:nth-child(3),
+            #intenal-finishes-tbl thead tr.sticky-row-2 td:nth-child(3),
+            #intenal-finishes-tbl thead tr.sticky-row-3 td:nth-child(3),
+            #intenal-finishes-tbl thead tr.sticky-row-4 td:nth-child(2) {
+                /*position: sticky;*/
+                left: 250px;
+                z-index: 11;
+                /*background-color: #ffffff;*/
+            }
+                #intenal-finishes-tbl thead tr.sticky-row-1 td {
+                    top: 0;
+                }
+
+        #intenal-finishes-tbl thead tr.sticky-row-2 td {
+            top: 36px;
+        }
+
+        #intenal-finishes-tbl thead tr.sticky-row-3 td {
+            top: 71px;
+        }
+
+        #intenal-finishes-tbl thead tr.sticky-row-4 td {
+            top: 106px;
+        }
+        /* sticky table row - end */
+        /* vertical text in td -start */
+
+        .verticalTD td:not(:first-child) {
+            height: 200px;
+            max-width: 50px;
+        }
+
+        .verticalTD td span {
+            display: block;
+            white-space: nowrap;
+            transform: rotate(-90deg) translatex(-75px);
+        }
+        /* vertical text in td -end */
+        /* checkbox checkmark - start */
+
+        .tdChechBox {
+            min-width: 50px;
+            position: relative;
+            cursor: pointer;
+        }
+
+            .tdChechBox[aria-checked="null"]::before,
+            .tdChechBox[aria-checked="null"]::after,
+            .tdChechBox[aria-checked="true"]::after,
+            .tdChechBox[aria-checked="false"]::before {
+                display: none;
+            }
+
+            .tdChechBox[aria-checked="true"]::before {
+                display: inline-block;
+            }
+
+            .tdChechBox[aria-checked="false"]::after {
+                display: inline-block;
+            }
+
+            .tdChechBox i {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .tdChechBox:focus {
+                outline: none;
+            }
+
+            .tdChechBox::before,
+            .tdChechBox::after {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .tdChechBox::before {
+                content: "\f00c";
+                color: #28a745;
+            }
+
+            .tdChechBox::after {
+                content: "\f00d";
+                color: #dc3545;
+            }
+
+            .tdChechBox[disabled=""]::before,
+            .tdChechBox[disabled=""]::after {
+                color: #545b62;
+            }
+
+            .tdChechBox[disabled=""] {
+                cursor: not-allowed;
+            }
+        /* checkbox checkmark - end */
+
+        #intenal-finishes-tbl .selected td {
+            background-color: #d1dade;
+        }
+
+        .myModel {
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 11;
+            background-color: rgba(0, 0, 0, 0.25);
+            display: none;
+        }
+
+        .modelContent {
+            background-color: #ffffff;
+            max-width: 500px;
+        }
+    </style>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+</head>
+<body>
+    <div class="app-inner-layout app-inner-layout-page">
+        <div class="app-inner-layout__wrapper">
+            <div class="app-inner-layout__content pt-1">
+                <div class="tab-content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="main-card mb-3">
+                                    <div class="box-header with-border">
+                                        <input type="button" value="Back" id="InternalFinishes-back" class="btn btn-primary pull-left InternalFinishesIndex" />
+                                    </div>
+                                    <br />
+                                    <h4 class="card-title">@ViewBag.Title</h4>
+                                    <button onclick="tableZoomPlus()">zoom +</button>
+                                    <button onclick="tableZoomMinus()">zoom -</button>
+                                    <br />
+                                    <br />
+                                    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "InternalFinishes_Form", @class = "form-horizontal", enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => Model.assessmentInternalFinishesIndexViewModel.PrjMasID, new { @id = "hdnForProjectID" })
+                                        @Html.HiddenFor(model => Model.ModuleAndProcess, new { @id = "hdnForModuleAndProcess" })
+                                        @Html.Hidden("HdnID")
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="checklist-container" id="dvHead" style="zoom:60%">
+                                            <div class="row form-group">
+                                                <div class="col-sm-12 col-md-6 col-xl-2">
+                                                    <div class="title">Project Name</div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-xl-10">
+                                                    <input type="text" class="form-control" value="@Model.assessmentInternalFinishesIndexViewModel.Project_Name" disabled="disabled" />
+
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-sm-12 col-md-6 col-xl-2">
+                                                    <div class="title">Developer</div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-xl-4">
+                                                    <input type="text" class="form-control" disabled="disabled" value="@Model.assessmentInternalFinishesIndexViewModel.Developer_Name" />
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-xl-2">
+                                                    <div class="title right">Contractor</div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 col-xl-4">
+                                                    <input type="text" class="form-control" disabled="disabled" value="@Model.assessmentInternalFinishesIndexViewModel.Contractor_Name" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="checklist-container">
+                                            <div class="table-overflow-cont">
+                                                <table id="intenal-finishes-tbl" style="zoom:60%">
+                                                    <thead>
+                                                        <tr class="sticky-row-1 text-center">
+                                                            <td class="min-w-50px">P</td>
+                                                            <td class="min-w-200px text-info font-weight-bold">@Model.PCount</td>
+                                                            <td colspan="1" class="min-w-150px text-right">No. of compliance</td>
+                                                            @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                                            {
+                                                                <td colspan="5" class="@mod.AssessmentTypeModuleShortName.Replace("&","")-Complain text-info font-weight-bold">1290</td>
+                                                            }
+                                                        </tr>
+                                                        <tr class="sticky-row-2 text-center ">
+                                                            <td>S</td>
+                                                            <td class="text-info font-weight-bold">@Model.SCount</td>
+                                                            <td class="text-right">No. of checks</td>
+                                                            @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                                            {
+                                                                <td colspan="@mod.ProcessCount" class="@mod.AssessmentTypeModuleShortName.Replace("&","")-Check text-info font-weight-bold">1290</td>
+                                                            }
+                                                        </tr>
+
+                                                        <tr class="sticky-row-3 text-center">
+                                                            <td>C</td>
+                                                            <td class="text-info font-weight-bold">@Model.CCount</td>
+                                                            <td></td>
+                                                            @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                                            {
+                                                                <td colspan="@mod.ProcessCount">@mod.AssessmentTypeModuleShortName</td>
+                                                            }
+                                                        </tr>
+                                                        <tr class="sticky-row-4 verticalTD">
+                                                            <td colspan="2">
+                                                                <div class="d-flex flex-column align-items-center">
+                                                                    <button type="button" class="btn btn-success w-100 mb-2 addNewRowBtn" onclick="OpenPopupAddInternalFinishes()">Add</button>
+                                                                    <button type="button" class="btn btn-danger w-100 mb-2 deleteRowBrn" onclick="deleteRow()">Delete</button>
+                                                                    <button type="button" class="btn btn-secondary w-100 mb-2" onclick="disableTdChechBox(this)">Disable</button>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <h5>Assessors</h5>
+                                                                @Model.assessmentInternalFinishesIndexViewModel.Assessors
+                                                            </td>
+                                                            @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                                            {
+                                                                foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                                                                {
+                                                                    <td><span>@proc.AssessmentTypeModuleProcessName</span></td>
+                                                                }
+                                                            }
+                                                        </tr>
+                                                    </thead>
+
+                                                    @foreach (var trn in Model.assessmentInternalFinishesTransMasterViewModels.OrderBy(x => x.AssessmentIFID))
+                                                    {
+                                                        <tbody id="tbody_@trn.AssessmentIFID">
+                                                            <tr>
+                                                                <td rowspan="4" class="sticky-col-1 min-w-50px" role="checkbox" aria-checked="false" id="rowId_@trn.AssessmentIFID">@RowCnt</td>
+                                                                <td class="sticky-col-2 min-w-200px">Date (dd-mmm-yyyy)</td>
+                                                                <td class="sticky-col-3 min-w-150px">@string.Format("{0:dd-MMM-yyyy}", @trn.AssessmentDate)</td>
+                                                                @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                                                {
+                                                                    foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                                                                    {
+                                                                        foreach (var trndet in Model.assessmentInternalFinishesTransDetailViewModels.Where(x => x.RowNo == 1 && x.AssessmentIFID == trn.AssessmentIFID && x.AssessmentTypeModuleProcessID == proc.AssessmentTypeModuleProcessID))
+                                                                        {
+                                                                            if (trndet.Result == "1") // Blank
+                                                                            {
+                                                                                <td class="tdChechBox" role="checkbox" aria-checked="true" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                                            }
+                                                                            else if (trndet.Result == "0") // Tick
+                                                                            {
+                                                                                <td class="tdChechBox" role="checkbox" aria-checked="false" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                                            }
+                                                                            else // Cross
+                                                                            {
+                                                                                <td class="tdChechBox" role="checkbox" aria-checked="null" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="sticky-col-2">Block/Unit</td>
+                                                                <td class="sticky-col-3">@trn.Block_Unit</td>
+                                                                @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                                                {
+                                                                    {
+                                                                        modRowCnt = 0;
+                                                                    }
+                                                                    foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                                                                    {
+                                                                        foreach (var trndet in Model.assessmentInternalFinishesTransDetailViewModels.Where(x => x.RowNo == 2 && x.AssessmentIFID == trn.AssessmentIFID && x.AssessmentTypeModuleProcessID == proc.AssessmentTypeModuleProcessID))
+                                                                        {
+                                                                            if (trndet.Result == "1") // Blank
+                                                                            {
+                                                                                <td class="tdChechBox" role="checkbox" aria-checked="true" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                                            }
+                                                                            else if (trndet.Result == "0") // Tick
+                                                                            {
+                                                                                <td class="tdChechBox" role="checkbox" aria-checked="false" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                                            }
+                                                                            else // Cross
+                                                                            {
+                                                                                <td class="tdChechBox" role="checkbox" aria-checked="null" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                                            }
+                                                                            {
+                                                                                modRowCnt++;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    if (@modRowCnt == 0)
+                                                                    {
+                                                                        <td colspan="@mod.ProcessCount"></td>
+                                                                    }
+                                                                }
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="sticky-col-2">Location</td>
+                                                                <td class="sticky-col-3">@trn.Location_Name</td>
+                                                                @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                                                {
+                                                                    <td colspan="@mod.ProcessCount" rowspan="2"></td>
+                                                                }
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="sticky-col-2">Location Type (P/S/C)</td>
+                                                                <td class="sticky-col-3">@trn.Location_Type</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        {
+                                                            RowCnt++;
+                                                        }
+                                                    }
+                                                    <tfoot>
+                                                        <tr class="text-success font-weight-bold text-center ">
+                                                            <td colspan="3" class="text-right">No. of Ticks</td>
+                                                            @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                                            {
+                                                                foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                                                                {
+                                                                    <td class="@mod.AssessmentTypeModuleShortName.Replace("&","")-@proc.AssessmentTypeModuleProcessID-TickCount text-center"></td>
+                                                                }
+                                                            }
+                                                        </tr>
+                                                        <tr class="text-success font-weight-bold text-center ">
+                                                            <td colspan="3" class="text-right">No. of checks</td>
+                                                            @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                                            {
+                                                                foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                                                                {
+                                                                    <td class="@mod.AssessmentTypeModuleShortName.Replace("&","")-@proc.AssessmentTypeModuleProcessID-CheckCount text-center"></td>
+                                                                }
+                                                            }
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="myModel position-fixed w-100 h-100 justify-content-center align-items-center">
+        <div class="modelContent rounded bg-color-white p-3">
+            <div class="border-bottom pb-2 d-flex justify-content-between text-secondary">
+                <h5 class="mb-0 align-self-center">Add Internal Finishes - Entry</h5>
+                <button type="button" class="btn btn-danger px-2 py-1" onclick="document.querySelector('.myModel').removeAttribute('style')">
+                    <i class="fas fa-times align-self-center"></i>
+                </button>
+            </div>
+            <div id="dgAddInternalFinishes">
+                @Html.Partial("PartialAddInternalFinishes", Model)
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="js/test.js"></script> -->
+    @*<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/assets/plugins/select2.min.js"></script>*@
+    @*<script src="~/Scripts/assets/plugins/moment.min.js"></script>
+    <script src="~/Scripts/assets/plugins/bootstrap-datetimepicker.min.js"></script>*@
+    <script src="~/Scripts/assets/plugins/datepicker.min.js"></script>
+    <script>
+        let addRowBtns = document.querySelectorAll('.addNewRowBtn, .deleteRowBrn');
+        addRowBtns[1].setAttribute('disabled', '');
+        const table = document.getElementById('intenal-finishes-tbl');
+        const divHead = document.getElementById('dvHead');
+        debugger
+        var ModuleProcessArray = $.parseJSON($('#hdnForModuleAndProcess').val());
+
+        let zoomValue = 100;
+        // ZOOMING THE TABLE
+        function tableZoomMinus() {
+            zoomValue <= 50 ? zoomValue = zoomValue : zoomValue = zoomValue - 2;
+            table.style.zoom = zoomValue + "%";
+            divHead.style.zoom = zoomValue + "%";
+        }
+
+        function tableZoomPlus() {
+            zoomValue == 100 ? zoomValue = 100 : zoomValue = zoomValue + 2;
+            table.style.zoom = zoomValue + "%";
+            divHead.style.zoom = zoomValue + "%";
+        }
+
+        function SaveInternalFinishes()
+        {
+            $.ajax(
+            {
+                url: "/Assessment/JSSaveInternalFinishes?PID=" + $('#hdnForProjectID').val() + "&Block_Unit=" + $('#txtAddInternalFinishes_Block_Unit').val() + "&LID=" + $('#ddlAddInternalFinishes_Location').val(),
+                type: "post",
+                success: function (data) {
+                    window.location.href = window.location.href;
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                }
+            });
+        }
+
+
+        function SaveInternalFinishesDetail(IFDId, result) {
+            $.ajax(
+            {
+                url: "/Assessment/JSSaveInternalFinishesDetail?IFDId=" + IFDId + "&Result=" + result,
+                type: "post",
+                success: function (data) {
+
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                }
+            });
+        }
+
+        function DeleteInternalFinishesDetail(id) {
+            $.ajax(
+                {
+                    url: "/Assessment/JSDeleteInternalFinishes?IFId=" + id,
+                    type: "post",
+                    success: function (data) {
+
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                    }
+                });
+        }
+
+        function OpenPopupAddInternalFinishes()
+        {
+            $.ajax(
+            {
+                type: "Get",
+                url: "/Assessment/PartialAddInternalFinishes?ID=" + $('#hdnForProjectID').val(),
+                success: function (resp)
+                {
+                    $("#dgAddInternalFinishes").html(resp);
+                    
+                    $('#txtAddInternalFinishes_AssessmentDate').datepicker({
+                        format: 'dd/mm/yyyy',
+                        autoHide: true,
+                        endDate: new Date(),
+                        beforeShow: function () {
+                            setTimeout(function () {
+                                $('.ui-datepicker').css('z-index', 99999);
+                            }, 0);
+                        }
+                    });
+                    document.querySelector('.myModel').style.display = "flex";
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    toastr.options.positionClass = "toast-top-full-width"; toastr.options.closeButton = true; toastr.error(msg, 'warning');
+                }
+            });
+
+        }
+
+        /* Event delecation for td addEventListner - start */
+        //let mainTable = document.getElementById('intenal-finishes-tbl');
+        
+        table.addEventListener('click', function () {
+            let eventTarget = event.target;
+            if (eventTarget.classList.contains('tdChechBox')) {
+                tdCheckBoxStatusChange(eventTarget, eventTarget.id);
+            }
+
+            if (eventTarget.id.startsWith('rowId')) {
+                let idSplit = eventTarget.id.split('_');
+
+                if (eventTarget.attributes['aria-checked'].nodeValue == "false") {
+                    eventTarget.setAttribute('aria-checked', 'true');
+                    // table.tBodies[idSplit[1] - 1].style.backgroundColor = "#d1dade";
+                    console.log(document.querySelector('#tbody_' + idSplit[1]));
+                    document.querySelector('#tbody_' + idSplit[1]).classList.add('selected');
+                    addRowBtns[0].setAttribute('disabled', '');
+                    addRowBtns[1].removeAttribute('disabled');
+                } else {
+                    eventTarget.setAttribute('aria-checked', 'false');
+                    // table.tBodies[idSplit[1] - 1].removeAttribute('style');
+                    document.querySelector('#tbody_' + idSplit[1]).classList.remove('selected');
+                    addRowBtns[0].removeAttribute('disabled');
+                    addRowBtns[1].setAttribute('disabled', '');
+                }
+            }
+        });
+
+        function tdCheckBoxStatusChange(eventTarget, id) {
+            if (!eventTarget.hasAttribute('disabled'))
+            {
+                let result = "";
+                if (eventTarget.attributes['aria-checked'].nodeValue == "true") {
+                    eventTarget.setAttribute('aria-checked', 'false');
+                    result = "0";
+                } else if (eventTarget.attributes['aria-checked'].nodeValue == "false") {
+                    eventTarget.setAttribute('aria-checked', 'null');
+                } else {
+                    eventTarget.setAttribute('aria-checked', 'true');
+                    result = "1";
+                }
+                let idSplit = id.split('_');
+                debugger
+                SaveInternalFinishesDetail(idSplit[2], result)
+                moduleStatusCount(id);
+
+            }
+
+        }
+        /* Event delecation for td addEventListner - end */
+
+
+        /* disabling checkbox - start */
+        function disableTdChechBox(ths) {
+            if (ths.innerHTML == "Disable") {
+                ths.innerHTML = "Enable";
+            }
+            else {
+                ths.innerHTML = "Disable";
+            }
+
+            let checkboxes = document.querySelectorAll('#intenal-finishes-tbl .tdChechBox');
+            let disabled = checkboxes[0].hasAttribute('disabled');
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (disabled) {
+                    checkboxes[i].removeAttribute('disabled');
+                } else {
+                    checkboxes[i].setAttribute('disabled', '');
+                }
+            }
+
+            if (disabled) {
+                addRowBtns[0].removeAttribute('disabled');
+            } else {
+                addRowBtns[0].setAttribute('disabled', '');
+            }
+        }
+        /* disabling checkbox - end */
+
+        /* Delete Table Row - start */
+        function deleteRow() {
+            let tBodies = document.querySelectorAll('#intenal-finishes-tbl tbody')
+            let tBodyLength = tBodies.length;
+            let rowId = document.querySelectorAll('[id^="rowId"]');
+            //let rowIdSplit =
+            // let rowIdLength = rowId.length;
+            for (let i = 0; i < tBodyLength; i++) {
+                if (tBodies[i].classList.contains('selected')) {
+                    let tbodtId = tBodies[i].id;
+                    let tbodyIdNo = tbodtId.split('_')[1];
+                    tBodies[i].remove();
+                    DeleteInternalFinishesDetail(tbodyIdNo);
+                }
+            }
+            loadmoduleStatusCount();
+
+        }
+        /* Delete Table Row - end */
+
+        
+
+        function onLoadmoduleStatusCount()
+        {
+            debugger
+            for (let Mi = 0; Mi < ModuleProcessArray.length; Mi++)
+            {
+                moduleStatusCount(ModuleProcessArray[Mi].ModuleNames);
+                for (let Pi = 0; Pi < ModuleProcessArray[Mi].ProcessIds.length; Pi++)
+                {
+                    ProcessStatusCount(ModuleProcessArray[Mi].ModuleNames + '_' + ModuleProcessArray[Mi].ProcessIds[Pi]);
+                }
+            }
+
+        }
+
+        onLoadmoduleStatusCount();
+
+        /* Module Status Count Function - start */
+        function moduleStatusCount(id)
+        {
+            let eventidSplit = id.split('_');
+            let eventidSplitFirst = eventidSplit[0];
+            let eventidSplitLast = eventidSplit[1];
+            let module = document.querySelectorAll('[id^="' + eventidSplitFirst + '"]');
+            let Complains = 0;
+            let Checks = 0;
+            let individualCompliance_1 = 0;
+            let individualCheck_1 = 0;
+
+            for (let i = 0; i < module.length; i++)
+            {
+                let checkBoxValue = module[i].getAttribute('aria-checked');
+                let idSplitArray = module[i].id.split('_');
+                let idSplitlastIndex = idSplitArray[1];
+                if (checkBoxValue == 'true')
+                {
+                    Checks++;
+                    Complains++;
+                    if (idSplitlastIndex == eventidSplitLast) {
+                        individualCompliance_1++;
+                        individualCheck_1++;
+                    }
+                }
+                else if (checkBoxValue == 'false') {
+                    Checks++;
+                    if (idSplitlastIndex == eventidSplitLast) {
+                        individualCheck_1++;
+                    }
+                }
+            }
+            document.querySelector('.' + eventidSplitFirst + '-Complain').innerHTML = Complains;
+            document.querySelector('.' + eventidSplitFirst + '-Check').innerHTML = Checks;
+
+            if (eventidSplit.length > 1) {
+                document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-TickCount').innerHTML = individualCompliance_1;
+                document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-CheckCount').innerHTML = individualCheck_1;
+            }
+        }
+
+        function ProcessStatusCount(id)
+        {
+            debugger
+            let eventidSplit = id.split('_');
+            let eventidSplitFirst = eventidSplit[0];
+            let eventidSplitLast = eventidSplit[1];
+            let module = document.querySelectorAll('[id^="' + id + '"]');
+            let individualCompliance = 0;
+            let individualCheck = 0;
+            for (let i = 0; i < module.length; i++)
+            {
+                let checkBoxValue = module[i].getAttribute('aria-checked');
+                if (checkBoxValue == 'true') {
+                    individualCompliance++;
+                    individualCheck++;
+                }
+                else if (checkBoxValue == 'false') {
+                    individualCheck++;
+                }
+            }
+            document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-TickCount').innerHTML = individualCompliance;
+            document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-CheckCount').innerHTML = individualCheck;
+        }
+    </script>
+</body>
+</html>

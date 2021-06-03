@@ -1,0 +1,54 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWIFormViewModel
+
+@{
+    var LocationSno = 1;
+    int gid = BuildInspect.Models.Utility.AppSession.GetCurrentUserGroup();
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            @if (Model.Status == "Pending" && Model.InspectionNo == 1 && gid == 5 && Model.OtherSigned == false)
+            {
+                <div class="card-header"><a href="" onclick="AddRFWIFormLocation()" data-toggle="modal" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-plus"></i> Add Location</a></div>
+            }
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="LocationTable" class="table table-hover table-striped table-bordered">
+                        <thead style="background-color: #F16876; color: white">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Location/Grid Reference</th>
+                                <th>Level</th>
+                                <th>Drawing Reference</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.qcinspection_rfwi_form_location_detail)
+                            {
+                                <tr>
+                                    <td>
+                                        @LocationSno
+                                    </td>
+                                    <td>@item.qcinspection_unit_master.UnitName</td>
+                                    <td>@item.qcinspection_unit_master.qcinspection_level_master.LevelName</td>
+                                    <td>@item.qcinspection_project_rfwi_drawing_reference_files.FileCaption</td>
+                                    <td>
+                                        <a class="btn btn-info" target="_blank" href="~/images/RFWIDrawings/@item.qcinspection_project_rfwi_drawing_reference_files.ProjectID.ToString()/@item.qcinspection_project_rfwi_drawing_reference_files.FileName"><i class="fa fa-download"></i></a>
+                                        @if (Model.Status == "Pending" && gid == 5 && Model.OtherTradeClearance_Structure == false && Model.OtherTradeClearance_MandE == false && Model.OtherTradeClearance_Other == false)
+                                        {
+                                            <button type="button" class="btn btn-danger" onclick="DeleteRFWIFormLocation('@item.RFWIFormLocationDetailID','@item.qcinspection_unit_master.UnitName')"><i class="fa fa-trash"></i></button>
+                                        }
+                                    </td>
+                                </tr>
+                                LocationSno++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Hidden("RFWIFormLocation_Count", Model.qcinspection_rfwi_form_location_detail.Count)

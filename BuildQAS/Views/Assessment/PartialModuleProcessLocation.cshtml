@@ -1,0 +1,6 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentTypeModuleProcessMasterViewModel
+<label for="AssessmentTypeLocationID" class="col-sm-12 col-md-6 col-xl-3 control-label">Location<span class="symbol required"></span></label>
+<div class="col-sm-12 col-md-6 col-xl-9">
+    @Html.DropDownListFor(m => m.AssessmentTypeLocationID, new SelectList(ViewBag.AssessmentTypeLocationList, "AssessmentTypeLocationID", "AssessmentTypeLocationName"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.AssessmentTypeLocationID, "", new { @class = "text-danger" })
+</div>

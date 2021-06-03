@@ -1,0 +1,18 @@
+2020-12-07 12:14:25.4586|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-12-07 12:14:25.5156|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-12-07 12:14:28.6110|ERROR|BuildInspect.Filters.UnhandledExceptionFilter|Input string was not in a correct format.
+2020-12-07 12:14:28.6500|ERROR|BuildInspect.Filters.UnhandledExceptionFilter|Input string was not in a correct format.
+2020-12-07 12:16:14.7301|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-12-07 12:16:14.7591|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-12-07 12:38:14.4603|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-12-07 12:38:14.4603|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-12-07 12:38:20.6982|ERROR|BuildInspect.Filters.UnhandledExceptionFilter|Input string was not in a correct format.
+2020-12-07 12:38:20.6982|ERROR|BuildInspect.Filters.UnhandledExceptionFilter|Input string was not in a correct format.
+2020-12-07 12:38:26.9689|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-12-07 12:38:26.9689|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-12-07 12:38:49.9162|ERROR|BuildInspect.Filters.UnhandledExceptionFilter|Input string was not in a correct format.
+2020-12-07 12:38:49.9162|ERROR|BuildInspect.Filters.UnhandledExceptionFilter|Input string was not in a correct format.
+2020-12-07 12:45:09.1206|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-12-07 12:45:09.1736|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-12-07 12:50:10.5234|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-12-07 12:50:10.5683|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True

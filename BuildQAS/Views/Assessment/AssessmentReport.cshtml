@@ -1,0 +1,141 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentReportViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">@ViewBag.Title</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a href="#" class="AssessmentsIndex">Assessments</a></li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-card mb-3">
+            <div class="box-header with-border">
+                <input type="button" value="Back" id="AssessmentReport-back" class="btn btn-primary pull-left AssessmentsIndex" />
+            </div>
+            <br />
+            <br />
+            <br />
+            <div class="card">
+                <div class="card-header">
+                    @ViewBag.Title
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "AssessmentReport_Form", @class = "form-horizontal", enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => Model.projectMasterViewModel.ProjectID, new { @id = "hdnForProjectID" })
+                        @Html.HiddenFor(model => Model.PDFFilename, new { @id = "hdnForPDFFilename" })
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="checklist-container" id="dvHead">
+                            <div class="row form-group">
+                                <div class="col-sm-12 col-md-6 col-xl-2">
+                                    <div class="title">Project Name</div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-xl-10">
+                                    <input type="text" class="form-control" value="@Model.projectMasterViewModel.Project_Name" disabled="disabled" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-sm-12 col-md-6 col-xl-2">
+                                    <div class="title">Developer</div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-xl-4">
+                                    <input type="text" class="form-control" disabled="disabled" value="@Model.projectMasterViewModel.Developer_Name" />
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-xl-2">
+                                    <div class="title right">Contractor</div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-xl-4">
+                                    <input type="text" class="form-control" disabled="disabled" value="@Model.projectMasterViewModel.Contractor_Name" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-sm-12 col-md-6 col-xl-2">
+                                    <div class="title">Report Type</div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-xl-10">
+                                    <table>
+                                        <tr>
+                                            <td width="25%" id="1">
+                                                <input type="checkbox" id="Type_1" checked="checked" class="chkclass" value="1" />&nbsp;DAR-1-IF
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td width="25%" id="2">
+                                                <input type="checkbox" id="Type_2" checked="checked" class="chkclass" value="2" />&nbsp;DAR-2-Floor
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td width="25%" id="3">
+                                                <input type="checkbox" id="Type_3" checked="checked" class="chkclass" value="3" />&nbsp;DAR-2-Wall
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td width="25%" id="4">
+                                                <input type="checkbox" id="Type_4" checked="checked" class="chkclass" value="4" />&nbsp;DAR-2-Ceiling
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td id="5">
+                                                <input type="checkbox" id="Type_5" checked="checked" class="chkclass" value="5" />&nbsp;DAR-2-Door
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td id="6">
+                                                <input type="checkbox" id="Type_6" checked="checked" class="chkclass" value="6" />&nbsp;DAR-2-Window
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td id="7">
+                                                <input type="checkbox" id="Type_7" checked="checked" class="chkclass" value="7" />&nbsp;DAR-2-Component
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td id="8">
+                                                <input type="checkbox" id="Type_8" checked="checked" class="chkclass" value="8" />&nbsp;DAR-2-M&E
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-sm-12 col-md-6 col-xl-2">
+
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-xl-10">
+                                    <a href="" onclick="window.open('/Assessment/AssessmentSummaryReportPDF?ID=@Model.projectMasterViewModel.ProjectID');" data-toggle="modal" class="btn-icon btn btn-primary"><i class="fas fa-search btn-icon-wrapper" title="Generate Report"></i> Assessment Summary</a>
+                                    <a href="" onclick="DownloadAssessmentReport(@Model.projectMasterViewModel.ProjectID,'@Model.PDFFilename')" data-toggle="modal" class="btn-icon btn btn-primary"><i class="fas fa-search btn-icon-wrapper" title="Generate Report"></i> Generate Assessment Reports</a><br /><br />
+                                    <a href="" onclick="window.open('/Assessment/AssessmentInternalFinishesReportPDF?ID=@Model.projectMasterViewModel.ProjectID');" data-toggle="modal" class="btn-icon btn btn-success"><i class="fas fa-search btn-icon-wrapper" title="Generate Report"></i> Internal Finishes</a>
+                                    <a href="" onclick="window.open('/Assessment/AssessmentExternalWallReportPDF?ID=@Model.projectMasterViewModel.ProjectID');" data-toggle="modal" class="btn-icon btn btn-success"><i class="fas fa-search btn-icon-wrapper" title="Generate Report"></i> External Wall</a>
+                                    <a href="" onclick="window.open('/Assessment/AssessmentExternalWorksReportPDF?ID=@Model.projectMasterViewModel.ProjectID');" data-toggle="modal" class="btn-icon btn btn-success"><i class="fas fa-search btn-icon-wrapper" title="Generate Report"></i> External Works</a>
+                                    <a href="" onclick="window.open('/Assessment/AssessmentRoofConstructionReportPDF?ID=@Model.projectMasterViewModel.ProjectID');" data-toggle="modal" class="btn-icon btn btn-success"><i class="fas fa-search btn-icon-wrapper" title="Generate Report"></i> Roof Construction</a>
+                                    <a href="" onclick="window.open('/Assessment/AssessmentFieldWindowWTTReportPDF?ID=@Model.projectMasterViewModel.ProjectID');" data-toggle="modal" class="btn-icon btn btn-success"><i class="fas fa-search btn-icon-wrapper" title="Generate Report"></i> Field Window WTT</a>
+                                    <a href="" onclick="window.open('/Assessment/AssessmentWetAreaWTTReportPDF?ID=@Model.projectMasterViewModel.ProjectID');" data-toggle="modal" class="btn-icon btn btn-success"><i class="fas fa-search btn-icon-wrapper" title="Generate Report"></i> Wet Area WTT</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function DownloadAssessmentReport(Id, Filename) {
+        var filters = "";
+        filters = $("#Type_1").is(':checked');
+        filters += "," + $("#Type_2").is(':checked');
+        filters += "," + $("#Type_3").is(':checked');
+        filters += "," + $("#Type_4").is(':checked');
+        filters += "," + $("#Type_5").is(':checked');
+        filters += "," + $("#Type_6").is(':checked');
+        filters += "," + $("#Type_7").is(':checked');
+        filters += "," + $("#Type_8").is(':checked');
+        //window.open('/Assessment/PrintAssessmentReportToPdf?Id=' + Id + '&filename=' + Filename + '&filter=' + filters, '_blank');
+        window.open('/Assessment/AssessmentReportPDF?ID=' + Id + '&Filter=' + filters);
+    }
+</script>

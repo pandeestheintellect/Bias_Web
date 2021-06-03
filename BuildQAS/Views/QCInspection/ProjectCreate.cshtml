@@ -1,0 +1,495 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionProjectMasterViewModel
+
+@{
+    Layout = null;
+    var cells = 4;
+    int i = 0;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Project Creation</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item"><a href="#" class="QCInspectionProjectIndex">Project List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Project Creation</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "QCInspectionProjectAddForm", @class = "form-horizontal" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.CompanyID)
+                    @Html.HiddenFor(model => model.ProjectManagers)
+                    @Html.HiddenFor(model => model.Supervisors)
+                    @Html.HiddenFor(model => model.MEInspectors)
+                    @Html.HiddenFor(model => model.StructureInspectors)
+                    @Html.HiddenFor(model => model.OtherInspectors)
+                    <div>&nbsp;</div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="row form-group">
+                                <label for="Projectname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project name<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    @Html.EditorFor(model => model.Project_Name, new { htmlAttributes = new { @class = "form-control required" } })
+                                    @Html.ValidationMessageFor(model => model.Project_Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project Code<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    @Html.EditorFor(model => model.Project_ID, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project Start Date<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    @Html.TextBoxFor(model => model.StartDate, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project End Date<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    @Html.TextBoxFor(model => model.EndDate, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="ProjectManagerID" class="col-sm-12 col-md-6 col-xl-3 control-label">Default Project Manager<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    @Html.DropDownListFor(m => m.ProjectManagerID, new SelectList(ViewBag.ProjectManagersList, "UserID", "DisplayName"), new { @class = "form-control", @onchange = "Project_Change()" })
+                                    @Html.ValidationMessageFor(model => model.ProjectManagerID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Project Manager List<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    <table>
+                                        @foreach (var objPM in ViewBag.ProjectManagersList)
+                                        {
+                                            var checkBoxId = "PM_" + objPM.UserID;
+                                            var tdId = "td" + objPM.UserID;
+                                            var strChecked = "";
+                                            if (Model.qcinspection_project_PM_detail != null)
+                                            {
+                                                if (Model.qcinspection_project_PM_detail.Where(a => a.UserID == objPM.UserID).FirstOrDefault() != null)
+                                                {
+                                                    strChecked = "checked";
+                                                }
+                                                else
+                                                {
+                                                    strChecked = "";
+                                                }
+                                            }
+                                            if ((i % cells) == 0)
+                                            {
+                                                @:<tr>
+                                                }
+                                                <td width="350px" id="@tdId">
+                                                    <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objPM.UserID" />
+                                                    @objPM.DisplayName
+                                                </td>
+                                                if (i == (ViewBag.ProjectManagersList.Count - 1))
+                                                {
+                                                    while ((i % cells) != 0)
+                                                    {
+                                                        @:<td></td>
+                                                        {
+                                                            i++;
+                                                        }
+                                                    }
+                                                }
+                                                if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                {
+                                                @:</tr>
+                                            }
+                                            {
+                                                i++;
+                                            }
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Supervisor List<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    <table>
+                                        @foreach (var objPM in ViewBag.SupervisorList)
+                                        {
+                                            var checkBoxId = "SUP_" + objPM.UserID;
+                                            var tdId = "td" + objPM.UserID;
+                                            var strChecked = "";
+                                            if (Model.qcinspection_project_PM_detail != null)
+                                            {
+                                                if (Model.qcinspection_project_PM_detail.Where(a => a.UserID == objPM.UserID).FirstOrDefault() != null)
+                                                {
+                                                    strChecked = "checked";
+                                                }
+                                                else
+                                                {
+                                                    strChecked = "";
+                                                }
+                                            }
+                                            if ((i % cells) == 0)
+                                            {
+                                                @:<tr>
+                                                }
+                                                <td width="350px" id="@tdId">
+                                                    <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objPM.UserID" />
+                                                    @objPM.DisplayName
+                                                </td>
+                                                if (i == (ViewBag.SupervisorList.Count - 1))
+                                                {
+                                                    while ((i % cells) != 0)
+                                                    {
+                                                        @:<td></td>
+                                                        {
+                                                            i++;
+                                                        }
+                                                    }
+                                                }
+                                                if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                {
+                                                @:</tr>
+                                            }
+                                            {
+                                                i++;
+                                            }
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">M&E Inspector List<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    <table>
+                                        @foreach (var objPM in ViewBag.MEInspectorList)
+                                        {
+                                            var checkBoxId = "ME_" + objPM.UserID;
+                                            var tdId = "td" + objPM.UserID;
+                                            var strChecked = "";
+                                            if (Model.qcinspection_project_MEInspector_detail != null)
+                                            {
+                                                if (Model.qcinspection_project_MEInspector_detail.Where(a => a.UserID == objPM.UserID).FirstOrDefault() != null)
+                                                {
+                                                    strChecked = "checked";
+                                                }
+                                                else
+                                                {
+                                                    strChecked = "";
+                                                }
+                                            }
+                                            if ((i % cells) == 0)
+                                            {
+                                                @:<tr>
+                                                }
+                                                <td width="350px" id="@tdId">
+                                                    <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objPM.UserID" />
+                                                    @objPM.DisplayName
+                                                </td>
+                                                if (i == (ViewBag.MEInspectorList.Count - 1))
+                                                {
+                                                    while ((i % cells) != 0)
+                                                    {
+                                                        @:<td></td>
+                                                        {
+                                                            i++;
+                                                        }
+                                                    }
+                                                }
+                                                if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                {
+                                                @:</tr>
+                                            }
+                                            {
+                                                i++;
+                                            }
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Structure Inspector List<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    <table>
+                                        @foreach (var objPM in ViewBag.StructureInspectorList)
+                                        {
+                                            var checkBoxId = "Structure_" + objPM.UserID;
+                                            var tdId = "td" + objPM.UserID;
+                                            var strChecked = "";
+                                            if (Model.qcinspection_project_StructureInspector_detail != null)
+                                            {
+                                                if (Model.qcinspection_project_StructureInspector_detail.Where(a => a.UserID == objPM.UserID).FirstOrDefault() != null)
+                                                {
+                                                    strChecked = "checked";
+                                                }
+                                                else
+                                                {
+                                                    strChecked = "";
+                                                }
+                                            }
+                                            if ((i % cells) == 0)
+                                            {
+                                                @:<tr>
+                                                }
+                                                <td width="350px" id="@tdId">
+                                                    <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objPM.UserID" />
+                                                    @objPM.DisplayName
+                                                </td>
+                                                if (i == (ViewBag.StructureInspectorList.Count - 1))
+                                                {
+                                                    while ((i % cells) != 0)
+                                                    {
+                                                        @:<td></td>
+                                                        {
+                                                            i++;
+                                                        }
+                                                    }
+                                                }
+                                                if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                {
+                                                @:</tr>
+                                            }
+                                            {
+                                                i++;
+                                            }
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="firstname" class="col-sm-12 col-md-6 col-xl-3 control-label">Other Inspector List<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    <table>
+                                        @foreach (var objPM in ViewBag.OtherInspectorList)
+                                        {
+                                            var checkBoxId = "Other_" + objPM.UserID;
+                                            var tdId = "td" + objPM.UserID;
+                                            var strChecked = "";
+                                            if (Model.qcinspection_project_OtherInspector_detail != null)
+                                            {
+                                                if (Model.qcinspection_project_OtherInspector_detail.Where(a => a.UserID == objPM.UserID).FirstOrDefault() != null)
+                                                {
+                                                    strChecked = "checked";
+                                                }
+                                                else
+                                                {
+                                                    strChecked = "";
+                                                }
+                                            }
+                                            if ((i % cells) == 0)
+                                            {
+                                                @:<tr>
+                                                }
+                                                <td width="350px" id="@tdId">
+                                                    <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@objPM.UserID" />
+                                                    @objPM.DisplayName
+                                                </td>
+                                                if (i == (ViewBag.OtherInspectorList.Count - 1))
+                                                {
+                                                    while ((i % cells) != 0)
+                                                    {
+                                                        @:<td></td>
+                                                        {
+                                                            i++;
+                                                        }
+                                                    }
+                                                }
+                                                if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                {
+                                                @:</tr>
+                                            }
+                                            {
+                                                i++;
+                                            }
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="form-footer">
+                                <button type="button" id="btnCancelProject" class="btn btn-danger QCInspectionProjectIndex"><i class="fa fa-times"></i> CANCEL</button>
+                                <button type="button" onclick="ProjectCreate()" id="btnSaveProject" class="btn btn-success"><i class="fa fa-check-square-o"></i> SAVE</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Row-->
+
+<script>
+    $().ready(function () {
+        $("#QCInspectionProjectAddForm").validate({
+            rules: {
+                Project_Name: "required",
+                Project_ID: "required",
+                StartDate: "required",
+                EndDate: "required"
+            },
+            messages: {
+                Project_Name: "Please enter Project Name",
+                Project_ID: "Please enter Project Code",
+                StartDate: "Please enter Start Date",
+                EndDate: "Please enter End Date",
+            }
+        });
+
+        $('#StartDate').datepicker({
+            format: "dd/mm/yyyy",
+            todayHighlight: 'TRUE',
+            autoclose: true
+        }).on('changeDate', function (ev) {
+            $('#EndDate').datepicker('setStartDate', ev.date);
+            $('#EndDate').datepicker('setDate', ev.date);
+        });
+
+        $('#EndDate').datepicker({
+            format: "dd/mm/yyyy",
+            todayHighlight: 'TRUE',
+            autoclose: true
+        });
+    });
+
+    function ProjectCreate()
+    {
+        ///Project Managers
+        var ProjectManagersSelection = []
+        $.each($("input:checkbox[id^=PM_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                ProjectManagersSelection.push(intID)
+            }
+
+        });
+        $('#ProjectManagers').val(ProjectManagersSelection);
+
+        ///Supervisor
+        var SupervisorsSelection = []
+        $.each($("input:checkbox[id^=SUP_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                SupervisorsSelection.push(intID)
+            }
+
+        });
+        $('#Supervisors').val(SupervisorsSelection);
+
+
+        ///M&E Inspector
+        var MEInspectorsSelection = []
+        $.each($("input:checkbox[id^=ME_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                MEInspectorsSelection.push(intID)
+            }
+
+        });
+        $('#MEInspectors').val(MEInspectorsSelection);
+
+
+        ///Structure Inspector
+        var StructureInspectorsSelection = []
+        $.each($("input:checkbox[id^=Structure_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                StructureInspectorsSelection.push(intID)
+            }
+
+        });
+        $('#StructureInspectors').val(StructureInspectorsSelection);
+
+        ///Other Inspector
+        var OtherInspectorsSelection = []
+        $.each($("input:checkbox[id^=Other_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                OtherInspectorsSelection.push(intID)
+            }
+
+        });
+        $('#OtherInspectors').val(OtherInspectorsSelection);
+
+        var mesg = "";
+        if (ProjectManagersSelection.length == 0) {
+            mesg = "Please select Project Managers <br>";
+        }
+        if (SupervisorsSelection.length == 0) {
+            mesg += "Please select Supervisors <br>";
+        }
+        if (MEInspectorsSelection.length == 0) {
+            mesg += "Please select M&E Inspectors <br>";
+        }
+        if (StructureInspectorsSelection.length == 0) {
+            mesg += "Please select Structure Inspectors <br>";
+        }
+        if (OtherInspectorsSelection.length == 0) {
+            mesg += "Please select Other Inspectors <br>";
+        }
+
+        if (mesg != "")
+        {
+            swal("Warning!", mesg.toString().replaceAll("<br>", "\n"), "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: mesg
+            });
+        }
+        else
+        {
+            if ($('#QCInspectionProjectAddForm').valid()) {
+                $.post("QCInspection/ProjectCreate", $('#QCInspectionProjectAddForm').serialize(), function (data) {
+                    if (data.value == "OK") {
+                        swal($('#Project_Name').val() + "- Project has been created!", {
+                            icon: "success",
+                            timer: 360000
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: $('#Project_Name').val() + "- Project has been created!"
+                        });
+                        $.get("QCInspection/ProjectIndex", function (data) {
+                            $('#page-wrapper').html(data);
+                        });
+                    }
+                    else if (data.value == "Failed") {
+                        swal("Warning!", "Project Creation failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: "Project Creation failed!"
+                        });
+                    }
+                    else {
+                        swal("Warning!", data.value, "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: data.value
+                        });
+                    }
+                });
+            }
+        }
+    }
+</script>
+

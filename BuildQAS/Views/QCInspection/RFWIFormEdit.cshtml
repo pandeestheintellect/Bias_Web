@@ -1,0 +1,1741 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWIFormViewModel
+@{
+    Layout = null;
+    int gid = BuildInspect.Models.Utility.AppSession.GetCurrentUserGroup();
+    var strInspectionNo = "";
+
+    if (Model.InspectionNo == 1)
+    {
+        strInspectionNo = "1<sup>st</sup>Inspection";
+    }
+    else if (Model.InspectionNo == 2)
+    {
+        strInspectionNo = "Re-Inspection : 2<sup>nd</sup>";
+    }
+    else if (Model.InspectionNo == 3)
+    {
+        strInspectionNo = "Re-Inspection : 3<sup>rd</sup>";
+    }
+    else if (Model.InspectionNo == 4)
+    {
+        strInspectionNo = "Re-Inspection : 4<sup>th</sup>";
+    }
+    else
+    {
+        strInspectionNo = "Re-Inspection : 5<sup>th</sup>";
+    }
+    var strChecked = "";
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">RFWI Update</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" class="RFWIFormIndex">RFWI List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">RFWI Update</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "RFWIFormEditForm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.QCInspectionRFWIFormID)
+    @Html.HiddenFor(model => model.CreatedBy)
+    @Html.HiddenFor(model => model.Status)
+    @Html.HiddenFor(model => model.CreatedDate)
+    @Html.HiddenFor(model => model.SelectedGeneralCheckListIds)
+    @Html.HiddenFor(model => model.SelectedTradeDetailedCheckListIds)
+    @Html.HiddenFor(model => model.SelectedTradeItemListIds)
+    @Html.HiddenFor(model => model.RequestFor)
+    @Html.HiddenFor(model => model.InspectionStartTime)
+    @Html.HiddenFor(model => model.InspectionEndTime)
+    @Html.HiddenFor(model => model.OtherTradeClearance_Structure)
+    @Html.HiddenFor(model => model.OtherTradeClearance_MandE)
+    @Html.HiddenFor(model => model.OtherTradeClearance_Other)
+    @Html.HiddenFor(model => model.ProceedRequest)
+    @Html.HiddenFor(model => model.OtherSigned)
+
+    <div> &nbsp;</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="form-header text-uppercase">
+                        <i class="fa fa-user-circle-o"></i>
+                        Edit RFWI - @Html.Raw(@strInspectionNo) -
+                        @if (Model.Status == "Pending")
+                        {
+                            <span class="badge-dark">@Model.Status</span>
+                        }
+                        else if (@Model.Status == "Approved")
+                        {
+                            <span class="badge-info">@Model.Status</span>
+                        }
+                        else if (@Model.Status == "Requested")
+                        {
+                            <span class="badge-primary">@Model.Status</span>
+                        }
+                        else if (@Model.Status == "Rejected")
+                        {
+                            <span class="badge-danger">@Model.Status</span>
+                        }
+                        else if (@Model.Status == "Completed")
+                        {
+                            <span class="badge-success">@Model.Status</span>
+                        }
+                    </h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="@Model.CreatedDate">Date<span class="symbol required"></span></label>
+                                @Html.TextBoxFor(model => model.CreatedDate, "{0:dd-MM-yyyy}", new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="@Model.QCInspectionRFWINo">Request No<span class="symbol required"></span></label>
+                                @Html.TextBoxFor(model => model.QCInspectionRFWINo, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.QCInspectionRFWINo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="@Model.ProjectID">Project<span class="symbol required"></span></label>
+                                @Html.TextBoxFor(model => model.qcinspection_project_master.Project_Name, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.HiddenFor(model => model.ProjectID)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            @if (Model.Status == "Pending" && gid == 5 && Model.InspectionNo == 1 && Model.OtherSigned == false)
+                            {
+                                <div class="form-group">
+                                    <label for="@Model.TradeID">Trade<span class="symbol required"></span></label>
+                                    @Html.DropDownListFor(m => m.TradeID, new SelectList(Model.TradeList, "Value", "Text"), new { @class = "form-control", @onchange = "Trade_Change()" })
+                                    @Html.ValidationMessageFor(model => model.TradeID, "", new { @class = "text-danger" })
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label for="@Model.TradeID">Trade<span class="symbol required"></span></label>
+                                    @Html.TextBoxFor(model => model.qcinspection_rfwi_trade_master.TradeName, new { @class = "form-control", @readonly = "readonly" })
+                                    @Html.HiddenFor(model => model.TradeID)
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-3">
+                            @if ((Model.Status == "Pending" || Model.Status == "Approved") && gid == 5)
+                            {
+                                <div class="form-group">
+                                    <label for="@Model.InspectorID">Inspector<span class="symbol required"></span></label>
+                                    @Html.DropDownListFor(m => m.InspectorID, new SelectList(Model.InspectorList, "Value", "Text"), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.InspectorID, "", new { @class = "text-danger" })
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label for="@Model.InspectorID">Inspector<span class="symbol required"></span></label>
+                                    @Html.TextBoxFor(model => model.user.DisplayName, new { @class = "form-control", @readonly = "readonly" })
+                                    @Html.HiddenFor(model => model.InspectorID)
+                                </div>
+                            }
+                        </div>
+                        @if (Model.ProceedRequest == true)
+                        {
+                            if ((Model.Status == "Pending" || Model.Status == "Approved") && gid == 5)
+                            {
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="@Model.InspectionOn">Inspection Date<span class="symbol required"></span></label>
+                                        @Html.TextBoxFor(model => model.InspectionOn, "{0:dd-MMM-yyyy}", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.InspectionOn, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="@Model.InspectionStartOn">Start/End Time<span class="symbol required"></span></label>
+                                        <p id="basicExample">
+                                            <input type="text" id="InsStartTime" class="form-control d-inline-block time start" style="width:100px" value="@Model.InspectionStartTime" /> to
+                                            <input type="text" id="InsEndTime" class="form-control d-inline-block time end" style="width:100px" value="@Model.InspectionEndTime" />
+                                            <button type="button" onclick="RFWIFormAvailableSlots()" id="btnAvailableSlotsQCInspectionDefectForm" class="btn btn-facebook d-inline-block" style="color:white"><i class="fa fa-clock-o" aria-hidden="true"></i> Slots</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                            else if (gid < 9)
+                            {
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="@Model.InspectionOn">Inspection Date<span class="symbol required"></span></label>
+                                        @Html.TextBoxFor(model => model.InspectionOn, "{0:dd-MMM-yyyy}", new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="@Model.InspectionStartOn">Start/End Time<span class="symbol required"></span></label>
+                                        <p id="basicExample">
+                                            <input type="text" id="InsStartTime" class="form-control d-inline-block time start" style="width:100px" value="@Model.InspectionStartTime" readonly /> to
+                                            <input type="text" id="InsEndTime" class="form-control d-inline-block time end" style="width:100px" value="@Model.InspectionEndTime" readonly />
+                                            <button type="button" onclick="RFWIFormAvailableSlots()" id="btnAvailableSlotsQCInspectionDefectForm" class="btn btn-facebook d-inline-block" style="color:white"><i class="fa fa-clock-o" aria-hidden="true"></i> Slots</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                    @if (Model.Status == "Pending" && gid == 5 && Model.InspectionNo == 1 && Model.OtherSigned == false)
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Other Trade Clearance (if any) by :</label><br />
+                                    @{
+                                        if (Model.OtherTradeClearance_Structure == true)
+                                        {
+                                            strChecked = "checked";
+                                        }
+                                        else
+                                        {
+                                            strChecked = "";
+                                        }
+                                    }
+                                    <div class="icheck-material-primary icheck-inline">
+                                        <input type="checkbox" id="chkStructure" @(strChecked == "" ? "" : "checked=\"checked\"" ) value="@Model.OtherTradeClearance_Structure" />
+                                        <label for="chkStructure">Structure</label>
+                                    </div>
+
+                                    @{
+                                        if (Model.OtherTradeClearance_MandE == true)
+                                        {
+                                            strChecked = "checked";
+                                        }
+                                        else
+                                        {
+                                            strChecked = "";
+                                        }
+                                    }
+                                    <div class="icheck-material-primary icheck-inline">
+                                        <input type="checkbox" id="chkME" @(strChecked == "" ? "" : "checked=\"checked\"" ) value="@Model.OtherTradeClearance_MandE" />
+                                        <label for="chkME">M&E</label>
+                                    </div>
+
+                                    @{
+                                        if (Model.OtherTradeClearance_Other == true)
+                                        {
+                                            strChecked = "checked";
+                                        }
+                                        else
+                                        {
+                                            strChecked = "";
+                                        }
+                                    }
+                                    <div class="icheck-material-primary icheck-inline">
+                                        <input type="checkbox" id="chkOther" @(strChecked == "" ? "" : "checked=\"checked\"" ) value="@Model.OtherTradeClearance_Other" />
+                                        <label for="chkOther">Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Other Trade Clearance (if any) by :</label><br />
+                                    @if (Model.OtherTradeClearance_Structure == true)
+                                    {
+                                        <div class="icheck-material-primary icheck-inline">
+                                            <input type="checkbox" id="chkStructure" checked="checked" value="@Model.OtherTradeClearance_Structure" disabled="disabled" readonly="readonly" />
+                                            <label for="chkStructure">Structure</label>
+                                        </div>
+                                    }
+
+                                    @if (Model.OtherTradeClearance_MandE == true)
+                                    {
+                                        <div class="icheck-material-primary icheck-inline">
+                                            <input type="checkbox" id="chkME" checked="checked" value="@Model.OtherTradeClearance_MandE" disabled="disabled" readonly="readonly" />
+                                            <label for="chkME">M&E</label>
+                                        </div>
+                                    }
+
+                                    @if (Model.OtherTradeClearance_Other == true)
+                                    {
+                                        <div class="icheck-material-primary icheck-inline">
+                                            <input type="checkbox" id="chkOther" checked="checked" value="@Model.OtherTradeClearance_Other" disabled="disabled" readonly="readonly" />
+                                            <label for="chkOther">Other</label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="row">
+                        <div class="col-md-5">
+                            @if (Model.Status == "Pending" && gid == 5 && Model.InspectionNo == 1 && Model.OtherSigned == false)
+                            {
+                                <div class="form-group">
+                                    <label for="@Model.RequestFor">Request For<span class="symbol required"></span></label><br />
+                                    <div class="icheck-material-primary icheck-inline">
+                                        <input type="radio" id="WorkInspection" name="RequestFor" checked />
+                                        <label for="WorkInspection">Work Inspection</label>
+                                    </div>
+                                </div>
+                                <div id="dvRFWIFormTradeItemList">
+                                    @Html.Partial("PartialRFWIFormTradeItemList", Model)
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label for="@Model.RequestFor">Request For <u>@Model.RequestFor</u></label><br />
+                                </div>
+                                <div class="form-group">
+                                    <h5>Item<span class="symbol required"></span></h5>
+                                    @foreach (var objItem in Model.qcinspection_rfwi_form_trade_item_detail)
+                                    {
+                                        <label>@objItem.qcinspection_rfwi_trade_item_detail.ItemName</label>
+                                        <br />
+                                    }
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-7">
+                            @if (Model.Status == "Pending" && gid == 5 && Model.InspectionNo == 1 && Model.OtherSigned == false)
+                            {
+                                <div class="form-group">
+                                    <label for="@Model.SelectedGeneralCheckListIds">General Checklist<span class="symbol required"></span></label><br />
+                                    @foreach (var objGCL in Model.GeneralCheckList)
+                                    {
+                                        var checkBoxId = "GCL_" + objGCL.Value;
+                                        if (Model.qcinspection_rfwi_form_general_checklist_detail != null)
+                                        {
+                                            if (Model.qcinspection_rfwi_form_general_checklist_detail.Where(a => a.GeneralCheckListID == int.Parse(objGCL.Value)).FirstOrDefault() != null)
+                                            {
+                                                strChecked = "checked";
+                                            }
+                                            else
+                                            {
+                                                strChecked = "";
+                                            }
+                                        }
+                                        <div class="icheck-material-primary icheck-inline">
+                                            <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) value="@objGCL.Value" />
+                                            <label for="@checkBoxId">@objGCL.Text</label>
+                                        </div>
+                                    }
+                                </div>
+                                <div id="dvRFWIFormTradeDetailedCheckList">
+                                    @Html.Partial("PartialRFWIFormTradeDetailedCheckList", Model)
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <h5>
+                                        GENERAL CHECKLIST<span class="symbol required"></span>
+                                    </h5>
+                                    @foreach (var objItem in Model.qcinspection_rfwi_form_general_checklist_detail)
+                                    {
+                                        <label>@objItem.qcinspection_rfwi_general_checklist_master.GeneralCheckListName</label>
+                                        <br />
+                                    }
+                                </div>
+                                <div class="form-group">
+                                    <h5>
+                                        DETAILED CHECKLIST<span class="symbol required"></span>
+                                    </h5>
+                                    @foreach (var objItem in Model.qcinspection_rfwi_form_trade_detailed_checklist_detail)
+                                    {
+                                        <label>@objItem.qcinspection_rfwi_trade_detailed_checklist_detail.DetailedCheckListName</label>
+                                        <br />
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div id="dvRFWIFormLocationList">
+                                    @Html.Partial("PartialRFWIFormLocationList", Model)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @if (Model.OtherTradeClearance_Structure == true || Model.OtherTradeClearance_MandE == true || Model.OtherTradeClearance_Other == true)
+                    {
+                        if (Model.Status == "Pending" && (gid == 9 || gid == 10 || gid == 11))
+                        {
+                            if (Model.OtherTradeClearance_StructureSignature == null || Model.OtherTradeClearance_MandESignature == null || Model.OtherTradeClearance_OtherSignature == null)
+                            {
+                                <br />
+                                <h5>Other Trade Clearance (if any) by :</h5>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="checklist-signature-container p-0">
+                                            <div class="row">
+                                                @if (Model.OtherTradeClearance_StructureSignature == null && Model.OtherTradeClearance_Structure == true && gid == 10)
+                                                {
+                                                    <div class="col-sm-12 col-md-4 col-xl-5 sign-container m-0">
+                                                        <h5>Structure</h5>
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-md-12">
+                                                                Name: <b>@BuildInspect.Models.Utility.AppSession.GetCurrentUserName()</b>
+                                                            </div>
+                                                        </div>
+                                                        <hr />
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                                                                <button type="button" class="btn btn-outline-primary waves-effect waves-light m-1 checkby-unlock-button unlock"> <i class="fa fa-unlock"></i> </button>
+                                                                <button type="button" class="btn btn-outline-primary waves-effect waves-light m-1 checkby-lock-button lock"> <i class="fa fa-lock"></i> </button>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                                                                <button type="button" class="btn btn-outline-danger waves-effect waves-light m-1 checkby-clear-button delete"> <i class="zmdi zmdi-redo"></i> </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="checkby-signature--wrapper">
+                                                            <div class="checkby-signature--overlay">
+                                                                <div class="tap-text">
+                                                                    Tap to Unlock Structure
+                                                                </div>
+                                                            </div>
+                                                            <div id="checkby-signature" class="signature"></div>
+                                                            @Html.TextAreaFor(model => Model.OtherTradeClearance_StructureSignature, new { @id = "Structure_Signature", @class = "d-none" })
+                                                            @Html.Hidden("StructureSignature", Model.OtherTradeClearance_StructureSignature)
+                                                        </div>
+                                                    </div>
+                                                }
+                                                @if (Model.OtherTradeClearance_MandESignature == null && Model.OtherTradeClearance_MandE == true && gid == 9)
+                                                {
+                                                    <div class="col-sm-12 col-md-4 col-xl-5 sign-container m-0">
+                                                        <h5>M&E</h5>
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-md-12">
+                                                                Name: <b>@BuildInspect.Models.Utility.AppSession.GetCurrentUserName()</b>
+                                                            </div>
+                                                        </div>
+                                                        <hr />
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                                                                <button type="button" class="btn btn-outline-primary waves-effect waves-light m-1 verified-unlock-button unlock"> <i class="fa fa-unlock"></i> </button>
+                                                                <button type="button" class="btn btn-outline-primary waves-effect waves-light m-1 verified-lock-button lock"> <i class="fa fa-lock"></i> </button>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                                                                <button type="button" class="btn btn-outline-danger waves-effect waves-light m-1 verified-clear-button delete"> <i class="zmdi zmdi-redo"></i> </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="verified-signature--wrapper">
+                                                            <div class="verified-signature--overlay">
+                                                                <div class="tap-text">
+                                                                    Tap to Unlock M&E
+                                                                </div>
+                                                            </div>
+                                                            <div id="verified-signature" class="signature"></div>
+                                                            @Html.TextAreaFor(model => Model.OtherTradeClearance_MandESignature, new { @id = "MandE_Signature", @class = "d-none" })
+                                                            @Html.Hidden("MandESignature", Model.OtherTradeClearance_MandESignature)
+                                                        </div>
+                                                    </div>
+                                                }
+                                                @if (Model.OtherTradeClearance_OtherSignature == null && Model.OtherTradeClearance_Other == true && gid == 11)
+                                                {
+                                                    <div class="col-sm-12 col-md-4 col-xl-5 sign-container m-0">
+                                                        <h5>Other</h5>
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-md-12">
+                                                                Name: <b>@BuildInspect.Models.Utility.AppSession.GetCurrentUserName()</b>
+                                                            </div>
+                                                        </div>
+                                                        <hr />
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                                                                <button type="button" class="btn btn-outline-primary waves-effect waves-light m-1 endorsed-unlock-button unlock"> <i class="fa fa-unlock"></i> </button>
+                                                                <button type="button" class="btn btn-outline-primary waves-effect waves-light m-1 endorsed-lock-button lock"> <i class="fa fa-lock"></i> </button>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                                                                <button type="button" class="btn btn-outline-danger waves-effect waves-light m-1 endorsed-clear-button delete"> <i class="zmdi zmdi-redo"></i> </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="endorsed-signature--wrapper">
+                                                            <div class="endorsed-signature--overlay">
+                                                                <div class="tap-text">
+                                                                    Tap to Unlock Other
+                                                                </div>
+                                                            </div>
+                                                            <div id="endorsed-signature" class="signature"></div>
+                                                            @Html.TextAreaFor(model => Model.OtherTradeClearance_OtherSignature, new { @id = "Other_Signature", @class = "d-none" })
+                                                            @Html.Hidden("OtherSignature", Model.OtherTradeClearance_OtherSignature)
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+                        if (Model.OtherTradeClearance_StructureSignature != null || Model.OtherTradeClearance_MandESignature != null || Model.OtherTradeClearance_OtherSignature != null)
+                        {
+                            if (Model.Status != "Pending")
+                            {
+                                <br />
+                                <h5>Other Trade Clearance (if any) by :</h5>
+                            }
+                            <div class="container">
+                                <div class="row">
+                                    @if (Model.OtherTradeClearance_StructureSignature != null)
+                                    {
+                                        <div class="col-md-4">
+                                            <h5>Structure</h5>
+                                            Name: <b>@Model.OtherTradeClearance_StructureByName</b>
+                                            <hr />
+                                            <img src="@Model.OtherTradeClearance_StructureSignature" style="border:solid;">
+                                            <br />
+                                            Signed On :@string.Format("{0:dddd, dd MMMM yyyy hh:mm tt}", @Model.OtherTradeClearance_StructureOn)
+                                            @Html.HiddenFor(model => model.OtherTradeClearance_StructureSignature)
+                                            @Html.HiddenFor(model => model.OtherTradeClearance_StructureOn)
+                                        </div>
+                                    }
+                                    @if (Model.OtherTradeClearance_MandESignature != null)
+                                    {
+                                        <div class="col-md-4">
+                                            <h5>M&E</h5>
+                                            Name: <b>@Model.OtherTradeClearance_MandEByName</b>
+                                            <hr />
+                                            <img src="@Model.OtherTradeClearance_MandESignature" style="border:solid;">
+                                            <br />
+                                            Signed On :@string.Format("{0:dddd, dd MMMM yyyy hh:mm tt}", @Model.OtherTradeClearance_MandEOn)
+                                            @Html.HiddenFor(model => model.OtherTradeClearance_MandEByName)
+                                            @Html.HiddenFor(model => model.OtherTradeClearance_MandEOn)
+                                        </div>
+                                    }
+                                    @if (Model.OtherTradeClearance_OtherSignature != null)
+                                    {
+                                        <div class="col-md-4">
+                                            <h5>Other</h5>
+                                            Name: <b>@Model.OtherTradeClearance_OtherByName</b>
+                                            <hr />
+                                            <img src="@Model.OtherTradeClearance_OtherSignature" style="border:solid;">
+                                            <br />
+                                            Signed On :@string.Format("{0:dddd, dd MMMM yyyy hh:mm tt}", @Model.OtherTradeClearance_OtherOn)
+                                            @Html.HiddenFor(model => model.OtherTradeClearance_OtherSignature)
+                                            @Html.HiddenFor(model => model.OtherTradeClearance_OtherOn)
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                    <div class="row"></div>
+                    @if ((Model.Status == "Pending" || Model.Status == "Approved") && Model.ProceedRequest == true && gid == 5)
+                    {
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="checklist-signature-container p-0">
+                                    <div class="row">
+                                        <div class="col-md-12 sign-container m-0">
+                                            <p>I / We confirm that the RFWI above has been submitted for Inspection.</p>
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                                                    <button type="button" class="btn btn-outline-primary waves-effect waves-light m-1 technician-unlock-button unlock"> <i class="fa fa-unlock"></i> </button>
+                                                    <button type="button" class="btn btn-outline-primary waves-effect waves-light m-1 technician-lock-button lock"> <i class="fa fa-lock"></i> </button>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                                                    <button type="button" class="btn btn-outline-danger waves-effect waves-light m-1 technician-clear-button delete"> <i class="zmdi zmdi-redo"></i> </button>
+                                                </div>
+                                            </div>
+                                            <div class="technician-signature--wrapper">
+                                                <div class="technician-signature--overlay">
+                                                    <div class="tap-text">
+                                                        Tap to Unlock Request
+                                                    </div>
+                                                </div>
+                                                <div id="technician-signature" class="signature"></div>
+                                                @Html.TextAreaFor(model => Model.RequestSignature, new { @id = "Request_Signature", @class = "d-none" })
+                                                @Html.Hidden("RequestSignature", Model.RequestSignature)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            @if (@Model.RequestSignature != null)
+                            {
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <img src="@Model.RequestSignature" style="border:solid;">
+                                        <br />
+                                        Requested On :@string.Format("{0:dddd, dd MMMM yyyy hh:mm tt}", @Model.RequestOn)
+                                    </div>
+                                </div>
+                            }
+
+                            @if (Model.Status == "Requested" && gid == 8)
+                            {
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="@Model.CompletedRemarks">Complete/Reject Remarks</label>
+                                        @Html.TextAreaFor(model => Model.CompletedRemarks, 4, 2, new { @class = "form-control", @MaxLength = "500", @style = "height: 118px;" })
+                                        @Html.ValidationMessageFor(model => model.CompletedRemarks, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checklist-signature-container p-0">
+                                        <div class="row">
+                                            <div class="col-md-12 sign-container m-0">
+                                                <p>I / We confirm that the RFWI above has been completed to my / our satisfaction.</p>
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                                                        <button type="button" class="btn btn-outline-primary waves-effect waves-light m-1 customer-unlock-button unlock"> <i class="fa fa-unlock"></i> </button>
+                                                        <button type="button" class="btn btn-outline-primary waves-effect waves-light m-1 customer-lock-button lock"> <i class="fa fa-lock"></i> </button>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                                                        <button type="button" class="btn btn-outline-danger waves-effect waves-light m-1 customer-clear-button delete"> <i class="zmdi zmdi-redo"></i> </button>
+                                                    </div>
+                                                </div>
+                                                <div class="customer-signature--wrapper">
+                                                    <div class="customer-signature--overlay">
+                                                        <div class="tap-text">
+                                                            Tap to Unlock Completed
+                                                        </div>
+                                                    </div>
+                                                    <div id="customer-signature" class="signature"></div>
+                                                    @Html.TextAreaFor(model => Model.CompletedSignature, new { @id = "Completed_Signature", @class = "d-none" })
+                                                    @Html.Hidden("CompletedSignature", Model.CompletedSignature)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            }
+                            else if (Model.Status == "Completed" || Model.Status == "Rejected")
+                            {
+                                <div class="col-md-6">
+                                    @if (@Model.RequestSignature != null)
+                                    {
+                                        <div class="form-group">
+                                            <img src="@Model.CompletedSignature" style="border:solid;">
+                                            <br />
+                                            @Model.Status On :@string.Format("{0:dddd, dd MMMM yyyy hh:mm tt}", @Model.CompletedDate)
+                                        </div>
+                                    }
+                                    @if (Model.CompletedRemarks != null)
+                                    {
+                                        <div class="form-group">
+                                            <label for="@Model.CompletedRemarks">@Model.Status Remarks</label>
+                                            @Html.TextAreaFor(model => Model.CompletedRemarks, 4, 2, new { @class = "form-control", @MaxLength = "500", @style = "height: 118px;", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(model => model.CompletedRemarks, "", new { @class = "text-danger" })
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    }
+
+                    <div class="form-footer">
+                        <button type="button" id="btnCancelRFWIForm" class="btn btn-dark RFWIFormIndex"><i class="fa fa-times"></i> CANCEL</button>
+                        @if (Model.Status == "Pending")
+                        {
+                            if (gid == 9 && Model.OtherTradeClearance_MandE == true && Model.OtherTradeClearance_MandESignature == null)
+                            {
+                                <button type="button" onclick="RFWIFormMandESignOff()" id="btnMESignOffRFWIForm" class="btn btn-success"><i class="fa fa-check-square-o"></i> M&E Sign-Off</button>
+                            }
+                            else if (gid == 10 && Model.OtherTradeClearance_Structure == true && Model.OtherTradeClearance_StructureSignature == null)
+                            {
+                                <button type="button" onclick="RFWIFormStructureSignOff()" id="btnStructureSignOffRFWIForm" class="btn btn-success"><i class="fa fa-check-square-o"></i> Structure Sign-Off</button>
+                            }
+                            else if (gid == 11 && Model.OtherTradeClearance_Other == true && Model.OtherTradeClearance_OtherSignature == null)
+                            {
+                                <button type="button" onclick="RFWIFormOtherSignOff()" id="btnOtherSignOffRFWIForm" class="btn btn-success"><i class="fa fa-check-square-o"></i> Other Sign-Off</button>
+                            }
+                            else if (Model.OtherSigned == false && gid == 5)
+                            {
+                                <button type="button" onclick="RFWIFormUpdate()" id="btnUpdateRFWIForm" class="btn btn-success"><i class="fa fa-check-square-o"></i> UPDATE</button>
+                            }
+                        }
+                        else if (Model.Status == "Approved" && gid == 5)
+                        {
+                            <button type="button" onclick="RFWIFormRequested()" id="btnRequestRFWIForm" class="btn btn-success"><i class="fa fa-check-square-o"></i> Submit Request</button>
+                        }
+                        else if (Model.Status == "Rejected" && gid == 5 && Model.ReInspectionFormID == 0 && Model.InspectionNo < 5)
+                        {
+                            <button type="button" onclick="RFWIFormReInspection(@Model.QCInspectionRFWIFormID)" id="btnReinspectionRFWIForm" class="btn btn-info"><i class="fa fa-check-square-o"></i> REINSPECTION</button>
+                        }
+                        else if (Model.Status == "Requested" && gid == 8)
+                        {
+                            <button type="button" onclick="RFWIFormRejected()" id="btnRejectedQCInspectionDefectForm" class="btn btn-secondary"><i class="fa fa-check-square-o"></i> REJECT</button>
+                            <button type="button" onclick="RFWIFormCompleted()" id="btnCompletedQCInspectionDefectForm" class="btn btn-success"><i class="fa fa-check-square-o"></i> Completed</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!-- End Row-->
+<div class="modal fade" id="LocationModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="LocationHead">Add Location</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgLocation">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="AvailableSlotsModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="AvailableSlotsHead"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgAvailableSlots">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="~/Content/jquery.timepicker.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.timepicker.js"></script>
+<script src="~/Scripts/jquery.datepair.js"></script>
+<script>
+    function Trade_Change() {
+        $.ajax({
+            type: "Get",
+            url: "/QCInspection/PartialRFWIFormTradeDetailedCheckList?TradeID=" + $('#TradeID').val(),
+            success: function (resp) {
+                $("#dvRFWIFormTradeDetailedCheckList").html(resp);
+            }
+        });
+
+        $.ajax({
+            type: "Get",
+            url: "/QCInspection/PartialRFWIFormTradeItemList?TradeID=" + $('#TradeID').val(),
+            success: function (resp) {
+                $("#dvRFWIFormTradeItemList").html(resp);
+            }
+        });
+    }
+
+    function LoadRFWIFormLocationList() {
+        $.ajax({
+            type: "Get",
+            url: "/QCInspection/PartialRFWIFormLocationList?Id=" + $('#QCInspectionRFWIFormID').val(),
+            success: function (resp) {
+                $("#dvRFWIFormLocationList").html(resp);
+                var table1 = $('#LocationTable').DataTable({
+                    responsive: true,
+                    destroy: true
+                });
+            }
+        });
+    }
+
+    $(document).ready(function ()
+    {
+        if ("@Model.Status" == "Pending" && "@Model.InspectionNo" == "1" && @gid == 5) {
+
+            if ("@Model.ProceedRequest" == "False") {
+                $('#TradeID').select2({
+                    selectOnClose: true
+                });
+            }
+            $('#InspectorID').select2({
+                selectOnClose: true
+            });
+        }
+
+        if (("@Model.Status" == "Pending" || "@Model.Status" == "Approved") && "@Model.ProceedRequest" == "True" && @gid == 5)
+        {
+            $('#InspectionOn').datepicker({
+                format: "dd-M-yyyy",
+                todayHighlight: 'TRUE',
+                autoclose: true,
+            });
+
+            $('#basicExample .time').timepicker({
+                'showDuration': true,
+                'timeFormat': 'g:ia',
+                minTime: '08:00am',
+                maxTime: '07:00pm'
+            });
+            $('#basicExample').datepair();
+        }
+
+        LoadRFWIFormLocationList();
+
+        ///* Structure Signature */
+        $('.checkby-signature--wrapper').on('click', function () {
+            $('.checkby-signature--overlay').hide();
+            $('.checkby-lock-button').hide();
+            $('.checkby-unlock-button').show();
+            $('.checkby-clear-button').show();
+        });
+
+        $('.checkby-lock-button').on('click', function () {
+            $(this).hide();
+            $('.checkby-signature--overlay').hide();
+            $('.checkby-unlock-button').show();
+            $('.checkby-clear-button').show();
+        });
+
+        $('.checkby-unlock-button').on('click', function () {
+            $(this).hide();
+            $('.checkby-signature--overlay').show();
+            $('.checkby-lock-button').show();
+            $('.checkby-clear-button').hide();
+        });
+
+        var $checkbySig = $('#checkby-signature');
+        var $checkbySigCapture = $('#Structure_Signature');
+
+        var $checkbyData = $checkbySig.jSignature('getData', 'svgbase64');
+        $checkbySig.jSignature({
+            'background-color': 'transparent',
+            'decor-color': 'transparent',
+            color: "#00f",
+            lineWidth: 3
+        });
+
+        if ($('#StructureSignature').val() != null && $('#StructureSignature').val() != '') {
+            $checkbySig.jSignature('setData', $('#StructureSignature').val());
+        }
+        $checkbySig.bind('change', function (e) {
+            var $checkdata = $checkbySig.jSignature('getData');
+            $checkbySigCapture.val($checkdata);
+        });
+
+        $('.checkby-clear-button').on('click', function (e) {
+            e.preventDefault();
+            $checkbySig.jSignature('reset');
+            $checkbySigCapture.val('');
+        });
+
+        ///* MandE Signature */
+        $('.verified-signature--wrapper').on('click', function () {
+            $('.verified-signature--overlay').hide();
+            $('.verified-lock-button').hide();
+            $('.verified-unlock-button').show();
+            $('.verified-clear-button').show();
+        });
+
+        $('.verified-lock-button').on('click', function () {
+            $(this).hide();
+            $('.verified-signature--overlay').hide();
+            $('.verified-unlock-button').show();
+            $('.verified-clear-button').show();
+        });
+
+        $('.verified-unlock-button').on('click', function () {
+            $(this).hide();
+            $('.verified-signature--overlay').show();
+            $('.verified-lock-button').show();
+            $('.verified-clear-button').hide();
+        });
+
+        var $verifiedSig = $('#verified-signature');
+        var $verifiedSigCapture = $('#MandE_Signature');
+
+        var $verifiedData = $verifiedSig.jSignature('getData', 'svgbase64');
+        $verifiedSig.jSignature({
+            'background-color': 'transparent',
+            'decor-color': 'transparent',
+            color: "#00f",
+            lineWidth: 3
+        });
+
+        if ($('#MandESignature').val() != null && $('#MandESignature').val() != '') {
+            $verifiedSig.jSignature('setData', $('#MandESignature').val());
+        }
+        $verifiedSig.bind('change', function (e) {
+            var $checkdata = $verifiedSig.jSignature('getData');
+            $verifiedSigCapture.val($checkdata);
+        });
+
+        $('.verified-clear-button').on('click', function (e) {
+            e.preventDefault();
+            $verifiedSig.jSignature('reset');
+            $verifiedSigCapture.val('');
+        });
+
+        ///* Other Signature */
+        $('.endorsed-signature--wrapper').on('click', function () {
+            $('.endorsed-signature--overlay').hide();
+            $('.endorsed-lock-button').hide();
+            $('.endorsed-unlock-button').show();
+            $('.endorsed-clear-button').show();
+        });
+
+        $('.endorsed-lock-button').on('click', function () {
+            $(this).hide();
+            $('.endorsed-signature--overlay').hide();
+            $('.endorsed-unlock-button').show();
+            $('.endorsed-clear-button').show();
+        });
+
+        $('.endorsed-unlock-button').on('click', function () {
+            $(this).hide();
+            $('.endorsed-signature--overlay').show();
+            $('.endorsed-lock-button').show();
+            $('.endorsed-clear-button').hide();
+        });
+
+        var $endorsedSig = $('#endorsed-signature');
+        var $endorsedSigCapture = $('#Other_Signature');
+
+        var $endorsedData = $endorsedSig.jSignature('getData', 'svgbase64');
+        $endorsedSig.jSignature({
+            'background-color': 'transparent',
+            'decor-color': 'transparent',
+            color: "#00f",
+            lineWidth: 3
+        });
+
+        if ($('#OtherSignature').val() != null && $('#OtherSignature').val() != '') {
+            $endorsedSig.jSignature('setData', $('#OtherSignature').val());
+        }
+        $endorsedSig.bind('change', function (e) {
+            var $checkdata = $endorsedSig.jSignature('getData');
+            $endorsedSigCapture.val($checkdata);
+        });
+
+        $('.endorsed-clear-button').on('click', function (e) {
+            e.preventDefault();
+            $endorsedSig.jSignature('reset');
+            $endorsedSigCapture.val('');
+        });
+
+        ///* technician Signature */
+        $('.technician-signature--wrapper').on('click', function () {
+            $('.technician-signature--overlay').hide();
+            $('.technician-lock-button').hide();
+            $('.technician-unlock-button').show();
+            $('.technician-clear-button').show();
+        });
+
+        $('.technician-lock-button').on('click', function () {
+            $(this).hide();
+            $('.technician-signature--overlay').hide();
+            $('.technician-unlock-button').show();
+            $('.technician-clear-button').show();
+        });
+
+        $('.technician-unlock-button').on('click', function () {
+            $(this).hide();
+            $('.technician-signature--overlay').show();
+            $('.technician-lock-button').show();
+            $('.technician-clear-button').hide();
+        });
+
+        var $technicianSig = $('#technician-signature');
+        var $technicianSigCapture = $('#Request_Signature');
+
+        var $technicianData = $technicianSig.jSignature('getData', 'svgbase64');
+        $technicianSig.jSignature({
+            'background-color': 'transparent',
+            'decor-color': 'transparent',
+            color: "#00f",
+            lineWidth: 3
+        });
+
+        if ($('#RequestSignature').val() != null && $('#RequestSignature').val() != '') {
+            $technicianSig.jSignature('setData', $('#RequestSignature').val());
+        }
+        $technicianSig.bind('change', function (e) {
+            var $checkdata = $technicianSig.jSignature('getData');
+            $technicianSigCapture.val($checkdata);
+        });
+
+        $('.technician-clear-button').on('click', function (e) {
+            e.preventDefault();
+            $technicianSig.jSignature('reset');
+            $technicianSigCapture.val('');
+        });
+
+        ///* customer Signature */
+        $('.customer-signature--wrapper').on('click', function () {
+            $('.customer-signature--overlay').hide();
+            $('.customer-lock-button').hide();
+            $('.customer-unlock-button').show();
+            $('.customer-clear-button').show();
+        });
+
+        $('.customer-lock-button').on('click', function () {
+            $(this).hide();
+            $('.customer-signature--overlay').hide();
+            $('.customer-unlock-button').show();
+            $('.customer-clear-button').show();
+        });
+
+        $('.customer-unlock-button').on('click', function () {
+            $(this).hide();
+            $('.customer-signature--overlay').show();
+            $('.customer-lock-button').show();
+            $('.customer-clear-button').hide();
+        });
+
+        var $customerSig = $('#customer-signature');
+        var $customerSigCapture = $('#Completed_Signature');
+
+        var $customerData = $customerSig.jSignature('getData', 'svgbase64');
+        $customerSig.jSignature({
+            'background-color': 'transparent',
+            'decor-color': 'transparent',
+            color: "#00f",
+            lineWidth: 3
+        });
+
+        if ($('#CompletedSignature').val() != null && $('#CompletedSignature').val() != '') {
+            $customerSig.jSignature('setData', $('#CompletedSignature').val());
+        }
+        $customerSig.bind('change', function (e) {
+            var $checkdata = $customerSig.jSignature('getData');
+            $customerSigCapture.val($checkdata);
+        });
+
+        $('.customer-clear-button').on('click', function (e) {
+            e.preventDefault();
+            $customerSig.jSignature('reset');
+            $customerSigCapture.val('');
+        });
+
+    });
+
+    function AddRFWIFormLocation() {
+        $.ajax(
+        {
+            type: "Get",
+            url: "/QCInspection/PartialRFWIFormLocation?ProjectID=" + $('#ProjectID').val() + '&QCInspectionRFWIFormID=' + $('#QCInspectionRFWIFormID').val(),
+            success: function (resp) {
+                $("#dgLocation").html(resp);
+                $('h5#LocationHead').html('Add Location');
+                $("#LocationModel").modal('show');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                Lobibox.notify('error', {
+                    size: 'mini',
+                    position: 'top right',
+                    msg: msg
+                });
+            }
+        });
+    }
+
+    function SaveRFWIFormLocation() {
+        var ValidateMsg = "";
+        if ($('#UnitID').val() == "") {
+            ValidateMsg = "Please select Unit";
+        }
+        if ($('#QCInspectionDrawingReferenceFileID').val() == "") {
+            ValidateMsg += "<br/>Please select Drawing Reference";
+        }
+        if (ValidateMsg == "") {
+            var data = $("#LocationForm").serialize();
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/QCInspection/PartialRFWIFormLocation",
+                    async: false,
+                    data: data,
+                    success: function (data) {
+                        if (data.includes("Success")) {
+                            $("#LocationModel").modal('hide');
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.split(':')[1]
+                            });
+                        }
+                        else {
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: msg
+                        });
+                    }
+                });
+            LoadRFWIFormLocationList();
+        }
+        else {
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: ValidateMsg
+            });
+        }
+    }
+
+    function DeleteRFWIFormLocation(id, un)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this RFWI Form Location - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("QCInspection/DeleteRFWIFormLocation/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    if (data.value == "OK") {
+                        swal(un + "- RFWI Form Location has been deleted!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: un + "- RFWI Form Location has been deleted!"
+                        });
+                        LoadRFWIFormLocationList();
+                    }
+                    else {
+                        swal("Warning!", "RFWI Form Location deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'RFWI Form Location deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    function RFWIFormAvailableSlots() {
+        $.ajax(
+        {
+            type: "Get",
+                url: "/QCInspection/PartialRFWIFormAvailableSlots?InspectorID=" + $('#InspectorID').val() + '&InspectionDate=' + $('#InspectionOn').val(),
+            success: function (resp) {
+                $("#dgAvailableSlots").html(resp);
+                if ("@Model.Status" == "Pending" && @gid == 4)
+                {
+                    $('h5#AvailableSlotsHead').html('Available&nbsp;Slots&nbsp;on&nbsp;' + $('#InspectionOn').val() + '&nbsp;for&nbsp;' + $("#InspectorID option:selected").text());
+                }
+                else {
+                    $('h5#AvailableSlotsHead').html('Available&nbsp;Slots&nbsp;on&nbsp;' + $('#InspectionOn').val() + '&nbsp;for&nbsp;' + $("#user_DisplayName").val());
+                }
+                $("#AvailableSlotsModel").modal('show');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                Lobibox.notify('error', {
+                    size: 'mini',
+                    position: 'top right',
+                    msg: msg
+                });
+            }
+        });
+    }
+
+    function RFWIFormUpdate() {
+        var mesg = "";
+        if ("@Model.Status" == "Pending" && @gid == 5)
+        {
+            if ("@Model.InspectionNo" == "1" && "@Model.OtherSigned" == "False")
+            {
+                ///General Check List Ids
+                var GeneralCheckListIds = []
+                $.each($("input:checkbox[id^=GCL_]"), function (i, v) {
+                    var idstring = v.id;
+                    var intID = idstring.split('_')[1]
+                    if (v.checked) {
+                        GeneralCheckListIds.push(intID)
+                    }
+
+                });
+                $('#SelectedGeneralCheckListIds').val(GeneralCheckListIds);
+
+                ///Trade Detailed Check List Ids
+                var TradeDetailedCheckListIds = []
+                $.each($("input:checkbox[id^=TDCL_]"), function (i, v) {
+                    var idstring = v.id;
+                    var intID = idstring.split('_')[1]
+                    if (v.checked) {
+                        TradeDetailedCheckListIds.push(intID)
+                    }
+
+                });
+                $('#SelectedTradeDetailedCheckListIds').val(TradeDetailedCheckListIds);
+
+                ///Trade Item List Ids
+                var TradeItemListIds = []
+                TradeItemListIds.push($('#TradeItemID').val());
+                $('#SelectedTradeItemListIds').val(TradeItemListIds);
+
+                if ($("#WorkInspection").is(":checked")) {
+                    $('#RequestFor').val('Work Inspection');
+                }
+                else {
+                    $('#RequestFor').val('Witnessing of');
+                }
+
+                if ($("#chkStructure").is(":checked")) {
+                    $('#OtherTradeClearance_Structure').val(true);
+                }
+                else {
+                    $('#OtherTradeClearance_Structure').val(false);
+                }
+
+                if ($("#chkME").is(":checked")) {
+                    $('#OtherTradeClearance_MandE').val(true);
+                }
+                else {
+                    $('#OtherTradeClearance_MandE').val(false);
+                }
+
+                if ($("#chkOther").is(":checked")) {
+                    $('#OtherTradeClearance_Other').val(true);
+                }
+                else {
+                    $('#OtherTradeClearance_Other').val(false);
+                }
+
+                if (GeneralCheckListIds.length == 0) {
+                    mesg = "Please select General Check List";
+                }
+                if (TradeDetailedCheckListIds.length == 0) {
+                    mesg += "<br>Please select Detailed List";
+                }
+
+                if (TradeItemListIds.length == 0) {
+                    mesg += "<br>Please select Item List";
+                }
+            }
+
+            $('#InspectionStartTime').val($('#InsStartTime').val());
+            $('#InspectionEndTime').val($('#InsEndTime').val());
+
+            if ($('#RFWIFormLocation_Count').val() == 0) {
+                mesg += "<br>Please select Location";
+            }
+        }
+
+        if (mesg.length == 0) {
+
+            if ($('#RFWIFormEditForm').valid()) {
+
+                var RFWIFormEditForm = new FormData(document.forms.namedItem("RFWIFormEditForm"));
+
+                $.ajax({
+                    url: '/QCInspection/RFWIFormEdit',
+                    data: RFWIFormEditForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.value != "Failed") {
+                            swal("RFWI Form has been updated!", {
+                                icon: "success",
+                                timer: 360000
+                            });
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form has been updated!"
+                            });
+                            $.get("QCInspection/RFWIFormIndex", function (data) {
+                                $('#page-wrapper').html(data);
+                            });
+                        }
+                        else if (data.value == "Failed") {
+                            swal("Warning!", "RFWI Form Updation failed!", "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form Updation failed!"
+                            });
+                        }
+                        else {
+                            swal("Warning!", data.value, "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.value
+                            });
+                        }
+                    }
+                });
+            }
+        }
+        else {
+            swal("Warning!", mesg.toString().replaceAll("<br>", "\n"), "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: mesg
+            });
+        }
+    }
+
+    function RFWIFormMandESignOff() {
+        if ($('#MandE_Signature').val() == "") {
+            swal("Warning!", "Please Sign", "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: "Please Sign"
+            });
+        }
+        else {
+            if ($('#RFWIFormEditForm').valid()) {
+
+                var RFWIFormEditForm = new FormData(document.forms.namedItem("RFWIFormEditForm"));
+
+                $.ajax({
+                    url: '/QCInspection/RFWIFormMandESignOff',
+                    data: RFWIFormEditForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.value == "OK") {
+                            swal("RFWI Form has been M&E Sign Off!", {
+                                icon: "success",
+                                timer: 360000
+                            });
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form has been M&E SignOff!"
+                            });
+                            $.get("QCInspection/RFWIFormIndex/", function (data) {
+                                $('#page-wrapper').html(data);
+                            });
+                        }
+                        else if (data.value == "Failed") {
+                            swal("Warning!", "RFWI Form M&E Sign Off failed!", "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form Form M&E Sign Off failed!"
+                            });
+                        }
+                        else {
+                            swal("Warning!", data.value, "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.value
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    function RFWIFormStructureSignOff() {
+        if ($('#Structure_Signature').val() == "") {
+            swal("Warning!", "Please Sign", "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: "Please Sign"
+            });
+        }
+        else {
+            if ($('#RFWIFormEditForm').valid()) {
+
+                var RFWIFormEditForm = new FormData(document.forms.namedItem("RFWIFormEditForm"));
+
+                $.ajax({
+                    url: '/QCInspection/RFWIFormStructureSignOff',
+                    data: RFWIFormEditForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.value == "OK") {
+                            swal("RFWI Form has been Structure Sign Off!", {
+                                icon: "success",
+                                timer: 360000
+                            });
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form has been Structure SignOff!"
+                            });
+                            $.get("QCInspection/RFWIFormIndex/", function (data) {
+                                $('#page-wrapper').html(data);
+                            });
+                        }
+                        else if (data.value == "Failed") {
+                            swal("Warning!", "RFWI Form Structure Sign Off failed!", "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form Form Structure Sign Off failed!"
+                            });
+                        }
+                        else {
+                            swal("Warning!", data.value, "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.value
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    function RFWIFormOtherSignOff() {
+        if ($('#Other_Signature').val() == "") {
+            swal("Warning!", "Please Sign", "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: "Please Sign"
+            });
+        }
+        else {
+            if ($('#RFWIFormEditForm').valid()) {
+
+                var RFWIFormEditForm = new FormData(document.forms.namedItem("RFWIFormEditForm"));
+
+                $.ajax({
+                    url: '/QCInspection/RFWIFormOtherSignOff',
+                    data: RFWIFormEditForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.value == "OK") {
+                            swal("RFWI Form has been Other Sign Off!", {
+                                icon: "success",
+                                timer: 360000
+                            });
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form has been Other SignOff!"
+                            });
+                            $.get("QCInspection/RFWIFormIndex/", function (data) {
+                                $('#page-wrapper').html(data);
+                            });
+                        }
+                        else if (data.value == "Failed") {
+                            swal("Warning!", "RFWI Form Other Sign Off failed!", "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form Form Other Sign Off failed!"
+                            });
+                        }
+                        else {
+                            swal("Warning!", data.value, "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.value
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    function RFWIFormRequested() {
+        var mesg = "";
+
+        if ($("#InspectionOn").val() == "") {
+            mesg += "<br>Please select Inspection Date";
+        }
+
+        if ($("#InsStartTime").val() == "") {
+            mesg += "<br>Please select Start Time";
+        }
+
+        if ($("#InsEndTime").val() == "") {
+            mesg += "<br>Please select End Time";
+        }
+
+        if ($('#Request_Signature').val() == "")
+        {
+            mesg += "<br>Please Sign";
+        }
+
+        $('#InspectionStartTime').val($('#InsStartTime').val());
+        $('#InspectionEndTime').val($('#InsEndTime').val());
+
+        if (mesg.length == 0) {
+            if ($('#RFWIFormEditForm').valid()) {
+
+                var RFWIFormEditForm = new FormData(document.forms.namedItem("RFWIFormEditForm"));
+
+                $.ajax({
+                    url: '/QCInspection/RFWIFormRequested',
+                    data: RFWIFormEditForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.value == "OK") {
+                            swal("RFWI Form has been Requested!", {
+                                icon: "success",
+                                timer: 360000
+                            });
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form has been Requested!"
+                            });
+                            $.get("QCInspection/RFWIFormIndex/", function (data) {
+                                $('#page-wrapper').html(data);
+                            });
+                        }
+                        else if (data.value == "Failed") {
+                            swal("Warning!", "RFWI Form Requested failed!", "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form Form Requested failed!"
+                            });
+                        }
+                        else {
+                            swal("Warning!", data.value, "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.value
+                            });
+                        }
+                    }
+                });
+            }
+        }
+        else {
+            swal("Warning!", mesg.toString().replaceAll("<br>", "\n"), "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: mesg
+            });
+        }
+    }
+
+    function RFWIFormRejected() {
+        if ($('#Completed_Signature').val() == "") {
+            swal("Warning!", "Please Sign", "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: "Please Sign"
+            });
+        }
+        else {
+            if ($('#RFWIFormEditForm').valid()) {
+
+                var RFWIFormEditForm = new FormData(document.forms.namedItem("RFWIFormEditForm"));
+
+                $.ajax({
+                    url: '/QCInspection/RFWIFormRejected',
+                    data: RFWIFormEditForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.value == "OK") {
+                            swal("RFWI Form has been Rejected!", {
+                                icon: "success",
+                                timer: 360000
+                            });
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form has been Rejected!"
+                            });
+                            $.get("QCInspection/RFWIFormIndex/", function (data) {
+                                $('#page-wrapper').html(data);
+                            });
+                        }
+                        else if (data.value == "Failed") {
+                            swal("Warning!", "RFWI Form Rejected failed!", "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form Form Rejected failed!"
+                            });
+                        }
+                        else {
+                            swal("Warning!", data.value, "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.value
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    function RFWIFormCompleted() {
+        if ($('#Completed_Signature').val() == "") {
+            swal("Warning!", "Please Sign", "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: "Please Sign"
+            });
+        }
+        else {
+            if ($('#RFWIFormEditForm').valid()) {
+
+                var RFWIFormEditForm = new FormData(document.forms.namedItem("RFWIFormEditForm"));
+
+                $.ajax({
+                    url: '/QCInspection/RFWIFormCompleted',
+                    data: RFWIFormEditForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.value == "OK") {
+                            swal("RFWI Form has been Completed!", {
+                                icon: "success",
+                                timer: 360000
+                            });
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form has been Completed!"
+                            });
+                            $.get("QCInspection/RFWIFormIndex/", function (data) {
+                                $('#page-wrapper').html(data);
+                            });
+                        }
+                        else if (data.value == "Failed") {
+                            swal("Warning!", "RFWI Form Completed failed!", "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form Form Completed failed!"
+                            });
+                        }
+                        else {
+                            swal("Warning!", data.value, "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.value
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    function RFWIFormReInspection(id) {
+        swal({
+            title: "Are you sure?",
+            text: "You want to create RFWI ReInspection?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("QCInspection/RFWIFormReInspection/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    if (data.value == "OK") {
+                        swal("RFWI Form ReInspection has been created!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg:"RFWI Form ReInspection has been created!"
+                        });
+                        $.get("QCInspection/RFWIFormIndex/", function (data) {
+                            $('#page-wrapper').html(data);
+                        });
+                    }
+                    else {
+                        swal("Warning!", "RFWI Form ReInspection ReInspection failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'RFWI Form ReInspection ReInspection failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+</script>
+
+

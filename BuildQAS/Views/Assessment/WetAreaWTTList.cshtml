@@ -1,0 +1,111 @@
+﻿@model IEnumerable<BuildInspect.Models.ViewModel.AssessmentWetAreaWaterTightnessTestIndexViewModel>
+
+@{
+    Layout = null;
+}
+
+<div class="app-inner-layout app-inner-layout-page">
+    <div class="app-inner-layout__wrapper">
+        <div class="app-inner-layout__content pt-1">
+
+            <div class="tab-content">
+                <div class="container-fluid">
+                    <section class="content-header">
+                        <h4>
+                            Wet Area Water Tightness Test List
+                        </h4>
+                    </section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <div class="box-header with-border">
+                                        @*<button class="mb-2 mr-2 btn-icon btn-icon-only btn btn-info" onclick="NewWetAreaWaterTightnessTest()"><i class="fas fa-plus-square" title="Add New"></i>&nbsp;Add New Entry</button>*@
+                                    </div>
+                                    <div class="box-body">
+                                        <table id="AssessmentWetAreaWaterTightnessTestListIndexTable" style="width: 100%;" class="table table-hover table-striped table-bordered">
+                                            <thead style="background-color: #575555; color: white">
+                                                <tr>
+                                                    <th>Project Name</th>
+                                                    <th>Project ID</th>
+                                                    <th>Developer</th>
+                                                    <th>Contractor</th>
+                                                    <th>Assessment Dates</th>
+                                                    <th>Assessors</th>
+                                                    <th>No.of Compliances</th>
+                                                    <th>No.of Checks</th>
+                                                    <th>Percentage %</th>
+                                                    <th>Weightage</th>
+                                                    <th>Weighted Score</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td style="width:100px;">@item.Project_Name</td>
+                                                        <td style="width:200px;">@item.ProjectID</td>
+                                                        <td>@item.Developer_Name</td>
+                                                        <td>@item.Contractor_Name</td>
+                                                        <td>@item.Assessment_Dates</td>
+                                                        <td>@item.Assessors</td>
+                                                        <td>@item.NoofCompliances</td>
+                                                        <td>@item.NoofChecks</td>
+                                                        <td>@item.Percentage</td>
+                                                        <td>@item.Weightage</td>
+                                                        <td>@item.WeightedScore</td>
+                                                        <td style="width:150px;">
+                                                            <button class="mb-2 mr-2 btn-icon btn-icon-only btn btn-success" onclick="EditWetAreaWaterTightnessTest(@item.PrjMasID)"><i class="fas fa-edit" title="Edit"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+    $(document).ready(function () {
+
+        $('#AssessmentWetAreaWaterTightnessTestListIndexTable').DataTable({
+        //"autoWidth": true,
+        //"scrollX": true,
+        //dom: 'Bfrtipl',
+        responsive: true,
+        columnDefs: [
+        { "width": "8%", "targets": [0] },
+        { "width": "28%", "targets": [1] },
+        { "width": "12%", "targets": [2,5] },
+        { "width": "14%", "targets": [6] }
+        ],
+       // "scrollY": true,
+        buttons: [
+            //'excelHtml5',
+            //'csvHtml5',
+            //'pdfHtml5',
+
+        ]
+    });
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+    });
+
+});
+$('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+
+
+
+</script>

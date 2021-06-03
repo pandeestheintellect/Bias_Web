@@ -1,0 +1,452 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWIFormViewModel
+@{
+    Layout = null;
+    var strChecked = "";
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">RFWI Creation</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" class="RFWIFormIndex">RFWI List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">RFWI Creation</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div>&nbsp;</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "RFWIFormAddForm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.SelectedGeneralCheckListIds)
+                    @Html.HiddenFor(model => model.SelectedTradeDetailedCheckListIds)
+                    @Html.HiddenFor(model => model.SelectedTradeItemListIds)
+                    @Html.HiddenFor(model => model.RequestFor)
+                    @Html.HiddenFor(model => model.InspectionStartTime)
+                    @Html.HiddenFor(model => model.InspectionEndTime)
+                    @Html.HiddenFor(model => model.OtherTradeClearance_Structure)
+                    @Html.HiddenFor(model => model.OtherTradeClearance_MandE)
+                    @Html.HiddenFor(model => model.OtherTradeClearance_Other)
+
+                    if (Model.InspectionNo == 1)
+                    {
+                        <h4 class="form-header text-uppercase">
+                            <i class="fa fa-user-circle-o"></i>
+                            1<sup>st</sup> Inspection
+                        </h4>
+                    }
+                    else if (Model.InspectionNo == 2)
+                    {
+                        <h4 class="form-header text-uppercase">
+                            <i class="fa fa-user-circle-o"></i>
+                            Re-Inspection : 2<sup>nd</sup>
+                        </h4>
+                    }
+                    else if (Model.InspectionNo == 3)
+                    {
+                        <h4 class="form-header text-uppercase">
+                            <i class="fa fa-user-circle-o"></i>
+                            Re-Inspection : 3<sup>rd</sup>
+                        </h4>
+                    }
+                    else if (Model.InspectionNo == 4)
+                    {
+                        <h4 class="form-header text-uppercase">
+                            <i class="fa fa-user-circle-o"></i>
+                            Re-Inspection : 4<sup>th</sup>
+                        </h4>
+                    }
+                    else
+                    {
+                        <h4 class="form-header text-uppercase">
+                            <i class="fa fa-user-circle-o"></i>
+                            Re-Inspection : 5<sup>th</sup>
+                        </h4>
+                    }
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="@Model.CreatedDate">Date<span class="symbol required"></span></label>
+                                @Html.TextBoxFor(model => Model.CreatedDate, "{0:dd-MMM-yyyy}", new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="@Model.QCInspectionRFWINo">Request No<span class="symbol required"></span></label>
+                                @Html.TextBoxFor(model => Model.QCInspectionRFWINo, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.QCInspectionRFWINo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="@Model.ProjectID">Project<span class="symbol required"></span></label>
+                                @Html.DropDownListFor(m => m.ProjectID, new SelectList(Model.ProjectList, "Value", "Text"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProjectID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="@Model.TradeID">Trade<span class="symbol required"></span></label>
+                                @Html.DropDownListFor(m => m.TradeID, new SelectList(Model.TradeList, "Value", "Text"), new { @class = "form-control", @onchange = "Trade_Change()" })
+                                @Html.ValidationMessageFor(model => model.TradeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="@Model.InspectorID">(RE/RTO) Inspector<span class="symbol required"></span></label>
+                                @Html.DropDownListFor(m => m.InspectorID, new SelectList(Model.InspectorList, "Value", "Text"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.InspectorID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Other Trade Clearance (if any) by :</label><br />
+                                @{
+                                    if (Model.OtherTradeClearance_Structure == true)
+                                    {
+                                        strChecked = "checked";
+                                    }
+                                    else
+                                    {
+                                        strChecked = "";
+                                    }
+                                }
+                                <div class="icheck-material-primary icheck-inline">
+                                    <input type="checkbox" id="chkStructure" @(strChecked == "" ? "" : "checked=\"checked\"" ) value="@Model.OtherTradeClearance_Structure" />
+                                    <label for="chkStructure">Structure</label>
+                                </div>
+
+                                @{
+                                    if (Model.OtherTradeClearance_MandE == true)
+                                    {
+                                        strChecked = "checked";
+                                    }
+                                    else
+                                    {
+                                        strChecked = "";
+                                    }
+                                }
+                                <div class="icheck-material-primary icheck-inline">
+                                    <input type="checkbox" id="chkME" @(strChecked == "" ? "" : "checked=\"checked\"" ) value="@Model.OtherTradeClearance_MandE" />
+                                    <label for="chkME">M&E</label>
+                                </div>
+
+                                @{
+                                    if (Model.OtherTradeClearance_Other == true)
+                                    {
+                                        strChecked = "checked";
+                                    }
+                                    else
+                                    {
+                                        strChecked = "";
+                                    }
+                                }
+                                <div class="icheck-material-primary icheck-inline">
+                                    <input type="checkbox" id="chkOther" @(strChecked == "" ? "" : "checked=\"checked\"" ) value="@Model.OtherTradeClearance_Other" />
+                                    <label for="chkOther">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="@Model.RequestFor">Request For<span class="symbol required"></span></label><br />
+                                <div class="icheck-material-primary icheck-inline">
+                                    <input type="radio" id="WorkInspection" name="RequestFor" checked />
+                                    <label for="WorkInspection">Work Inspection</label>
+                                </div>
+                            </div>
+                            <div id="dvRFWIFormTradeItemList">
+                                @Html.Partial("PartialRFWIFormTradeItemList", Model)
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="@Model.SelectedGeneralCheckListIds">General Checklist<span class="symbol required"></span></label><br />
+                                @foreach (var objGCL in Model.GeneralCheckList)
+                                {
+                                    var checkBoxId = "GCL_" + objGCL.Value;
+                                    if (Model.qcinspection_rfwi_form_general_checklist_detail != null)
+                                    {
+                                        if (Model.qcinspection_rfwi_form_general_checklist_detail.Where(a => a.GeneralCheckListID == int.Parse(objGCL.Value)).FirstOrDefault() != null)
+                                        {
+                                            strChecked = "checked";
+                                        }
+                                        else
+                                        {
+                                            strChecked = "";
+                                        }
+                                    }
+                                    <div class="icheck-material-primary icheck-inline">
+                                        <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) value="@objGCL.Value" />
+                                        <label for="@checkBoxId">@objGCL.Text</label>
+                                    </div>
+                                }
+                            </div>
+                            <div id="dvRFWIFormTradeDetailedCheckList">
+                                @Html.Partial("PartialRFWIFormTradeDetailedCheckList", Model)
+                            </div>
+                        </div>
+                    </div>
+                }
+                <br />
+                <br />
+                <div class="form-footer">
+                    <button type="button" id="btnCancelRFWIForm" class="btn btn-danger RFWIFormIndex"><i class="fa fa-times"></i> CANCEL</button>
+                    <button type="button" onclick="RFWIFormCreate()" id="btnSaveRFWIForm" class="btn btn-success"><i class="fa fa-check-square-o"></i> SAVE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--End Row-->
+
+<div class="modal fade" id="AvailableSlotsModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="AvailableSlotsHead"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgAvailableSlots">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row-->
+<link href="~/Content/jquery.timepicker.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.timepicker.js"></script>
+<script src="~/Scripts/jquery.datepair.js"></script>
+<script>
+    function Trade_Change() {
+        $.ajax({
+            type: "Get",
+            url: "/QCInspection/PartialRFWIFormTradeDetailedCheckList?TradeID=" + $('#TradeID').val(),
+            success: function (resp) {
+                $("#dvRFWIFormTradeDetailedCheckList").html(resp);
+            }
+        });
+
+        $.ajax({
+            type: "Get",
+            url: "/QCInspection/PartialRFWIFormTradeItemList?TradeID=" + $('#TradeID').val(),
+            success: function (resp) {
+                $("#dvRFWIFormTradeItemList").html(resp);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $('#ProjectID').select2({
+            selectOnClose: true
+        });
+        $('#TradeID').select2({
+            selectOnClose: true
+        });
+        $('#InspectorID').select2({
+            selectOnClose: true
+        });
+
+        $('#InspectionOn').datepicker({
+            format: "dd-M-yyyy",
+            todayHighlight: 'TRUE',
+            autoclose: true,
+        });
+
+        $('#basicExample .time').timepicker({
+            'showDuration': true,
+            'timeFormat': 'g:ia',
+            minTime: '08:00am',
+            maxTime: '06:00pm'
+        });
+        $('#basicExample').datepair();
+
+    });
+
+    function RFWIFormAvailableSlots() {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/QCInspection/PartialRFWIFormAvailableSlots?InspectorID=" + $('#InspectorID').val() + '&InspectionDate=' + $('#InspectionOn').val(),
+                success: function (resp) {
+                    $("#dgAvailableSlots").html(resp);
+                    $('h5#AvailableSlotsHead').html('Available&nbsp;Slots&nbsp;on&nbsp;' + $('#InspectionOn').val() + '&nbsp;for&nbsp;' + $("#InspectorID option:selected").text());
+                    $("#AvailableSlotsModel").modal('show');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function RFWIFormCreate() {
+
+        ///General Check List Ids
+        var GeneralCheckListIds = []
+        $.each($("input:checkbox[id^=GCL_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                GeneralCheckListIds.push(intID)
+            }
+
+        });
+        $('#SelectedGeneralCheckListIds').val(GeneralCheckListIds);
+
+        ///Trade Detailed Check List Ids
+        var TradeDetailedCheckListIds = []
+        $.each($("input:checkbox[id^=TDCL_]"), function (i, v) {
+            var idstring = v.id;
+            var intID = idstring.split('_')[1]
+            if (v.checked) {
+                TradeDetailedCheckListIds.push(intID)
+            }
+
+        });
+        $('#SelectedTradeDetailedCheckListIds').val(TradeDetailedCheckListIds);
+
+        ///Trade Item List Ids
+        var TradeItemListIds = []
+        TradeItemListIds.push($('#TradeItemID').val());
+        $('#SelectedTradeItemListIds').val(TradeItemListIds);
+
+        var mesg = "";
+        if (GeneralCheckListIds.length == 0) {
+            mesg = "Please select General Check List";
+        }
+        if (TradeDetailedCheckListIds.length == 0) {
+            mesg += "<br>Please select Detailed List";
+        }
+
+        if (TradeItemListIds.length == 0) {
+            mesg += "<br>Please select Item List";
+        }
+
+        //if ($("#InspectionOn").val() == "") {
+        //    mesg += "<br>Please select Inspection Date";
+        //}
+
+        //if ($("#InsStartTime").val() == "") {
+        //    mesg += "<br>Please select Start Time";
+        //}
+
+        //if ($("#InsEndTime").val() == "") {
+        //    mesg += "<br>Please select End Time";
+        //}
+
+        if ($("#WorkInspection").is(":checked")) {
+            $('#RequestFor').val('Work Inspection');
+        }
+        else {
+            $('#RequestFor').val('Witnessing of');
+        }
+
+        if ($("#chkStructure").is(":checked")) {
+            $('#OtherTradeClearance_Structure').val(true);
+        }
+        else {
+            $('#OtherTradeClearance_Structure').val(false);
+        }
+
+        if ($("#chkME").is(":checked")) {
+            $('#OtherTradeClearance_MandE').val(true);
+        }
+        else {
+            $('#OtherTradeClearance_MandE').val(false);
+        }
+
+        if ($("#chkOther").is(":checked")) {
+            $('#OtherTradeClearance_Other').val(true);
+        }
+        else {
+            $('#OtherTradeClearance_Other').val(false);
+        }
+
+        $('#InspectionStartTime').val($('#InsStartTime').val());
+        $('#InspectionEndTime').val($('#InsEndTime').val());
+        if (mesg.length == 0) {
+
+            if ($('#RFWIFormAddForm').valid()) {
+
+                var RFWIFormAddForm = new FormData(document.forms.namedItem("RFWIFormAddForm"));
+
+                $.ajax({
+                    url: '/QCInspection/RFWIFormCreate',
+                    data: RFWIFormAddForm,
+                    cache: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.value > 0) {
+                            swal("RFWI Form has been created!", {
+                                icon: "success",
+                                timer: 360000,
+                                html: true
+                            });
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form has been created!"
+                            });
+                            $.get("QCInspection/RFWIFormEdit/" + data.value, function (data) {
+                                $('#page-wrapper').html(data);
+                            });
+                        }
+                        else if (data.value == "Failed") {
+                            swal("Warning!", "RFWI Form Creation failed!", "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: "RFWI Form Creation failed!"
+                            });
+                        }
+                        else {
+                            swal("Warning!", data.value, "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.value
+                            });
+                        }
+                    }
+                });
+            }
+        }
+        else {
+            swal("Warning!", mesg.toString().replaceAll("<br>", "\n"), "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: mesg
+            });
+        }
+    }
+</script>

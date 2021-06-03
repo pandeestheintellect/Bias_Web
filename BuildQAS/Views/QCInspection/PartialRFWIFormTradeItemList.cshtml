@@ -1,0 +1,34 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWIFormViewModel
+<div class="form-group">
+    <label for="@Model.TradeItemID">Item<span class="symbol required"></span></label><br />
+    @Html.DropDownListFor(m => m.TradeItemID, new SelectList(Model.TradeItemList, "Value", "Text"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.TradeItemID, "", new { @class = "text-danger" })
+
+    @*@foreach (var objItem in Model.TradeItemList)
+        {
+            var checkBoxId = "TItem_" + objItem.Value;
+            var strChecked = "";
+            if (Model.qcinspection_rfwi_form_trade_item_detail != null)
+            {
+                if (Model.qcinspection_rfwi_form_trade_item_detail.Where(a => a.TradeItemID == int.Parse(objItem.Value)).FirstOrDefault() != null)
+                {
+                    strChecked = "checked";
+                }
+                else
+                {
+                    strChecked = "";
+                }
+            }
+
+            <div class="icheck-material-primary icheck-inline">
+                <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) value="@objItem.Value" />
+                <label for="@checkBoxId">@objItem.Text</label>
+            </div>
+            <br />
+        }*@
+
+    @*@if (objItem.Text.ToLower() == "others")
+        {
+            @Html.TextBoxFor(model => Model.ItemOthers, new { @class = "form-control" })
+        }*@
+</div>

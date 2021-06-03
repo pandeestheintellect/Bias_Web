@@ -1,0 +1,129 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentTypeLocationMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Location Update</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item"><a href="#" class="LocationIndex">Location List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Location Update</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "LocationEditForm", @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.AssessmentTypeLocationID)
+    @Html.HiddenFor(model => model.CreatedBy)
+    @Html.HiddenFor(model => model.CreatedDate)
+    <div>&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="form-header text-uppercase">
+                        <i class="fa fa-user-circle-o"></i>
+                        Location Info
+                    </h4>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="row form-group">
+                                <label for="AssessmentTypeID" class="col-sm-12 col-md-6 col-xl-3 control-label">Assessment Type<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    @Html.DropDownList("AssessmentTypeID", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AssessmentTypeID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="AssessmentTypeLocationName" class="col-sm-12 col-md-6 col-xl-3 control-label">Location name<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    @Html.EditorFor(model => model.AssessmentTypeLocationName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.AssessmentTypeLocationName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="AssessmentTypeLocationShortName" class="col-sm-12 col-md-6 col-xl-3 control-label">Short name<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    @Html.EditorFor(model => model.AssessmentTypeLocationShortName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.AssessmentTypeLocationShortName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="AssessmentTypeID" class="col-sm-12 col-md-6 col-xl-3 control-label">Location Type<span class="symbol required"></span></label>
+                                <div class="col-sm-12 col-md-6 col-xl-9">
+                                    @Html.DropDownList("AssessmentTypeLocationType", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AssessmentTypeLocationType, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" id="btnCancelLocation" class="btn btn-danger LocationIndex"><i class="fa fa-times"></i> CANCEL</button>
+                        <button type="button" onclick="LocationUpdate()" id="btnUpdateLocation" class="btn btn-success"><i class="fa fa-check-square-o"></i> UPDATE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--End Row-->
+}
+<!-- End Row-->
+
+<script>
+    $().ready(function () {
+        $("#LocationEditForm").validate({
+            rules: {
+                AssessmentTypeLocationName: "required",
+                AssessmentTypeLocationShortName: "required"
+            },
+            messages: {
+                AssessmentTypeLocationName: "Please enter your Location Name",
+                AssessmentTypeLocationShortName: "Please enter your Short Name"
+            }
+        });
+    });
+
+    function LocationUpdate() {
+        if ($('#LocationEditForm').valid()) {
+            $.post("Assessment/LocationEdit", $('#LocationEditForm').serialize(), function (data) {
+                if (data.value == "OK") {
+                    swal($('#AssessmentTypeLocationName').val() + "- Location has been updated!", {
+                        icon: "success",
+                        timer: 360000
+                    });
+                    Lobibox.notify('success', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: $('#AssessmentTypeLocationName').val() + "- Location has been updated!"
+                    });
+                    $.get("Assessment/LocationIndex", function (data) {
+                        $('#page-wrapper').html(data);
+                    });
+                }
+                else if (data.value == "Failed") {
+                    swal("Warning!", "Location Updation failed!", "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: "Location Updation failed!"
+                    });
+                }
+                else {
+                    swal("Warning!", data.value, "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: data.value
+                    });
+                }
+            });
+        }
+    }
+</script>

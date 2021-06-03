@@ -1,0 +1,53 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionLevelMasterViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "Level";
+}
+<form id="LevelForm">
+    @Html.HiddenFor(model => model.LevelID)
+    @Html.HiddenFor(model => model.CreatedBy, new { @id = "Level_CreatedBy" })
+    @Html.HiddenFor(model => model.CreatedDate, new { @id = "Level_CreatedDate" })
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Block <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(model => model.BlockID, new SelectList(Model.BlockList, "Value", "Text"), new { @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Level <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.LevelName, new { @title = "Enter Level", @placeholder = "00", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Display Order <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.OrderBy, new { @title = "Enter Display Order", @placeholder = "1", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="btnCancelLevel" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> CANCEL</button>
+        @if (Model.LevelID == 0)
+        {
+            <button type="button" id="btnSubmitLevelSave" class="btn btn-success" onclick="SaveLevel()" title="Save"><i class="fa fa-check-square-o"></i> SAVE</button>
+        }
+        else
+        {
+            <button type="button" id="btnSubmitLevelUpdate" class="btn btn-success" onclick="SaveLevel()" title="Update"><i class="fa fa-check-square-o"></i> UPDATE</button>
+        }
+    </div>
+</form>

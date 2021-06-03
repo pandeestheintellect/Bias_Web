@@ -1,0 +1,56 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentWetAreaWaterTightnessTestEntryViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "Add Wet Area Water Tightness Test";
+}
+
+<form id="AddSignatureWetAreaWTTForm">
+    <div class="modal-body">
+        <div class="checklist-signature-container p-0">
+            @*<div class="row">
+                <div class="col-12 sign-container m-0">*@
+            @if (Model.projectMasterView.Is_Completed == 0)
+            {
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                        <a href="javascript:void(0);" class="btn checkby-unlock-button unlock" style="background-color: #d92550">
+                            <i class="fas fa-lock-open"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="btn checkby-lock-button lock" style="background-color: #d92550">
+                            <i class="fas fa-lock"></i>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-xl-6 sign-btn">
+                        <a href="javascript:void(0);" class="btn checkby-clear-button delete" style="background-color: #d92550">
+                            <i class="fas fa-redo"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="checkby-signature--wrapper">
+                    <div class="checkby-signature--overlay">
+                        <div class="tap-text">
+                            Tap to Unlock
+                        </div>
+                    </div>
+                    <div id="checkby-signature" class="signature"></div>
+                    @*<textarea id="CheckedBy_Signature" name="CheckedBy_Signature" class="d-none"></textarea>*@
+                    @Html.TextAreaFor(model => Model.Drawing_Image, new { @id = "CheckedBy_Signature", @class = "d-none" })
+                    @Html.HiddenFor(model => Model.AssessmentWAWTTID, new { @id = "hdnForAssessmentWAWTTID" })
+                    @Html.Hidden("Drawing_Image", Model.Drawing_Image)
+                </div>
+            }
+            else
+            {
+                <img src="@Model.Drawing_Image">
+            }
+            @*</div>
+                </div>*@
+        </div>
+    </div>
+    @if (Model.projectMasterView.Is_Completed == 0)
+    {
+        <div class="modal-footer">
+            <button type="button" class="btn btn-wide btn-success" id="btnSubmitSave" onclick="SaveWetAreaWaterTightnessTestSignature()" title="Save"><i class="ti-save"></i>&nbsp;Save</button>
+        </div>
+    }
+</form>

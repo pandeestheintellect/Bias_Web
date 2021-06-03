@@ -1,0 +1,113 @@
+2020-06-28 10:39:50.3020|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 10:39:50.3359|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 10:52:47.0901|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 10:52:47.1190|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 10:53:06.8281|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 10:53:06.8281|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 10:53:21.3934|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 10:53:21.3934|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 10:55:14.4266|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 10:55:14.4266|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2020-06-28 10:55:14.4266|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2020-06-28 10:57:48.4222|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 10:57:48.4521|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2020-06-28 10:57:48.4521|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2020-06-28 10:58:31.0940|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 10:58:31.0940|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2020-06-28 10:58:31.0940|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2020-06-28 10:59:28.5084|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 10:59:28.5084|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2020-06-28 10:59:28.5084|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2020-06-28 11:05:09.2963|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 11:05:09.3273|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2020-06-28 11:05:09.3273|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2020-06-28 11:10:35.3014|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 11:10:35.3313|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 11:12:50.9511|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 11:12:50.9511|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 11:15:28.3027|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 11:15:28.3355|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 11:15:43.9770|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 11:15:43.9770|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 11:15:49.9507|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 11:15:49.9507|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 12:50:45.9726|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 12:50:46.0294|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:35:03.5492|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:35:03.5791|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:35:04.1032|DEBUG|BuildInspect.Models.Repository.Interface.UserRepository|ValidateLoginSmartFM:
+2020-06-28 14:35:04.1032|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|Missing type map configuration or unsupported mapping.
+
+Mapping types:
+AppUser -> SmartFMUserViewModel
+BuildInspect.Models.Domain.AppUser -> BuildInspect.Models.ViewModel.SmartFMUserViewModel
+
+Destination path:
+SmartFMUserViewModel
+
+Source value:
+BuildInspect.Models.Domain.AppUser
+2020-06-28 14:35:04.1210|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|   at BuildInspect.Models.Repository.Interface.UserRepository.ValidateUserLoginSmartFM(String username, String password) in F:\Proj-Pandees\EBI\BuildInspect_UAT\BuildInspect\Models\Repository\Imp\UserRepository.cs:line 354
+2020-06-28 14:35:04.1210|INFO|BuildInspect.Models.Repository.Interface.UserRepository|sfmadmin:2yNUSwzbGmo982sqfst+4w==;
+2020-06-28 14:37:51.9569|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:37:51.9868|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:37:52.4923|DEBUG|BuildInspect.Models.Repository.Interface.UserRepository|ValidateLoginSmartFM:
+2020-06-28 14:37:52.4923|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|Missing type map configuration or unsupported mapping.
+
+Mapping types:
+AppUser -> SmartFMUserViewModel
+BuildInspect.Models.Domain.AppUser -> BuildInspect.Models.ViewModel.SmartFMUserViewModel
+
+Destination path:
+SmartFMUserViewModel
+
+Source value:
+BuildInspect.Models.Domain.AppUser
+2020-06-28 14:37:52.4923|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|   at BuildInspect.Models.Repository.Interface.UserRepository.ValidateUserLoginSmartFM(String username, String password) in F:\Proj-Pandees\EBI\BuildInspect_UAT\BuildInspect\Models\Repository\Imp\UserRepository.cs:line 354
+2020-06-28 14:37:52.4923|INFO|BuildInspect.Models.Repository.Interface.UserRepository|sfmadmin:2yNUSwzbGmo982sqfst+4w==;
+2020-06-28 14:38:11.8060|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:38:11.8060|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:38:19.1139|DEBUG|BuildInspect.Models.Repository.Interface.UserRepository|ValidateLoginSmartFM:
+2020-06-28 14:38:19.1139|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|Missing type map configuration or unsupported mapping.
+
+Mapping types:
+AppUser -> SmartFMUserViewModel
+BuildInspect.Models.Domain.AppUser -> BuildInspect.Models.ViewModel.SmartFMUserViewModel
+
+Destination path:
+SmartFMUserViewModel
+
+Source value:
+BuildInspect.Models.Domain.AppUser
+2020-06-28 14:38:19.1149|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|   at BuildInspect.Models.Repository.Interface.UserRepository.ValidateUserLoginSmartFM(String username, String password) in F:\Proj-Pandees\EBI\BuildInspect_UAT\BuildInspect\Models\Repository\Imp\UserRepository.cs:line 354
+2020-06-28 14:38:19.1149|INFO|BuildInspect.Models.Repository.Interface.UserRepository|sfmadmin:2yNUSwzbGmo982sqfst+4w==;
+2020-06-28 14:39:01.6512|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:39:01.6512|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:42:08.1430|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:42:08.1809|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:43:13.6589|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:43:13.6948|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:47:42.9896|DEBUG|BuildInspect.Models.Repository.Interface.UserRepository|ValidateLoginSmartFM:
+2020-06-28 14:47:42.9896|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|Missing type map configuration or unsupported mapping.
+
+Mapping types:
+AppUser_B254033F46EE844E77D98A22DB48E47D4B849CAAA61F0C538A3200482C60F0B2 -> SmartFMUserViewModel
+System.Data.Entity.DynamicProxies.AppUser_B254033F46EE844E77D98A22DB48E47D4B849CAAA61F0C538A3200482C60F0B2 -> BuildInspect.Models.ViewModel.SmartFMUserViewModel
+
+Destination path:
+SmartFMUserViewModel
+
+Source value:
+System.Data.Entity.DynamicProxies.AppUser_B254033F46EE844E77D98A22DB48E47D4B849CAAA61F0C538A3200482C60F0B2
+2020-06-28 14:47:42.9896|ERROR|BuildInspect.Models.Repository.Interface.UserRepository|   at BuildInspect.Models.Repository.Interface.UserRepository.ValidateUserLoginSmartFM(String username, String password) in F:\Proj-Pandees\EBI\BuildInspect_UAT\BuildInspect\Models\Repository\Imp\UserRepository.cs:line 354
+2020-06-28 14:47:42.9896|INFO|BuildInspect.Models.Repository.Interface.UserRepository|sfmadmin:2yNUSwzbGmo982sqfst+4w==;
+2020-06-28 14:51:55.3787|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:51:55.4126|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:56:44.7260|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:56:44.7749|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:57:22.1618|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:57:22.1618|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:57:40.1495|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:57:40.1495|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-06-28 14:57:48.3061|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-06-28 14:57:48.3061|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True

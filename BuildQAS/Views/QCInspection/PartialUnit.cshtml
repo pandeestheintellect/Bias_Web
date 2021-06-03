@@ -1,0 +1,53 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionUnitMasterViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "Unit";
+}
+<form id="UnitForm">
+    @Html.HiddenFor(model => model.UnitID)
+    @Html.HiddenFor(model => model.CreatedBy, new { @id = "Unit_CreatedBy" })
+    @Html.HiddenFor(model => model.CreatedDate, new { @id = "Unit_CreatedDate" })
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Level <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(m => m.LevelID, new SelectList(Model.LevelList, "Value", "Text"), new { @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Unit <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.UnitName, new { @title = "Enter Unit", @placeholder = "00", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Display Order <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.OrderBy, new { @title = "Enter Display Order", @placeholder = "1", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="btnCancelUnit" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> CANCEL</button>
+        @if (Model.UnitID == 0)
+        {
+            <button type="button" id="btnSubmitUnitSave" class="btn btn-success" onclick="SaveUnit()" title="Save"><i class="fa fa-check-square-o"></i> SAVE</button>
+        }
+        else
+        {
+            <button type="button" id="btnSubmitUnitUpdate" class="btn btn-success" onclick="SaveUnit()" title="Update"><i class="fa fa-check-square-o"></i> UPDATE</button>
+        }
+    </div>
+</form>

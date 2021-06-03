@@ -1,0 +1,103 @@
+﻿@model IEnumerable<BuildInspect.Models.ViewModel.UserViewModel>
+@{
+    Layout = null;
+    var i = 1;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">User List</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">User</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header"><a href="" onclick="CreateUser()" data-toggle="modal" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-plus"></i> Add User</a></div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="UserTable" class="table table-hover table-striped table-bordered">
+                        <thead style="background-color: #F16876; color: white">
+                            <tr>
+                                <th>S.No</th>
+                                <th>User ID</th>
+                                <th>User Name</th>
+                                <th>Company Name</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @i
+                                    </td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.DisplayName</td>
+                                    <td>@item.company_master.CompanyName</td>
+                                    <td>@item.usergroup.GroupName</td>
+                                    <td>
+                                        <button class="btn btn-success" onclick="EditUser(@item.UserID)"><i class="fa fa-edit"></i></button>
+                                        <button class="btn btn-danger" onclick="DeleteUser('@item.UserID','@item.UserName')"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row-->
+
+<script>
+    $(document).ready(function ()
+    {
+        var table1 = $('#UserTable').DataTable({
+            responsive: true
+        });
+    });
+
+    function DeleteUser(id, un)
+    {
+        debugger
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this User - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                debugger
+                $.post("/User/Delete", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data)
+                {
+                    if (data.value == "OK") {
+                        swal(un + "- User has been deleted!", {
+                            icon: "success",
+                        });
+                        $.get("User/Index", function (data) {
+                            $('#page-wrapper').html(data);
+                        });
+                    }
+                    else {
+                        swal("Warning!", "User deletion failed!", "warning");
+                    }
+                });
+            }
+        });
+    }
+</script>
+
+

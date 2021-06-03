@@ -1,0 +1,45 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWITradeDetailedCheckListDetailViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "RFWI Trade Detailed Check List";
+}
+
+<form id="DetailedCheckListForm">
+    @Html.HiddenFor(model => model.TradeDetailedCheckListID)
+    @Html.HiddenFor(model => model.TradeID, new { @id = "DetailedCheckList_TradeID" })
+    @Html.HiddenFor(model => model.CreatedBy, new { @id = "DetailedCheckList_CreatedBy" })
+    @Html.HiddenFor(model => model.CreatedDate, new { @id = "DetailedCheckList_CreatedDate" })
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 150px; float: left;">
+                        Check List Name <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.DetailedCheckListName, new { @title = "Enter Check List Name", @placeholder = "DetailedCheckList Name", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 150px; float: left;">
+                        Display Order <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.OrderBy, new { @title = "Enter Display Order", @placeholder = "1", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="btnCancelDetailedCheckList" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> CANCEL</button>
+        @if (Model.TradeDetailedCheckListID == 0)
+        {
+            <button type="button" id="btnSubmitDetailedCheckListSave" class="btn btn-success" onclick="SaveDetailedCheckList()" title="Save"><i class="fa fa-check-square-o"></i> SAVE</button>
+        }
+        else
+        {
+            <button type="button" id="btnSubmitDetailedCheckListUpdate" class="btn btn-success" onclick="SaveDetailedCheckList()" title="Update"><i class="fa fa-check-square-o"></i> UPDATE</button>
+        }
+    </div>
+</form>

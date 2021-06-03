@@ -1,0 +1,732 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentExternalWallEntryViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    Layout = null;
+    var RowCnt = 1;
+    var modRowCnt = 1;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <style>
+        .datepicker {
+            z-index: 99999 !important;
+        }
+
+        #ui-datepicker-div {
+            width: 30% !important;
+        }
+
+        .table-overflow-cont {
+            overflow-x: scroll;
+            width: 100%;
+            overflow-y: visible;
+            height: calc(100vh - 44px);
+        }
+
+        .min-w-200px {
+            min-width: 200px;
+        }
+
+        .min-w-150px {
+            min-width: 150px;
+        }
+
+        .min-w-50px {
+            min-width: 50px;
+        }
+        /* table border css - start */
+
+        table#external-wall-tbl {
+            border-collapse: separate;
+            border: none;
+            border-spacing: 0;
+        }
+
+            table#external-wall-tbl tr td {
+                padding: 5px;
+                border-left: none;
+                border-right: 1px solid #000000;
+                border-top: none;
+                border-bottom: 1px solid #000000;
+            }
+
+            table#external-wall-tbl thead tr:first-child td {
+                border-top: 1px solid #000000;
+            }
+
+            table#external-wall-tbl tbody tr td.sticky-col-1:first-child,
+            table#external-wall-tbl thead tr td:first-child,
+            table#external-wall-tbl tfoot tr td:first-child {
+                border-left: 1px solid #000000;
+            }
+
+            table#external-wall-tbl thead tr:first-child td:first-child {
+                border-top-left-radius: 5px;
+            }
+
+            table#external-wall-tbl thead tr:first-child td:last-child {
+                border-top-right-radius: 5px;
+            }
+
+            table#external-wall-tbl tfoot tr:last-child td:first-child {
+                border-bottom-left-radius: 5px;
+            }
+
+            table#external-wall-tbl tfoot tr:last-child td:last-child {
+                border-bottom-right-radius: 5px;
+            }
+        /* table border css - end */
+        /* sticky table column - start */
+
+        #external-wall-tbl .sticky-col-1,
+        #external-wall-tbl .sticky-col-2,
+        #external-wall-tbl .sticky-col-3 {
+            position: sticky;
+            z-index: 3;
+            background-color: #ffffff;
+        }
+
+        #external-wall-tbl .sticky-col-1 {
+            left: 0;
+            text-align: center;
+        }
+
+        #external-wall-tbl .sticky-col-2 {
+            left: 50px;
+        }
+
+        #external-wall-tbl .sticky-col-3 {
+            left: calc(50px + 200px);
+        }
+        /* sticky table column - end */
+        /* sticky table row - start */
+
+        #external-wall-tbl thead tr.sticky-row-1 td,
+        #external-wall-tbl thead tr.sticky-row-2 td,
+        #external-wall-tbl thead tr.sticky-row-3 td,
+        #external-wall-tbl thead tr.sticky-row-4 td,
+        #external-wall-tbl thead tr.sticky-row-1 td:first-child,
+        #external-wall-tbl thead tr.sticky-row-2 td:first-child,
+        #external-wall-tbl thead tr.sticky-row-3 td:first-child,
+        #external-wall-tbl thead tr.sticky-row-4 td:first-child,
+        #external-wall-tbl tfoot tr td:first-child,
+        #external-wall-tbl thead tr.sticky-row-1 td:nth-child(2),
+        #external-wall-tbl thead tr.sticky-row-2 td:nth-child(2),
+        #external-wall-tbl thead tr.sticky-row-3 td:nth-child(2),
+        #external-wall-tbl thead tr.sticky-row-1 td:nth-child(3),
+        #external-wall-tbl thead tr.sticky-row-2 td:nth-child(3),
+        #external-wall-tbl thead tr.sticky-row-3 td:nth-child(3),
+        #external-wall-tbl thead tr.sticky-row-4 td:nth-child(2) {
+            position: sticky;
+            background-color: #ffffff;
+        }
+
+        #external-wall-tbl thead tr.sticky-row-1 td,
+        #external-wall-tbl thead tr.sticky-row-2 td,
+        #external-wall-tbl thead tr.sticky-row-3 td,
+        #external-wall-tbl thead tr.sticky-row-4 td {
+            /*position: sticky;*/
+            z-index: 10;
+            /*background-color: #ffffff;*/
+        }
+
+            #external-wall-tbl thead tr.sticky-row-1 td:first-child,
+            #external-wall-tbl thead tr.sticky-row-2 td:first-child,
+            #external-wall-tbl thead tr.sticky-row-3 td:first-child,
+            #external-wall-tbl thead tr.sticky-row-4 td:first-child,
+            #external-wall-tbl tfoot tr td:first-child {
+                /*position: sticky;*/
+                left: 0;
+                z-index: 11;
+                /*background-color: #ffffff;*/
+            }
+
+            #external-wall-tbl thead tr.sticky-row-1 td:nth-child(2),
+            #external-wall-tbl thead tr.sticky-row-2 td:nth-child(2),
+            #external-wall-tbl thead tr.sticky-row-3 td:nth-child(2) {
+                /*position: sticky;*/
+                left: 50px;
+                z-index: 11;
+                /*background-color: #ffffff;*/
+            }
+
+            #external-wall-tbl thead tr.sticky-row-1 td:nth-child(3),
+            #external-wall-tbl thead tr.sticky-row-2 td:nth-child(3),
+            #external-wall-tbl thead tr.sticky-row-3 td:nth-child(3),
+            #external-wall-tbl thead tr.sticky-row-4 td:nth-child(2) {
+                /*position: sticky;*/
+                left: 250px;
+                z-index: 11;
+                /*background-color: #ffffff;*/
+            }
+
+        #external-wall-tbl thead tr.sticky-row-1 td {
+            top: 0;
+        }
+
+        #external-wall-tbl thead tr.sticky-row-2 td {
+            top: 36px;
+        }
+
+        #external-wall-tbl thead tr.sticky-row-3 td {
+            top: 71px;
+        }
+
+        #external-wall-tbl thead tr.sticky-row-4 td {
+            top: 106px;
+        }
+        /* sticky table row - end */
+        /* vertical text in td -start */
+
+        .verticalTD td:not(:first-child) {
+            height: 200px;
+            max-width: 50px;
+        }
+
+        .verticalTD td span {
+            display: block;
+            white-space: nowrap;
+            transform: rotate(-90deg) translatex(-75px);
+        }
+        /* vertical text in td -end */
+        /* checkbox checkmark - start */
+
+        .tdChechBox {
+            min-width: 50px;
+            position: relative;
+            cursor: pointer;
+        }
+
+            .tdChechBox[aria-checked="null"]::before,
+            .tdChechBox[aria-checked="null"]::after,
+            .tdChechBox[aria-checked="true"]::after,
+            .tdChechBox[aria-checked="false"]::before {
+                display: none;
+            }
+
+            .tdChechBox[aria-checked="true"]::before {
+                display: inline-block;
+            }
+
+            .tdChechBox[aria-checked="false"]::after {
+                display: inline-block;
+            }
+
+            .tdChechBox i {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .tdChechBox:focus {
+                outline: none;
+            }
+
+            .tdChechBox::before,
+            .tdChechBox::after {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .tdChechBox::before {
+                content: "\f00c";
+                color: #28a745;
+            }
+
+            .tdChechBox::after {
+                content: "\f00d";
+                color: #dc3545;
+            }
+
+            .tdChechBox[disabled=""]::before,
+            .tdChechBox[disabled=""]::after {
+                color: #545b62;
+            }
+
+            .tdChechBox[disabled=""] {
+                cursor: not-allowed;
+            }
+        /* checkbox checkmark - end */
+
+        #external-wall-tbl .selected td {
+            background-color: #d1dade;
+        }
+
+        .myModel, .mySign {
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 11;
+            background-color: rgba(0, 0, 0, 0.25);
+            display: none;
+        }
+
+
+
+        .modelContent {
+            background-color: #ffffff;
+            max-width: 800px;
+        }
+
+        .jSignature {
+            width: 300px !important;
+            height: 300px !important;
+        }
+
+        .logoContainrer {
+            background-color: #ffffff;
+        }
+
+        .logoContainrer {
+            padding: 5px 10px;
+            box-shadow: 10px 10px 10px 5px #cccccc;
+        }
+    </style>
+</head>
+<body class="hold-transition">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "ExternalWall_Form", @class = "form-horizontal", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => Model.assessmentExternalWallIndexViewModel.ProjectID, new { @id = "hdnForProjectID" })
+        @Html.HiddenFor(model => Model.ModuleAndProcess, new { @id = "hdnForModuleAndProcess" })
+        @Html.Hidden("HdnID")
+        @Html.Hidden("HdnZoom", 100)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <table id="external-wall-tbl" border="1" style="zoom:80%">
+            <tr class="text-center">
+                <td class="min-w-50px" style="border:none"></td>
+                <td class="min-w-200px text-right" style="border-left: 1px solid #000000;border-top: 1px solid #000000;">
+                    Project :
+                </td>
+                <td colspan="3" class="text-left" style="border-top: 1px solid #000000;">
+                    @Model.projectMasterView.Project_Name
+                </td>
+                <td rowspan="4" colspan="3" style="border:none" valign="middle">
+                    <div class="logoContainrer">
+                        <img src="~/images/logo.png" width="auto" height="75">
+                    </div>
+                </td>
+            </tr>
+            <tr class="text-center">
+                <td class="min-w-50px" style="border:none"></td>
+                <td class="text-right" style="border-left: 1px solid #000000;">
+                    Developer :
+                </td>
+                <td colspan="3" class="text-left">
+                    @Model.projectMasterView.Developer_Name
+                </td>
+            </tr>
+            <tr>
+                <td class="min-w-50px" style="border:none"></td>
+                <td class="text-right" style="border-left: 1px solid #000000;">
+                    Contractor :
+                </td>
+                <td colspan="3" class="text-left">
+                    @Model.projectMasterView.Contractor_Name
+                </td>
+            </tr>
+            <tr>
+                <td class="min-w-50px" style="border:none"></td>
+                <td class="text-right" style="border-left: 1px solid #000000;">
+                    Date of Assessment :
+                </td>
+                <td colspan="3" class="text-left">
+                    @Model.projectMasterView.Assessment_Dates
+                </td>
+            </tr>
+            <tr class="text-left">
+                <td colspan="9" style="font-weight:bold;border:none">
+                    <br />
+                    <u>@ViewBag.Title</u>
+                    <br />
+                    <br />
+                </td>
+            </tr>
+        </table>
+        <table id="external-wall-tbl">
+            <thead>
+                <tr class="text-center">
+                    <td colspan="4" class="min-w-150px text-right">No. of compliance</td>
+                    @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+                    {
+                        <td colspan="@mod.ProcessCount" class="@mod.AssessmentTypeModuleShortName.Replace("&", "")-Complain text-info font-weight-bold"></td>
+                    }
+                </tr>
+                <tr class="text-center ">
+                    <td colspan="4" class="text-right">No. of checks</td>
+                    @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+                    {
+                        <td colspan="@mod.ProcessCount" class="@mod.AssessmentTypeModuleShortName.Replace("&", "")-Check text-info font-weight-bold"></td>
+                    }
+                </tr>
+
+                <tr class="text-center">
+                    <td colspan="4"></td>
+                    @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+                    {
+                        <td colspan="@mod.ProcessCount">@mod.AssessmentTypeModuleShortName</td>
+                    }
+                </tr>
+                <tr class="verticalTD">
+                    <td colspan="2" style="min-width:250px;">
+                        <div class="">
+                            <small>Doc No. @Model.projectMasterView.Project_DocNo</small>
+                        </div>
+                    </td>
+                    <td class="text-center" colspan="2" style="min-width: 200px;">
+                        <h5>Assessors</h5>
+                        @foreach (var item1 in Model.projectMasterView.assessment_project_assessors_detail)
+                        {
+                            @item1.assessors_master.AssessorsName;
+                            <br />
+                        }
+                    </td>
+                    @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+                    {
+                        foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                        {
+                            <td><span>@proc.AssessmentTypeModuleProcessName</span></td>
+                        }
+                    }
+                </tr>
+            </thead>
+
+            @foreach (var trn in Model.assessmentExternalWallTransMasterViewModels.OrderBy(x => x.AssessmentEWID))
+            {
+                <tbody id="tbody_@trn.AssessmentEWID">
+                    <tr>
+                        <td rowspan="4" class="sticky-col-1 min-w-50px" role="checkbox" aria-checked="false" id="rowId_@trn.AssessmentEWID">@RowCnt</td>
+                        <td class="sticky-col-2 min-w-200px">Date (dd-mmm-yyyy)</td>
+                        <td class="sticky-col-3 min-w-150px">@string.Format("{0:dd-MMM-yyyy}", @trn.AssessmentDate)</td>
+                        <td>W1</td>
+                        @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+                        {
+                            foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                            {
+                                foreach (var trndet in trn.assessment_external_wall_trn_detail.Where(x => x.RowNo == 1 && x.AssessmentEWID == trn.AssessmentEWID && x.AssessmentTypeModuleProcessID == proc.AssessmentTypeModuleProcessID))
+                                {
+                                    if (Model.projectMasterView.Is_Completed == 1)
+                                    {
+                                        if (trndet.Result == "1") // Tick
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="true" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else if (trndet.Result == "2") // Cross
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="false" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else // Blank
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="null" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (trndet.Result == "1") // Tick
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="true" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else if (trndet.Result == "2") // Cross
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="false" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else // Blank
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="null" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    </tr>
+                    <tr>
+                        <td class="sticky-col-2">Block/Unit</td>
+                        <td class="sticky-col-3">@trn.Block_Unit</td>
+                        <td>W2</td>
+                        @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+                        {
+                            {
+                                modRowCnt = 0;
+                            }
+                            foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                            {
+                                foreach (var trndet in trn.assessment_external_wall_trn_detail.Where(x => x.RowNo == 2 && x.AssessmentEWID == trn.AssessmentEWID && x.AssessmentTypeModuleProcessID == proc.AssessmentTypeModuleProcessID))
+                                {
+                                    if (Model.projectMasterView.Is_Completed == 1)
+                                    {
+                                        if (trndet.Result == "1") // Tick
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="true" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else if (trndet.Result == "2") // Cross
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="false" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else // Blank
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="null" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (trndet.Result == "1") // Tick
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="true" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else if (trndet.Result == "2") // Cross
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="false" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else // Blank
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="null" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                    }
+                                    {
+                                        modRowCnt++;
+                                    }
+                                }
+                            }
+                            if (@modRowCnt == 0)
+                            {
+                                <td colspan="@mod.ProcessCount"></td>
+                            }
+                        }
+                    </tr>
+                    <tr>
+                        <td class="sticky-col-2">Location</td>
+                        <td class="sticky-col-3">@trn.assessment_type_location_master.AssessmentTypeLocationName</td>
+                        <td>W3</td>
+                        @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+                        {
+                            {
+                                modRowCnt = 0;
+                            }
+                            foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                            {
+                                foreach (var trndet in trn.assessment_external_wall_trn_detail.Where(x => x.RowNo == 3 && x.AssessmentEWID == trn.AssessmentEWID && x.AssessmentTypeModuleProcessID == proc.AssessmentTypeModuleProcessID))
+                                {
+                                    if (Model.projectMasterView.Is_Completed == 1)
+                                    {
+                                        if (trndet.Result == "1") // Tick
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="true" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else if (trndet.Result == "2") // Cross
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="false" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else // Blank
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="null" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (trndet.Result == "1") // Tick
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="true" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else if (trndet.Result == "2") // Cross
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="false" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else // Blank
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="null" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                    }
+                                    {
+                                        modRowCnt++;
+                                    }
+                                }
+                            }
+                            if (@modRowCnt == 0)
+                            {
+                                <td colspan="@mod.ProcessCount"></td>
+                            }
+                        }
+                    </tr>
+                    <tr>
+                        @if (trn.Drawing_Image != null)
+                        {
+                            <td colspan="2"><img src="@trn.Drawing_Image" width="150" height="150"></td>
+                        }
+                        else
+                        {
+                            <td colspan="2"></td>
+                        }
+                        <td>W4</td>
+                        @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+                        {
+                            {
+                                modRowCnt = 0;
+                            }
+                            foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                            {
+                                foreach (var trndet in trn.assessment_external_wall_trn_detail.Where(x => x.RowNo == 4 && x.AssessmentEWID == trn.AssessmentEWID && x.AssessmentTypeModuleProcessID == proc.AssessmentTypeModuleProcessID))
+                                {
+                                    if (Model.projectMasterView.Is_Completed == 1)
+                                    {
+                                        if (trndet.Result == "1") // Tick
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="true" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else if (trndet.Result == "2") // Cross
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="false" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else // Blank
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="null" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (trndet.Result == "1") // Tick
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="true" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else if (trndet.Result == "2") // Cross
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="false" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                        else // Blank
+                                        {
+                                            <td class="tdChechBox" role="checkbox" aria-checked="null" id="@mod.AssessmentTypeModuleShortName.Replace("&", "")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentEWDetailID.ToString()"></td>
+                                        }
+                                    }
+                                    {
+                                        modRowCnt++;
+                                    }
+                                }
+                            }
+                            if (@modRowCnt == 0)
+                            {
+                                <td colspan="@mod.ProcessCount"></td>
+                            }
+                        }
+                    </tr>
+                </tbody>
+                {
+                    RowCnt++;
+                }
+            }
+
+            <tr class="text-success font-weight-bold text-center ">
+                <td colspan="4" class="text-right" style="border-left: 1px solid #000000;">No. of Ticks</td>
+                @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+                {
+                    foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                    {
+                        <td class="@mod.AssessmentTypeModuleShortName.Replace("&", "")-@proc.AssessmentTypeModuleProcessID-TickCount text-center"></td>
+                    }
+                }
+            </tr>
+            <tr class="text-success font-weight-bold text-center ">
+                <td colspan="4" class="text-right" style="border-left: 1px solid #000000;">No. of checks</td>
+                @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+                {
+                    foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                    {
+                        <td class="@mod.AssessmentTypeModuleShortName.Replace("&", "")-@proc.AssessmentTypeModuleProcessID-CheckCount text-center"></td>
+                    }
+                }
+            </tr>
+
+        </table>
+    }
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <script>
+        onLoadmoduleStatusCount();
+
+        function onLoadmoduleStatusCount() {
+            var ModuleProcessArray = $.parseJSON($('#hdnForModuleAndProcess').val());
+            for (let Mi = 0; Mi < ModuleProcessArray.length; Mi++) {
+                moduleStatusCount(ModuleProcessArray[Mi].ModuleNames);
+                for (let Pi = 0; Pi < ModuleProcessArray[Mi].ProcessIds.length; Pi++) {
+                    ProcessStatusCount(ModuleProcessArray[Mi].ModuleNames + '_' + ModuleProcessArray[Mi].ProcessIds[Pi]);
+                }
+            }
+        }
+
+        /* Module Status Count Function - start */
+        function moduleStatusCount(id) {
+
+            let eventidSplit = id.split('_');
+            let eventidSplitFirst = eventidSplit[0];
+            let eventidSplitLast = eventidSplit[1];
+            let module = document.querySelectorAll('[id^="' + eventidSplitFirst + '"]');
+            let Complains = 0;
+            let Checks = 0;
+            let individualCompliance_1 = 0;
+            let individualCheck_1 = 0;
+
+            for (let i = 0; i < module.length; i++) {
+                let checkBoxValue = module[i].getAttribute('aria-checked');
+                let idSplitArray = module[i].id.split('_');
+                let idSplitlastIndex = idSplitArray[1];
+                if (checkBoxValue == 'true') {
+                    Checks++;
+                    Complains++;
+                    if (idSplitlastIndex == eventidSplitLast) {
+                        individualCompliance_1++;
+                        individualCheck_1++;
+                    }
+                }
+                else if (checkBoxValue == 'false') {
+                    Checks++;
+                    if (idSplitlastIndex == eventidSplitLast) {
+                        individualCheck_1++;
+                    }
+                }
+            }
+            document.querySelector('.' + eventidSplitFirst + '-Complain').innerHTML = Complains;
+            document.querySelector('.' + eventidSplitFirst + '-Check').innerHTML = Checks;
+
+            if (eventidSplit.length > 1) {
+                document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-TickCount').innerHTML = individualCompliance_1;
+                document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-CheckCount').innerHTML = individualCheck_1;
+            }
+        }
+
+        function ProcessStatusCount(id) {
+            let eventidSplit = id.split('_');
+            let eventidSplitFirst = eventidSplit[0];
+            let eventidSplitLast = eventidSplit[1];
+            let module = document.querySelectorAll('[id^="' + id + '"]');
+            let individualCompliance = 0;
+            let individualCheck = 0;
+            for (let i = 0; i < module.length; i++) {
+                let checkBoxValue = module[i].getAttribute('aria-checked');
+                if (checkBoxValue == 'true') {
+                    individualCompliance++;
+                    individualCheck++;
+                }
+                else if (checkBoxValue == 'false') {
+                    individualCheck++;
+                }
+            }
+            document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-TickCount').innerHTML = individualCompliance;
+            document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-CheckCount').innerHTML = individualCheck;
+        }
+
+    </script>
+</body>
+</html>

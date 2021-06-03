@@ -1,0 +1,821 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentSummaryViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Assessment and Reports</title>
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <style>
+        .page-break {
+            page-break-after: always;
+            page-break-inside: avoid;
+            clear: both;
+        }
+
+        .page-break-before {
+            page-break-before: always;
+            page-break-inside: avoid;
+            clear: both;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .a4Container {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 0.75rem;
+            font-weight: 400;
+            line-height: 1;
+            color: #212529;
+            text-align: left;
+            background-color: #fff;
+            width: 297mm;
+            height: 200mm;
+            padding: 50px 25px 125px 25px;
+            position: relative;
+        }
+
+        .logoContainrer {
+            background-color: #ffffff;
+        }
+
+        .logoContainrer {
+            padding: 5px 10px;
+            box-shadow: 10px 10px 10px 5px #ccccccad;
+        }
+
+        .header,
+        .headerDetail {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        .header,
+        .headerDetail {
+            margin-bottom: 5mm;
+        }
+
+            .header > div:last-child {
+                align-self: flex-end;
+            }
+
+        h3 {
+            margin-top: 2mm;
+        }
+
+        .headerDetail table tr td:last-child {
+            padding-left: 15mm;
+        }
+
+        .dateRow th {
+            padding-right: 8mm;
+        }
+
+        .headerDetail {
+            border-bottom: 1.25mm solid;
+            padding-bottom: 5mm;
+        }
+
+        .a4Body table {
+            width: 80%;
+            margin: auto;
+        }
+
+        .a4Body {
+            max-height: calc(100% - 374px);
+        }
+
+            .a4Body table td,
+            .a4Body table th:not(:first-child),
+            .footer > div:last-child {
+                text-align: center;
+            }
+
+        .footer {
+            width: 100%;
+            position: absolute;
+            bottom: 16px;
+            left: 0;
+        }
+
+            .footer > div:first-child {
+                margin: auto;
+                width: max-content;
+            }
+
+            .footer h3 {
+                text-decoration: underline;
+            }
+
+
+
+
+        .table-overflow-cont {
+            overflow-x: scroll;
+            width: 100%;
+            overflow-y: visible;
+            height: calc(100vh - 44px);
+            background-color: white;
+        }
+
+
+
+
+
+        .highcharts-figure, .highcharts-data-table table {
+            min-width: 710px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+
+        .min-w-200px {
+            min-width: 200px;
+        }
+
+        .min-w-150px {
+            min-width: 150px;
+        }
+
+        .min-w-50px {
+            min-width: 50px;
+        }
+
+        .min-w-70px {
+            min-width: 70px;
+        }
+        /* table border css - start */
+
+        table#assessment-summary-tbl {
+            border-collapse: separate;
+            border: none;
+            border-spacing: 0;
+        }
+
+            table#assessment-summary-tbl tr td {
+                padding: 5px;
+                border-left: none;
+                border-right: 1px solid #000000;
+                border-top: none;
+                border-bottom: 1px solid #000000;
+            }
+
+            table#assessment-summary-tbl thead tr:first-child td {
+                border-top: 1px solid #000000;
+            }
+
+            table#assessment-summary-tbl tbody tr td.sticky-col-1:first-child,
+            table#assessment-summary-tbl thead tr td:first-child,
+            table#assessment-summary-tbl tfoot tr td:first-child {
+                border-left: 1px solid #000000;
+            }
+
+            table#assessment-summary-tbl thead tr:first-child td:first-child {
+                border-top-left-radius: 5px;
+            }
+
+            table#assessment-summary-tbl thead tr:first-child td:last-child {
+                border-top-right-radius: 5px;
+            }
+
+            table#assessment-summary-tbl tfoot tr:last-child td:first-child {
+                border-bottom-left-radius: 5px;
+            }
+
+            table#assessment-summary-tbl tfoot tr:last-child td:last-child {
+                border-bottom-right-radius: 5px;
+            }
+
+        .left-border {
+        }
+        /* table border css - end */
+        /* sticky table column - start */
+
+        #assessment-summary-tbl .sticky-col-1,
+        #assessment-summary-tbl .sticky-col-2,
+        #assessment-summary-tbl .sticky-col-3 {
+            position: sticky;
+            z-index: 3;
+            background-color: #ffffff;
+        }
+
+        #assessment-summary-tbl .sticky-col-1 {
+            left: 0;
+            text-align: center;
+        }
+
+        #assessment-summary-tbl .sticky-col-2 {
+            left: 50px;
+        }
+
+        #assessment-summary-tbl .sticky-col-3 {
+            left: calc(50px + 200px);
+        }
+        /* sticky table column - end */
+        /* sticky table row - start */
+
+        #assessment-summary-tbl thead tr.sticky-row-1 td,
+        #assessment-summary-tbl thead tr.sticky-row-2 td,
+        #assessment-summary-tbl thead tr.sticky-row-3 td,
+        #assessment-summary-tbl thead tr.sticky-row-4 td,
+        #assessment-summary-tbl thead tr.sticky-row-1 td:first-child,
+        #assessment-summary-tbl thead tr.sticky-row-2 td:first-child,
+        #assessment-summary-tbl thead tr.sticky-row-3 td:first-child,
+        #assessment-summary-tbl thead tr.sticky-row-4 td:first-child,
+        #assessment-summary-tbl tfoot tr td:first-child,
+        #assessment-summary-tbl thead tr.sticky-row-1 td:nth-child(2),
+        #assessment-summary-tbl thead tr.sticky-row-2 td:nth-child(2),
+        #assessment-summary-tbl thead tr.sticky-row-3 td:nth-child(2),
+        #assessment-summary-tbl thead tr.sticky-row-1 td:nth-child(3),
+        #assessment-summary-tbl thead tr.sticky-row-2 td:nth-child(3),
+        #assessment-summary-tbl thead tr.sticky-row-3 td:nth-child(3),
+        #assessment-summary-tbl thead tr.sticky-row-4 td:nth-child(2) {
+            position: sticky;
+            background-color: #ffffff;
+        }
+
+        #assessment-summary-tbl thead tr.sticky-row-1 td,
+        #assessment-summary-tbl thead tr.sticky-row-2 td,
+        #assessment-summary-tbl thead tr.sticky-row-3 td,
+        #assessment-summary-tbl thead tr.sticky-row-4 td {
+            /*position: sticky;*/
+            z-index: 10;
+            /*background-color: #ffffff;*/
+        }
+
+            #assessment-summary-tbl thead tr.sticky-row-1 td:first-child,
+            #assessment-summary-tbl thead tr.sticky-row-2 td:first-child,
+            #assessment-summary-tbl thead tr.sticky-row-3 td:first-child,
+            #assessment-summary-tbl thead tr.sticky-row-4 td:first-child,
+            #assessment-summary-tbl tfoot tr td:first-child {
+                /*position: sticky;*/
+                left: 0;
+                z-index: 11;
+                /*background-color: #ffffff;*/
+            }
+
+            #assessment-summary-tbl thead tr.sticky-row-1 td:nth-child(2),
+            #assessment-summary-tbl thead tr.sticky-row-2 td:nth-child(2),
+            #assessment-summary-tbl thead tr.sticky-row-3 td:nth-child(2) {
+                /*position: sticky;*/
+                left: 50px;
+                z-index: 11;
+                /*background-color: #ffffff;*/
+            }
+
+            #assessment-summary-tbl thead tr.sticky-row-1 td:nth-child(3),
+            #assessment-summary-tbl thead tr.sticky-row-2 td:nth-child(3),
+            #assessment-summary-tbl thead tr.sticky-row-3 td:nth-child(3),
+            #assessment-summary-tbl thead tr.sticky-row-4 td:nth-child(2) {
+                /*position: sticky;*/
+                left: 250px;
+                z-index: 11;
+                /*background-color: #ffffff;*/
+            }
+
+        #assessment-summary-tbl thead tr.sticky-row-1 td {
+            top: 0;
+        }
+
+        #assessment-summary-tbl thead tr.sticky-row-2 td {
+            top: 36px;
+        }
+
+        #assessment-summary-tbl thead tr.sticky-row-3 td {
+            top: 71px;
+        }
+
+        #assessment-summary-tbl thead tr.sticky-row-4 td {
+            top: 106px;
+        }
+        /* sticky table row - end */
+        /* vertical text in td -start */
+
+        .verticalTD td:not(:first-child) {
+            height: 200px;
+            max-width: 50px;
+        }
+
+        .verticalTD td span {
+            display: block;
+            white-space: nowrap;
+            transform: rotate(-90deg) translatex(-75px);
+        }
+        /* vertical text in td -end */
+        /* checkbox checkmark - start */
+
+        .tdChechBox {
+            min-width: 50px;
+            position: relative;
+            cursor: pointer;
+        }
+
+            .tdChechBox[aria-checked="null"]::before,
+            .tdChechBox[aria-checked="null"]::after,
+            .tdChechBox[aria-checked="true"]::after,
+            .tdChechBox[aria-checked="false"]::before {
+                display: none;
+            }
+
+            .tdChechBox[aria-checked="true"]::before {
+                display: inline-block;
+            }
+
+            .tdChechBox[aria-checked="false"]::after {
+                display: inline-block;
+            }
+
+            .tdChechBox i {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .tdChechBox:focus {
+                outline: none;
+            }
+
+            .tdChechBox::before,
+            .tdChechBox::after {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .tdChechBox::before {
+                content: "\f00c";
+                color: #28a745;
+            }
+
+            .tdChechBox::after {
+                content: "\f00d";
+                color: #dc3545;
+            }
+
+            .tdChechBox[disabled=""]::before,
+            .tdChechBox[disabled=""]::after {
+                color: #545b62;
+            }
+
+            .tdChechBox[disabled=""] {
+                cursor: not-allowed;
+            }
+        /* checkbox checkmark - end */
+
+        #assessment-summary-tbl .selected td {
+            background-color: #d1dade;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="assessment-summary-tbl" class="w-100" border="0">
+        <tr class="text-center">
+            <td class="min-w-50px" style="border:none"></td>
+            <td class="min-w-200px text-right" style="border-left: 1px solid #000000;border-top: 1px solid #000000;">
+                Project :
+            </td>
+            <td colspan="3" class="text-left" style="border-top: 1px solid #000000;">
+                @Model.projectMasterViewModel.Project_Name
+            </td>
+            <td rowspan="9" colspan="3" style="border:none" valign="middle">
+                <div class="logoContainrer">
+                    <img src="~/images/logo.png" width="auto" height="75">
+                </div>
+            </td>
+        </tr>
+        <tr class="text-center">
+            <td class="min-w-50px" style="border:none"></td>
+            <td class="text-right" style="border-left: 1px solid #000000;">
+                Developer :
+            </td>
+            <td colspan="3" class="text-left">
+                @Model.projectMasterViewModel.Developer_Name
+            </td>
+        </tr>
+        <tr>
+            <td class="min-w-50px" style="border:none"></td>
+            <td class="text-right" style="border-left: 1px solid #000000;">
+                Contractor :
+            </td>
+            <td colspan="3" class="text-left">
+                @Model.projectMasterViewModel.Contractor_Name
+            </td>
+        </tr>
+        <tr>
+            <td class="min-w-50px" style="border:none"></td>
+            <td class="text-right" style="border-left: 1px solid #000000;">
+                Date of Assessment :
+            </td>
+            <td colspan="3" class="text-left">
+                @Model.projectMasterViewModel.Assessment_Dates
+            </td>
+        </tr>
+        <tr>
+            <td class="min-w-50px" style="border:none"></td>
+            <td class="text-right" style="border-left: 1px solid #000000;">
+                Assessors
+            </td>
+            <td colspan="3" class="text-left">
+                @foreach (var item1 in Model.projectMasterViewModel.assessment_project_assessors_detail)
+                {
+                    @item1.assessors_master.AssessorsName;
+                    <br />
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="min-w-50px" style="border:none"></td>
+            <td class="text-right" style="border-left: 1px solid #000000;">
+                Type of Development :
+            </td>
+            <td colspan="3" class="text-left">
+                @Model.projectMasterViewModel.assessment_development_type_master.DevelopmentTypeName
+            </td>
+        </tr>
+        <tr>
+            <td class="min-w-50px" style="border:none"></td>
+            <td></td>
+            <td class="text-left" style="font-weight:bold">
+                Weightage %
+            </td>
+        </tr>
+        <tr>
+            <td class="min-w-50px" style="border:none"></td>
+            <td class="text-right" style="font-weight:bold;border-left: 1px solid #000000;">
+                Architectural
+            </td>
+            <td class="text-left">
+                @Model.projectMasterViewModel.assessment_development_type_master.ArchitecturalWorksWeightage %
+            </td>
+        </tr>
+        <tr>
+            <td class="min-w-50px" style="border:none"></td>
+            <td class="text-right" style="font-weight:bold;border-left: 1px solid #000000;">
+                M&E
+            </td>
+            <td class="text-left">
+                @Model.projectMasterViewModel.assessment_development_type_master.MEWorksWeightage %
+            </td>
+
+        </tr>
+        <tr class="text-left">
+            <td colspan="9" style="font-weight:bold;border:none">
+                <br />
+                <u>SCORE SUMMARY</u>
+                <br />
+                <br />
+            </td>
+        </tr>
+    </table>
+    <table id="assessment-summary-tbl" class="w-100" border="1">
+        <thead>
+            <tr class="text-center">
+                <td></td>
+                <td>Assessed Area</td>
+                <td align="center">No.of <br /> Compliances</td>
+                <td align="center">No.of <br /> Checks</td>
+                <td align="center">Percentage <br />%</td>
+                <td align="center">Weightage</td>
+                <td align="center">Weighted Score</td>
+                <td style="border-right: 1px solid #000000;">Main Non-Compliances</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="font-size:larger;background-color:grey">
+                <td class="min-w-50px" style="border-left: 1px solid #000000;">1.0</td>
+                <td colspan="8">Architectural Works</td>
+            </tr>
+            <tr style="font-weight:bold">
+                <td class="min-w-50px" style="border-left: 1px solid #000000;">1.1</td>
+                <td colspan="8">Internal Finishes</td>
+            </tr>
+            @foreach (var obj in Model.assessmentSummaryDetailModels.Where(x => x.AssessmentTypeID == 1 && x.AssessmentTypeModuleName != "M&E").OrderBy(x => x.OrderBy))
+            {
+                <tr class="text-center">
+                    <td class="min-w-50px" style="border-left: 1px solid #000000;">&nbsp;</td>
+                    <td class="text-left">@obj.AssessmentTypeModuleName</td>
+                    <td align="center">@obj.NoofCompliances</td>
+                    <td align="center">@obj.NoofChecks</td>
+                    <td align="center">@obj.Percentage%</td>
+                    <td align="center">@obj.Weightage</td>
+                    <td align="center">@obj.WeightedScore</td>
+                    <td align="left">@Html.Raw(@obj.MainNonCompliances)</td>
+                </tr>
+            }
+            <tr class="text-center">
+                <td colspan="5" style="border-left: 1px solid #000000;"></td>
+                <td align="center">@Model.InternalFinishesWorksWeightage</td>
+                <td align="center" style="font-weight:bold">@Model.InternalFinishesWorksWeightedScore</td>
+                <td></td>
+            </tr>
+            <tr class="text-center">
+                <td colspan="8" style="border-left: 1px solid #000000;">&nbsp;</td>
+            </tr>
+            @foreach (var obj in Model.assessmentSummaryDetailModels.Where(x => x.AssessmentTypeID == 2).OrderBy(x => x.OrderBy))
+            {
+                if (Model.projectMasterViewModel.Is_ExternalWallApplicable == 1)
+                {
+                    <tr class="text-center">
+                        <td class="min-w-50px" style="font-weight:bold;border-left: 1px solid #000000;">1.2</td>
+                        <td class="text-left" style="font-weight:bold">@obj.AssessmentTypeModuleName</td>
+                        <td align="center">@obj.NoofCompliances</td>
+                        <td align="center">@obj.NoofChecks</td>
+                        <td align="center">@obj.Percentage%</td>
+                        <td align="center">@obj.Weightage</td>
+                        <td align="center">@obj.WeightedScore</td>
+                        <td align="left">@Html.Raw(@obj.MainNonCompliances)</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="text-center">
+                        <td class="min-w-50px" style="font-weight:bold;border-left: 1px solid #000000;">1.2</td>
+                        <td class="text-left" style="font-weight:bold">@obj.AssessmentTypeModuleName</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td></td>
+                    </tr>
+                }
+            }
+            <tr class="text-center">
+                <td colspan="8" style="border-left: 1px solid #000000;">&nbsp;</td>
+            </tr>
+            @foreach (var obj in Model.assessmentSummaryDetailModels.Where(x => x.AssessmentTypeID == 3).OrderBy(x => x.OrderBy))
+            {
+                if (Model.projectMasterViewModel.Is_ExternalWorksApplicable == 1)
+                {
+                    <tr class="text-center">
+                        <td class="min-w-50px" style="font-weight:bold;border-left: 1px solid #000000;">1.3</td>
+                        <td class="text-left" style="font-weight:bold">@obj.AssessmentTypeModuleName</td>
+                        <td align="center">@obj.NoofCompliances</td>
+                        <td align="center">@obj.NoofChecks</td>
+                        <td align="center">@obj.Percentage%</td>
+                        <td align="center">@obj.Weightage</td>
+                        <td align="center">@obj.WeightedScore</td>
+                        <td align="left">@Html.Raw(@obj.MainNonCompliances)</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="text-center">
+                        <td class="min-w-50px" style="font-weight:bold;border-left: 1px solid #000000;">1.3</td>
+                        <td class="text-left" style="font-weight:bold">@obj.AssessmentTypeModuleName</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td></td>
+                    </tr>
+                }
+            }
+            <tr class="text-center">
+                <td colspan="8" style="border-left: 1px solid #000000;">&nbsp;</td>
+            </tr>
+            @foreach (var obj in Model.assessmentSummaryDetailModels.Where(x => x.AssessmentTypeID == 4).OrderBy(x => x.OrderBy))
+            {
+                if (Model.projectMasterViewModel.Is_RoofApplicable == 1)
+                {
+                    <tr class="text-center">
+                        <td class="min-w-50px" style="font-weight:bold;border-left: 1px solid #000000;">1.4</td>
+                        <td class="text-left" style="font-weight:bold">@obj.AssessmentTypeModuleName</td>
+                        <td align="center">@obj.NoofCompliances</td>
+                        <td align="center">@obj.NoofChecks</td>
+                        <td align="center">@obj.Percentage%</td>
+                        <td align="center">@obj.Weightage</td>
+                        <td align="center">@obj.WeightedScore</td>
+                        <td align="left">@Html.Raw(@obj.MainNonCompliances)</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="text-center">
+                        <td class="min-w-50px" style="font-weight:bold;border-left: 1px solid #000000;">1.4</td>
+                        <td class="text-left" style="font-weight:bold">@obj.AssessmentTypeModuleName</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="left">Not Applicable</td>
+                        <td></td>
+                    </tr>
+                }
+            }
+            <tr class="text-center">
+                <td colspan="8" style="border-left: 1px solid #000000;">&nbsp;</td>
+            </tr>
+            @foreach (var obj in Model.assessmentSummaryDetailModels.Where(x => x.AssessmentTypeID == 5).OrderBy(x => x.OrderBy))
+            {
+                if (Model.projectMasterViewModel.Is_FieldWindowWTTApplicable == 1)
+                {
+                    <tr class="text-center">
+                        <td class="min-w-50px" style="font-weight:bold;border-left: 1px solid #000000;">1.5</td>
+                        <td class="text-left" style="font-weight:bold">@obj.AssessmentTypeModuleName</td>
+                        <td align="center">@obj.NoofCompliances</td>
+                        <td align="center">@obj.NoofChecks</td>
+                        <td align="center">@obj.Percentage%</td>
+                        <td align="center">@obj.Weightage</td>
+                        <td align="center">@obj.WeightedScore</td>
+                        <td align="left">@Html.Raw(@obj.MainNonCompliances)</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="text-center">
+                        <td class="min-w-50px" style="font-weight:bold;border-left: 1px solid #000000;">1.5</td>
+                        <td class="text-left" style="font-weight:bold">@obj.AssessmentTypeModuleName</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td></td>
+                    </tr>
+                }
+            }
+            <tr class="text-center">
+                <td colspan="8" style="border-left: 1px solid #000000;">&nbsp;</td>
+            </tr>
+            @foreach (var obj in Model.assessmentSummaryDetailModels.Where(x => x.AssessmentTypeID == 6).OrderBy(x => x.OrderBy))
+            {
+                if (Model.projectMasterViewModel.Is_WetAreaWTTApplicable == 1)
+                {
+                    <tr class="text-center">
+                        <td class="min-w-50px" style="font-weight:bold;border-left: 1px solid #000000;">1.6</td>
+                        <td class="text-left" style="font-weight:bold">@obj.AssessmentTypeModuleName</td>
+                        <td align="center">@obj.NoofCompliances</td>
+                        <td align="center">@obj.NoofChecks</td>
+                        <td align="center">@obj.Percentage%</td>
+                        <td align="center">@obj.Weightage</td>
+                        <td align="center">@obj.WeightedScore</td>
+                        <td align="left">@Html.Raw(@obj.MainNonCompliances)</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="text-center">
+                        <td class="min-w-50px" style="font-weight:bold;border-left: 1px solid #000000;">1.6</td>
+                        <td class="text-left" style="font-weight:bold">@obj.AssessmentTypeModuleName</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td align="center">Not Applicable</td>
+                        <td></td>
+                    </tr>
+                }
+            }
+            <tr class="text-center">
+                <td colspan="5" class="text-right" style="font-weight:bold;border-left: 1px solid #000000;">
+                    Arch Works
+                </td>
+                <td align="center">@Model.ArchitecturalWorksWeightage</td>
+                <td align="center" style="font-weight:bold">@Model.ArchitecturalWorksWeightedScore</td>
+                <td></td>
+            </tr>
+            <tr class="text-center">
+                <td colspan="8" style="border-left: 1px solid #000000;">&nbsp;</td>
+            </tr>
+            <tr style="font-size:larger;background-color:grey">
+                <td class="min-w-50px" style="border-left: 1px solid #000000;">2.0</td>
+                <td colspan="8">M&E Works</td>
+            </tr>
+            @foreach (var obj in Model.assessmentSummaryDetailModels.Where(x => x.AssessmentTypeID == 1 && x.AssessmentTypeModuleName == "M&E").OrderBy(x => x.OrderBy))
+            {
+                <tr class="text-center">
+                    <td style="border-left: 1px solid #000000;"></td>
+                    <td class="text-left">@obj.AssessmentTypeModuleName</td>
+                    <td align="center">@obj.NoofCompliances</td>
+                    <td align="center">@obj.NoofChecks</td>
+                    <td align="center">@obj.Percentage%</td>
+                    <td align="center">@obj.Weightage</td>
+                    <td align="center">@obj.WeightedScore</td>
+                    <td align="left">@Html.Raw(@obj.MainNonCompliances)</td>
+                </tr>
+                <tr class="text-center">
+                    <td colspan="8" style="border-left: 1px solid #000000;">&nbsp;</td>
+                </tr>
+                <tr class="text-center">
+                    <td colspan="5" class="text-right" style="font-weight:bold;border-left: 1px solid #000000;">
+                        M&E Works
+                    </td>
+                    <td align="center">@obj.Weightage</td>
+                    <td align="center" style="font-weight:bold">@obj.WeightedScore</td>
+                    <td></td>
+                </tr>
+            }
+            <tr class="text-center">
+                <td colspan="8" style="border-left: 1px solid #000000;">&nbsp;</td>
+            </tr>
+            <tr style="font-size:larger;background-color:grey">
+                <td class="min-w-50px">3.0</td>
+                <td colspan="8">Total Score</td>
+            </tr>
+            <tr style="font-weight:bold">
+                <td class="min-w-50px text-right" style="border-left: 1px solid #000000;">3.1</td>
+                <td class="text-left">Architectural Works</td>
+                <td colspan="4" align="right">@Model.ArchitecturalWorksWeightedScore.ToString() / @Model.ArchitecturalWorksWeightage.ToString() x @Model.projectMasterViewModel.assessment_development_type_master.ArchitecturalWorksWeightage.ToString()%</td>
+                <td align="center">
+                    @Model.ArchitecturalWorksTotalScore%
+                </td>
+                <td></td>
+            </tr>
+            <tr style="font-weight:bold">
+                <td class="min-w-50px text-right" style="border-left: 1px solid #000000;">3.2</td>
+                <td class="text-left">M&E Works</td>
+                <td colspan="4" align="right">@Model.MEWorksWeightedScore.ToString() / @Model.MEWorksWeightage.ToString() x @Model.projectMasterViewModel.assessment_development_type_master.MEWorksWeightage.ToString()%</td>
+                <td align="center">@Model.MEWorksTotalScore%</td>
+                <td></td>
+            </tr>
+            <tr class="text-center">
+                <td colspan="8" style="border-left: 1px solid #000000;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-right" style="border-left: 1px solid #000000;">
+                    <div class="">
+                        <small>Doc No. @Model.projectMasterViewModel.Project_DocNo</small>
+                    </div>
+                </td>
+                <td colspan="4" class="text-right" style="font-size:xx-large;font-weight:bold">
+                    Final Score
+                </td>
+                <td class="text-center" style="font-size:xx-large;font-weight:bold">@Model.FinalScore%</td>
+                <td></td>
+            </tr>
+            @*<tr class="text-center">
+                    <td colspan="8" align="center" style="border:none">&nbsp;</td>
+                </tr>
+                <tr class="text-center">
+                    <td colspan="8" align="center" style="border:none"><div class=""><small>Page 1</small></div></td>
+                </tr>*@
+        </tbody>
+    </table>
+
+    @*<div class="footer">
+            <div class=""><small>Page 1 of 1</small></div>
+        </div>*@
+</body>
+</html>

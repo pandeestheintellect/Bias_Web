@@ -1,0 +1,37 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionProjectRFWIDrawingReferenceFilesViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "RFWI Drawing Reference File";
+}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "RFWIDrawingReferenceFileForm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ProjectID, new { @id = "RFWIDrawingReferenceFile_ProjectID" })
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        File Caption <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.FileCaption, new { @title = "Enter File Caption", @placeholder = "File Caption", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-uppercase">
+                    <label for="files" class="">Please Attachment</label><br />
+                    @Html.TextBoxFor(model => model.DrawingReferenceFile, "", new { @type = "file", @accept = "application/pdf", @max_size = "5120" })
+                    <small class="form-text text-muted bold">
+                        Upload with file extension - PDF upto 5Mb
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="btnCancelRFWIDrawingReferenceFile" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> CANCEL</button>
+        <button type="button" id="btnSubmitRFWIDrawingReferenceFileSave" class="btn btn-success" onclick="CreateRFWIDrawingsReference()" title="Save"><i class="fa fa-check-square-o"></i> SAVE</button>
+    </div>
+}

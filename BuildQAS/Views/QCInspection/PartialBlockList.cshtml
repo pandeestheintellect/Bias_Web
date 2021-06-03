@@ -1,0 +1,49 @@
+﻿@model List<BuildInspect.Models.ViewModel.QCInspectionBlockMasterViewModel>
+
+@{
+    var BlockSno = 1;
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            @if (@ViewBag.ProjectCompleted == 0)
+            {
+                <div class="card-header"><a href="" id="aAddBlock" onclick="AddBlock()" data-toggle="modal" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-plus"></i> Add Block</a></div>
+            }
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="BlockTable" class="table table-hover table-striped table-bordered">
+                        <thead style="background-color: #F16876; color: white">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Block</th>
+                                <th>Display Order</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @BlockSno
+                                    </td>
+                                    <td>@item.BlockName</td>
+                                    <td>@item.OrderBy</td>
+                                    <td>
+                                        @if (@ViewBag.ProjectCompleted == 0)
+                                        {
+                                            <button class="btn btn-success" onclick="EditBlock(@item.BlockID)"><i class="fa fa-edit"></i></button>
+                                            <button class="btn btn-danger" onclick="DeleteBlock('@item.BlockID','@item.BlockName')"><i class="fa fa-trash"></i></button>
+                                        }
+                                    </td>
+                                </tr>
+                                BlockSno++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

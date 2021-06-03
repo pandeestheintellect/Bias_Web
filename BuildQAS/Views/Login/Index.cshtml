@@ -1,0 +1,302 @@
+﻿@using BuildInspect.Models.ViewModel
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="Login">
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .MuiButton-contained {
+            color: rgba(0, 0, 0, 0.87);
+            box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+            background-color: #e0e0e0;
+        }
+
+        .MuiButtonBase-root {
+            color: inherit;
+            border: 0;
+            cursor: pointer;
+            margin: 0;
+            display: inline-flex;
+            outline: 0;
+            padding: 0;
+            position: relative;
+            align-items: center;
+            user-select: none;
+            border-radius: 0;
+            vertical-align: middle;
+            -moz-appearance: none;
+            justify-content: center;
+            text-decoration: none;
+            background-color: transparent;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .MuiToolbar-gutters {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .MuiButton-root {
+            color: rgba(0, 0, 0, 0.87);
+            padding: 6px 16px;
+            font-size: 0.875rem;
+            min-width: 64px;
+            box-sizing: border-box;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 500;
+            line-height: 1.75;
+            border-radius: 4px;
+            letter-spacing: 0.02857em;
+            text-transform: uppercase;
+        }
+
+        .MuiButton-label {
+            width: 100%;
+            display: inherit;
+            align-items: inherit;
+            justify-content: inherit;
+        }
+
+        .MuiSvgIcon-root {
+            fill: currentColor;
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            font-size: 1.5rem;
+            transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            flex-shrink: 0;
+            user-select: none;
+        }
+        /* .MuiTouchRipple-root {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            overflow: hidden;
+            position: absolute;
+            border-radius: inherit;
+            pointer-events: none;
+        } */
+
+        .MuiPaper-elevation1 {
+            box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+        }
+
+        .MuiPaper-rounded {
+            border-radius: 4px;
+        }
+
+        .MuiPaper-root {
+            color: rgba(0, 0, 0, 0.87);
+            transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            background-color: #fff;
+        }
+
+        .MuiFormControl-root {
+            border: 0;
+            margin: 0;
+            display: inline-flex;
+            padding: 0;
+            position: relative;
+            min-width: 0;
+            flex-direction: column;
+            vertical-align: top;
+        }
+
+        .MuiInputLabel-outlined {
+            z-index: 1;
+            transform: translate(14px, 20px) scale(1);
+            pointer-events: none;
+        }
+
+        .MuiOutlinedInput-root {
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .MuiInputBase-root {
+            color: rgba(0, 0, 0, 0.87);
+            cursor: text;
+            /*display: inline-flex;*/
+            position: relative;
+            font-size: 1rem;
+            box-sizing: border-box;
+            align-items: center;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            line-height: 1.1876em;
+            letter-spacing: 0.00938em;
+        }
+
+        .MuiOutlinedInput-input {
+            padding: 18.5px 14px;
+        }
+
+        .MuiInputBase-input {
+            font: inherit;
+            color: currentColor;
+            width: 100%;
+            border: 0;
+            height: 1.1876em;
+            margin: 0;
+            display: block;
+            padding: 6px 0 7px;
+            min-width: 0;
+            background: none;
+            box-sizing: content-box;
+            animation-name: mui-auto-fill-cancel;
+            letter-spacing: inherit;
+            animation-duration: 10ms;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .MuiOutlinedInput-notchedOutline {
+            border-color: rgba(0, 0, 0, 0.23);
+        }
+
+        .jss19 {
+            top: -5px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            padding: 0 8px;
+            overflow: hidden;
+            position: absolute;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        .MuiInputLabel-animated {
+            transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+        }
+
+        .MuiInputLabel-formControl {
+            top: 0;
+            left: 0;
+            position: absolute;
+            transform: translate(0, 24px) scale(1);
+        }
+
+        .MuiInputLabel-root {
+            display: block;
+            transform-origin: top left;
+        }
+
+        .MuiFormLabel-root {
+            color: rgba(0, 0, 0, 0.54);
+            padding: 0;
+            font-size: 1rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 0.00938em;
+        }
+
+        .MuiButton-containedPrimary {
+            color: #fff;
+            background-color: #3f51b5;
+        }
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters" style="margin-top: 6px;">
+        <img src="data:image/png;base64,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"
+             alt="Logo">
+    </div>
+
+    <div style="background: url('/images/buildqas-bg.login.png') center center / cover no-repeat; width: 100%; height: 92vh; color: rgb(255, 255, 255); text-align: center;">
+        <div style="width: 96%; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;">
+            <div style="width: 96%; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;">
+                <h1 style="font-size: 3em; line-height: 1.4em; margin: 0px auto; padding-top: 12%; font-weight: 400; letter-spacing: -0.01em;">Building Quality Assessment System</h1>
+                <h2 style="font-size: 2em; line-height: 1.8em; margin: 15px auto 0px; font-weight: 300; letter-spacing: -0.01em;">Making Quality Our Priority.</h2>
+                <div style="font-size: 1.2em; line-height: 1.35em; margin: 15px; font-weight: 300;">
+                    Like you, we believe in consistently offering superior value to our customers. Invest in our independent quality assessment to benchmark the quality of your buildings and stand out from the rest. With our deep understanding of quality
+                    assessment systems and best practices, and experience conducting quality assessment and training in Asia, you can rely on us to help you achieve high building quality.
+                </div>
+            </div>
+            <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded" style="padding: 20px; margin-top: 60px;">
+                @using (Html.BeginForm("Index", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", @class = "login100-form validate-form", @id= "loginForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="MuiFormControl-root MuiTextField-root">
+                        <!-- <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined" data-shrink="false" for="userId" id="userId-label">User id</label> -->
+                        <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "MuiInputBase-input MuiOutlinedInput-input", @placeholder = "Username", @style = "width: 200.333px; height: 56px; border: 1px solid rgba(0, 0, 0, 0.23); border-radius: 4px; box-sizing: border-box;padding: 18.5px 14px;" })
+                        </div>
+                    </div>
+                    <div class="MuiFormControl-root MuiTextField-root" style="margin: 0px 20px;">
+                        <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl">
+                            @Html.PasswordFor(m => m.Password, new { @class = "MuiInputBase-input MuiOutlinedInput-input", @placeholder = "Password", @style = "width: 200.333px; height: 56px; border: 1px solid rgba(0, 0, 0, 0.23); border-radius: 4px; box-sizing: border-box;padding: 18.5px 14px;" })
+                        </div>
+                    </div>
+                    <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" type="submit" style="height: 56px; width: 222px;">
+                        <span class="MuiButton-label">Login  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="margin-left: 20px;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg></span><span class="MuiTouchRipple-root"></span>
+                    </button>
+                    <div>
+                        <br />
+                        @if (Model != null)
+                        {
+                            if (Model.StatusFlag == 1)
+                            {
+                                <div style="color: red; font-weight: bold;">
+                                    Invalid Credentials.
+                                </div>
+                            }
+                            else if (Model.StatusFlag == 2)
+                            {
+                                <div style="color: red; font-weight: bold;">
+                                    User Inactive.
+                                </div>
+
+                            }
+                        }
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/login.js"></script>
+    <script src="~/Content/assets/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+</body>
+
+<script>
+
+    if (window.location.href.indexOf("/Login") == -1) {
+        window.location.href = "Login/Index";
+    }
+</script>

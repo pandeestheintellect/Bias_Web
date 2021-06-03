@@ -1,0 +1,152 @@
+﻿@{
+    var groupID = BuildInspect.Models.Utility.AppSession.GetCurrentUserGroup();
+    var companyID = BuildInspect.Models.Utility.AppSession.GetCompanyId();
+    var Module = BuildInspect.Models.Utility.AppSession.GetCurrentModule();
+    var Menu = BuildInspect.Models.Utility.AppSession.GetCurrentMenu();
+    var cpy = BuildInspect.Models.Utility.AppSession.GetCompanyDetail();
+    var currentpage = BuildInspect.Models.Utility.AppSession.GetCurrentPage();
+}
+<!-- Start wrapper-->
+<div id="wrapper">
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-wrapper" class="bg-theme bg-theme13" data-simplebar="" data-simplebar-auto-hide="true">
+        <div id="sidebar-wrapper1">
+
+        </div>
+    </div>
+    <!--End sidebar-wrapper-->
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+        <nav class="navbar navbar-expand fixed-top">
+            <ul class="navbar-nav mr-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link toggle-menu" href="javascript:void();">
+                        <i class="icon-menu menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    @if (cpy?.CompanyName != null)
+                    {
+                        <h4>@cpy.CompanyName</h4>
+                    }
+                </li>
+            </ul>
+            <ul class="navbar-nav align-items-center right-nav-link">
+                @if (groupID < 4)
+                {
+                    <li class="nav-item dropdown-lg">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect AdminIndex" data-tooltip="Tooltip Text">
+                            <i class="fa fa-desktop" title="Admin"></i>
+                        </a>
+                    </li>
+                }
+                @if (groupID < 4 || groupID == 7)
+                {
+                    <li class="nav-item dropdown-lg">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect AssessmentIndex">
+                            @*<i class="zmdi zmdi-format-list-bulleted" title="Assessment"></i>*@
+                            <i title="Assessment"><img src="~/images/assessment.png" height="40" alt="Assessment"></i>
+                        </a>
+                    </li>
+                }
+                @if (groupID < 7 || groupID == 8)
+                {
+                    <li class="nav-item dropdown-lg">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect QCInspectionIndex">
+                            @*<i class="zmdi zmdi-card-travel" ></i>*@
+                            <i title="QC Inspection & RFWI"><img src="~/images/inspection.png" height="40" alt="QC Inspection & RFWI"></i>
+                        </a>
+                    </li>
+                }
+                @if (groupID < 5)
+                {
+                    <li class="nav-item dropdown-lg">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect PMIndex">
+                            @*<i class="ti-bar-chart" title="PM Progress"></i>*@
+                            <i title="Project Module"><img src="~/images/pm.png" height="40" alt="Project Module"></i>
+
+                        </a>
+                    </li>
+                }
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+                        <span class="user-profile"><img src="~/Content/assets/images/avatars/avatar-19.jpg" class="img-circle" alt="user avatar"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-item user-details">
+                            <a href="javaScript:void();">
+                                <div class="media">
+                                    <div class="avatar"><img class="align-self-start mr-3" src="~/Content/assets/images/avatars/avatar-19.jpg" alt="user avatar"></div>
+                                    <div class="media-body">
+                                        <h6 class="mt-2 user-title">@BuildInspect.Models.Utility.AppSession.GetCurrentUserName()</h6>
+                                        @*<p class="user-subtitle">mccoy@example.com</p>*@
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-item ChangePassword"><i class="fa fa-key"></i> Change Password</li>
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-item"><a href="/Login/SignOut"><i class="icon-power mr-2"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!--End topbar header-->
+    <div class="clearfix"></div>
+    <div class="content-wrapper">
+        <div class="container-fluid" id="page-wrapper">
+
+        </div>
+        <!-- End container-fluid-->
+    </div>
+    <!--End content-wrapper-->
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+    <!--Start footer-->
+    @*<footer class="footer">
+            <div class="container">
+                <div class="text-center">
+                    Copyright © @DateTime.Now.Year
+                </div>
+            </div>
+        </footer>*@
+    <!--End footer-->
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color cwitcher-->
+
+</div>
+<!--End wrapper-->
+<input type="hidden" id="hdnCurrentPage" value="@currentpage" />

@@ -1,0 +1,43 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentExternalWorksEntryViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "Add External Works";
+}
+<form id="AddExternalWorksForm">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Remarks/ Block / Unit <span class="symbol required"></span>
+                    </div>
+                    @Html.TextAreaFor(model => Model.Remarks, new { @title = "Enter Remarks", @placeholder = "Remarks", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Location <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(m => Model.LocationID, new SelectList(Model.assessmentTypeLocationMasterViews, "AssessmentTypelocationID", "AssessmentTypeLocationName"), new { @id = "ddlAddExternalWorks_Location", @title = "Select Location", @class = "form-control", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Assessment Date <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.AssessmentDate, "{0:dd/MM/yyyy}", new { @class = "form-control", @style = "width:250px" })
+                    @Html.ValidationMessageFor(model => model.AssessmentDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-wide btn-success" id="btnSubmitSave" onclick="SaveExternalWorks()" title="Save"><i class="ti-save"></i>&nbsp;Create Entry</button>
+    </div>
+</form>

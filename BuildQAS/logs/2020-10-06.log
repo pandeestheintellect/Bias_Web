@@ -1,0 +1,1139 @@
+2020-10-06 13:01:27.2028|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-10-06 13:01:27.2579|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-06 13:03:23.7649|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 4
+    },
+    {
+        "AssessmentEWID": 5
+    }
+]
+2020-10-06 13:03:23.7649|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-06 13:03:31.9271|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Delete Assessment External Wall:
+2020-10-06 13:03:31.9271|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Value cannot be null.
+Parameter name: entity
+2020-10-06 13:03:32.0051|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.DeleteAssessmentExternalWall(String Ids) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 1061
+2020-10-06 13:04:07.3638|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 4
+    },
+    {
+        "AssessmentEWID": 5
+    }
+]
+2020-10-06 13:04:07.3638|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-06 13:04:25.1836|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Delete Assessment External Wall:
+2020-10-06 13:04:25.1846|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Value cannot be null.
+Parameter name: entity
+2020-10-06 13:04:25.1846|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.DeleteAssessmentExternalWall(String Ids) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 1061
+2020-10-06 13:05:27.9006|DEBUG|BuildInspect.Models.Repository.Interface.AssessmentRepository|Delete Assessment External Wall:
+2020-10-06 13:05:27.9026|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|Value cannot be null.
+Parameter name: entity
+2020-10-06 13:05:27.9026|ERROR|BuildInspect.Models.Repository.Interface.AssessmentRepository|   at System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   at System.Data.Entity.DbSet`1.Remove(TEntity entity)
+   at BuildInspect.Models.Repository.Interface.AssessmentRepository.DeleteAssessmentExternalWall(String Ids) in E:\Rapid Systemz\BuildQAS\BuildQAS_UAT\BuildInspect\Models\Repository\Imp\AssessmentRepository.cs:line 1061
+2020-10-06 13:05:40.3992|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-10-06 13:05:40.3992|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-06 13:06:07.3184|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 10
+    },
+    {
+        "AssessmentEWID": 11
+    }
+]
+2020-10-06 13:06:07.3184|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-06 13:06:42.9016|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-10-06 13:06:42.9026|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-06 13:07:36.2013|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 12,
+        "ProjectID": 4,
+        "AssessmentDate": "08/10/2020",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 0,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 225,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 226,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 227,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 2,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 228,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 229,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 3,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 230,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 3,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 231,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 3,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 232,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 233,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 234,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 235,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 236,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 237,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 238,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 239,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 240,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 241,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 242,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 243,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 244,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 1,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-06 13:07:36.2013|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-06 13:08:44.0332|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2020-10-06 13:08:44.0332|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-06 13:09:29.7425|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 12,
+        "ProjectID": 4,
+        "AssessmentDate": "06/10/2020",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 0,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 225,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 226,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 227,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 228,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 229,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 230,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 231,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 232,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 233,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 234,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 235,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 236,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 237,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 238,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 3,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 239,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 240,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 241,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 3,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 242,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 243,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 244,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-06 13:09:29.7425|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-06 13:09:49.5044|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: [
+    {
+        "AssessmentEWID": 12,
+        "ProjectID": 4,
+        "AssessmentDate": "06/10/2020",
+        "Block_Unit": "BLK A,#05-11",
+        "LocationID": 24,
+        "LocationName": "Ext Wall Preset Loc 1",
+        "Drawing_Image": null,
+        "MobileAssessmentEWID": 0,
+        "BatchID": "",
+        "Status": 2,
+        "CreatedOrUpdatedByUserId": 0,
+        "AssessmentExternalWallTransDetailMobileViewModels": [
+            {
+                "AssessmentEWDetailID": 225,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 226,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 227,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 228,
+                "AssessmentTypeModuleProcessID": 36,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 229,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 230,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 231,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 232,
+                "AssessmentTypeModuleProcessID": 37,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 233,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 234,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 235,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 236,
+                "AssessmentTypeModuleProcessID": 38,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 237,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 238,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 3,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 239,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 240,
+                "AssessmentTypeModuleProcessID": 39,
+                "Result": 1,
+                "RowNo": 4
+            },
+            {
+                "AssessmentEWDetailID": 241,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 3,
+                "RowNo": 1
+            },
+            {
+                "AssessmentEWDetailID": 242,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 2
+            },
+            {
+                "AssessmentEWDetailID": 243,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 3
+            },
+            {
+                "AssessmentEWDetailID": 244,
+                "AssessmentTypeModuleProcessID": 40,
+                "Result": 2,
+                "RowNo": 4
+            }
+        ]
+    }
+]
+2020-10-06 13:09:49.5044|DEBUG|BuildInspect.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2020-10-06 13:47:12.5585|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 13:47:12.6085|ERROR|BuildInspect.MvcApplication|Directory does not exist.
+Parameter name: directoryVirtualPath
+2020-10-06 13:47:12.6993|ERROR|BuildInspect.MvcApplication|   at System.Web.Optimization.Bundle.Include(String virtualPath, IItemTransform[] transforms)
+   at BuildInspect.BundleConfig.RegisterBundles(BundleCollection bundles) in E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\App_Start\BundleConfig.cs:line 15
+   at BuildInspect.MvcApplication.Application_Start() in E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Global.asax.cs:line 35
+2020-10-06 13:48:01.7941|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 13:48:01.8722|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 13:48:01.8722|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 13:48:02.3185|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 13:48:02.3185|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 13:48:02.3185|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 13:53:35.5584|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 13:53:35.5594|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 13:53:35.5594|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 13:53:35.6064|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 13:53:35.6064|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 13:53:35.6064|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 13:55:40.7753|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 13:55:40.7853|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 13:55:40.7853|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 13:55:41.2332|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 13:55:41.2332|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 13:55:41.2332|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 13:55:47.4637|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 13:55:47.4677|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 13:55:47.4848|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 13:55:47.5138|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 13:55:47.5138|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 13:55:47.5138|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 13:55:48.0509|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 13:55:48.0509|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 13:55:48.0509|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:05:58.3312|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:05:58.3312|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:05:58.3312|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:05:58.8665|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:05:58.8665|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:05:58.8665|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:07:19.6323|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:07:19.6323|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:07:19.6323|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:07:20.1519|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:07:20.1529|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:07:20.1529|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:15:46.4786|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:15:46.4826|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:15:46.4826|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:15:46.9768|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:15:46.9768|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:15:46.9768|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:17:30.1687|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:17:30.1687|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:17:30.1687|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:17:30.6586|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:17:30.6586|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:17:30.6586|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:17:30.6816|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:17:30.6816|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:17:30.6846|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:18:26.8818|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:18:26.8898|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:18:26.8898|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:18:27.0499|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:18:27.0499|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:18:27.0499|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:18:27.2286|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:18:27.2446|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:18:27.2531|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:18:42.5821|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:18:42.5821|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:18:42.5821|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:23:49.8759|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:23:49.8759|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:23:49.8869|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:23:50.3685|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:23:50.3685|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:23:50.3685|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:24:06.7675|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:24:06.7675|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:24:06.7675|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:24:07.2869|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:24:07.2869|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:24:07.2869|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:28:07.8645|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:28:07.9055|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:28:07.9055|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:28:07.9415|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:28:07.9415|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:28:07.9415|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:28:08.0426|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:28:08.0436|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:28:08.0436|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:28:46.9685|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:28:46.9685|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:28:46.9685|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:28:47.4826|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:28:47.4826|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:28:47.4826|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:31:25.2038|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:31:25.2038|ERROR|BuildInspect.MvcApplication|E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Views\Shared\_Layout.cshtml(57): error CS0103: The name 'Company' does not exist in the current context
+2020-10-06 14:31:25.2038|ERROR|BuildInspect.MvcApplication|   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   at System.Web.WebPages.BuildManagerWrapper.CreateInstanceOfType[T](String virtualPath)
+   at System.Web.WebPages.VirtualPathFactoryExtensions.CreateInstance[T](IVirtualPathFactory factory, String virtualPath)
+   at System.Web.WebPages.VirtualPathFactoryManager.CreateInstanceOfType[T](String virtualPath)
+   at System.Web.WebPages.VirtualPathFactoryExtensions.CreateInstance[T](IVirtualPathFactory factory, String virtualPath)
+   at System.Web.WebPages.WebPageBase.CreatePageFromVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, DisplayModeProvider displayModeProvider, IDisplayMode displayMode)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass3.<RenderPageCore>b__2(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:31:47.3064|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:31:47.3144|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:31:47.3144|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:31:47.3765|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:31:47.3765|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:31:47.3765|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:34:03.1670|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:34:03.1670|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:34:03.1690|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:34:03.2321|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:34:03.2321|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:34:03.2321|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:34:27.6859|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:34:27.6859|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:34:27.6859|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:34:28.1494|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:34:28.1494|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:34:28.1494|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:34:28.1684|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:34:28.1684|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:34:28.1684|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:34:43.6929|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:34:43.6929|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:34:43.6929|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:34:44.1705|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:34:44.1705|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:34:44.1705|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:35:11.8947|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:35:11.8947|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:35:11.8947|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:35:12.4201|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:35:12.4201|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:35:12.4201|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:35:21.5598|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:35:21.5598|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:35:21.5598|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:35:21.6459|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:35:21.6459|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:35:21.6459|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:36:27.6697|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:36:27.6697|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:36:27.6697|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:36:28.1789|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:36:28.1789|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:36:28.1789|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:36:58.8003|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:36:58.8003|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jquery' was not found or does not implement IController.
+2020-10-06 14:36:58.8003|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 14:36:58.8744|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 14:36:58.8744|ERROR|BuildInspect.MvcApplication|The controller for path '/bundles/jqueryval' was not found or does not implement IController.
+2020-10-06 14:36:58.8744|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 16:11:08.7931|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 16:11:08.8321|ERROR|BuildInspect.MvcApplication|The controller for path '/Shared/ERPLeftMenu' was not found or does not implement IController.
+2020-10-06 16:11:08.8321|ERROR|BuildInspect.MvcApplication|   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 17:04:08.6764|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 17:04:08.7335|ERROR|BuildInspect.MvcApplication|E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Views\Assessment\AssessorIndex.cshtml(550): error CS0103: The name 'scripts' does not exist in the current context
+2020-10-06 17:04:08.7335|ERROR|BuildInspect.MvcApplication|   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2020-10-06 17:04:36.2607|ERROR|BuildInspect.MvcApplication|Error:
+2020-10-06 17:04:36.2607|ERROR|BuildInspect.MvcApplication|E:\Rapid Systemz\BuildQAS_NewDesign\BuildQAS\Views\Assessment\AssessorIndex.cshtml(550): error CS0119: 'Scripts' is a type, which is not valid in the given context
+2020-10-06 17:04:36.2628|ERROR|BuildInspect.MvcApplication|   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

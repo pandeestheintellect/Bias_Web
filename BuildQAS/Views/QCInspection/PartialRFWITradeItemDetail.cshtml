@@ -1,0 +1,45 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWITradeItemDetailViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "RFWI Trade Item";
+}
+
+<form id="ItemForm">
+    @Html.HiddenFor(model => model.TradeItemID)
+    @Html.HiddenFor(model => model.TradeID, new { @id = "RFWITradeItem_TradeID" })
+    @Html.HiddenFor(model => model.CreatedBy, new { @id = "RFWITradeItem_CreatedBy" })
+    @Html.HiddenFor(model => model.CreatedDate, new { @id = "RFWITradeItem_CreatedDate" })
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Item Name <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.ItemName, new { @title = "Enter Item Name", @placeholder = "Item Name", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Display Order <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.OrderBy, new { @title = "Enter Display Order", @placeholder = "1", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="btnCancelItem" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> CANCEL</button>
+        @if (Model.TradeItemID == 0)
+        {
+            <button type="button" id="btnSubmitItemSave" class="btn btn-success" onclick="SaveItem()" title="Save"><i class="fa fa-check-square-o"></i> SAVE</button>
+        }
+        else
+        {
+            <button type="button" id="btnSubmitItemUpdate" class="btn btn-success" onclick="SaveItem()" title="Update"><i class="fa fa-check-square-o"></i> UPDATE</button>
+        }
+    </div>
+</form>

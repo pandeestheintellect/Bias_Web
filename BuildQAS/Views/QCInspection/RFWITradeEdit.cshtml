@@ -1,0 +1,529 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWITradeMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">RFWI Trade Update</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item"><a href="#" class="QCInspectionRFWITradeIndex">RFWI Trade List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">RFWI Trade Update</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-tabs nav-tabs-success">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tabe-1"><span class="hidden-xs">RFWI Trade Info</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabe-2"><span class="hidden-xs">Item</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabe-3"><span class="hidden-xs">Detailed Check List</span></a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="tabe-1" class="container tab-pane active">
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "QCInspectionRFWITradeEditForm", @class = "form-horizontal" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.TradeID)
+                            @Html.HiddenFor(model => model.CreatedBy)
+                            @Html.HiddenFor(model => model.CreatedDate)
+                            <div>&nbsp;</div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="row form-group">
+                                        <label for="Tradename" class="col-sm-12 col-md-6 col-xl-3 control-label">Trade name<span class="symbol required"></span></label>
+                                        <div class="col-sm-12 col-md-6 col-xl-9">
+                                            @Html.EditorFor(model => model.TradeName, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.TradeName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-footer">
+                                        <button type="button" id="btnCancelRFWITrade" class="btn btn-danger QCInspectionRFWITradeIndex"><i class="fa fa-times"></i> CANCEL</button>
+                                        <button type="button" onclick="RFWITradeUpdate()" id="btnUpdateRFWITrade" class="btn btn-success"><i class="fa fa-check-square-o"></i> UPDATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div id="tabe-2" class="container tab-pane fade">
+                        <div id="dvItemGrid">
+                            @Html.Partial("PartialRFWITradeItemDetailList", Model.qcinspection_rfwi_trade_item_detail)
+                        </div>
+                    </div>
+                    <div id="tabe-3" class="container tab-pane fade">
+                        <div id="dvDetailedCheckListGrid">
+                            @Html.Partial("PartialRFWITradeDetailedCheckListDetailList", Model.qcinspection_rfwi_trade_detailed_checklist_detail)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Row-->
+
+<div class="modal fade" id="ItemModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ItemHead">Add Item</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgItem">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="DetailedCheckListModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="DetailedCheckListHead">Add Detailed Check List</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgDetailedCheckList">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#QCInspectionRFWITradeEditForm").validate({
+            rules: {
+                TradeName: "required"
+            },
+            messages: {
+                TradeName: "Please enter your RFWI Trade Name"
+            }
+        });
+
+        LoadItemList();
+        LoadDetailedCheckList();
+    });
+
+    function RFWITradeUpdate()
+    {
+        if ($('#QCInspectionRFWITradeEditForm').valid()) {
+            $.post("QCInspection/RFWITradeEdit", $('#QCInspectionRFWITradeEditForm').serialize(), function (data) {
+                if (data.value == "OK") {
+                    swal($('#TradeName').val() + "- RFWI Trade has been updated!", {
+                        icon: "success",
+                        timer: 360000
+                    });
+                    Lobibox.notify('success', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: $('#TradeName').val() + "- RFWI Trade has been updated!"
+                    });
+                    $.get("QCInspection/RFWITradeIndex", function (data) {
+                        $('#page-wrapper').html(data);
+                    });
+                }
+                else if (data.value == "Failed") {
+                    swal("Warning!", "RFWI Trade updation failed!", "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: "RFWI Trade updation failed!"
+                    });
+                }
+                else {
+                    swal("Warning!", data.value, "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: data.value
+                    });
+                }
+            });
+        }
+    }
+
+    function LoadItemList() {
+        $.ajax(
+        {
+            type: "Get",
+                url: "/QCInspection/PartialRFWITradeItemDetailList?TradeID=" + $('#TradeID').val(),
+            success: function (resp) {
+                $("#dvItemGrid").html(resp);
+
+                var table1 = $('#ItemTable').DataTable({
+                    //"autoWidth": true,
+                    //"scrollX": true,
+                    //dom: 'Bfrtipl',
+                    responsive: true,
+                    // "scrollY": true,
+                    buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+                });
+                table1.buttons().container().appendTo('#ItemTable_wrapper .col-md-6:eq(0)');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                toastr.options.positionClass = "toast-top-full-width"; toastr.options.closeButton = true; toastr.error(msg, 'warning');
+            }
+        });
+    }
+
+    function AddItem() {
+        $.ajax(
+        {
+            type: "Get",
+            url: "/QCInspection/PartialRFWITradeItemDetail?TradeID=" + $('#TradeID').val(),
+            success: function (resp) {
+                $("#dgItem").html(resp);
+                $('h5#ItemHead').html('Add Item');
+                $("#ItemModel").modal('show');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                Lobibox.notify('error', {
+                    size: 'mini',
+                    position: 'top right',
+                    msg: msg
+                });
+            }
+        });
+    }
+
+    function EditItem(Id) {
+        $.ajax(
+        {
+            type: "Get",
+            url: "/QCInspection/PartialRFWITradeItemDetail?TradeID=" + $('#TradeID').val() + '&ItemID=' + Id,
+            success: function (resp) {
+                $("#dgItem").html(resp);
+                $('h5#ItemHead').html('Edit Item');
+                $("#ItemModel").modal('show');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                Lobibox.notify('error', {
+                    size: 'mini',
+                    position: 'top right',
+                    msg: msg
+                });
+            }
+        });
+    }
+
+    function SaveItem()
+    {
+        var ValidateMsg = "";
+        if ($('#ItemName').val() == "") {
+            ValidateMsg = "Please enter Item Name";
+        }
+        if ($('#OrderBy').val() == "") {
+            ValidateMsg += "<br/>Please enter Display Order";
+        }
+        if (ValidateMsg == "") {
+            var data = $("#ItemForm").serialize();
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/QCInspection/PartialRFWITradeItemDetail",
+                    async: false,
+                    data: data,
+                    success: function (data) {
+                        if (data.includes("Success")) {
+                            LoadItemList();
+                            $("#ItemModel").modal('hide');
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.split(':')[1]
+                            });
+                        }
+                        else {
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: msg
+                        });
+                    }
+                });
+        }
+        else {
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: ValidateMsg
+            });
+        }
+    }
+
+    function DeleteItem(id, un)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Item Name - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("QCInspection/DeleteRFWITradeItemDetail/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    if (data.value == "OK") {
+                        swal(un + "- Item Name has been deleted!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: un + "- Item Name has been deleted!"
+                        });
+                        LoadItemList();
+                    }
+                    else {
+                        swal("Warning!", "Item Name deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'Item Name deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    function LoadDetailedCheckList() {
+        $.ajax(
+        {
+            type: "Get",
+                url: "/QCInspection/PartialRFWITradeDetailedCheckListDetailList?TradeID=" + $('#TradeID').val(),
+                success: function (resp) {
+                    $("#dvDetailedCheckListGrid").html(resp);
+
+                    var table1 = $('#DetailedCheckListTable').DataTable({
+                    //"autoWidth": true,
+                    //"scrollX": true,
+                    //dom: 'Bfrtipl',
+                    responsive: true,
+                    // "scrollY": true,
+                    buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+                });
+                table1.buttons().container().appendTo('#DetailedCheckListTable_wrapper .col-md-6:eq(0)');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                toastr.options.positionClass = "toast-top-full-width"; toastr.options.closeButton = true; toastr.error(msg, 'warning');
+            }
+        });
+    }
+
+    function AddDetailedCheckList() {
+        $.ajax(
+        {
+            type: "Get",
+            url: "/QCInspection/PartialRFWITradeDetailedCheckListDetail?TradeID=" + $('#TradeID').val(),
+            success: function (resp) {
+                $("#dgDetailedCheckList").html(resp);
+                $('h5#DetailedCheckListHead').html('Add Detailed Check List');
+                $("#DetailedCheckListModel").modal('show');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                Lobibox.notify('error', {
+                    size: 'mini',
+                    position: 'top right',
+                    msg: msg
+                });
+            }
+        });
+    }
+
+    function EditDetailedCheckList(Id) {
+        $.ajax(
+        {
+            type: "Get",
+                url: "/QCInspection/PartialRFWITradeDetailedCheckListDetail?TradeID=" + $('#TradeID').val() + '&DetailedCheckListID=' + Id,
+            success: function (resp) {
+                $("#dgDetailedCheckList").html(resp);
+                $('h5#DetailedCheckListHead').html('Edit Detailed Check List');
+                $("#DetailedCheckListModel").modal('show');
+            },
+            error: function (xhr, status, error) {
+                var msg = "ERROR ";
+                if (xhr) {
+                    msg = "readyState is " + xhr.readyState + ". ";
+                }
+                if (error) {
+                    msg += error.name + ' - ' + error.message;
+                }
+                Lobibox.notify('error', {
+                    size: 'mini',
+                    position: 'top right',
+                    msg: msg
+                });
+            }
+        });
+    }
+
+    function SaveDetailedCheckList()
+    {
+        var ValidateMsg = "";
+        if ($('#DetailedCheckListName').val() == "") {
+            ValidateMsg = "Please enter Check List Name";
+        }
+        if ($('#OrderBy').val() == "") {
+            ValidateMsg += "<br/>Please enter Display Order";
+        }
+        if (ValidateMsg == "") {
+            var data = $("#DetailedCheckListForm").serialize();
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/QCInspection/PartialRFWITradeDetailedCheckListDetail",
+                    async: false,
+                    data: data,
+                    success: function (data) {
+                        if (data.includes("Success")) {
+                            LoadDetailedCheckList();
+                            $("#DetailedCheckListModel").modal('hide');
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data.split(':')[1]
+                            });
+                        }
+                        else {
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: msg
+                        });
+                    }
+                });
+        }
+        else {
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: ValidateMsg
+            });
+        }
+    }
+
+    function DeleteDetailedCheckList(id, un)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Detailed Check List Name - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("QCInspection/DeleteRFWITradeDetailedCheckListDetail/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    if (data.value == "OK") {
+                        swal(un + "- Detailed Check List Name has been deleted!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: un + "- Detailed Check List Name has been deleted!"
+                        });
+                        LoadDetailedCheckList();
+                    }
+                    else {
+                        swal("Warning!", "Detailed Check List Name deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'Detailed Check List Name deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+    
+</script>

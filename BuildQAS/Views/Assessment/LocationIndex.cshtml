@@ -1,0 +1,118 @@
+﻿@model IEnumerable<BuildInspect.Models.ViewModel.AssessmentTypeLocationMasterViewModel>
+
+@{
+    Layout = null;
+    var i = 1;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Location List</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item active" aria-current="page">Location</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header"><a href="" onclick="CreateLocation()" data-toggle="modal" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-plus"></i> Add Location</a></div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="LocationTable" class="table table-hover table-striped table-bordered">
+                        <thead style="background-color: #F16876; color: white">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Assessment Type</th>
+                                <th>Location Name</th>
+                                <th>Short Name</th>
+                                <th>Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @i
+                                </td>
+                                <td>@item.assessment_type_master.AssessmentTypeName</td>
+                                <td>@item.AssessmentTypeLocationName</td>
+                                <td>@item.AssessmentTypeLocationShortName</td>
+                                <td>@item.AssessmentTypeLocationType</td>
+                                <td>
+                                    <button class="btn btn-success" onclick="EditLocation(@item.AssessmentTypeLocationID)"><i class="fa fa-edit"></i></button>
+                                    <button class="btn btn-danger" onclick="DeleteLocation('@item.AssessmentTypeLocationID','@item.AssessmentTypeLocationName')"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row-->
+
+<script>
+    $(document).ready(function () {
+        var table1 = $('#LocationTable').DataTable({
+            //"autoWidth": true,
+            //"scrollX": true,
+            //dom: 'Bfrtipl',
+            responsive: true,
+            // "scrollY": true,
+            buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+        });
+        table1.buttons().container().appendTo('#LocationTable_wrapper .col-md-6:eq(0)');
+    });
+
+    function DeleteLocation(id, un)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Process - " + un + "?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            timer: 360000
+        })
+        .then((willDelete) =>
+        {
+            if (willDelete) {
+                $.post("Assessment/DeleteLocation/", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data)
+                {
+                    if (data.value === "OK") {
+                        swal(un + "- Module Process has been deleted!", {
+                            icon: "success",
+                            timer: 360000
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: un + "- Module Process has been deleted!"
+                        });
+                        $.get("Assessment/LocationIndex", function (data) {
+                            $('#page-wrapper').html(data);
+                        });
+                    }
+                    else {
+                        swal("Warning!", "Module Process deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'Module Process deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+</script>

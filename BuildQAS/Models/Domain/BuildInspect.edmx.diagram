@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea6eed9a5b4e4007a7ee49788fc5c4b2" Name="Diagram1" ZoomLevel="106">
+        <EntityTypeShape EntityType="BuildInspectModel.AppUser" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BuildInspectModel.AppUserAssetMapping" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BuildInspectModel.AppUserGroup" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_development_type_master" Width="1.5" PointX="0.75" PointY="43.75" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_direction_master" Width="1.5" PointX="3" PointY="55.125" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_external_wall_trn" Width="1.5" PointX="11.25" PointY="48" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_external_wall_trn_detail" Width="1.5" PointX="13.5" PointY="48.625" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_external_works_trn" Width="1.5" PointX="8.25" PointY="48" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_external_works_trn_detail" Width="1.5" PointX="16.5" PointY="48.625" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_internal_finishes_trn" Width="1.5" PointX="11.25" PointY="53.125" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_internal_finishes_trn_detail" Width="1.5" PointX="16.5" PointY="53.625" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_joint_master" Width="1.5" PointX="3" PointY="78.5" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_leak_master" Width="1.5" PointX="3" PointY="32" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_project_assessors_detail" Width="1.5" PointX="5.25" PointY="42.875" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_project_master" Width="1.5" PointX="3" PointY="45.75" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_project_weightage_detail" Width="1.5" PointX="8.25" PointY="43.625" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_roof_construction_trn" Width="1.5" PointX="11.25" PointY="43" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_roof_construction_trn_detail" Width="1.5" PointX="13.5" PointY="43.625" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_type_location_master" Width="1.5" PointX="9" PointY="37.875" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_type_master" Width="1.5" PointX="3.75" PointY="36.125" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_type_module_master" Width="1.5" PointX="6" PointY="35" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_type_module_Process_master" Width="1.5" PointX="11.25" PointY="37.875" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_type_module_weightage" Width="1.5" PointX="8.25" PointY="34.125" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_wall_master" Width="1.5" PointX="3" PointY="57.5" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail" Width="1.5" PointX="7.5" PointY="75.375" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_window_master" Width="1.5" PointX="3" PointY="75" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessors_master" Width="1.5" PointX="3" PointY="40" />
+        <EntityTypeShape EntityType="BuildInspectModel.company_master" Width="1.5" PointX="0.75" PointY="47.125" />
+        <EntityTypeShape EntityType="BuildInspectModel.employee" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BuildInspectModel.module" Width="1.5" PointX="3.75" PointY="95" />
+        <EntityTypeShape EntityType="BuildInspectModel.permission" Width="1.5" PointX="6" PointY="69.875" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_block_master" Width="1.5" PointX="5.25" PointY="83.375" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_defect_files" Width="1.5" PointX="16.25" PointY="64.875" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_defect_type_master" Width="1.5" PointX="11.75" PointY="88.125" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_level_master" Width="1.5" PointX="7.5" PointY="83.375" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_project_files" Width="1.5" PointX="5.25" PointY="87.375" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_project_PM_detail" Width="1.5" PointX="11.25" PointY="59" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_project_rfwi_drawing_reference_files" Width="1.5" PointX="5.25" PointY="91.125" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_project_Supervisor_detail" Width="1.5" PointX="11.25" PointY="63" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_rfwi_form_general_checklist_detail" Width="1.5" PointX="13.5" PointY="58" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_rfwi_form_location_detail" Width="1.5" PointX="12" PointY="73.375" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_rfwi_form_trade_detailed_checklist_detail" Width="1.5" PointX="16.5" PointY="59" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_rfwi_form_trade_item_detail" Width="1.5" PointX="13.5" PointY="54" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_rfwi_general_checklist_master" Width="1.5" PointX="11.25" PointY="77.875" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_rfwi_trade_detailed_checklist_detail" Width="1.5" PointX="14.25" PointY="71.625" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_rfwi_trade_item_detail" Width="1.5" PointX="11.25" PointY="66.625" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_rfwi_trade_master" Width="1.5" PointX="6" PointY="65.625" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_subcontractor_master" Width="1.5" PointX="3" PointY="61" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_subcontractor_trade_detail" Width="1.5" PointX="5.25" PointY="62" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_trade_master" Width="1.5" PointX="3" PointY="82.875" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_unit_master" Width="1.5" PointX="9.75" PointY="83.25" />
+        <EntityTypeShape EntityType="BuildInspectModel.usergroup" Width="1.5" PointX="3.75" PointY="67.125" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_project_assessment_development_type_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_type_module_weightage_assessment_development_type_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_external_wall_trn_assessment_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_external_wall_trn_assessment_type_location_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_external_wall_trn_detail_assessment_external_wall_trn_detail" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_external_wall_trn_detail_assessment_type_module_Process_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_external_works_trn_assessment_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_external_works_trn_assessment_type_location_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_external_works_trn_detail_assessment_external_works_trn" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_external_works_trn_detail_assessment_type_module_Process_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_internal_finishes_trn_assessment_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_internal_finishes_trn_assessment_type_location_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_internal_finishes_trn_detail_assessment_internal_finishes_trn" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_internal_finishes_trn_detail_assessment_type_module_Process_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_project_assessors_detail_assessment_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_project_assessors_detail_assessors_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_project_master_company_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_project_weightage_detail_assessment_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_roof_construction_trn_assessment_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_project_weightage_detail_assessment_type_module_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_roof_construction_trn_assessment_type_location_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_roof_construction_trn_detail_assessment_roof_construction_trn" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_roof_construction_trn_detail_assessment_type_module_Process_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_type_location_master_assessment_type_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_type_module_Process_master_assessment_type_location_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_type_module_master_assessment_type_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_type_module_Process_master_assessment_type_module_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_type_module_weightage_assessment_type_module_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_type_module_Process_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessors_master_company_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_subcontractor_master_company_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_rapid_permission_rapid_module" />
+        <AssociationConnector Association="BuildInspectModel.FK_rapid_permission_rapid_usergroup" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_level_master_qcinspection_block_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_unit_master_qcinspection_level_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_project_rfwi_drawing_reference_files" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_general_checklist_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_unit_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_trade_detailed_checklist_detail" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_trade_item_detail" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_trade_detailed_checklist_detail_qcinspection_rfwi_trade_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_trade_item_detail_qcinspection_rfwi_trade_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_subcontractor_trade_detail_qcinspection_subcontractor_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_subcontractor_trade_detail_qcinspection_trade_master" />
+        <EntityTypeShape EntityType="BuildInspectModel.user" Width="1.5" PointX="6" PointY="46.25" />
+        <AssociationConnector Association="BuildInspectModel.FK_users_company_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_PM_detail_users" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_Supervisor_detail_users" />
+        <AssociationConnector Association="BuildInspectModel.FK_rapid_users_rapid_usergroup" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_wet_area_water_tightness_test_result_master" Width="1.5" PointX="17.25" PointY="44.875" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_wet_area_water_tightness_test_tran_detail_result" Width="1.5" PointX="19.5" PointY="56.875" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_type_module_Process_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_result_master" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_project_MEInspector_detail" Width="1.5" PointX="8.25" PointY="70.25" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_project_OtherInspector_detail" Width="1.5" PointX="8.25" PointY="66.25" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_project_StructureInspector_detail" Width="1.5" PointX="17.25" PointY="69.25" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_MEInspector_detail_users" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_OtherInspector_detail_users" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_StructureInspector_detail_users" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_rfwi_form" Width="1.5" PointX="8.25" PointY="54.25" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_general_checklist_detail_qcinspection_rfwi_form" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_location_detail_qcinspection_rfwi_form" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_qcinspection_rfwi_trade_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_trade_detailed_checklist_detail_qcinspection_rfwi_form" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_trade_item_detail_qcinspection_rfwi_form" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_users" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_project_master" Width="1.5" PointX="3" PointY="25.375" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_master_company_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_block_master_qcinspection_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_files_qcinspection_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_MEInspector_detail_qcinspection_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_OtherInspector_detail_qcinspection_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_PM_detail_qcinspection_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_rfwi_drawing_reference_files_qcinspection_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_StructureInspector_detail_qcinspection_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_project_Supervisor_detail_qcinspection_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_rfwi_form_qcinspection_project_master" />
+        <EntityTypeShape EntityType="BuildInspectModel.qcinspection_defect_form" Width="1.5" PointX="20" PointY="68.875" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_defect_files_qcinspection_defect_form" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_defect_type_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_subcontractor_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_trade_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_defect_form_qcinspection_unit_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_qcinspection_defect_form_users" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_wet_area_water_tightness_test_tran" Width="1.5" PointX="5.25" PointY="30" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_assessment_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_assessment_wet_area_water_tightness_test_tran" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_wet_area_water_tightness_test_tran_detail_result_assessment_wet_area_water_tightness_test_tran" />
+        <EntityTypeShape EntityType="BuildInspectModel.assessment_field_window_water_tightness_test" Width="1.5" PointX="19.25" PointY="60.875" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_direction_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_joint_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_leak_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_project_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_wall_master" />
+        <AssociationConnector Association="BuildInspectModel.FK_assessment_field_window_water_tightness_test_assessment_window_master" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

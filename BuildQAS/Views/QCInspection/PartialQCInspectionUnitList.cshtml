@@ -1,0 +1,6 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionDefectFormViewModel
+<div class="form-group">
+    <label for="@Model.UnitID">Location<span class="symbol required"></span></label>
+    @Html.DropDownListFor(m => m.UnitID, new SelectList(Model.UnitList, "Value", "Text"), new { @class = "form-control mySelect2" })
+    @Html.ValidationMessageFor(model => model.UnitID, "", new { @class = "text-danger" })
+</div>

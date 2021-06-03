@@ -1,0 +1,66 @@
+﻿@model List<BuildInspect.Models.ViewModel.QCInspectionProjectFilesViewModel>
+
+@{
+    Layout = null;
+    var Sno = 1;
+}
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">@ViewBag.Title</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Project Module </li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="#" class="ProjectDocumentsIndex">Project Documents</a></li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+<div class="row">
+    <div class="col-12 col-lg-12">
+        <div class="card">
+            <div class="card-header border-0">
+                Project Documents
+            </div>
+            <div class="table-responsive">
+                <table id="ProjectTable" class="table table-hover table-striped table-bordered">
+                    <thead style="background-color: #F16876; color: white">
+                        <tr>
+                            <th>S.No</th>
+                            <th>File Caption</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Sno
+                                </td>
+                                <td>@item.FileCaption</td>
+                                <td>
+                                    <a class="btn btn-info" target="_blank" href="~/images/ProjectFiles/@item.ProjectID.ToString()/@item.FileName"><i class="fa fa-download"></i></a>
+                                </td>
+                            </tr>
+                            Sno++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        var table1 = $('#ProjectTable').DataTable({
+            //"autoWidth": true,
+            //"scrollX": true,
+            //dom: 'Bfrtipl',
+            responsive: true,
+            // "scrollY": true,
+        });
+    });
+</script>

@@ -1,0 +1,45 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionBlockMasterViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "Block";
+}
+
+<form id="BlockForm">
+    @Html.HiddenFor(model => model.BlockID)
+    @Html.HiddenFor(model => model.ProjectID, new { @id = "Block_ProjectID" })
+    @Html.HiddenFor(model => model.CreatedBy, new { @id = "Block_CreatedBy" })
+    @Html.HiddenFor(model => model.CreatedDate, new { @id = "Block_CreatedDate" })
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Block <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.BlockName, new { @title = "Enter Block", @placeholder = "BLK #", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Display Order <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.OrderBy, new { @title = "Enter Display Order", @placeholder = "1", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="btnCancelBlock" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> CANCEL</button>
+        @if (Model.BlockID == 0)
+        {
+            <button type="button" id="btnSubmitBlockSave" class="btn btn-success" onclick="SaveBlock()" title="Save"><i class="fa fa-check-square-o"></i> SAVE</button>
+        }
+        else
+        {
+            <button type="button" id="btnSubmitBlockUpdate" class="btn btn-success" onclick="SaveBlock()" title="Update"><i class="fa fa-check-square-o"></i> UPDATE</button>
+        }
+    </div>
+</form>

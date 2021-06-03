@@ -1,0 +1,91 @@
+﻿@model IEnumerable<BuildInspect.Models.ViewModel.AssessmentProjectMasterViewModel>
+
+@{
+    Layout = null;
+    var i = 1;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Assessment List</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Assessments</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="AssessmentTable" class="table table-hover table-striped table-bordered">
+                        <thead style="background-color: #F16876; color: white">
+                            <tr>
+                                <th>Action</th>
+                                <th>Project ID</th>
+                                <th>Project Name</th>
+                                <th>Status</th>
+                                <th>Developer</th>
+                                <th>Contractor</th>
+                                <th>Date of Assessments</th>
+                                <th>Type</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-success" onclick="ViewAssessmentSummary(@item.ProjectID)"><i class="fa fa-edit" title="Edit/View"></i></button>
+                                        <button class="btn btn-primary" onclick="ViewAssessmentIFReport(@item.ProjectID)"><i class="fa fa-bar-chart-o" title="Charts"></i></button>
+                                        <button class="btn btn-secondary" onclick="ViewAssessmentReport(@item.ProjectID)"><i class="zmdi zmdi-share zmdi-hc-fw" title="Reports"></i></button>
+                                    </td>
+                                    <td>@item.Project_ID</td>
+                                    <td>@item.Project_Name</td>
+                                    @if (item.Is_Completed == 0)
+                                    {
+                                        <td>In-Progress</td>
+                                    }
+                                    else if (item.Is_Completed == 1)
+                                    {
+                                        <td>Completed</td>
+                                    }
+                                    else
+                                    {
+                                        <td>Cancelled</td>
+                                    }
+                                    <td>@item.Developer_Name</td>
+                                    <td>@item.Contractor_Name</td>
+                                    <td>@item.Assessment_Dates</td>
+                                    <td>@item.assessment_development_type_master.DevelopmentTypeName</td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row-->
+
+<script>
+    $(document).ready(function () {
+        var table1 = $('#AssessmentTable').DataTable({
+            //"autoWidth": true,
+            //"scrollX": true,
+            //dom: 'Bfrtipl',
+            responsive: true,
+            // "scrollY": true,
+            //buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+        });
+        table1.buttons().container().appendTo('#AssessmentTable_wrapper .col-md-6:eq(0)');
+    });
+</script>
+
+

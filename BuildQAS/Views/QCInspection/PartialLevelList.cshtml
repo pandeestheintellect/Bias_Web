@@ -1,0 +1,52 @@
+﻿@model List<BuildInspect.Models.ViewModel.QCInspectionLevelMasterViewModel>
+
+@{
+    var LevelSno = 1;
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            @if (@ViewBag.ProjectCompleted == 0)
+            {
+                <div class="card-header"><a href="" id="aAddLevel" onclick="AddLevel()" data-toggle="modal" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-plus"></i> Add Level</a></div>
+            }
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="LevelTable" class="table table-hover table-striped table-bordered">
+                        <thead style="background-color: #F16876; color: white">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Block</th>
+                                <th>Level</th>
+                                <th>Display Order</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @LevelSno
+                                    </td>
+                                    <td>@item.BlockName</td>
+                                    <td>@item.LevelName</td>
+                                    <td>@item.OrderBy</td>
+                                    <td>
+                                        @if (@ViewBag.ProjectCompleted == 0)
+                                        {
+                                            <button class="btn btn-success" onclick="EditLevel(@item.LevelID)"><i class="fa fa-edit"></i></button>
+                                            <button class="btn btn-danger" onclick="DeleteLevel('@item.LevelID','@item.LevelName')"><i class="fa fa-trash"></i></button>
+                                        }
+                                    </td>
+                                </tr>
+                                LevelSno++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

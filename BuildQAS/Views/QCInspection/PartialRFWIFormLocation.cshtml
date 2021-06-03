@@ -1,0 +1,44 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWIFormLocationDetailViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "RFWI Form Location";
+}
+<form id="LocationForm">
+    @Html.HiddenFor(model => model.RFWIFormLocationDetailID)
+    @Html.HiddenFor(model => model.QCInspectionRFWIFormID, new { @id = "RFWIFormLocation_QCInspectionRFWIFormID" })
+    @Html.HiddenFor(model => model.CreatedBy, new { @id = "RFWIFormLocation_CreatedBy" })
+    @Html.HiddenFor(model => model.CreatedDate, new { @id = "RFWIFormLocation_CreatedDate" })
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Location <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(model => model.UnitID, new SelectList(Model.UnitList, "Value", "Text"), new { @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Drawing Reference <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(model => model.QCInspectionDrawingReferenceFileID, new SelectList(Model.DrawingReferenceFilesList, "Value", "Text"), new { @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="btnCancelLocation" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> CANCEL</button>
+        @if (Model.RFWIFormLocationDetailID == 0)
+        {
+            <button type="button" id="btnSubmitLocationSave" class="btn btn-success" onclick="SaveRFWIFormLocation()" title="Save"><i class="fa fa-check-square-o"></i> SAVE</button>
+        }
+        else
+        {
+            <button type="button" id="btnSubmitLocationUpdate" class="btn btn-success" onclick="SaveRFWIFormLocation()" title="Update"><i class="fa fa-check-square-o"></i> UPDATE</button>
+        }
+    </div>
+</form>

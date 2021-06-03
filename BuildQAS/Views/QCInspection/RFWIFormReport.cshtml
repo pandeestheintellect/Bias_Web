@@ -1,0 +1,461 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWIFormViewModel
+@{
+    Layout = null;
+    var cpy = Model.qcinspection_project_master.company_master;
+    var iCount = 1;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>RFWI - @Html.Raw(Model.InspectionNo)</title>
+    <style>
+        body {
+            font-size: 14px;
+            width: 210mm;
+            height: 293mm;
+        }
+
+        .body {
+            width: calc(210mm - 30px);
+            height: calc(297mm - 30px);
+            margin: 15px;
+            border: 2px solid #212529;
+        }
+
+        .work-title {
+            background-color: #e8e9ea;
+        }
+
+        .check-box {
+            width: 30px;
+            line-height: 30px;
+            height: 30px;
+            font-weight: bolder;
+            font-size: 16px;
+        }
+        /* .border-dotted-bottom {
+            border-bottom-style: dotted;
+            border-bottom-width: 1px;
+        } */
+
+        .full-w-tbl th {
+            border-width: 1px;
+            border-style: solid;
+            text-align: center;
+            border-top-width: 0;
+        }
+
+        .full-w-tbl th:first-child,
+        .full-w-tbl td:first-child {
+            border-left-width: 0;
+        }
+
+        .full-w-tbl th:last-child,
+        .full-w-tbl td:last-child {
+            border-right-width: 0;
+        }
+
+        .full-w-tbl td,
+        .full-w-tbl th {
+            padding: 5px;
+            border-color: #212529;
+        }
+
+        .full-w-tbl td {
+            border-right-width: 1px;
+            border-bottom-style: dotted;
+            border-bottom-width: 1px;
+        }
+
+        .full-w-tbl tr:last-child td {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+
+        @@media print {
+            .work-title {
+                background-color: #e8e9ea !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="body">
+        <!-- CONTAINER -->
+        <div class="container-fluid">
+            <!-- HEADER -->
+            <div class="row border-bottom border-dark">
+                <div class="col-7 text-center py-2 border-end border-dark">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="w-100">
+                            <h5>Request For Work Inspection</h5>
+                            <h5 class="work-title m-0 px-2 py-2 border border-dark rounded w-75 mx-auto text-uppercase">@Model.qcinspection_rfwi_trade_master.TradeName</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="text-center py-2">
+                        @if (cpy.LogoPath != null)
+                        {
+                            <img src="~/images/CompanyLogo/@Path.GetFileName(cpy.LogoPath)" height="30" width="auto" alt="logo icon">
+                        }
+                    </div>
+                    <div class="fw-bold">@cpy.CompanyName</div>
+                    <div class="d-flex flex-row flex-nowrap align-items-center mb-2">
+                        <div class="flex-shrink-0 small">PROJECT :</div>
+                        <div class="ms-3  border-bottom border-dark flex-grow-1">@Model.qcinspection_project_master.Project_Name</div>
+                    </div>
+                </div>
+            </div>
+            <!-- //HEADER -->
+            <!-- FORM DETAIL -->
+            <div class="row border-bottom border-dark">
+                <div class="col-7 py-3">
+                    <div class="d-flex flex-row flex-nowrap mb-3">
+                        <div class="">Request No.</div>
+                        <div class="border-bottom border-dark flex-grow-1 ms-3">@Model.QCInspectionRFWINo</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="d-flex flex-row flex-nowrap mb-2">
+                                <div class="flex-shrink-0 small">Submitted by:</div>
+                                <div class="ms-3 border-bottom border-dark flex-grow-1">@Model.RequestByName</div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="d-flex flex-row flex-nowrap mb-2">
+                                <div class="flex-shrink-0 small">Date:</div>
+                                <div class="ms-3 border-bottom border-dark flex-grow-1">@string.Format("{0:dd/MM/yyyy}", @Model.RequestOn)</div>
+                            </div>
+                            <div class="d-flex flex-row flex-nowrap mb-2">
+                                <div class="flex-shrink-0 small">Time:</div>
+                                <div class="ms-3 border-bottom border-dark flex-grow-1">@string.Format("{0:hh:mm tt}", @Model.RequestOn)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="d-flex flex-column justify-content-between py-3 h-100">
+                        <div class="">
+                            <img src="@Model.RequestSignature" height="100" />
+                            <div class="">Signature:<span class="ps-3"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //FORM DETAIL -->
+            <!--  -->
+            <div class="row border-bottom border-dark py-2">
+                <div class="col">
+                    <div class="d-flex flex-row flex-nowrap align-items-center">
+                        <div class="">1<sup>st</sup> Inspection*</div>
+                        @if (Model.InspectionNo == 1)
+                        {
+                            <div class="d-inline-flex justify-content-center align-items-center border border-dark ms-2 check-box">&#10003;</div>
+                        }
+                        else
+                        {
+                            <div class="d-inline-flex justify-content-center align-items-center border border-dark ms-2 check-box">1</div>
+                        }
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="d-flex flex-row flex-nowrap align-items-center justify-content-center">
+                        <div class="">Re-Inspection*</div>
+                        <div class="d-flex flex-row flex-nowrap justify-content-center align-items-center ms-2">
+                            @if (Model.InspectionNo == 1)
+                            {
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">2</div>
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">3</div>
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">4</div>
+                                <div class="text-center border border-dark check-box" style="color:#d0d2d4">5</div>
+                            }
+                            else if (Model.InspectionNo == 2)
+                            {
+                                <div class="text-center border border-dark border-end-0 check-box">&#10003;</div>
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">3</div>
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">4</div>
+                                <div class="text-center border border-dark check-box" style="color:#d0d2d4">5</div>
+                            }
+                            else if (Model.InspectionNo == 3)
+                            {
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">2</div>
+                                <div class="text-center border border-dark border-end-0 check-box">&#10003;</div>
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">4</div>
+                                <div class="text-center border border-dark check-box" style="color:#d0d2d4">5</div>
+                            }
+                            else if (Model.InspectionNo == 4)
+                            {
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">2</div>
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">3</div>
+                                <div class="text-center border border-dark border-end-0 check-box">&#10003;</div>
+                                <div class="text-center border border-dark check-box" style="color:#d0d2d4">5</div>
+                            }
+                            else if (Model.InspectionNo == 5)
+                            {
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">3</div>
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">3</div>
+                                <div class="text-center border border-dark border-end-0 check-box" style="color:#d0d2d4">4</div>
+                                <div class="text-center border border-dark check-box" style="color:#d0d2d4">&#10003;</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col">*Tick where Appropriate</div>
+            </div>
+            <!-- // -->
+            <!--  -->
+            <div class="row border-bottom border-dark">
+                <div class="col">
+                    <div class="d-flex py-2">
+                        <div class="flex-grow-0 flex-shrink-0">We request the inspection on: </div>
+                        <div class="flex-shrink-0 flex-grow-1">
+                            <div class="d-flex flex-row flex-nowrap justify-content-center align-items-center ms-2">
+                                <div class="border-bottom border-dark flex-grow-1 align-self-end">@string.Format("{0:dd/MM/yyyy}", @Model.InspectionOn)</div>
+                                <div class="small">(date)</div>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex-grow-1">
+                            <div class="d-flex flex-row flex-nowrap justify-content-center align-items-center ms-2">
+                                <div class="border-bottom border-dark flex-grow-1 align-self-end">@string.Format("{0:dddd}", @Model.InspectionOn)</div>
+                                <div class="small">(day)</div>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex-grow-1">
+                            <div class="d-flex flex-row flex-nowrap justify-content-center align-items-center ms-2">
+                                <div class="border-bottom border-dark flex-grow-1 align-self-end">@Model.InspectionStartTime to @Model.InspectionEndTime</div>
+                                <div class="small">(time)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // -->
+            <!--  -->
+            <div class="row border-bottom border-dark py-2">
+                <div class="col">
+                    <h6>Work For @Model.RequestFor:</h6>
+                    <div class="d-flex flex-row flex-nowrap">
+                        <div class="flex-shrink-0">Item: </div>
+                        <div class=" flex-grow-1">
+                            <ol type="1" class="mb-0">
+                                @foreach (var trade_item_detail in Model.qcinspection_rfwi_form_trade_item_detail)
+                                {
+                                    if (trade_item_detail.qcinspection_rfwi_trade_item_detail.ItemName == "Others")
+                                    {
+                                        <li>
+                                            <div class="d-flex flex-row flex-nowrap">
+                                                <span class="align-top">Others:</span>
+                                                <div class="w-50 pt-3 ms-2 border-bottom border-dark"></div>
+                                            </div>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>@trade_item_detail.qcinspection_rfwi_trade_item_detail.ItemName</li>
+                                    }
+                                }
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // -->
+            <!--  -->
+            <div class="row border-bottom border-dark">
+                <div class="col py-2">
+                    <div class="d-flex flex-row flex-nowrap">
+                        <h6 class="flex-shrink-0 m-0">General Checklist: </h6>
+                        <div class="d-flex flex-wrap flex-row justify-content-between flex-grow-1 text-uppercase ms-2 align-self-center">
+                            @{ iCount = 1; }
+                            @foreach (var trade_item_detail in Model.qcinspection_rfwi_form_general_checklist_detail)
+                            {
+                                if (iCount == 1)
+                                {
+                                    <span>A) @trade_item_detail.qcinspection_rfwi_general_checklist_master.GeneralCheckListName</span>
+                                }
+                                else if (iCount == 2)
+                                {
+                                    <span>B) @trade_item_detail.qcinspection_rfwi_general_checklist_master.GeneralCheckListName</span>
+                                }
+                                else
+                                {
+                                    <span>C) @trade_item_detail.qcinspection_rfwi_general_checklist_master.GeneralCheckListName</span>
+                                }
+                                iCount++;
+                            }
+                        </div>
+                    </div>
+                    <br />
+                    <h6 class="flex-shrink-0 m-0">Detailed Checklist: </h6>
+                    <div class="row">
+                        @{ iCount = 1; }
+                        <div class="col">
+                            @foreach (var detailed_checklist in Model.qcinspection_rfwi_form_trade_detailed_checklist_detail)
+                            {
+                                if (iCount < 4)
+                                {
+                                    <div class="">@iCount) @detailed_checklist.qcinspection_rfwi_trade_detailed_checklist_detail.DetailedCheckListName</div>
+                                }
+                                iCount++;
+                            }
+                        </div>
+                        @{ iCount = 1; }
+                        <div class="col">
+                            @foreach (var detailed_checklist in Model.qcinspection_rfwi_form_trade_detailed_checklist_detail)
+                            {
+                                if (iCount > 3 && iCount < 7)
+                                {
+                                    <div class="">@iCount) @detailed_checklist.qcinspection_rfwi_trade_detailed_checklist_detail.DetailedCheckListName</div>
+                                }
+                                iCount++;
+                            }
+                        </div>
+                        @{ iCount = 1; }
+                        <div class="col">
+                            @foreach (var detailed_checklist in Model.qcinspection_rfwi_form_trade_detailed_checklist_detail)
+                            {
+                                if (iCount > 6)
+                                {
+                                    if (detailed_checklist.qcinspection_rfwi_trade_detailed_checklist_detail.DetailedCheckListName == "Others")
+                                    {
+                                        <div class="">
+                                            <div class="d-flex flex-row flex-nowrap">
+                                                <span class="align-top flex-shrink-0">@iCount) Others:</span>
+                                                <div class="pt-3 ms-2 border-bottom border-dark flex-grow-1"></div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="">@iCount) @detailed_checklist.qcinspection_rfwi_trade_detailed_checklist_detail.DetailedCheckListName</div>
+                                    }
+                                }
+                                iCount++;
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // -->
+            <!--  -->
+            <div class="row border-bottom border-dark py-2">
+                <div class="col">
+                    <h6>Other Trade clearance (if any) by: Strcture / M&E / Others</h6>
+                    <div class="mx-3">
+                        <div class="row border border-dark">
+                            <div class="col border-end border-dark">
+                                <div class="" style="height: 50px;"><img src="@Model.OtherTradeClearance_StructureSignature" height="50" /></div>
+                                <div class="">Signature:</div>
+                                <div class="">Name:&nbsp;@Model.OtherTradeClearance_StructureByName</div>
+                            </div>
+                            <div class="col border-end border-dark">
+                                <div class="" style="height: 50px;"><img src="@Model.OtherTradeClearance_MandESignature" height="50"/></div>
+                                <div class="">Signature:</div>
+                                <div class="">Name:&nbsp;@Model.OtherTradeClearance_MandEByName</div>
+                            </div>
+                            <div class="col">
+                                <div class="" style="height: 50px;"><img src="@Model.OtherTradeClearance_OtherSignature" height="50"/></div>
+                                <div class="">Signature:</div>
+                                <div class="">Name:&nbsp;@Model.OtherTradeClearance_OtherByName</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // -->
+        </div>
+        <!-- // CONTAINER -->
+        <!--  -->
+
+        <table class="full-w-tbl w-100">
+            <colgroup>
+                <col style="width: 33.3%;">
+                <col style="width: 33.3%">
+                <col style="width: 33.3%">
+            </colgroup>
+            <tr>
+                <th>Location/Grid Reference</th>
+                <th>Level</th>
+                <th>Drawing Reference</th>
+            </tr>
+            @foreach (var item in Model.qcinspection_rfwi_form_location_detail)
+            {
+                <tr>
+                    <td>@item.qcinspection_unit_master.UnitName</td>
+                    <td>@item.qcinspection_unit_master.qcinspection_level_master.LevelName</td>
+                    <td>@item.qcinspection_project_rfwi_drawing_reference_files.FileCaption</td>
+                </tr>
+                iCount++;
+            }
+        </table>
+        <div class="mt-2"></div>
+        <!-- // -->
+        <!--  -->
+        <div class="container-fluid">
+            <!--  -->
+            <div class="row border-bottom border-dark pb-2">
+                <div class="col">
+                    <h6>Inspector Comments</h6>
+                    <div class="" >
+                        @Model.CompletedRemarks
+                    </div>
+                </div>
+            </div>
+            <!-- // -->
+            <!--  -->
+            <div class="row">
+                <div class="col-8">
+                    <div class="d-flex py-2">
+                        <div class="flex-grow-0 flex-shrink-0">Complete inspection on: </div>
+                        <div class="flex-shrink-0 flex-grow-1">
+                            <div class="d-flex flex-row flex-nowrap justify-content-center align-items-center ms-2">
+                                <div class="border-bottom border-dark flex-grow-1 align-self-end">@string.Format("{0:dd/MM/yyyy}", @Model.CompletedDate)</div>
+                                <div class="small">(date)</div>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex-grow-1">
+                            <div class="d-flex flex-row flex-nowrap justify-content-center align-items-center ms-2">
+                                <div class="border-bottom border-dark flex-grow-1 align-self-end">@string.Format("{0:hh:mm tt}", @Model.CompletedDate)</div>
+                                <div class="small">(time)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row flex-nowrap pb-2">
+                        <span class="align-top">Signed:</span>
+                        <div class="w-75 pt-3 ms-2 border-bottom border-dark"></div>
+                    </div>
+                    <div class="d-flex flex-row flex-nowrap">
+                        <span class="align-top">Name:</span>
+                        <div class="w-75 pt-3 ms-2 border-bottom border-dark">@Model.user.DisplayName</div>
+                    </div>
+                    <div class="">(RE/RTO)</div>
+                </div>
+                <div class="col">
+                    <div class="position-relative h-100">
+                        <div class=""><img src="@Model.CompletedSignature" height="100" /></div>
+                        <div class="text-end position-absolute bottom-0 end-50">Signature</div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- // -->
+        </div>
+        <!-- // -->
+    </div>
+</body>
+
+</html>

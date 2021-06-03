@@ -1,0 +1,164 @@
+﻿@model IEnumerable<BuildInspect.Models.ViewModel.QCInspectionDefectFormViewModel>
+
+@{
+    Layout = null;
+    var i = 1;
+    int gid = BuildInspect.Models.Utility.AppSession.GetCurrentUserGroup();
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">QC Inspection List</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">QC Inspection</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            @if (gid == 5)
+            {
+                <div class="card-header"><a href="" onclick="CreateQCInspectionDefectForm()" data-toggle="modal" class="btn btn-primary waves-effect waves-light m-1"><i class="fa fa-plus"></i> Add New defects/NC</a></div>
+            }
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="QCInspectionTable" class="table table-hover table-striped table-bordered">
+                        <thead style="background-color: #F16876; color: white">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Defect No</th>
+                                <th>Date</th>
+                                <th>Project Name</th>
+                                <th>Location</th>
+                                <th>Trade</th>
+                                <th>Defects</th>
+                                <th>Subcontractor</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.OrderByDescending(x=> x.QCInspectionDefectID))
+                            {
+                            <tr>
+                                <td>
+                                    @i
+                                </td>
+                                <td>@item.QCInspectionDefectNo</td>
+                                <td>@string.Format("{0:dd-MMM-yyyy}", @item.CreatedDate)</td>
+                                <td>@item.ProjectName</td>
+                                <td>@item.LocationName</td>
+                                <td>@item.qcinspection_trade_master.TradeName</td>
+                                <td>@item.qcinspection_defect_type_master.DefectName</td>
+                                <td>@item.qcinspection_subcontractor_master.Name</td>
+                                @if (@item.Status == "Pending")
+                                {
+                                    <td><span class="badge-dark">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "Approved")
+                                {
+                                    <td><span class="badge-primary">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "ReDo")
+                                {
+                                    <td><span class="badge-warning">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "ReDo-Done")
+                                {
+                                    <td><span class="badge-light">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "Rectified")
+                                {
+                                    <td><span class="badge-info">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "Rework")
+                                {
+                                    <td><span class="badge-secondary">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "Rework-Done")
+                                {
+                                    <td><span class="badge-secondary">@item.Status</span></td>
+                                }
+                                else if (@item.Status == "Completed")
+                                {
+                                    <td><span class="badge-success">@item.Status</span></td>
+                                }
+                                <td>
+                                    <button class="btn btn-success" onclick="EditQCInspectionDefectForm(@item.QCInspectionDefectID)"><i class="fa fa-edit"></i></button>
+                                    @if (@item.Status == "Pending")
+                                    {
+                                        <button class="btn btn-danger" onclick="DeleteQCInspectionDefectForm('@item.QCInspectionDefectID','')"><i class="fa fa-trash"></i></button>
+                                    }
+                                </td>
+                            </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Row-->
+
+<script>
+    $(document).ready(function () {
+        var table1 = $('#QCInspectionTable').DataTable({
+            //"autoWidth": true,
+            //"scrollX": true,
+            //dom: 'Bfrtipl',
+            responsive: true,
+            // "scrollY": true,
+            buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+        });
+        table1.buttons().container().appendTo('#QCInspectionTable_wrapper .col-md-6:eq(0)');
+    });
+
+    function DeleteQCInspectionDefectForm(id, un)
+    {
+        debugger
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this QC Inspection ?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) =>
+        {
+            debugger
+            if (willDelete) {
+                
+                $.post("QCInspection/DeleteQCInspection", { id: id,@Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                    debugger
+                    if (data.value == "OK") {
+                        swal("QC Inspection has been deleted!", {
+                            icon: "success",
+                        });
+                        Lobibox.notify('success', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: "QC Inspection has been deleted!"
+                        });
+                        $.get("/QCInspection/QCInspectionIndex", function (data) {
+                            $('#page-wrapper').html(data);
+                        });
+                    }
+                    else {
+                        swal("Warning!", "QC Inspection deletion failed!", "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: 'QC Inspection deletion failed!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+</script>

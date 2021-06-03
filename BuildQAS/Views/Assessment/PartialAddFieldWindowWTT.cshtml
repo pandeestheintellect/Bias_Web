@@ -1,0 +1,82 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentFieldWindowWaterTightnessTestEntryViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "Add Field Window Water Tightness Test";
+}
+<form id="AddExternalWallForm">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Block / Unit <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.Block_Unit, new { @title = "Enter Block/Unit", @placeholder = "BLK #, #00-00", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Assessment Date <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.AssessmentDate, new { @title = "Enter Assessment Date", @placeholder = "Assessment Date", @class = "datedone form-control", @Value = Convert.ToDateTime(Model.AssessmentDate).ToString("dd/MM/yyyy"), @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Wall <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(m => Model.WallID, new SelectList(Model.assessmentWallMasterViewModels, "AssessmentWallID", "AssessmentWallName"), new { @id = "ddlAddWall", @title = "Select Wall", @class = "form-control", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Window <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(m => Model.WindowID, new SelectList(Model.assessmentWindowMasterViewModels, "AssessmentWindowID", "AssessmentWindowName"), new { @id = "ddlAddWindow", @title = "Select Window", @class = "form-control", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Joint <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(m => Model.JointID, new SelectList(Model.assessmentJointMasterViewModels, "AssessmentJointID", "AssessmentJointName"), new { @id = "ddlAddJoint", @title = "Select Joint", @class = "form-control", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Direction <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(m => Model.DirectionID, new SelectList(Model.assessmentDirectionMasterViewModels, "AssessmentDirectionID", "AssessmentDirectionName"), new { @id = "ddlAddDirection", @title = "Select Direction", @class = "form-control", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Leak Thru <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(m => Model.LeakID, new SelectList(Model.assessmentLeakMasterViewModels, "AssessmentLeakID", "AssessmentLeakName"), new { @id = "ddlAddLeak", @title = "Select Leak", @class = "form-control", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-wide btn-success" id="btnSubmitSave" onclick="SaveFieldWindowWaterTightnessTest()" title="Save"><i class="ti-save"></i>&nbsp;Create Entry</button>
+    </div>
+</form>

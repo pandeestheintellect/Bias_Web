@@ -1,0 +1,471 @@
+﻿@{
+    var Module = BuildInspect.Models.Utility.AppSession.GetCurrentModule();
+    var ParentMenu = BuildInspect.Models.Utility.AppSession.GetCurrentParentMenu();
+    var Menu = BuildInspect.Models.Utility.AppSession.GetCurrentMenu();
+    var gid = BuildInspect.Models.Utility.AppSession.GetCurrentUserGroup();
+    var cpy = BuildInspect.Models.Utility.AppSession.GetCompanyDetail();
+}
+
+<div class="brand-logo">
+    @if (cpy.LogoPath != null)
+    {
+        <img src="~/images/CompanyLogo/@Path.GetFileName(cpy.LogoPath)" class="logo-icon" alt="logo icon">
+    }
+</div>
+@*<div class="user-details">
+        <div class="media align-items-center user-pointer collapsed" data-toggle="collapse" data-target="#user-dropdown">
+            <div class="avatar"><img class="mr-3 side-user-img" src="~/Content/assets/images/avatars/avatar-19.jpg" alt="user avatar"></div>
+            <div class="media-body">
+                <h6 class="side-user-name">Mark Jhonsan</h6>
+            </div>
+        </div>
+        <div id="user-dropdown" class="collapse">
+            <ul class="user-setting-menu">
+                <li><a href="javaScript:void();"><i class="icon-user"></i>  My Profile</a></li>
+                <li><a href="javaScript:void();"><i class="icon-settings"></i> Setting</a></li>
+                <li><a href="javaScript:void();"><i class="icon-power"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>*@
+<ul class="sidebar-menu do-nicescrol">
+    @*=============================================================Admin Module===============================================================================- START ==========*@
+    @if (Module == "Admin")
+    {
+        <li>
+            <a href="javaScript:void();" class="waves-effect AdminIndex">
+                <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>@*<i class="fa fa-angle-left pull-right"></i>*@
+            </a>
+        </li>
+        if (Menu == "Company")
+        {
+            <li class="active">
+                <a href="javaScript:void();" class="waves-effect CompanyIndex"><i class="fa fa-university"></i> <span>Company</span></a>
+            </li>
+        }
+        else
+        {
+            <li><a href="javaScript:void();" class="waves-effect CompanyIndex"><i class="fa fa-university"></i> <span>Company</span></a></li>
+        }
+        if (Menu == "User")
+        {
+            <li class="active">
+                <a href="javaScript:void();" class="waves-effect UserIndex">
+                    <i class="fa fa-users"></i> <span>Users</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="javaScript:void();" class="waves-effect UserIndex">
+                    <i class="fa fa-users"></i> <span>Users</span>
+                </a>
+            </li>
+        }
+    }
+    @*=============================================================Admin Module===============================================================================- END ==========*@
+    @*=============================================================Assessment Module===============================================================================- START ==========*@
+    @if (Module == "Assessment")
+    {
+        <li>
+            <a href="javaScript:void();" class="waves-effect AssessmentIndex">
+                <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>@*<i class="fa fa-angle-left pull-right"></i>*@
+            </a>
+        </li>
+        if (gid < 4)
+        {
+            if (ParentMenu == "Masters")
+            {
+                <li class="active">
+                    <a href="javaScript:void();" class="waves-effect">
+                        <i class="fa fa-cogs"></i>
+                        <span>Masters</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        @*@if (Menu == "Assessor")
+                        {
+                            <li class="active"><a href="#" class="AssessorIndex"><i class="zmdi zmdi-long-arrow-right"></i> Assessor</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="AssessorIndex"><i class="zmdi zmdi-long-arrow-right"></i> Assessor</a></li>
+                        }*@
+                        @if (Menu == "Project")
+                        {
+                            <li class="active"><a href="#" class="AssessmentProjectIndex"><i class="zmdi zmdi-long-arrow-right"></i> Project</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="AssessmentProjectIndex"><i class="zmdi zmdi-long-arrow-right"></i> Project</a></li>
+                        }
+
+                        @if (Menu == "Module")
+                        {
+                            <li class="active"><a href="#" class="ModuleIndex"><i class="zmdi zmdi-long-arrow-right"></i> Module</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="ModuleIndex"><i class="zmdi zmdi-long-arrow-right"></i> Module</a></li>
+                        }
+                        @if (Menu == "Location")
+                        {
+                            <li class="active"><a href="#" class="LocationIndex"><i class="zmdi zmdi-long-arrow-right"></i> Location</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="LocationIndex"><i class="zmdi zmdi-long-arrow-right"></i> Location</a></li>
+                        }
+                        @if (Menu == "ModuleProcess")
+                        {
+                            <li class="active"><a href="#" class="ModuleProcessIndex"><i class="zmdi zmdi-long-arrow-right"></i> Process</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="ModuleProcessIndex"><i class="zmdi zmdi-long-arrow-right"></i> Process</a></li>
+                        }
+                        @if (Menu == "Joint")
+                        {
+                            <li class="active"><a href="#" class="JointIndex"><i class="zmdi zmdi-long-arrow-right"></i> Joint</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="JointIndex"><i class="zmdi zmdi-long-arrow-right"></i> Joint</a></li>
+                        }
+                        @if (Menu == "Leak")
+                        {
+                            <li class="active"><a href="#" class="LeakIndex"><i class="zmdi zmdi-long-arrow-right"></i> Leak</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="LeakIndex"><i class="zmdi zmdi-long-arrow-right"></i> Leak</a></li>
+                        }
+                        @if (Menu == "Wall")
+                        {
+                            <li class="active"><a href="#" class="WallIndex"><i class="zmdi zmdi-long-arrow-right"></i> Wall</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="WallIndex"><i class="zmdi zmdi-long-arrow-right"></i> Wall</a></li>
+                        }
+                        @if (Menu == "Window")
+                        {
+                            <li class="active"><a href="#" class="WindowIndex"><i class="zmdi zmdi-long-arrow-right"></i> Window</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="WindowIndex"><i class="zmdi zmdi-long-arrow-right"></i> Window</a></li>
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="javaScript:void();" class="waves-effect">
+                        <i class="fa fa-cogs"></i>
+                        <span>Masters</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        @*<li><a href="#" class="AssessorIndex"><i class="zmdi zmdi-long-arrow-right"></i> Assessor</a></li>*@
+                        <li><a href="#" class="AssessmentProjectIndex"><i class="zmdi zmdi-long-arrow-right"></i> Project</a></li>
+                        <li><a href="#" class="ModuleIndex"><i class="zmdi zmdi-long-arrow-right"></i> Module</a></li>
+                        <li><a href="#" class="LocationIndex"><i class="zmdi zmdi-long-arrow-right"></i> Location</a></li>
+                        <li><a href="#" class="ModuleProcessIndex"><i class="zmdi zmdi-long-arrow-right"></i> Process</a></li>
+                        <li><a href="#" class="JointIndex"><i class="zmdi zmdi-long-arrow-right"></i> Joint</a></li>
+                        <li><a href="#" class="LeakIndex"><i class="zmdi zmdi-long-arrow-right"></i> Leak</a></li>
+                        <li><a href="#" class="WallIndex"><i class="zmdi zmdi-long-arrow-right"></i> Wall</a></li>
+                        <li><a href="#" class="WindowIndex"><i class="zmdi zmdi-long-arrow-right"></i> Window</a></li>
+                    </ul>
+                </li>
+            }
+        }
+        if (ParentMenu == "Assessments")
+        {
+            <li class="active">
+                <a href="#" class="waves-effect AssessmentsIndex">
+                    <i class="zmdi zmdi-format-list-bulleted"></i>
+                    <span>Assessments</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="#" class="waves-effect AssessmentsIndex">
+                    <i class="zmdi zmdi-format-list-bulleted"></i>
+                    <span>Assessments</span>
+                </a>
+            </li>
+        }
+        @*<li>
+                <a href="javaScript:void();" class="waves-effect">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <span>Reports</span>
+                </a>
+            </li>*@
+    }
+    @*=============================================================Assessment Module===============================================================================- END ==========*@
+    @*=============================================================QC Inspection Module==============================================================================- START ==========*@
+    @if (Module == "QCInspection")
+    {
+        if (Menu == "Dashboard")
+        {
+            <li class="active">
+                <a href="javaScript:void();" class="waves-effect QCInspectionIndex">
+                    <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>@*<i class="fa fa-angle-left pull-right"></i>*@
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="javaScript:void();" class="waves-effect QCInspectionIndex">
+                    <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>@*<i class="fa fa-angle-left pull-right"></i>*@
+                </a>
+            </li>
+        }
+
+        if (gid < 5)
+        {
+            if (ParentMenu == "Masters")
+            {
+                <li class="active">
+                    <a href="javaScript:void();" class="waves-effect">
+                        <i class="fa fa-cogs"></i>
+                        <span>Masters</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        @if (gid < 4)
+                        {
+                            if (Menu == "Project")
+                            {
+                                <li class="active"><a href="#" class="QCInspectionProjectIndex"><i class="zmdi zmdi-long-arrow-right"></i> Project</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="#" class="QCInspectionProjectIndex"><i class="zmdi zmdi-long-arrow-right"></i> Project</a></li>
+                            }
+                        }
+                        @if (Menu == "Trade")
+                        {
+                            <li class="active"><a href="#" class="QCInspectionTradeIndex"><i class="zmdi zmdi-long-arrow-right"></i> Trade</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="QCInspectionTradeIndex"><i class="zmdi zmdi-long-arrow-right"></i> Trade</a></li>
+                        }
+                        @if (Menu == "Subcontractor")
+                        {
+                            <li class="active"><a href="#" class="QCInspectionSubcontractorIndex"><i class="zmdi zmdi-long-arrow-right"></i> Subcontractor</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="QCInspectionSubcontractorIndex"><i class="zmdi zmdi-long-arrow-right"></i> Subcontractor</a></li>
+                        }
+                        @if (Menu == "Defect Type")
+                        {
+                            <li class="active"><a href="#" class="QCInspectionDefectTypeIndex"><i class="zmdi zmdi-long-arrow-right"></i> Defect Type</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="QCInspectionDefectTypeIndex"><i class="zmdi zmdi-long-arrow-right"></i> Defect Type</a></li>
+                        }
+                        @if (Menu == "RFWI Trade")
+                        {
+                            <li class="active"><a href="#" class="QCInspectionRFWITradeIndex"><i class="zmdi zmdi-long-arrow-right"></i> RFWI - Trade</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="QCInspectionRFWITradeIndex"><i class="zmdi zmdi-long-arrow-right"></i> RFWI - Trade</a></li>
+                        }
+                        @if (Menu == "RFWI General Check List")
+                        {
+                            <li class="active"><a href="#" class="QCInspectionRFWIGeneralCheckListIndex"><i class="zmdi zmdi-long-arrow-right"></i> RFWI General Check List</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="QCInspectionRFWIGeneralCheckListIndex"><i class="zmdi zmdi-long-arrow-right"></i> RFWI General Check List</a></li>
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="javaScript:void();" class="waves-effect">
+                        <i class="fa fa-cogs"></i>
+                        <span>Masters</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        @if (gid < 4)
+                        {
+                            <li><a href="#" class="QCInspectionProjectIndex"><i class="zmdi zmdi-long-arrow-right"></i> Project</a></li>
+                        }
+                        <li><a href="#" class="QCInspectionTradeIndex"><i class="zmdi zmdi-long-arrow-right"></i> Trade</a></li>
+                        <li><a href="#" class="QCInspectionSubcontractorIndex"><i class="zmdi zmdi-long-arrow-right"></i> Subcontractor</a></li>
+                        <li><a href="#" class="QCInspectionDefectTypeIndex"><i class="zmdi zmdi-long-arrow-right"></i> Defect Type</a></li>
+                        <li><a href="#" class="QCInspectionRFWITradeIndex"><i class="zmdi zmdi-long-arrow-right"></i> RFWI - Trade</a></li>
+                        <li><a href="#" class="QCInspectionRFWIGeneralCheckListIndex"><i class="zmdi zmdi-long-arrow-right"></i> RFWI General Check List</a></li>
+                    </ul>
+                </li>
+            }
+        }
+
+        if (gid < 6 || gid > 7)
+        {
+            if (Menu == "RFWI")
+            {
+                <li class="active">
+                    <a href="#" class="waves-effect RFWIFormIndex">
+                        <i class="zmdi zmdi-format-list-bulleted"></i>
+                        <span>RFWI</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="#" class="waves-effect RFWIFormIndex">
+                        <i class="zmdi zmdi-format-list-bulleted"></i>
+                        <span>RFWI</span>
+                    </a>
+                </li>
+            }
+        }
+        if (gid < 8)
+        {
+            if (Menu == "QC Inspection")
+            {
+                    <li class="active">
+                        <a href="#" class="waves-effect QCInspectionDefectFormIndex">
+                            <i class="zmdi zmdi-format-list-bulleted"></i>
+                            <span>QC Inspection</span>
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="#" class="waves-effect QCInspectionDefectFormIndex">
+                            <i class="zmdi zmdi-format-list-bulleted"></i>
+                            <span>QC Inspection</span>
+                        </a>
+                    </li>
+                }
+            }
+
+            @*if (gid != 8 && gid != 6)
+            {
+                if (ParentMenu == "Reports")
+                {
+                    <li class="active">
+                        <a href="javaScript:void();" class="waves-effect">
+                            <i class="fa fa-bar-chart-o"></i>
+                            <span>Reports</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="sidebar-submenu"></ul>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="javaScript:void();" class="waves-effect">
+                            <i class="fa fa-bar-chart-o"></i>
+                            <span>Reports</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="sidebar-submenu"></ul>
+                    </li>
+                }
+            }*@
+        }
+        @*=============================================================QC Inspection Module===============================================================================- END ==========*@
+        @*=============================================================PM Module===============================================================================- START ==========*@
+        @if (Module == "PM")
+        {
+            @*if (Menu == "Dashboard")
+                {
+                    <li class="active">
+                        <a href="javaScript:void();" class="waves-effect PMIndex">
+                            <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>@*<i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="javaScript:void();" class="waves-effect PMIndex">
+                            <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>@*<i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                    </li>
+                }*@
+
+            if (ParentMenu == "Reports")
+            {
+                <li class="active">
+                    <a href="javaScript:void();" class="waves-effect">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span>Project Module</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        @if (Menu == "Project Documents")
+                        {
+                            <li class="active"><a href="#" class="ProjectDocumentsIndex"><i class="zmdi zmdi-long-arrow-right"></i>Project Documents</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="ProjectDocumentsIndex"><i class="zmdi zmdi-long-arrow-right"></i>Project Documents</a></li>
+                        }
+                        @if (Menu == "RWFI Progress Report")
+                        {
+                            <li class="active"><a href="#" class="RWFIProgressReport"><i class="zmdi zmdi-long-arrow-right"></i>RWFI - Progress Status</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="RWFIProgressReport"><i class="zmdi zmdi-long-arrow-right"></i>RWFI - Progress Status</a></li>
+                        }
+                        @if (Menu == "QC Inspection Progress Report")
+                        {
+                            <li class="active"><a href="#" class="QCInspectionProgressReport"><i class="zmdi zmdi-long-arrow-right"></i>QC Inspection - Progress Status</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" class="QCInspectionProgressReport"><i class="zmdi zmdi-long-arrow-right"></i>QC Inspection - Progress Status</a></li>
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="javaScript:void();" class="waves-effect">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span>Project Module</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="ProjectDocumentsIndex"><i class="zmdi zmdi-long-arrow-right"></i>Project Documents</a></li>
+                        <li><a href="#" class="RWFIProgressReport"><i class="zmdi zmdi-long-arrow-right"></i>RWFI - Progress Status</a></li>
+                        <li><a href="#" class="QCInspectionProgressReport"><i class="zmdi zmdi-long-arrow-right"></i>QC Inspection - Progress Status</a></li>
+                    </ul>
+                </li>
+            }
+        }
+        @*=============================================================PM Module===============================================================================- END ==========*@
+        @if (Menu == "Change Password")
+        {
+            <li class="active">
+                <a href="#" class="waves-effect ChangePassword">
+                    <i class="fa fa-key"></i>
+                    <span>Change Password</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="#" class="waves-effect ChangePassword">
+                    <i class="fa fa-key"></i>
+                    <span>Change Password</span>
+                </a>
+            </li>
+        }
+    </ul>

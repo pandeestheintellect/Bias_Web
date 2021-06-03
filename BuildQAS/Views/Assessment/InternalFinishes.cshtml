@@ -1,0 +1,985 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentInternalFinishesEntryViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    Layout = null;
+    var RowCnt = 1;
+    var modRowCnt = 1;
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+<style>
+    .datepicker {
+        z-index: 99999 !important;
+    }
+
+    #ui-datepicker-div {
+        width: 30% !important;
+    }
+
+    .table-overflow-cont {
+        overflow-x: scroll;
+        width: 100%;
+        overflow-y: visible;
+        height: calc(100vh - 44px);
+    }
+
+    .min-w-200px {
+        min-width: 200px;
+    }
+
+    .min-w-150px {
+        min-width: 150px;
+    }
+
+    .min-w-50px {
+        min-width: 50px;
+    }
+    /* table border css - start */
+
+    table#intenal-finishes-tbl {
+        border-collapse: separate;
+        border: none;
+        border-spacing: 0;
+    }
+
+        table#intenal-finishes-tbl tr td {
+            padding: 5px;
+            border-left: none;
+            border-right: 1px solid #000000;
+            border-top: none;
+            border-bottom: 1px solid #000000;
+        }
+
+        table#intenal-finishes-tbl thead tr:first-child td {
+            border-top: 1px solid #000000;
+        }
+
+        table#intenal-finishes-tbl tbody tr td.sticky-col-1:first-child,
+        table#intenal-finishes-tbl thead tr td:first-child,
+        table#intenal-finishes-tbl tfoot tr td:first-child {
+            border-left: 1px solid #000000;
+        }
+
+        table#intenal-finishes-tbl thead tr:first-child td:first-child {
+            border-top-left-radius: 5px;
+        }
+
+        table#intenal-finishes-tbl thead tr:first-child td:last-child {
+            border-top-right-radius: 5px;
+        }
+
+        table#intenal-finishes-tbl tfoot tr:last-child td:first-child {
+            border-bottom-left-radius: 5px;
+        }
+
+        table#intenal-finishes-tbl tfoot tr:last-child td:last-child {
+            border-bottom-right-radius: 5px;
+        }
+    /* table border css - end */
+    /* sticky table column - start */
+
+    #intenal-finishes-tbl .sticky-col-1,
+    #intenal-finishes-tbl .sticky-col-2,
+    #intenal-finishes-tbl .sticky-col-3 {
+        position: sticky;
+        z-index: 3;
+        background-color: #ffffff;
+    }
+
+    #intenal-finishes-tbl .sticky-col-1 {
+        left: 0;
+        text-align: center;
+    }
+
+    #intenal-finishes-tbl .sticky-col-2 {
+        left: 50px;
+    }
+
+    #intenal-finishes-tbl .sticky-col-3 {
+        left: calc(50px + 200px);
+    }
+    /* sticky table column - end */
+    /* sticky table row - start */
+
+    #intenal-finishes-tbl thead tr.sticky-row-1 td,
+    #intenal-finishes-tbl thead tr.sticky-row-2 td,
+    #intenal-finishes-tbl thead tr.sticky-row-3 td,
+    #intenal-finishes-tbl thead tr.sticky-row-4 td,
+    #intenal-finishes-tbl thead tr.sticky-row-1 td:first-child,
+    #intenal-finishes-tbl thead tr.sticky-row-2 td:first-child,
+    #intenal-finishes-tbl thead tr.sticky-row-3 td:first-child,
+    #intenal-finishes-tbl thead tr.sticky-row-4 td:first-child,
+    #intenal-finishes-tbl tfoot tr td:first-child,
+    #intenal-finishes-tbl thead tr.sticky-row-1 td:nth-child(2),
+    #intenal-finishes-tbl thead tr.sticky-row-2 td:nth-child(2),
+    #intenal-finishes-tbl thead tr.sticky-row-3 td:nth-child(2),
+    #intenal-finishes-tbl thead tr.sticky-row-1 td:nth-child(3),
+    #intenal-finishes-tbl thead tr.sticky-row-2 td:nth-child(3),
+    #intenal-finishes-tbl thead tr.sticky-row-3 td:nth-child(3),
+    #intenal-finishes-tbl thead tr.sticky-row-4 td:nth-child(2) {
+        position: sticky;
+        background-color: #ffffff;
+    }
+
+    #intenal-finishes-tbl thead tr.sticky-row-1 td,
+    #intenal-finishes-tbl thead tr.sticky-row-2 td,
+    #intenal-finishes-tbl thead tr.sticky-row-3 td,
+    #intenal-finishes-tbl thead tr.sticky-row-4 td {
+        /*position: sticky;*/
+        z-index: 10;
+        /*background-color: #ffffff;*/
+    }
+
+        #intenal-finishes-tbl thead tr.sticky-row-1 td:first-child,
+        #intenal-finishes-tbl thead tr.sticky-row-2 td:first-child,
+        #intenal-finishes-tbl thead tr.sticky-row-3 td:first-child,
+        #intenal-finishes-tbl thead tr.sticky-row-4 td:first-child,
+        #intenal-finishes-tbl tfoot tr td:first-child {
+            /*position: sticky;*/
+            left: 0;
+            z-index: 11;
+            /*background-color: #ffffff;*/
+        }
+
+        #intenal-finishes-tbl thead tr.sticky-row-1 td:nth-child(2),
+        #intenal-finishes-tbl thead tr.sticky-row-2 td:nth-child(2),
+        #intenal-finishes-tbl thead tr.sticky-row-3 td:nth-child(2) {
+            /*position: sticky;*/
+            left: 50px;
+            z-index: 11;
+            /*background-color: #ffffff;*/
+        }
+
+        #intenal-finishes-tbl thead tr.sticky-row-1 td:nth-child(3),
+        #intenal-finishes-tbl thead tr.sticky-row-2 td:nth-child(3),
+        #intenal-finishes-tbl thead tr.sticky-row-3 td:nth-child(3),
+        #intenal-finishes-tbl thead tr.sticky-row-4 td:nth-child(2) {
+            /*position: sticky;*/
+            left: 250px;
+            z-index: 11;
+            /*background-color: #ffffff;*/
+        }
+
+    #intenal-finishes-tbl thead tr.sticky-row-1 td {
+        top: 0;
+    }
+
+    #intenal-finishes-tbl thead tr.sticky-row-2 td {
+        top: 36px;
+    }
+
+    #intenal-finishes-tbl thead tr.sticky-row-3 td {
+        top: 71px;
+    }
+
+    #intenal-finishes-tbl thead tr.sticky-row-4 td {
+        top: 106px;
+    }
+    /* sticky table row - end */
+    /* vertical text in td -start */
+
+    .verticalTD td:not(:first-child) {
+        height: 200px;
+        max-width: 50px;
+    }
+
+    .verticalTD td span {
+        display: block;
+        white-space: nowrap;
+        transform: rotate(-90deg) translatex(-75px);
+    }
+    /* vertical text in td -end */
+    /* checkbox checkmark - start */
+
+    .tdChechBox {
+        min-width: 50px;
+        position: relative;
+        cursor: pointer;
+    }
+
+        .tdChechBox[aria-checked="null"]::before,
+        .tdChechBox[aria-checked="null"]::after,
+        .tdChechBox[aria-checked="true"]::after,
+        .tdChechBox[aria-checked="false"]::before {
+            display: none;
+        }
+
+        .tdChechBox[aria-checked="true"]::before {
+            display: inline-block;
+        }
+
+        .tdChechBox[aria-checked="false"]::after {
+            display: inline-block;
+        }
+
+        .tdChechBox i {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .tdChechBox:focus {
+            outline: none;
+        }
+
+        .tdChechBox::before,
+        .tdChechBox::after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .tdChechBox::before {
+            content: "\f00c";
+            color: #28a745;
+        }
+
+        .tdChechBox::after {
+            content: "\f00d";
+            color: #dc3545;
+        }
+
+        .tdChechBox[disabled=""]::before,
+        .tdChechBox[disabled=""]::after {
+            color: #545b62;
+        }
+
+        .tdChechBox[disabled=""] {
+            cursor: not-allowed;
+        }
+    /* checkbox checkmark - end */
+
+    #intenal-finishes-tbl .selected td {
+        background-color: #d1dade;
+    }
+
+    .myModel {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 11;
+        background-color: rgba(0, 0, 0, 0.25);
+        display: none;
+    }
+
+    .modelContent {
+        background-color: #ffffff;
+        max-width: 500px;
+    }
+</style>
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">@ViewBag.Title</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" class="AssessmentsIndex">Assessments</a></li>
+            <li class="breadcrumb-item active"><a href="#" onclick="ViewAssessmentSummary(@Model.assessmentInternalFinishesIndexViewModel.ProjectID)">BUILDQAS ASSESSMENT REPORT</a></li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="box-header with-border">
+            <input type="button" value="Back" id="InternalFinishes-back" class="btn btn-dark pull-left" onclick="ViewAssessmentSummary(@Model.assessmentInternalFinishesIndexViewModel.ProjectID)" />
+            <br />
+            <br />
+            <button class="mb-2 mr-2 btn-icon btn-icon-only btn btn-success" onclick="EditExternalWall(@Model.assessmentInternalFinishesIndexViewModel.ProjectID)"><i class="fas fa-edit" title="Edit"></i>&nbsp;External Wall</button>
+            <button class="mb-2 mr-2 btn-icon btn-icon-only btn btn-success" onclick="EditExternalWorks(@Model.assessmentInternalFinishesIndexViewModel.ProjectID)"><i class="fas fa-edit" title="Edit"></i>&nbsp;External Works</button>
+            <button class="mb-2 mr-2 btn-icon btn-icon-only btn btn-success" onclick="EditRoofConstruction(@Model.assessmentInternalFinishesIndexViewModel.ProjectID)"><i class="fas fa-edit" title="Edit"></i>&nbsp;Roof Construction</button>
+            <button class="mb-2 mr-2 btn-icon btn-icon-only btn btn-success" onclick="EditFieldWindowWaterTightnessTest(@Model.assessmentInternalFinishesIndexViewModel.ProjectID)"><i class="fas fa-edit" title="Edit"></i>&nbsp;Field Window WTT</button>
+            <button class="mb-2 mr-2 btn-icon btn-icon-only btn btn-success" onclick="EditWetAreaWaterTightnessTest(@Model.assessmentInternalFinishesIndexViewModel.ProjectID)"><i class="fas fa-edit" title="Edit"></i>&nbsp; Wet Area WTT</button>
+        </div>
+        <br />
+        <div class="card">
+            <div class="card-header">
+                @ViewBag.Title
+            </div>
+            <div class="card-body">
+                <button onclick="tableZoomPlus()">zoom +</button>
+                <button onclick="tableZoomMinus()">zoom -</button>
+                <a href="" onclick="window.open('/Assessment/AssessmentInternalFinishesReportPDF?ID=@Model.assessmentInternalFinishesIndexViewModel.ProjectID');" data-toggle="modal" class="btn-icon btn btn-gradient-purpink"><i class="fas fa-search btn-icon-wrapper" title="Generate Report"></i> Print</a>
+                <br />
+                <br />
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "InternalFinishes_Form", @class = "form-horizontal", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => Model.assessmentInternalFinishesIndexViewModel.ProjectID, new { @id = "hdnForProjectID" })
+                    @Html.HiddenFor(model => Model.ModuleAndProcess, new { @id = "hdnForModuleAndProcess" })
+                    @Html.Hidden("HdnID")
+                    @Html.Hidden("HdnZoom", 100)
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="checklist-container" id="dvHead" style="zoom:57%">
+                        <div class="row form-group">
+                            <div class="col-sm-12 col-md-6 col-xl-2">
+                                <div class="title">Project Name</div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-xl-10">
+                                <input type="text" class="form-control" value="@Model.assessmentInternalFinishesIndexViewModel.Project_Name" disabled="disabled" />
+
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-12 col-md-6 col-xl-2">
+                                <div class="title">Developer</div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-xl-4">
+                                <input type="text" class="form-control" disabled="disabled" value="@Model.assessmentInternalFinishesIndexViewModel.Developer_Name" />
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-xl-2">
+                                <div class="title right">Contractor</div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-xl-4">
+                                <input type="text" class="form-control" disabled="disabled" value="@Model.assessmentInternalFinishesIndexViewModel.Contractor_Name" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-container">
+                        <div class="table-overflow-cont">
+                            <table id="intenal-finishes-tbl" style="zoom:54%">
+                                <thead>
+                                    <tr class="sticky-row-1 text-center">
+                                        <td class="min-w-50px">P</td>
+                                        <td class="min-w-200px text-info font-weight-bold">@Model.PCount</td>
+                                        <td colspan="1" class="min-w-150px text-right">No. of compliance</td>
+                                        @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                        {
+                                            <td colspan="@mod.ProcessCount" class="@mod.AssessmentTypeModuleShortName.Replace("&","")-Complain text-info font-weight-bold"></td>
+                                        }
+                                    </tr>
+                                    <tr class="sticky-row-2 text-center ">
+                                        <td>S</td>
+                                        <td class="text-info font-weight-bold">@Model.SCount</td>
+                                        <td class="text-right">No. of checks</td>
+                                        @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                        {
+                                            <td colspan="@mod.ProcessCount" class="@mod.AssessmentTypeModuleShortName.Replace("&","")-Check text-info font-weight-bold"></td>
+                                        }
+                                    </tr>
+
+                                    <tr class="sticky-row-3 text-center">
+                                        <td>C</td>
+                                        <td class="text-info font-weight-bold">@Model.CCount</td>
+                                        <td></td>
+                                        @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                        {
+                                            <td colspan="@mod.ProcessCount">@mod.AssessmentTypeModuleShortName</td>
+                                        }
+                                    </tr>
+                                    <tr class="sticky-row-4 verticalTD">
+                                        <td colspan="2">
+                                            <div class="d-flex flex-column align-items-center">
+                                                @if (@Model.projectMasterView.Is_Completed == 0)
+                                                {
+                                                    <button type="button" id="AddRowBtn" class="btn btn-success w-100 mb-2 addNewRowBtn" onclick="OpenPopupAddInternalFinishes()">Add</button>
+                                                    <button type="button" id="DeleteRowBtn" class="btn btn-danger w-100 mb-2 deleteRowBtn" onclick="deleteRow()">Delete</button>
+                                                    <button type="button" id="DisableRowBtn" class="btn btn-dark w-100 mb-2" onclick="disableTdChechBox(this)">Disable</button>
+                                                }
+                                                else
+                                                {
+                                                    <h4>Project Completed</h4>
+                                                }
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <h5>Assessors</h5>
+                                            @foreach (var item1 in Model.projectMasterView.assessment_project_assessors_detail)
+                                            {
+                                                @item1.assessors_master.AssessorsName;
+                                                <br />
+                                            }
+                                        </td>
+                                        @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                        {
+                                            foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                                            {
+                                                <td><span>@proc.AssessmentTypeModuleProcessName</span></td>
+                                            }
+                                        }
+                                    </tr>
+                                </thead>
+
+                                @foreach (var trn in Model.assessmentInternalFinishesTransMasterViewModels.OrderBy(x => x.AssessmentIFID))
+                                {
+                                    <tbody id="tbody_@trn.AssessmentIFID">
+                                        <tr>
+                                            <td rowspan="4" class="sticky-col-1 min-w-50px" role="checkbox" aria-checked="false" id="rowId_@trn.AssessmentIFID">@RowCnt</td>
+                                            <td class="sticky-col-2 min-w-200px">Date (dd-mmm-yyyy)</td>
+                                            <td class="sticky-col-3 min-w-150px">@string.Format("{0:dd-MMM-yyyy}", @trn.AssessmentDate)</td>
+                                            @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                            {
+                                                foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                                                {
+                                                    foreach (var trndet in trn.assessment_internal_finishes_trn_detail.Where(x => x.RowNo == 1 && x.AssessmentIFID == trn.AssessmentIFID && x.AssessmentTypeModuleProcessID == proc.AssessmentTypeModuleProcessID))
+                                                    {
+                                                        if (Model.projectMasterView.Is_Completed == 1)
+                                                        {
+                                                            if (trndet.Result == "1") // Tick
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="true" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                            else if (trndet.Result == "2") // Cross
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="false" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                            else // Blank
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="null" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            if (trndet.Result == "1") // Tick
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="true" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                            else if (trndet.Result == "2") // Cross
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="false" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                            else // Blank
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="null" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        </tr>
+                                        <tr>
+                                            <td class="sticky-col-2">Block/Unit</td>
+                                            <td class="sticky-col-3">@trn.Block_Unit</td>
+                                            @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                            {
+                                                {
+                                                    modRowCnt = 0;
+                                                }
+                                                foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                                                {
+                                                    foreach (var trndet in trn.assessment_internal_finishes_trn_detail.Where(x => x.RowNo == 2 && x.AssessmentIFID == trn.AssessmentIFID && x.AssessmentTypeModuleProcessID == proc.AssessmentTypeModuleProcessID))
+                                                    {
+                                                        if (Model.projectMasterView.Is_Completed == 1)
+                                                        {
+                                                            if (trndet.Result == "1") // Tick
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="true" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                            else if (trndet.Result == "2") // Cross
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="false" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                            else // Blank
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="null" disabled id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            if (trndet.Result == "1") // Tick
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="true" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                            else if (trndet.Result == "2") // Cross
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="false" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                            else // Blank
+                                                            {
+                                                                <td class="tdChechBox" role="checkbox" aria-checked="null" id="@mod.AssessmentTypeModuleShortName.Replace("&","")_@proc.AssessmentTypeModuleProcessID.ToString()_@trndet.AssessmentIFDetailID.ToString()"></td>
+                                                            }
+                                                            {
+                                                                modRowCnt++;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                if (@modRowCnt == 0)
+                                                {
+                                                    <td colspan="@mod.ProcessCount"></td>
+                                                }
+                                            }
+                                        </tr>
+                                        <tr>
+                                            <td class="sticky-col-2">Location</td>
+                                            <td class="sticky-col-3">@trn.assessment_type_location_master.AssessmentTypeLocationName</td>
+                                            @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                            {
+                                                <td colspan="@mod.ProcessCount" rowspan="2"></td>
+                                            }
+                                        </tr>
+                                        <tr>
+                                            <td class="sticky-col-2">Location Type (P/S/C)</td>
+                                            <td class="sticky-col-3">@trn.assessment_type_location_master.AssessmentTypeLocationType</td>
+                                        </tr>
+                                    </tbody>
+                                    {
+                                        RowCnt++;
+                                    }
+                                }
+                                <tfoot>
+                                    <tr class="text-success font-weight-bold text-center ">
+                                        <td colspan="3" class="text-right">No. of Ticks</td>
+                                        @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                        {
+                                            foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                                            {
+                                                <td class="@mod.AssessmentTypeModuleShortName.Replace("&","")-@proc.AssessmentTypeModuleProcessID-TickCount text-center"></td>
+                                            }
+                                        }
+                                    </tr>
+                                    <tr class="text-success font-weight-bold text-center ">
+                                        <td colspan="3" class="text-right">No. of checks</td>
+                                        @foreach (var mod in Model.assessmentTypeModuleMasterViewModels.Where(x => x.AssessmentTypeID == 1).OrderBy(x => x.OrderBy))
+                                        {
+                                            foreach (var proc in Model.assessmentTypeModuleProcessMasterViewModels.Where(x => x.AssessmentTypeModuleID == mod.AssessmentTypeModuleID).OrderBy(x => x.OrderBy))
+                                            {
+                                                <td class="@mod.AssessmentTypeModuleShortName.Replace("&","")-@proc.AssessmentTypeModuleProcessID-CheckCount text-center"></td>
+                                            }
+                                        }
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="InternalFinishesModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="InternalFinishesHead">Add Internal Finishes - Entry</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="dgAddInternalFinishes">
+                @Html.Partial("PartialAddInternalFinishes", Model)
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //const table = document.getElementById('intenal-finishes-tbl');
+    //const divHead = document.getElementById('dvHead');
+    $(document).ready(function () {
+        let addRowBtns = document.querySelectorAll('.addNewRowBtn, .deleteRowBtn');
+        if (addRowBtns.length > 0) {
+            addRowBtns[0].removeAttribute('disabled');
+            addRowBtns[1].setAttribute('disabled', '');
+        }
+        $('#HdnZoom').val(100);
+        onLoadmoduleStatusCount();
+    });
+
+    // ZOOMING THE TABLE
+    function tableZoomMinus() {
+        let zoomValue = parseInt($('#HdnZoom').val());
+        zoomValue <= 50 ? zoomValue = zoomValue : zoomValue = zoomValue - 2;
+        $('#HdnZoom').val(zoomValue);
+        document.getElementById('intenal-finishes-tbl').style.zoom = zoomValue + "%";
+        document.getElementById('dvHead').style.zoom = zoomValue + "%";
+    }
+
+    function tableZoomPlus() {
+        let zoomValue = parseInt($('#HdnZoom').val());
+        zoomValue == 100 ? zoomValue = 100 : zoomValue = zoomValue + 2;
+        $('#HdnZoom').val(zoomValue);
+        document.getElementById('intenal-finishes-tbl').style.zoom = zoomValue + "%";
+        document.getElementById('dvHead').style.zoom = zoomValue + "%";
+    }
+
+    function SaveInternalFinishes() {
+        var ValidateMsg = "";
+        if ($('#Block_Unit').val() == "") {
+            ValidateMsg = "Please enter Block / Unit";
+        }
+        if ($('#AssessmentDate').val() == "") {
+            ValidateMsg += "<br/>Please enter Assessment Date";
+        }
+        if (ValidateMsg == "") {
+            $.ajax(
+                {
+                    //url: "/Assessment/JSSaveInternalFinishes?PID=" + $('#hdnForProjectID').val() + "&Block_Unit=" + $('#txtAddInternalFinishes_Block_Unit').val() + "&LID=" + $('#ddlAddInternalFinishes_Location').val(),
+                    url: "/Assessment/JSSaveInternalFinishes",
+                    type: "post",
+                    data: {
+                        'PID': $('#hdnForProjectID').val(),
+                        'Block_Unit': $('#Block_Unit').val(),
+                        'LID': $('#ddlAddInternalFinishes_Location').val(),
+                        'ADate': $('#AssessmentDate').val()
+                    },
+                    success: function (data) {
+                        if (data == "Success") {
+                            $("#ExternalWallModel").modal('hide');
+                            EditInternalFinishes($('#hdnForProjectID').val());
+                            $('.modal-backdrop').hide();
+                            $("body").removeClass("modal-open");
+                        }
+                        else {
+                            swal("Warning!", data, "warning");
+                            Lobibox.notify('error', {
+                                size: 'mini',
+                                position: 'top right',
+                                msg: data
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var msg = "ERROR ";
+                        if (xhr) {
+                            msg = "readyState is " + xhr.readyState + ". ";
+                        }
+                        if (error) {
+                            msg += error.name + ' - ' + error.message;
+                        }
+                        swal("Warning!", msg, "warning");
+                        Lobibox.notify('error', {
+                            size: 'mini',
+                            position: 'top right',
+                            msg: msg
+                        });
+                    }
+                });
+        }
+        else {
+            swal("Warning!", ValidateMsg, "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: ValidateMsg
+            });
+        }
+    }
+
+
+    function SaveInternalFinishesDetail(IFDId, result) {
+        $.ajax(
+            {
+                url: "/Assessment/JSSaveInternalFinishesDetail?IFDId=" + IFDId + "&Result=" + result,
+                type: "post",
+                success: function (data) {
+
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    swal("Warning!", msg, "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function DeleteInternalFinishesDetail(ids) {
+        $.ajax(
+            {
+                url: "/Assessment/JSDeleteInternalFinishes?IFIds=" + ids,
+                type: "post",
+                success: function (data) {
+                    EditInternalFinishes($('#hdnForProjectID').val());
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    swal("Warning!", msg, "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+    }
+
+    function OpenPopupAddInternalFinishes() {
+        $.ajax(
+            {
+                type: "Get",
+                url: "/Assessment/PartialAddInternalFinishes?ID=" + $('#hdnForProjectID').val(),
+                success: function (resp) {
+                    $("#dgAddInternalFinishes").html(resp);
+
+                    $(document).ready(function () {
+                        $('#AssessmentDate').datepicker({
+                            format: "dd/mm/yyyy",
+                            autoHide: true,
+                            endDate: new Date(),
+                            todayHighlight: 'TRUE',
+                            autoclose: true,
+                        });
+
+                        $('#Block_Unit').bind('keypress', function (e) {
+                            var specialKeys = new Array();
+                            specialKeys.push(8); //Backspace
+                            specialKeys.push(9); //Tab
+                            specialKeys.push(46); //Delete
+                            specialKeys.push(36); //Home
+                            specialKeys.push(35); //End
+                            specialKeys.push(37); //Left
+                            specialKeys.push(39); //Right
+                            var keyCode = e.keyCode == 0 ? e.charCode : e.keyCode;
+                            var ret = ((keyCode == 32) || (keyCode == 35) || (keyCode == 44) || (keyCode == 45) || (keyCode >= 48 && keyCode <= 57) || (keyCode >= 65 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122) || (specialKeys.indexOf(e.keyCode) != -1 && e.charCode != e.keyCode));
+                            return ret;
+                        });
+                    });
+                    $("#InternalFinishesModel").modal('show');
+                },
+                error: function (xhr, status, error) {
+                    var msg = "ERROR ";
+                    if (xhr) {
+                        msg = "readyState is " + xhr.readyState + ". ";
+                    }
+                    if (error) {
+                        msg += error.name + ' - ' + error.message;
+                    }
+                    swal("Warning!", msg, "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: msg
+                    });
+                }
+            });
+
+    }
+
+    /* Event delecation for td addEventListner - start */
+    //let mainTable = document.getElementById('intenal-finishes-tbl');
+
+    document.getElementById('intenal-finishes-tbl').addEventListener('click', function () {
+        let eventTarget = event.target;
+
+        if (eventTarget.classList.contains('tdChechBox')) {
+            tdCheckBoxStatusChange(eventTarget, eventTarget.id);
+        }
+        let addRowBtns = document.querySelectorAll('.addNewRowBtn, .deleteRowBtn');
+        if (eventTarget.id.startsWith('rowId')) {
+            let idSplit = eventTarget.id.split('_');
+
+            if (eventTarget.attributes['aria-checked'].nodeValue == "false") {
+                eventTarget.setAttribute('aria-checked', 'true');
+                // table.tBodies[idSplit[1] - 1].style.backgroundColor = "#d1dade";
+                console.log(document.querySelector('#tbody_' + idSplit[1]));
+                document.querySelector('#tbody_' + idSplit[1]).classList.add('selected');
+                addRowBtns[0].setAttribute('disabled', '');
+                addRowBtns[1].removeAttribute('disabled');
+            }
+            else {
+                let Selectedrow = false;
+                eventTarget.setAttribute('aria-checked', 'false');
+                // table.tBodies[idSplit[1] - 1].removeAttribute('style');
+                document.querySelector('#tbody_' + idSplit[1]).classList.remove('selected');
+                let tBodies = document.querySelectorAll('#intenal-finishes-tbl tbody')
+                let tBodyLength = tBodies.length;
+                let rowId = document.querySelectorAll('[id^="rowId"]');
+                for (let i = 0; i < tBodyLength; i++) {
+                    if (tBodies[i].classList.contains('selected')) {
+                        Selectedrow = true;
+                        break;
+                    }
+                }
+                if (Selectedrow == false) {
+                    addRowBtns[0].removeAttribute('disabled');
+                    addRowBtns[1].setAttribute('disabled', '');
+                }
+            }
+        }
+    });
+
+    function tdCheckBoxStatusChange(eventTarget, id) {
+        if (!eventTarget.hasAttribute('disabled')) {
+            let result = "0";
+            if (eventTarget.attributes['aria-checked'].nodeValue == "true") {
+                eventTarget.setAttribute('aria-checked', 'false');
+                result = "2";
+            } else if (eventTarget.attributes['aria-checked'].nodeValue == "false") {
+                eventTarget.setAttribute('aria-checked', 'null');
+                result = "0";
+            } else {
+                eventTarget.setAttribute('aria-checked', 'true');
+                result = "1";
+            }
+            let idSplit = id.split('_');
+            SaveInternalFinishesDetail(idSplit[2], result)
+            moduleStatusCount(id);
+
+        }
+
+    }
+    /* Event delecation for td addEventListner - end */
+
+
+    /* disabling checkbox - start */
+    function disableTdChechBox(ths) {
+        if (ths.innerHTML == "Disable") {
+            ths.innerHTML = "Enable";
+            ths.classList.remove("btn-dark");
+            ths.classList.add("btn-block");
+        }
+        else {
+            ths.innerHTML = "Disable";
+
+            ths.classList.remove("btn-block");
+            ths.classList.add("btn-dark");
+        }
+
+        let checkboxes = document.querySelectorAll('#intenal-finishes-tbl .tdChechBox');
+        let disabled = checkboxes[0].hasAttribute('disabled');
+        for (let i = 0; i < checkboxes.length; i++) {
+            if (disabled) {
+                checkboxes[i].removeAttribute('disabled');
+            } else {
+                checkboxes[i].setAttribute('disabled', '');
+            }
+        }
+
+        var btn = document.getElementById('AddRowBtn');
+        if (disabled) {
+            btn.removeAttribute('disabled');
+        } else {
+            btn.setAttribute('disabled', '');
+        }
+    }
+    /* disabling checkbox - end */
+
+    /* Delete Table Row - start */
+
+    function deleteRow() {
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Entries ?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    deleteRowConfirmed();
+                }
+            });
+
+    }
+
+
+    function deleteRowConfirmed() {
+        let tBodies = document.querySelectorAll('#intenal-finishes-tbl tbody')
+        let tBodyLength = tBodies.length;
+        let rowId = document.querySelectorAll('[id^="rowId"]');
+        let rowIds = "";
+
+        for (let i = 0; i < tBodyLength; i++) {
+            if (tBodies[i].classList.contains('selected')) {
+                let tbodtId = tBodies[i].id;
+                let tbodyIdNo = tbodtId.split('_')[1];
+                tBodies[i].remove();
+                rowIds += tbodyIdNo + ",";
+            }
+        }
+        DeleteInternalFinishesDetail(rowIds);
+    }
+    /* Delete Table Row - end */
+
+
+
+    function onLoadmoduleStatusCount() {
+        var ModuleProcessArray = $.parseJSON($('#hdnForModuleAndProcess').val());
+        for (let Mi = 0; Mi < ModuleProcessArray.length; Mi++) {
+            moduleStatusCount(ModuleProcessArray[Mi].ModuleNames);
+            for (let Pi = 0; Pi < ModuleProcessArray[Mi].ProcessIds.length; Pi++) {
+                ProcessStatusCount(ModuleProcessArray[Mi].ModuleNames + '_' + ModuleProcessArray[Mi].ProcessIds[Pi]);
+            }
+        }
+
+    }
+
+
+
+    /* Module Status Count Function - start */
+    function moduleStatusCount(id) {
+
+        let eventidSplit = id.split('_');
+        let eventidSplitFirst = eventidSplit[0];
+        let eventidSplitLast = eventidSplit[1];
+        let module = document.querySelectorAll('[id^="' + eventidSplitFirst + '"]');
+        let Complains = 0;
+        let Checks = 0;
+        let individualCompliance_1 = 0;
+        let individualCheck_1 = 0;
+
+        for (let i = 0; i < module.length; i++) {
+            let checkBoxValue = module[i].getAttribute('aria-checked');
+            let idSplitArray = module[i].id.split('_');
+            let idSplitlastIndex = idSplitArray[1];
+            if (checkBoxValue == 'true') {
+                Checks++;
+                Complains++;
+                if (idSplitlastIndex == eventidSplitLast) {
+                    individualCompliance_1++;
+                    individualCheck_1++;
+                }
+            }
+            else if (checkBoxValue == 'false') {
+                Checks++;
+                if (idSplitlastIndex == eventidSplitLast) {
+                    individualCheck_1++;
+                }
+            }
+        }
+        document.querySelector('.' + eventidSplitFirst + '-Complain').innerHTML = Complains;
+        document.querySelector('.' + eventidSplitFirst + '-Check').innerHTML = Checks;
+
+        if (eventidSplit.length > 1) {
+            document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-TickCount').innerHTML = individualCompliance_1;
+            document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-CheckCount').innerHTML = individualCheck_1;
+        }
+    }
+
+    function ProcessStatusCount(id) {
+        let eventidSplit = id.split('_');
+        let eventidSplitFirst = eventidSplit[0];
+        let eventidSplitLast = eventidSplit[1];
+        let module = document.querySelectorAll('[id^="' + id + '"]');
+        let individualCompliance = 0;
+        let individualCheck = 0;
+        for (let i = 0; i < module.length; i++) {
+            let checkBoxValue = module[i].getAttribute('aria-checked');
+            if (checkBoxValue == 'true') {
+                individualCompliance++;
+                individualCheck++;
+            }
+            else if (checkBoxValue == 'false') {
+                individualCheck++;
+            }
+        }
+        document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-TickCount').innerHTML = individualCompliance;
+        document.querySelector('.' + eventidSplitFirst + '-' + eventidSplitLast + '-CheckCount').innerHTML = individualCheck;
+    }
+</script>

@@ -1,0 +1,223 @@
+﻿@model BuildInspect.Models.ViewModel.CompanyMasterViewModel
+@{
+    Layout = null;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Company Creation</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" class="CompanyIndex">Company List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Company Creation</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "CompanyCreateForm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div>&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="form-header text-uppercase">
+                        <i class="fa fa-user-circle-o"></i>
+                        Company Info
+                    </h4>
+                    <div class="row">
+                        <div class="col-md-8">
+                            @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label required" })
+                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                            <div class="">
+                                @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ShortName, htmlAttributes: new { @class = "control-label required" })
+                            @Html.ValidationMessageFor(model => model.ShortName, "", new { @class = "text-danger" })
+                            <div class="">
+                                @Html.EditorFor(model => model.ShortName, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.RegNo, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.RegNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.RegNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.GstRegNo, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.GstRegNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.GstRegNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.GST, "GST%", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.GST, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.GST, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Tel, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Fax, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextAreaFor(model => model.Address, 3, 40, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Pincode, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Pincode, new { htmlAttributes = new { @class = "form-control", @maxlength = "10" } })
+                                @Html.ValidationMessageFor(model => model.Pincode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="col-md-12">
+                                <div class="text-uppercase">
+                                    <label for="files" class="">Logo</label>
+                                    @Html.TextBoxFor(model => model.profile_Path, "", new { @type = "file", @accept = "image/x-png,image/jpg,image/jpeg" })
+                                    @Html.ValidationMessageFor(model => model.profile_Path, "", new { @class = "text-danger" })
+                                    <small class="form-text text-muted">
+                                        Upload with file extension - JPG, PNG  @*with size of 70px X 70px resolution.*@
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                @if (Model.LogoPath != null)
+                                {
+                                    <div class="col-md-6 col-lg-3 col-xl-3">
+                                        <a href="~/images/CompanyLogo/@Model.LogoPath" data-fancybox="Defect">
+                                            <img src="~/images/CompanyLogo/@Model.LogoPath" alt="lightbox" class="lightbox-thumb img-thumbnail">
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" id="btnCancelCompany" class="btn btn-danger CompanyIndex"><i class="fa fa-times"></i> CANCEL</button>
+                        <button type="button" onclick="CompanyCreate()" id="btnSaveCompany" class="btn btn-success"><i class="fa fa-check-square-o"></i> SAVE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--End Row-->
+}
+<!-- End Row-->
+
+
+<script>
+    $().ready(function () {
+        $("#CompanyCreateForm").validate({
+            rules: {
+                CompanyName: "required",
+                ShortName: "required"
+            },
+            messages: {
+                CompanyName: "Please enter your Company Name",
+                ShortName: "Please enter your Short Name"
+            }
+        });
+    });
+
+    function CompanyCreate() {
+        if (!$('#CompanyCreateForm').valid()) {
+            return;
+        }
+
+        var CompanyCreateForm = new FormData(document.forms.namedItem("CompanyCreateForm"));
+        $.ajax({
+            url: '/Home/CompanyCreate',
+            data: CompanyCreateForm,
+            cache: false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (data) {
+
+                if (data.value == "OK") {
+                    swal($('#CompanyName').val() + "- Company has been created!", {
+                        icon: "success",
+                        timer: 360000,
+                        html: true
+                    });
+                    Lobibox.notify('success', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: $('#CompanyName').val() + "- Company has been created!"
+                    });
+                    $.get("Home/CompanyIndex", function (data) {
+                        $('#page-wrapper').html(data);
+                    });
+                }
+                else if (data.value == "Failed") {
+                    swal("Warning!", "Company creation failed!", "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: "Company creation failed!"
+                    });
+                }
+                else {
+                    swal("Warning!", data.value, "warning");
+                    Lobibox.notify('error', {
+                        size: 'mini',
+                        position: 'top right',
+                        msg: data.value
+                    });
+                }
+            }
+        });
+    }
+</script>
+

@@ -1,0 +1,102 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionRFWIGeneralCheckListMasterViewModel
+
+@{
+    Layout = null;
+}
+
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">RFWI General Check List Update</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Masters</li>
+            <li class="breadcrumb-item"><a href="#" class="QCInspectionRFWIGeneralCheckListIndex">RFWI General Check List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">RFWI General Check List Update</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "RFWIGeneralCheckListEditForm", @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.GeneralCheckListID)
+    @Html.HiddenFor(model => model.CreatedBy)
+    @Html.HiddenFor(model => model.CreatedDate)
+    <div>&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="form-header text-uppercase">
+                        <i class="fa fa-user-circle-o"></i>
+                        RFWIGeneralCheckList Info
+                    </h4>
+                    <div class="form-group row">
+                        <label for="input-1" class="col-sm-2 col-form-label">General Check List name<span class="symbol required"></span></label>
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.GeneralCheckListName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.GeneralCheckListName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input-1" class="col-sm-2 col-form-label">Display Order<span class="symbol required"></span></label>
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.OrderBy, new { htmlAttributes = new { @class = "form-control", @type = "number", @min = "1", @step = "1", @value = "0" } })
+                            @Html.ValidationMessageFor(model => model.OrderBy, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" id="btnCancelRFWIGeneralCheckList" class="btn btn-danger QCInspectionRFWIGeneralCheckListIndex"><i class="fa fa-times"></i> CANCEL</button>
+                        <button type="button" onclick="RFWIGeneralCheckListUpdate()" id="btnUpdateRFWIGeneralCheckList" class="btn btn-success"><i class="fa fa-check-square-o"></i> UPDATE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--End Row-->
+}
+<!-- End Row-->
+
+<script>
+    $().ready(function () {
+        $("#RFWIGeneralCheckListEditForm").validate({
+            rules: {
+                GeneralCheckListName: "required",
+                OrderBy: "required"
+            },
+            messages: {
+                GeneralCheckListName: "Please enter your General Check List Name",
+                OrderBy: "Please enter your Display Order",
+            }
+        });
+    });
+
+    function RFWIGeneralCheckListUpdate()
+    {
+        if ($('#RFWIGeneralCheckListEditForm').valid())
+        {
+            $.post("QCInspection/RFWIGeneralCheckListEdit", $('#RFWIGeneralCheckListEditForm').serialize(), function (data)
+            {
+                if (data.value == "OK")
+                {
+                    swal($('#GeneralCheckListName').val() + "- RFWI General Check List has been updated!", {
+                        icon: "success",
+                    });
+                    $.get("QCInspection/RFWIGeneralCheckListIndex", function (data) {
+                        $('#page-wrapper').html(data);
+                    });
+                }
+                else if (data.value == "Failed") {
+                    swal("Warning!", "RFWI General Check List updation failed!", "warning");
+                }
+                else {
+                    swal("Warning!", data.value, "warning");
+                }
+            });
+        }
+    }
+</script>
+
+

@@ -1,0 +1,406 @@
+﻿@model BuildInspect.Models.ViewModel.QCInspectionDefectFormViewModel
+@{
+    Layout = null;
+}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">QC Inspection Creation</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" class="QCInspectionDefectFormIndex">QC Inspection List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">QC Inspection Creation</li>
+        </ol>
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div>&nbsp;</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "QCInspectionDefectFormAddForm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Status)
+                    <h4 class="form-header text-uppercase">
+                        <i class="fa fa-user-circle-o"></i>
+                        New defects/NC
+                    </h4>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="@Model.CreatedDate">Date<span class="symbol required"></span></label>
+                                @Html.TextBoxFor(model => Model.CreatedDate, "{0:dd-MMM-yyyy}", new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="@Model.ProjectID">Project<span class="symbol required"></span></label>
+                                @Html.DropDownListFor(m => m.ProjectID, new SelectList(Model.ProjectList, "Value", "Text"), new { @class = "form-control", @onchange = "Project_Change()" })
+                                @Html.ValidationMessageFor(model => model.ProjectID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="dvQCInspectionProjectManagerList">
+                            @Html.Partial("PartialQCInspectionProjectManagerList", Model)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="@Model.TradeID">Trade<span class="symbol required"></span></label>
+                                @Html.DropDownListFor(m => m.TradeID, new SelectList(Model.TradeList, "Value", "Text"), new { @class = "form-control", @onchange = "Trade_Change()" })
+                                @Html.ValidationMessageFor(model => model.TradeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="@Model.DefectTypeID">Defect Type<span class="symbol required"></span></label>
+                                @Html.DropDownListFor(m => m.DefectTypeID, new SelectList(Model.DefectTypeList, "Value", "Text"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DefectTypeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3" id="dvQCInspectionUnitList">
+                            @Html.Partial("PartialQCInspectionUnitList", Model)
+                        </div>
+                        <div class="col-md-3" id="dvQCInspectionSubcontractorList">
+                            @Html.Partial("PartialQCInspectionSubcontractorList", Model)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="@Model.DefectRemarks">Defect Remarks</label>
+                                @Html.TextAreaFor(model => Model.DefectRemarks, 4, 2, new { @class = "form-control", @MaxLength = "500", @style = "height: 118px;" })
+                                @Html.ValidationMessageFor(model => model.DefectRemarks, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="@Model.ApprovedRemarks"><input type="checkbox" id="chkByPassApproval" value="ByPass Approval" />&nbsp;ByPass&nbsp;Approval</label>
+                                @Html.TextAreaFor(model => Model.ApprovedRemarks, 4, 2, new { @class = "form-control", @MaxLength = "500", @style = "height: 118px;", @placeholder = "Approval Remarks" })
+                                @Html.ValidationMessageFor(model => model.ApprovedRemarks, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="col-md-12">
+                                <div class="text-uppercase">
+                                    <label for="files" class="">Defect Attachements</label>
+                                    @Html.TextBoxFor(model => model.DefectFiles, "", new { @type = "file", @multiple = "multiple", @accept = "image/x-png,image/jpg,image/jpeg" })
+                                    <small class="form-text text-muted">
+                                        Upload with file extension - JPG, PNG  @*with size of 70px X 70px resolution.*@
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                @if (Model.qcinspection_defect_files != null)
+                                {
+                                    foreach (var file in Model.qcinspection_defect_files.Where(x => x.FileFor == "Defect"))
+                                    {
+                                        <div class="col-md-6 col-lg-3 col-xl-3">
+                                            <a href="~/images/QCInspection/@Model.QCInspectionDefectID.ToString()/@file.FileName" data-fancybox="Defect">
+                                                <img src="~/images/QCInspection/@Model.QCInspectionDefectID.ToString()/@file.FileName" alt="lightbox" class="lightbox-thumb img-thumbnail">
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                <br />
+                <br />
+                <div class="form-footer">
+                    <button type="button" id="btnCancelQCInspectionDefectForm" class="btn btn-danger QCInspectionDefectFormIndex"><i class="fa fa-times"></i> CANCEL</button>
+                    <button type="button" onclick="QCInspectionCreate()" id="btnSaveQCInspectionDefectForm" class="btn btn-success"><i class="fa fa-check-square-o"></i> SAVE</button>
+                                    
+    @*<button type="button" onclick="QCInspectionCreate('Approved')" id="btnByPassApprovalQCInspectionDefectForm" class="btn btn-success"><i class="fa fa-check-square-o"></i> ByPass Approval</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--End Row-->
+<!-- End Row-->
+
+<script>
+    function Project_Change() {
+        $.ajax({
+            type: "Get",
+            url: "/QCInspection/PartialQCInspectionUnitList?ProjectID=" + $('#ProjectID').val(),
+            success: function (resp) {
+                $("#dvQCInspectionUnitList").html(resp);
+                $('#UnitID').select2({
+                    selectOnClose: true
+                });
+            }
+        });
+
+        $.ajax({
+            type: "Get",
+            url: "/QCInspection/PartialQCInspectionProjectManagerList?ProjectID=" + $('#ProjectID').val(),
+            success: function (resp) {
+                $("#dvQCInspectionProjectManagerList").html(resp);
+                $('#ProjectManagerID').select2({
+                    selectOnClose: true
+                });
+            }
+        });
+    }
+
+    function Trade_Change() {
+        $.ajax({
+            type: "Get",
+            url: "/QCInspection/PartialQCInspectionSubcontractorList?TradeID=" + $('#TradeID').val(),
+            success: function (resp) {
+                $("#dvQCInspectionSubcontractorList").html(resp);
+                $('#SubcontractorID').select2({
+                    selectOnClose: true
+                });
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        
+        $('#ProjectID').select2({
+            selectOnClose: true
+        });
+        $('#TradeID').select2({
+            selectOnClose: true
+        });
+        $('#DefectTypeID').select2({
+            selectOnClose: true
+        });
+        $('#UnitID').select2({
+            selectOnClose: true
+        });
+        $('#SubcontractorID').select2({
+            selectOnClose: true
+        });
+        $('#ProjectManagerID').select2({
+            selectOnClose: true
+        });
+        $('#tableFiles').DataTable({
+            //dom: 'Bfrtipl',
+            responsive: true,
+        });
+
+        $('#ApprovedRemarks').hide();
+
+        $('#chkByPassApproval').change(function () {
+            if ($(this).is(':checked')) {
+                $('#ApprovedRemarks').show();
+            }
+            else {
+                $('#ApprovedRemarks').hide();
+            }
+        });
+
+        ///* Checkby Signature */
+        //$('.checkby-signature--wrapper').on('click', function () {
+        //    $('.checkby-signature--overlay').hide();
+        //    $('.checkby-lock-button').hide();
+        //    $('.checkby-unlock-button').show();
+        //    $('.checkby-clear-button').show();
+        //});
+
+        //$('.checkby-lock-button').on('click', function () {
+        //    $(this).hide();
+        //    $('.checkby-signature--overlay').hide();
+        //    $('.checkby-unlock-button').show();
+        //    $('.checkby-clear-button').show();
+        //});
+
+        //$('.checkby-unlock-button').on('click', function () {
+        //    $(this).hide();
+        //    $('.checkby-signature--overlay').show();
+        //    $('.checkby-lock-button').show();
+        //    $('.checkby-clear-button').hide();
+        //});
+
+        //var $checkbySig = $('#checkby-signature');
+        //var $checkbySigCapture = $('#CheckedBy_Signature');
+
+        //var $checkbyData = $checkbySig.jSignature('getData', 'svgbase64');
+        //$checkbySig.jSignature({
+        //    'background-color': 'transparent',
+        //    'decor-color': 'transparent',
+        //    color: "#00f",
+        //    lineWidth: 3
+        //});
+
+        //if ($('#CompletedSignature').val() != null && $('#CompletedSignature').val() != '') {
+        //    $checkbySig.jSignature('setData', $('#CompletedSignature').val());
+        //}
+        //$checkbySig.bind('change', function (e) {
+        //    var $checkdata = $checkbySig.jSignature('getData');
+        //    $checkbySigCapture.val($checkdata);
+        //});
+
+        //$('.checkby-clear-button').on('click', function (e) {
+        //    e.preventDefault();
+        //    $checkbySig.jSignature('reset');
+        //    $checkbySigCapture.val('');
+        //});
+
+    });
+
+    function QCInspectionCreate(status) {
+
+        var mesg = "";
+        if ($("#ProjectID option:selected").text().length == 0) {
+            mesg = "Please select Project";
+        }
+        if ($("#ProjectManagerID option:selected").text().length == 0) {
+            mesg += "<br>Please select Project Manager";
+        }
+        if ($("#TradeID option:selected").text().length == 0) {
+            mesg += "<br>Please select Trade";
+        }
+        if ($("#DefectTypeID option:selected").text().length == 0) {
+            mesg += "<br>Please select Defect Type";
+        }
+        if ($("#UnitID option:selected").text().length == 0) {
+            mesg += "<br>Please select Location";
+        }
+        if ($("#SubcontractorID option:selected").text().length == 0) {
+            mesg += "<br>Please select Subcontractor";
+        }
+                
+        if ($("#chkByPassApproval").is(":checked") && $("#ApprovedRemarks").val() == "")
+        {
+            mesg += "<br>Please enter Approval Remarks";
+        }
+
+        if (mesg.length == 0) {
+            if ($('#QCInspectionDefectFormAddForm').valid()) {
+                if ($("#chkByPassApproval").is(":checked")) 
+                {
+                    swal({
+                        title: "Are you sure?",
+                        text: "You want to ByPass Approval this QC Inspection ?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                $('#Status').val('Approved');
+                                var QCInspectionDefectFormAddForm = new FormData(document.forms.namedItem("QCInspectionDefectFormAddForm"));
+                                $.ajax({
+                                    url: '/QCInspection/QCInspectionCreate',
+                                    data: QCInspectionDefectFormAddForm,
+                                    cache: false,
+                                    enctype: 'multipart/form-data',
+                                    processData: false,
+                                    contentType: false,
+                                    type: 'POST',
+                                    success: function (data) {
+                                        if (data.value != "Failed") {
+                                            swal("QC Inspection Defect Form has been created!", {
+                                                icon: "success",
+                                                timer: 360000
+                                            });
+                                            Lobibox.notify('success', {
+                                                size: 'mini',
+                                                position: 'top right',
+                                                msg: "QC Inspection Defect Form has been created!"
+                                            });
+                                            //$.get("QCInspection/QCInspectionEdit/" + data.value, function (data) {
+                                            //    $('#page-wrapper').html(data);
+                                            //});
+                                            $.get("QCInspection/QCInspectionIndex", function (data) {
+                                                $('#page-wrapper').html(data);
+                                            });
+                                        }
+                                        else if (data.value == "Failed") {
+                                            swal("Warning!", "QC Inspection Defect Form Creation failed!", "warning");
+                                            Lobibox.notify('error', {
+                                                size: 'mini',
+                                                position: 'top right',
+                                                msg: "QC Inspection Defect Form Creation failed!"
+                                            });
+                                        }
+                                        else {
+                                            swal("Warning!", data.value, "warning");
+                                            Lobibox.notify('error', {
+                                                size: 'mini',
+                                                position: 'top right',
+                                                msg: data.value
+                                            });
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                }
+                else {
+                    $('#Status').val('Pending');
+                    var QCInspectionDefectFormAddForm = new FormData(document.forms.namedItem("QCInspectionDefectFormAddForm"));
+                    $.ajax({
+                        url: '/QCInspection/QCInspectionCreate',
+                        data: QCInspectionDefectFormAddForm,
+                        cache: false,
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        type: 'POST',
+                        success: function (data) {
+                            if (data.value != "Failed") {
+                                swal("QC Inspection Defect Form has been created!", {
+                                    icon: "success",
+                                    timer: 360000
+                                });
+                                Lobibox.notify('success', {
+                                    size: 'mini',
+                                    position: 'top right',
+                                    msg: "QC Inspection Defect Form has been created!"
+                                });
+                                //$.get("QCInspection/QCInspectionEdit/" + data.value, function (data) {
+                                //    $('#page-wrapper').html(data);
+                                //});
+                                $.get("QCInspection/QCInspectionIndex", function (data) {
+                                    $('#page-wrapper').html(data);
+                                });
+                            }
+                            else if (data.value == "Failed") {
+                                swal("Warning!", "QC Inspection Defect Form Creation failed!", "warning");
+                                Lobibox.notify('error', {
+                                    size: 'mini',
+                                    position: 'top right',
+                                    msg: "QC Inspection Defect Form Creation failed!"
+                                });
+                            }
+                            else {
+                                swal("Warning!", data.value, "warning");
+                                Lobibox.notify('error', {
+                                    size: 'mini',
+                                    position: 'top right',
+                                    msg: data.value
+                                });
+                            }
+                        }
+                    });
+                }
+            }
+        }
+        else {
+            swal("Warning!", mesg.toString().replaceAll("<br>", "\n"), "warning");
+            Lobibox.notify('error', {
+                size: 'mini',
+                position: 'top right',
+                msg: mesg
+            });
+        }
+    }
+
+
+</script>
+
+

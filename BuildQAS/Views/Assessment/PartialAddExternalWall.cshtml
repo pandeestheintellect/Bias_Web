@@ -1,0 +1,44 @@
+﻿@model BuildInspect.Models.ViewModel.AssessmentExternalWallEntryViewModel
+@using BuildInspect.Models.ViewModel
+@{
+    ViewBag.Title = "Add External Wall";
+}
+<form id="AddExternalWallForm">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Block / Unit <span class="symbol required"></span>
+                    </div>
+                    @Html.TextBoxFor(model => Model.Block_Unit, new { @title = "Enter Block/Unit", @placeholder = "BLK #, #00-00", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Assessment Date <span class="symbol required"></span>
+                    </div>
+                    @*@Html.TextBoxFor(model => Model.AssessmentDate, new { @title = "Enter Assessment Date", @placeholder = "Assessment Date", @class = "datedone form-control", @Value = Convert.ToDateTime(Model.AssessmentDate).ToString("dd/MM/yyyy"), @style = "width:250px" })*@
+                    @Html.TextBoxFor(model => Model.AssessmentDate, "{0:dd/MM/yyyy}", new { @class = "form-control", @style = "width:250px" })
+                    @Html.ValidationMessageFor(model => model.AssessmentDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div style="width: 130px; float: left;">
+                        Location <span class="symbol required"></span>
+                    </div>
+                    @Html.DropDownListFor(m => Model.LocationID, new SelectList(Model.assessmentTypeLocationMasterViews, "AssessmentTypelocationID", "AssessmentTypeLocationName"), new { @id = "ddlAddExternalWall_Location", @title = "Select Location", @class = "form-control", @style = "width:250px" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-wide btn-success" id="btnSubmitSave" onclick="SaveExternalWall()" title="Save"><i class="ti-save"></i>&nbsp;Create Entry</button>
+    </div>
+</form>
